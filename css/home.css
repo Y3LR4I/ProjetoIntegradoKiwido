@@ -1,0 +1,240 @@
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+    background-color: var(--cor-principal);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.home-sobre {
+    padding: 80px 30px;
+}
+
+
+/* =========================
+   DESTAQUES
+========================= */
+
+.destaques {
+    padding: 80px 30px;
+}
+
+.destaques-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.carousel {
+    width: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.carousel-text h1 {
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+
+.carousel-text p {
+    font-size: 40px;
+    max-width: 600px;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-button {
+    position: absolute;
+    bottom: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #F15A22;
+    color: #ffffff;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-button img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.carousel-button.prev {
+    left: 30px;
+}
+
+.carousel-button.next {
+    right: 30px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+
+    border: none;
+    border-radius: 180px;
+
+    background-color: #B5B5B5;
+
+    cursor: pointer;
+}
+
+.indicator.active {
+    width: 35px;
+    height: 10px;
+
+    background-color: #F15A22;
+
+    border-radius: 10px;
+}
+
+/* =========================
+   QUEM SOMOS
+========================= */
+
+.quem-somos {
+    padding: 100px var(--margem-lateral);
+}
+
+.quem-somos-container {
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;  
+    align-items: center;
+}
+
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.quem-somos-texto {
+    max-width: 550px;
+}
+
+.quem-somos-texto h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--cor-principal);
+}
+
+.quem-somos-texto p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+.quem-somos-imagem {
+    position: relative;
+
+    width: 500px;
+    height: 100%;
+}
+
+.quem-somos-imagem img {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+     border-radius: 25px;
+
+    z-index: 2;
+}
+
+
+/* QUADRADO ATRÁS DA IMAGEM */
+
+.imagem-quadrado {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--cor-principal);
+
+    z-index: 1;
+}

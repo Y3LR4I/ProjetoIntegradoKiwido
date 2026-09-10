@@ -1,0 +1,86 @@
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+    --cor-principal: #163812;
+    --cor-texto-header: #F9FFF9;
+    --cor-header: #163812;
+    --cor-secundaria: #abcdef;
+    --cor-fundo: #F1FFE9;
+    --cor-texto: #222222;
+
+    --largura-conteudo: 1200px;
+    --margem-lateral: 30px;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    height: 120px;
+    background-color: var(--cor-principal);
+}
+
+.header-container {
+    max-width: var(--largura-conteudo);
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 var(--margem-lateral);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+.menu {
+    display: flex;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--cor-texto-header);
+}
+
+
+/*FOOTER*/
+
+.footer {
+    width: 100%;
+}
