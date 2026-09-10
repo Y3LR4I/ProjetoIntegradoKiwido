@@ -14,6 +14,13 @@
     --margem-lateral: 30px;
 }
 
+.container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+    padding: 0 var(--margem-lateral);
+}
+
 
 /* =========================
    RESET
@@ -34,6 +41,13 @@ body {
     font-family: Arial, sans-serif;
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
+}
+
+h2 {
+    text-align: left;
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--cor-principal);
 }
 
 

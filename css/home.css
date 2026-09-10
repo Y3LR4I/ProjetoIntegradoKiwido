@@ -183,12 +183,6 @@
     max-width: 550px;
 }
 
-.quem-somos-texto h2 {
-    font-size: 40px;
-    margin-bottom: 15px;
-    color: var(--cor-principal);
-}
-
 .quem-somos-texto p {
     font-size: 18px;
     line-height: 1.6;
@@ -238,3 +232,282 @@
 
     z-index: 1;
 }
+
+/* =========================
+   NOSSO TIME
+========================= */
+
+.nosso-time {
+    padding: 0px var(--margem-lateral);
+}
+
+.nosso-time-container {
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.nosso-time-texto {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nosso-time-texto h2 {
+    margin-bottom: 5px;
+}
+
+.nosso-time-texto p {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CARROSSEL
+========================= */
+
+.time-carousel {
+    position: relative;
+    width: 100%;
+    padding-bottom: 70px;
+}
+
+.time-carousel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================
+   SLIDES
+========================= */
+
+.time-slide {
+    display: none;
+
+    width: 100%;
+
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.time-slide.active {
+    display: grid;
+}
+
+
+/* =========================
+   MEMBRO
+========================= */
+
+.membro {
+    width: 100%;
+    text-align: center;
+}
+
+.membro img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    margin-bottom: 20px;
+}
+
+.membro h3 {
+    font-size: 20px;
+
+    line-height: 1.2;
+
+    min-height: 30px;
+
+    margin-bottom: 0px;
+
+    color: var(--cor-texto);
+}
+
+.membro p {
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    color: var(--cor-texto);
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.time-carousel-button {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #F15A22;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+.time-carousel-button img {
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+}
+
+.time-carousel-button.prev {
+    left: 0;
+}
+
+.time-carousel-button.next {
+    right: 0;
+}
+
+
+/* =========================
+   INDICADORES
+========================= */
+
+.time-carousel-indicators {
+    position: absolute;
+
+    bottom: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.time-indicator {
+    width: 10px;
+    height: 10px;
+
+    border: none;
+
+    border-radius: 180px;
+
+    background-color: #B5B5B5;
+
+    cursor: pointer;
+}
+
+.time-indicator.active {
+    width: 35px;
+    height: 10px;
+
+    background-color: #F15A22;
+
+    border-radius: 10px;
+}
+
+/* =========================
+   NOSSA MISSÃO E OBJETIVOS
+========================= */
+
+.nossa-missao {
+    padding: 100px var(--margem-lateral);
+}
+
+.nossa-missao-container {
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+.nossa-missao-imagem {
+    position: relative;
+
+    width: 500px;
+    height: 500px;
+}
+
+.nossa-missao-imagem img {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    z-index: 2;
+}
+
+
+/* QUADRADO ATRÁS DA IMAGEM */
+
+.nossa-missao-imagem .imagem-quadrado {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--cor-principal);
+
+    z-index: 1;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.nossa-missao-texto {
+    max-width: 550px;
+}
+
+.nossa-missao-texto h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--cor-principal);
+}
+
+.nossa-missao-texto p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+
