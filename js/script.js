@@ -122,3 +122,64 @@ timeIndicators.forEach((indicator, index) => {
     });
 
 });
+
+/* =========================
+   CARROSSEL DAS AÇÕES
+========================= */
+
+const acoesSlides = document.querySelectorAll(".acoes-slide");
+const acoesIndicators = document.querySelectorAll(".acoes-indicator");
+
+const acoesPrevButton = document.querySelector(".acoes-carousel-button.prev");
+const acoesNextButton = document.querySelector(".acoes-carousel-button.next");
+
+let currentAcoesSlide = 0;
+
+function showAcoesSlide(index) {
+
+    acoesSlides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    acoesIndicators.forEach(indicator => {
+        indicator.classList.remove("active");
+    });
+
+    acoesSlides[index].classList.add("active");
+    acoesIndicators[index].classList.add("active");
+
+    currentAcoesSlide = index;
+}
+
+function nextAcoesSlide() {
+
+    let next = currentAcoesSlide + 1;
+
+    if (next >= acoesSlides.length) {
+        next = 0;
+    }
+
+    showAcoesSlide(next);
+}
+
+function prevAcoesSlide() {
+
+    let previous = currentAcoesSlide - 1;
+
+    if (previous < 0) {
+        previous = acoesSlides.length - 1;
+    }
+
+    showAcoesSlide(previous);
+}
+
+acoesNextButton.addEventListener("click", nextAcoesSlide);
+acoesPrevButton.addEventListener("click", prevAcoesSlide);
+
+acoesIndicators.forEach((indicator, index) => {
+
+    indicator.addEventListener("click", () => {
+        showAcoesSlide(index);
+    });
+
+});

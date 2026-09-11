@@ -160,7 +160,7 @@
 ========================= */
 
 .quem-somos {
-    padding: 100px var(--margem-lateral);
+    padding: 50px var(--margem-lateral);
 }
 
 .quem-somos-container {
@@ -195,9 +195,9 @@
 
 .quem-somos-imagem {
     position: relative;
-
-    width: 500px;
-    height: 100%;
+    width: 100%;
+    height: 500px;
+    left: -15px;
 }
 
 .quem-somos-imagem img {
@@ -332,7 +332,7 @@
 
     margin-bottom: 0px;
 
-    color: var(--cor-texto);
+    color: var(--cor-secundaria);
 }
 
 .membro p {
@@ -431,7 +431,7 @@
 ========================= */
 
 .nossa-missao {
-    padding: 100px var(--margem-lateral);
+    padding: 60px var(--margem-lateral);
 }
 
 .nossa-missao-container {
@@ -452,7 +452,7 @@
 .nossa-missao-imagem {
     position: relative;
 
-    width: 500px;
+    width: 100%;
     height: 500px;
 }
 
@@ -507,6 +507,215 @@
 .nossa-missao-texto p {
     font-size: 18px;
     line-height: 1.6;
+}
+
+/* =========================
+   AÇÕES DESENVOLVIDAS
+========================= */
+
+.acoes-desenvolvidas {
+    padding: 60px var(--margem-lateral);
+}
+
+.acoes-desenvolvidas-container {
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.acoes-desenvolvidas-texto {
+    margin-bottom: 30px;
+}
+
+.acoes-desenvolvidas-texto h2 {
+    margin-bottom: 5px;
+}
+
+.acoes-desenvolvidas-texto p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CARROSSEL
+========================= */
+
+.acoes-carousel {
+    position: relative;
+    width: 100%;
+    padding-bottom: 70px;
+}
+
+.acoes-carousel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================
+   SLIDES
+========================= */
+
+.acoes-slide {
+    display: none;
+
+    width: 100%;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.acoes-slide.active {
+    display: grid;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.acao-card {
+    min-height: 450px;
+
+    padding: 30px;
+
+    background-color:var(--cor-fundo);
+    border: 3px solid var(--cor-principal);
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* =========================
+   ÍCONE
+========================= */
+
+.acao-card > img {
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.acao-card h3 {
+    font-size: 45px;
+    line-height: 1.2;
+
+    margin-bottom: 12px;
+
+    color: var(--cor-secundaria);
+}
+
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.acao-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-top: 15px;
+
+    color: var(--cor-texto);
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.acoes-carousel-button {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #F15A22;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+.acoes-carousel-button img {
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+}
+
+.acoes-carousel-button.prev {
+    left: 0;
+}
+
+.acoes-carousel-button.next {
+    right: 0;
+}
+
+
+/* =========================
+   INDICADORES
+========================= */
+
+.acoes-carousel-indicators {
+    position: absolute;
+
+    bottom: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.acoes-indicator {
+    width: 10px;
+    height: 10px;
+
+    border: none;
+
+    border-radius: 180px;
+
+    background-color: #B5B5B5;
+
+    cursor: pointer;
+}
+
+.acoes-indicator.active {
+    width: 35px;
+    height: 10px;
+
+    background-color: #F15A22;
+
+    border-radius: 10px;
 }
 
 
