@@ -35,7 +35,7 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 
 | ID | Title | Description | Priority | Status | Arquivo / Implementação |
 | -- | ----- | ----------- | -------- | ------ | ----------------------- |
-|   RF01 |  O sistema deve apresentar, na página inicial, o nome e o propósito do Projeto Mangue Vivo de forma imediata e visível     |'Como visitante, quero ver o propósito do projeto assim que entro no site, para entender rapidamente do que se trata'|    Essencial       |   Concluído     |                         |
+| RF01 |Apresentação do Projeto | O sistema deve apresentar, na página inicial, o nome e o propósito do Projeto Mangue Vivo de forma imediata e visível. | Essencial |   Concluído||
 
 <a name="tecnologias"></a>
 
