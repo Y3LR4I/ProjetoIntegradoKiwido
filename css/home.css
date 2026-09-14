@@ -1,52 +1,21 @@
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 500px;
-    background-color: var(--cor-principal);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* =========================
-   SOBRE
-========================= */
-
-.home-sobre {
-    padding: 80px 30px;
-}
-
-
-/* =========================
-   DESTAQUES
-========================= */
-
-.destaques {
-    padding: 80px 30px;
-}
-
-.destaques-container {
-    max-width: 1200px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.carousel {
-    width: 100%;
-}
+/* seção do carrosel */
 
 .carousel-container {
     position: relative;
     width: 100%;
     height: 700px;
     overflow: hidden;
+}
+
+.carousel-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.35);
+
+    z-index: 1;
+    pointer-events: none;
 }
 
 .carousel-text {
@@ -99,14 +68,13 @@
     border-radius: 50%;
 
     background-color: #F15A22;
-    color: #ffffff;
-
-    font-size: 24px;
     cursor: pointer;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    z-index: 2;
 }
 
 .carousel-button img {
@@ -132,6 +100,8 @@
 
     display: flex;
     gap: 10px;
+
+    z-index: 2;
 }
 
 .indicator {
@@ -155,12 +125,9 @@
     border-radius: 10px;
 }
 
-/* =========================
-   QUEM SOMOS
-========================= */
-
+/* seção do quem somos */
 .quem-somos {
-    padding: 50px var(--margem-lateral);
+    padding: 70px var(--margem-lateral);
 }
 
 .quem-somos-container {
@@ -173,12 +140,6 @@
     align-items: center;
 }
 
-
-
-/* =========================
-   TEXTO
-========================= */
-
 .quem-somos-texto {
     max-width: 550px;
 }
@@ -187,11 +148,6 @@
     font-size: 18px;
     line-height: 1.6;
 }
-
-
-/* =========================
-   IMAGEM
-========================= */
 
 .quem-somos-imagem {
     position: relative;
@@ -216,10 +172,8 @@
     z-index: 2;
 }
 
+.imagem-quadrado { /* quadrado que fica atrás da imagem */
 
-/* QUADRADO ATRÁS DA IMAGEM */
-
-.imagem-quadrado {
     position: absolute;
 
     top: 15px;
@@ -233,23 +187,15 @@
     z-index: 1;
 }
 
-/* =========================
-   NOSSO TIME
-========================= */
-
+/* seção do nosso time */
 .nosso-time {
-    padding: 0px var(--margem-lateral);
+    padding: 10px var(--margem-lateral);
 }
 
 .nosso-time-container {
     max-width: var(--largura-conteudo);
     margin: 0 auto;
 }
-
-
-/* =========================
-   TEXTO
-========================= */
 
 .nosso-time-texto {
     text-align: center;
@@ -266,11 +212,6 @@
     line-height: 1.6;
 }
 
-
-/* =========================
-   CARROSSEL
-========================= */
-
 .time-carousel {
     position: relative;
     width: 100%;
@@ -281,11 +222,6 @@
     width: 100%;
     overflow: hidden;
 }
-
-
-/* =========================
-   SLIDES
-========================= */
 
 .time-slide {
     display: none;
@@ -299,11 +235,6 @@
 .time-slide.active {
     display: grid;
 }
-
-
-/* =========================
-   MEMBRO
-========================= */
 
 .membro {
     width: 100%;
@@ -343,11 +274,6 @@
     color: var(--cor-texto);
 }
 
-
-/* =========================
-   BOTÕES
-========================= */
-
 .time-carousel-button {
     position: absolute;
 
@@ -385,11 +311,6 @@
     right: 0;
 }
 
-
-/* =========================
-   INDICADORES
-========================= */
-
 .time-carousel-indicators {
     position: absolute;
 
@@ -426,12 +347,9 @@
     border-radius: 10px;
 }
 
-/* =========================
-   NOSSA MISSÃO E OBJETIVOS
-========================= */
-
+/* seção nossa missão */
 .nossa-missao {
-    padding: 60px var(--margem-lateral);
+    padding: 70px var(--margem-lateral);
 }
 
 .nossa-missao-container {
@@ -443,11 +361,6 @@
     gap: 80px;
     align-items: center;
 }
-
-
-/* =========================
-   IMAGEM
-========================= */
 
 .nossa-missao-imagem {
     position: relative;
@@ -472,9 +385,6 @@
     z-index: 2;
 }
 
-
-/* QUADRADO ATRÁS DA IMAGEM */
-
 .nossa-missao-imagem .imagem-quadrado {
     position: absolute;
 
@@ -488,11 +398,6 @@
 
     z-index: 1;
 }
-
-
-/* =========================
-   TEXTO
-========================= */
 
 .nossa-missao-texto {
     max-width: 550px;
@@ -509,23 +414,15 @@
     line-height: 1.6;
 }
 
-/* =========================
-   AÇÕES DESENVOLVIDAS
-========================= */
-
+/* seção ações desenvolvidas */
 .acoes-desenvolvidas {
-    padding: 60px var(--margem-lateral);
+    padding: 70px var(--margem-lateral);
 }
 
 .acoes-desenvolvidas-container {
     max-width: var(--largura-conteudo);
     margin: 0 auto;
 }
-
-
-/* =========================
-   TEXTO
-========================= */
 
 .acoes-desenvolvidas-texto {
     margin-bottom: 30px;
@@ -540,11 +437,6 @@
     line-height: 1.6;
 }
 
-
-/* =========================
-   CARROSSEL
-========================= */
-
 .acoes-carousel {
     position: relative;
     width: 100%;
@@ -555,11 +447,6 @@
     width: 100%;
     overflow: hidden;
 }
-
-
-/* =========================
-   SLIDES
-========================= */
 
 .acoes-slide {
     display: none;
@@ -574,18 +461,13 @@
     display: grid;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
 .acao-card {
     min-height: 450px;
 
     padding: 30px;
 
     background-color:var(--cor-fundo);
-    border: 3px solid var(--cor-principal);
+    border: 3px solid rgba(44, 96, 42, 0.2);
 
     border-radius: 20px;
 
@@ -594,10 +476,10 @@
     align-items: flex-start;
 }
 
-
-/* =========================
-   ÍCONE
-========================= */
+.acao-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--cor-principal);
+}
 
 .acao-card > img {
     width: 100px;
@@ -608,11 +490,6 @@
     margin-bottom: 25px;
 }
 
-
-/* =========================
-   TÍTULO
-========================= */
-
 .acao-card h3 {
     font-size: 45px;
     line-height: 1.2;
@@ -622,11 +499,6 @@
     color: var(--cor-secundaria);
 }
 
-
-/* =========================
-   DESCRIÇÃO
-========================= */
-
 .acao-card p {
     font-size: 16px;
     line-height: 1.5;
@@ -634,11 +506,6 @@
 
     color: var(--cor-texto);
 }
-
-
-/* =========================
-   BOTÕES
-========================= */
 
 .acoes-carousel-button {
     position: absolute;
@@ -676,11 +543,6 @@
 .acoes-carousel-button.next {
     right: 0;
 }
-
-
-/* =========================
-   INDICADORES
-========================= */
 
 .acoes-carousel-indicators {
     position: absolute;

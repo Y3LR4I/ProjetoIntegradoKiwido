@@ -1,12 +1,9 @@
-/* =========================
-   VARIÁVEIS
-========================= */
-
+/* variaveis globais */
 :root {
     --cor-principal: #163812;
     --cor-texto-header: #F9FFF9;
     --cor-secundaria: #EF6B3B;
-    --cor-fundo: #F1FFE9;
+    --cor-fundo: #F2F9EF;
     --cor-texto: #222222;
 
     --largura-conteudo: 1200px;
@@ -20,22 +17,14 @@
     padding: 0 var(--margem-lateral);
 }
 
-
-/* =========================
-   RESET
-========================= */
-
+/* remover margens padrão */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
-
+/* configurações em tags gerais */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--cor-fundo);
@@ -51,11 +40,7 @@ h2 {
     color: var(--cor-principal);
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
+/* header do site */
 .header {
     width: 100%;
     height: 120px;
@@ -96,11 +81,4 @@ h2 {
 .menu a {
     text-decoration: none;
     color: var(--cor-texto-header);
-}
-
-
-/*FOOTER*/
-
-.footer {
-    width: 100%;
 }
