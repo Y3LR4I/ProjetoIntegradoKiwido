@@ -44,40 +44,40 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 | RF07 | Galeria de Fotos | O sistema deve exibir uma galeria de fotos das atividades realizadas pelo projeto. | Importante | | |
 | RF08 | Navegação da Galeria | O sistema deve permitir a navegação entre as fotos da galeria por meio de controles de avançar/voltar. | Desejável | | |
 | RF09 | Material Educativo | O sistema deve funcionar como material de apoio e consulta durante apresentações em escolas e trilhas, organizando conteúdo educativo de forma acessível via celular, em formato tipo glossário ou slide digital. | Desejável | | |
-| RF10 | Tour Virtual | O sistema deve disponibilizar vídeos de tour virtual de locais visitados pelo projeto (ex: Parque do Cocó, Barra do Ceará), incentivando a visita presencial às trilhas. | DESEJÁVEL | | |
-| RF11 | Jornal Digital | O sistema deve disponibilizar acesso ao jornal/revista digital do projeto, permitindo a visualização de edições publicadas. | ESSENCIAL | | |
-| RF12 | Eventos | O sistema deve exibir uma seção de eventos (informando data, horário e descrição de cada atividade divulgada). | ESSENCIAL | | |
-| RF13 | Status do Evento | O sistema deve sinalizar visualmente quando um evento já foi encerrado. | DESEJÁVEL | | |
-| RF14 | Inscrição em Eventos | O sistema deve permitir a inscrição em eventos (palestras, trilhas e demais atividades) por meio de formulário integrado (ex: Google Forms embutido na página). | ESSENCIAL | | |
-| RF15 | Quiz Educativo | O sistema deve disponibilizar um quiz/jogo educativo do tipo "Quem é esse animal?", utilizando silhuetas de animais do mangue para fixação de conteúdo. | ESSENCIAL | | |
-| RF16 | Ranking de Exploradores | O sistema deve exibir um ranking de "exploradores", baseado no desempenho/compreensão de conteúdo dos usuários no quiz. | DESEJÁVEL | | |
-| RF17 | Download do Jogo | O sistema deve disponibilizar um link para download do jogo educativo já existente do projeto (versão Android). | IMPORTANTE | | |
-| RF18 | Localização | O sistema deve exibir a localização física do projeto (endereço completo). | ESSENCIAL | | |
-| RF19 | Redes Sociais | O sistema deve exibir os canais de redes sociais oficiais do projeto, com link de acesso direto. | ESSENCIAL | | |
-| RF20 | Formulário de Contato | O sistema deve fornecer um formulário de contato com campos de nome, e-mail e mensagem. | DESEJÁVEL | | |
-| RF21 | Validação do Formulário | O sistema deve validar o preenchimento dos campos obrigatórios do formulário de contato antes do envio. | ESSENCIAL | | |
-| RF22 | Confirmação de Envio | O sistema deve exibir uma mensagem de confirmação ao usuário após o envio bem-sucedido do formulário de contato. | ESSENCIAL | | |
-| RF23 | Erro no Envio | O sistema deve exibir uma mensagem de erro caso o envio do formulário de contato falhe, sugerindo nova tentativa. | ESSENCIAL | | |
-| RF24 | Menu Fixo | O sistema deve manter um menu de navegação fixo durante a rolagem da página, permitindo acesso rápido às demais seções. | IMPORTANTE | | |
-| RF25 | Retorno ao Topo | O sistema deve permitir que o usuário retorne ao topo da página a qualquer momento por meio de um atalho (ex: clique na logomarca). | DESEJÁVEL | | |
-| RF26 | Perguntas Frequentes | O sistema deve exibir uma seção de Perguntas Frequentes (FAQ), com respostas às dúvidas mais comuns sobre participação e atividades do projeto. | IMPORTANTE | | |
-| RNF01 | Acesso à Seção Quem Somos | O sistema deve permitir que um usuário sem familiaridade prévia encontre a seção "Quem Somos" em, no máximo, dois cliques a partir da página inicial. | ESSENCIAL | | |
-| RNF02 | Linguagem Acessível | O sistema deve exibir textos em linguagem clara e acessível, evitando termos técnicos que dificultem a compreensão por parte do público geral. | ESSENCIAL | | |
-| RNF03 | Indicadores Visuais | O sistema deve fornecer indicadores visuais (setas, cursores, efeitos de hover) para sinalizar elementos interativos, como fotos clicáveis e carrosséis. | DESEJÁVEL | | |
-| RNF04 | Fotos da Equipe | As fotos de membros da equipe devem ser exibidas em formato arredondado, conforme ajuste visual solicitado pelo cliente. | ESSENCIAL | | |
-| RNF05 | Desempenho | O sistema deve carregar a página inicial em tempo adequado para uma boa experiência de navegação, mesmo em conexões móveis padrão. | IMPORTANTE | | |
-| RNF06 | Indicador de Carregamento | O sistema deve exibir um indicador de carregamento sempre que um conteúdo (ex: jogo educativo, jornal digital, vídeo de tour virtual) demorar para carregar. | DESEJÁVEL | | |
-| RNF07 | Mensagens de Erro | O sistema deve informar mensagens de erro claras ao usuário em caso de falha (ex: falha no envio do formulário, falha ao carregar o jogo), sem interromper a navegação nas demais seções. | IMPORTANTE | | |
-| RNF08 | Disponibilidade das Seções | O sistema deve manter o conteúdo das demais seções acessível mesmo que uma funcionalidade específica (ex: jogo educativo) esteja indisponível. | ESSENCIAL | | |
-| RNF09 | Responsividade | O sistema deve ser responsivo, adaptando-se corretamente a smartphones, tablets e computadores, com prioridade de design mobile-first — especialmente considerando o uso do site como material de apoio em campo (RF09). | ESSENCIAL | | |
-| RNF10 | Compatibilidade com Navegadores | O sistema deve funcionar corretamente nos navegadores Google Chrome, Mozilla Firefox e Edge, em suas versões mais recentes. | IMPORTANTE | | |
-| RNF11 | Contraste de Cores | O sistema deve seguir contraste mínimo de cores adequado para leitura, atendendo a critérios básicos de acessibilidade visual. | ESSENCIAL | | |
-| RNF12 | Texto Alternativo | O sistema deve manter textos alternativos (alt text) em imagens relevantes, permitindo compreensão por leitores de tela. | IMPORTANTE | | |
-| RNF13 | Gerenciamento de Conteúdo | O sistema deve permitir que o cliente atualize ou solicite atualização de fotos e informações de forma facilitada, com o processo a ser definido futuramente junto à equipe. | ESSENCIAL | | |
-| RNF14 | Checkpoint 1 | O sistema deve ter, no mínimo, 10% dos requisitos funcionais codificados até a data do Checkpoint 1 (21/09/2026). | ESSENCIAL | | |
-| RNF15 | Checkpoint 3 | O sistema deve ter 100% dos requisitos funcionais codificados e disponibilizados via release no GitHub até o Checkpoint 3 (07/12/2026). | ESSENCIAL | | |
-| RNF16 | Proteção de Dados | O sistema não deve armazenar ou expor dados pessoais dos usuários além dos fornecidos voluntariamente nos formulários (contato e inscrição em eventos). | ESSENCIAL | | |
-| RNF17 | Direitos de Uso | O sistema deve utilizar apenas imagens e conteúdos com autorização de uso do Projeto Mangue Vivo ou de banco de imagens livre de direitos autorais. | ESSENCIAL | | |
+| RF10 | Tour Virtual | O sistema deve disponibilizar vídeos de tour virtual de locais visitados pelo projeto (ex: Parque do Cocó, Barra do Ceará), incentivando a visita presencial às trilhas. | Desejável | | |
+| RF11 | Jornal Digital | O sistema deve disponibilizar acesso ao jornal/revista digital do projeto, permitindo a visualização de edições publicadas. | Essencial | | |
+| RF12 | Eventos | O sistema deve exibir uma seção de eventos (informando data, horário e descrição de cada atividade divulgada). | Essencial | | |
+| RF13 | Status do Evento | O sistema deve sinalizar visualmente quando um evento já foi encerrado. | Desejável | | |
+| RF14 | Inscrição em Eventos | O sistema deve permitir a inscrição em eventos (palestras, trilhas e demais atividades) por meio de formulário integrado (ex: Google Forms embutido na página). | Essencial | | |
+| RF15 | Quiz Educativo | O sistema deve disponibilizar um quiz/jogo educativo do tipo "Quem é esse animal?", utilizando silhuetas de animais do mangue para fixação de conteúdo. | Essencial | | |
+| RF16 | Ranking de Exploradores | O sistema deve exibir um ranking de "exploradores", baseado no desempenho/compreensão de conteúdo dos usuários no quiz. | Desejável | | |
+| RF17 | Download do Jogo | O sistema deve disponibilizar um link para download do jogo educativo já existente do projeto (versão Android). | Importante | | |
+| RF18 | Localização | O sistema deve exibir a localização física do projeto (endereço completo). | Essencial | | |
+| RF19 | Redes Sociais | O sistema deve exibir os canais de redes sociais oficiais do projeto, com link de acesso direto. | Essencial | | |
+| RF20 | Formulário de Contato | O sistema deve fornecer um formulário de contato com campos de nome, e-mail e mensagem. | Desejável | | |
+| RF21 | Validação do Formulário | O sistema deve validar o preenchimento dos campos obrigatórios do formulário de contato antes do envio. | Essencial | | |
+| RF22 | Confirmação de Envio | O sistema deve exibir uma mensagem de confirmação ao usuário após o envio bem-sucedido do formulário de contato. | Essencial | | |
+| RF23 | Erro no Envio | O sistema deve exibir uma mensagem de erro caso o envio do formulário de contato falhe, sugerindo nova tentativa. | Essencial | | |
+| RF24 | Menu Fixo | O sistema deve manter um menu de navegação fixo durante a rolagem da página, permitindo acesso rápido às demais seções. | Importante | | |
+| RF25 | Retorno ao Topo | O sistema deve permitir que o usuário retorne ao topo da página a qualquer momento por meio de um atalho (ex: clique na logomarca). | Desejável | | |
+| RF26 | Perguntas Frequentes | O sistema deve exibir uma seção de Perguntas Frequentes (FAQ), com respostas às dúvidas mais comuns sobre participação e atividades do projeto. | Importante | | |
+| RNF01 | Acesso à Seção Quem Somos | O sistema deve permitir que um usuário sem familiaridade prévia encontre a seção "Quem Somos" em, no máximo, dois cliques a partir da página inicial. | Essencial | | |
+| RNF02 | Linguagem Acessível | O sistema deve exibir textos em linguagem clara e acessível, evitando termos técnicos que dificultem a compreensão por parte do público geral. | Essencial | | |
+| RNF03 | Indicadores Visuais | O sistema deve fornecer indicadores visuais (setas, cursores, efeitos de hover) para sinalizar elementos interativos, como fotos clicáveis e carrosséis. | Desejável | | |
+| RNF04 | Fotos da Equipe | As fotos de membros da equipe devem ser exibidas em formato arredondado, conforme ajuste visual solicitado pelo cliente. | Essencial | | |
+| RNF05 | Desempenho | O sistema deve carregar a página inicial em tempo adequado para uma boa experiência de navegação, mesmo em conexões móveis padrão. | Importante | | |
+| RNF06 | Indicador de Carregamento | O sistema deve exibir um indicador de carregamento sempre que um conteúdo (ex: jogo educativo, jornal digital, vídeo de tour virtual) demorar para carregar. | Desejável | | |
+| RNF07 | Mensagens de Erro | O sistema deve informar mensagens de erro claras ao usuário em caso de falha (ex: falha no envio do formulário, falha ao carregar o jogo), sem interromper a navegação nas demais seções. | Importante | | |
+| RNF08 | Disponibilidade das Seções | O sistema deve manter o conteúdo das demais seções acessível mesmo que uma funcionalidade específica (ex: jogo educativo) esteja indisponível. | Essencial | | |
+| RNF09 | Responsividade | O sistema deve ser responsivo, adaptando-se corretamente a smartphones, tablets e computadores, com prioridade de design mobile-first — especialmente considerando o uso do site como material de apoio em campo (RF09). | Essencial | | |
+| RNF10 | Compatibilidade com Navegadores | O sistema deve funcionar corretamente nos navegadores Google Chrome, Mozilla Firefox e Edge, em suas versões mais recentes. | Importante | | |
+| RNF11 | Contraste de Cores | O sistema deve seguir contraste mínimo de cores adequado para leitura, atendendo a critérios básicos de acessibilidade visual. | Essencial | | |
+| RNF12 | Texto Alternativo | O sistema deve manter textos alternativos (alt text) em imagens relevantes, permitindo compreensão por leitores de tela. | Importante | | |
+| RNF13 | Gerenciamento de Conteúdo | O sistema deve permitir que o cliente atualize ou solicite atualização de fotos e informações de forma facilitada, com o processo a ser definido futuramente junto à equipe. | Essencial | | |
+| RNF14 | Checkpoint 1 | O sistema deve ter, no mínimo, 10% dos requisitos funcionais codificados até a data do Checkpoint 1 (21/09/2026). | Essencial | | |
+| RNF15 | Checkpoint 3 | O sistema deve ter 100% dos requisitos funcionais codificados e disponibilizados via release no GitHub até o Checkpoint 3 (07/12/2026). | Essencial | | |
+| RNF16 | Proteção de Dados | O sistema não deve armazenar ou expor dados pessoais dos usuários além dos fornecidos voluntariamente nos formulários (contato e inscrição em eventos). | Essencial | | |
+| RNF17 | Direitos de Uso | O sistema deve utilizar apenas imagens e conteúdos com autorização de uso do Projeto Mangue Vivo ou de banco de imagens livre de direitos autorais. | Essencial | | |
 
 
 <a name="tecnologias"></a>
