@@ -36,6 +36,13 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 | ID | Title | Description | Priority | Status | Arquivo / Implementação |
 | -- | ----- | ----------- | -------- | ------ | ----------------------- |
 | RF01 |Apresentação do Projeto | O sistema deve apresentar, na página inicial, o nome e o propósito do Projeto Mangue Vivo de forma imediata e visível. | Essencial |   Concluído||
+| RF02 | Quem Somos | O sistema deve exibir uma seção "Quem Somos", descrevendo o vínculo institucional do projeto com a UFC e o Departamento de Engenharia de Pesca. | Essencial | Concluído | |
+| RF03 | Missão e Objetivos | O sistema deve exibir a missão e os objetivos do Projeto Mangue Vivo em uma seção dedicada. | Essencial | Concluído | |
+| RF04 | Equipe do Projeto | O sistema deve apresentar a equipe do projeto (coordenação, servidores e integrantes), incluindo nome, foto e função de cada membro. | Essencial | Concluído | |
+| RF05 | História do Projeto | O sistema deve exibir a história do projeto por meio de uma linha do tempo, com marcos cronológicos relevantes. | Importante |  | |
+| RF06 | Ações do Projeto | O sistema deve listar as ações desenvolvidas pelo projeto, como trilhas guiadas, mutirões de limpeza e educação ambiental nas escolas, com descrição de cada uma. | Essencial | Concluído | |
+
+
 
 <a name="tecnologias"></a>
 
