@@ -35,24 +35,24 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 
 | ID | Title | Description | Priority | Status | Arquivo / Implementação |
 | -- | ----- | ----------- | -------- | ------ | ----------------------- |
-| RF01 | Apresentar o propósito do projeto | COMO visitante QUERO ver o propósito do Mangue Vivo assim que entro no site PARA entender rapidamente do que se trata. | Essencial |  Concluído | |
-| RF02 | Exibir a seção Quem Somos | COMO visitante QUERO conhecer quem é o Mangue Vivo PARA entender seu vínculo institucional. | Essencial | Concluído | |
-| RF03 | Exibir missão e objetivos | COMO visitante QUERO saber a missão e os objetivos do projeto PARA entender seus propósitos. | Essencial |  Concluído | |
-| RF04 | Exibir a equipe do projeto | COMO visitante QUERO ver a equipe do projeto PARA saber quem está por trás das ações do Mangue Vivo. | Importante |  Concluído | |
-| RF05 | Exibir a história do projeto | COMO visitante QUERO conhecer a história do projeto por uma linha do tempo PARA entender sua trajetória. | Importante |  Pendente | |
-| RF06 | Listar as ações desenvolvidas | COMO visitante QUERO ver quais ações o projeto já desenvolveu PARA conhecer seu impacto prático. | Essencial |  Concluído |
-| RF07 | Navegar pela galeria de fotos | COMO visitante QUERO ver e navegar pelas fotos das atividades PARA visualizar o projeto na prática. | Importante |  Pendente |
-| RF08 | Disponibilizar material de apoio para campo | COMO integrante do projeto QUERO usar o site como apoio em apresentações de trilhas e escolas PARA ter conteúdo organizado à mão em campo. | Desejável |  Pendente | |
-| RF09 | Exibir vídeos de tour virtual | COMO visitante QUERO assistir a um tour virtual dos locais do projeto PARA conhecer os espaços antes de visitar pessoalmente. | Desejável |  Pendente | |
-| RF10 | Acessar o jornal digital | COMO visitante QUERO acessar as edições do jornal digital PARA ler o conteúdo publicado. | Importante |  Pendente | |
-| RF11 | Listar eventos com status | COMO visitante QUERO ver os próximos eventos, com data e indicação se já encerraram, PARA saber quando e como participar. | Importante |  Pendente | |
-| RF12 | Inscrever-se em um evento | COMO visitante QUERO me inscrever em um evento pelo site PARA participar sem precisar sair da página. | Importante |  Pendente |
-| RF13 | Jogar o quiz educativo | COMO visitante QUERO jogar um quiz de adivinhar o animal do mangue, com opção de baixar o jogo completo, PARA aprender de forma divertida sobre a fauna local. | Desejável |  Pendente | |
-| RF14 | Exibir ranking de exploradores | COMO jogador QUERO ver um ranking baseado no meu desempenho no quiz PARA acompanhar meu progresso e me sentir motivado. | Desejável |  Pendente | |
-| RF15 | Exibir localização e redes sociais | COMO visitante QUERO ver o endereço físico e as redes sociais do projeto PARA me situar e acompanhá-lo em outros canais. | Essencial |  Pendente | |
-| RF16 | Enviar mensagem de contato | COMO visitante QUERO preencher e enviar um formulário de contato, sendo avisado se algo estiver errado ou se o envio for concluído, PARA tirar dúvidas com segurança de que fui atendido. | | Essencial | Pendente | |
-| RF17 | Navegar com menu fixo e atalho ao topo | COMO visitante QUERO acessar qualquer seção do site rapidamente enquanto navego, e voltar ao topo com um clique, PARA me deslocar pela página com agilidade. | Importante |  Pendente | |
-| RF18 | Consultar perguntas frequentes | COMO visitante QUERO encontrar respostas para dúvidas comuns PARA resolver questões simples sem precisar entrar em contato. | Desejável |  Pendente | |
+| RF01 | Apresentar o propósito do projeto | Como visitante quero ver o propósito do Mangue Vivo assim que entro no site PARA entender rapidamente do que se trata. | Essencial |  Concluído | |
+| RF02 | Exibir a seção Quem Somos | Como visitante quero conhecer quem é o Mangue Vivo para entender seu vínculo institucional. | Essencial | Concluído | |
+| RF03 | Exibir missão e objetivos | Como visitante quero saber a missão e os objetivos do projeto para entender seus propósitos. | Essencial |  Concluído | |
+| RF04 | Exibir a equipe do projeto | Como visitante quero ver a equipe do projeto para saber quem está por trás das ações do Mangue Vivo. | Importante |  Concluído | |
+| RF05 | Exibir a história do projeto | Como visitante quero conhecer a história do projeto por uma linha do tempo para entender sua trajetória. | Importante |  Pendente | |
+| RF06 | Listar as ações desenvolvidas | Como visitante quero ver quais ações o projeto já desenvolveu para conhecer seu impacto prático. | Essencial |  Concluído |
+| RF07 | Navegar pela galeria de fotos | Como visitante quero ver e navegar pelas fotos das atividades para visualizar o projeto na prática. | Importante |  Pendente |
+| RF08 | Disponibilizar material de apoio para campo | Como integrante do projeto quero usar o site como apoio em apresentações de trilhas e escolas para ter conteúdo organizado à mão em campo. | Desejável |  Pendente | |
+| RF09 | Exibir vídeos de tour virtual | Como visitante quero assistir a um tour virtual dos locais do projeto para conhecer os espaços antes de visitar pessoalmente. | Desejável |  Pendente | |
+| RF10 | Acessar o jornal digital | Como visitante quero acessar as edições do jornal digital para ler o conteúdo publicado. | Importante |  Pendente | |
+| RF11 | Listar eventos com status | Como visitante quero ver os próximos eventos, com data e indicação se já encerraram, para saber quando e como participar. | Importante |  Pendente | |
+| RF12 | Inscrever-se em um evento | Como visitante quero me inscrever em um evento pelo site para participar sem precisar sair da página. | Importante |  Pendente |
+| RF13 | Jogar o quiz educativo | Como visitante quero jogar um quiz de adivinhar o animal do mangue, com opção de baixar o jogo completo, para aprender de forma divertida sobre a fauna local. | Desejável |  Pendente | |
+| RF14 | Exibir ranking de exploradores | Como jogador quero ver um ranking baseado no meu desempenho no quiz para acompanhar meu progresso e me sentir motivado. | Desejável |  Pendente | |
+| RF15 | Exibir localização e redes sociais | Como visitante quero ver o endereço físico e as redes sociais do projeto para me situar e acompanhá-lo em outros canais. | Essencial |  Pendente | |
+| RF16 | Enviar mensagem de contato | Como visitante quero preencher e enviar um formulário de contato, sendo avisado se algo estiver errado ou se o envio for concluído, para tirar dúvidas com segurança de que fui atendido. | | Essencial | Pendente | |
+| RF17 | Navegar com menu fixo e atalho ao topo | Como visitante quero acessar qualquer seção do site rapidamente enquanto navego, e voltar ao topo com um clique, para me deslocar pela página com agilidade. | Importante |  Pendente | |
+| RF18 | Consultar perguntas frequentes | Como visitante quero encontrar respostas para dúvidas comuns para resolver questões simples sem precisar entrar em contato. | Desejável |  Pendente | |
 
 
 <a name="tecnologias"></a>
