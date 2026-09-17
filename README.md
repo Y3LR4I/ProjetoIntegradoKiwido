@@ -35,7 +35,7 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 
 | ID | Title | Description | Priority | Status | Arquivo / Implementação |
 | -- | ----- | ----------- | -------- | ------ | ----------------------- |
-| RF01 | Apresentar o propósito do projeto | Como visitante quero ver o propósito do Mangue Vivo assim que entro no site PARA entender rapidamente do que se trata. | Essencial |  Concluído | |
+| RF01 | Apresentar o propósito do projeto | Como visitante quero ver o propósito do Mangue Vivo assim que entro no site para entender rapidamente do que se trata. | Essencial |  Concluído | |
 | RF02 | Exibir a seção Quem Somos | Como visitante quero conhecer quem é o Mangue Vivo para entender seu vínculo institucional. | Essencial | Concluído | |
 | RF03 | Exibir missão e objetivos | Como visitante quero saber a missão e os objetivos do projeto para entender seus propósitos. | Essencial |  Concluído | |
 | RF04 | Exibir a equipe do projeto | Como visitante quero ver a equipe do projeto para saber quem está por trás das ações do Mangue Vivo. | Importante |  Concluído | |
@@ -50,7 +50,7 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 | RF13 | Jogar o quiz educativo | Como visitante quero jogar um quiz de adivinhar o animal do mangue, com opção de baixar o jogo completo, para aprender de forma divertida sobre a fauna local. | Desejável |  Pendente | |
 | RF14 | Exibir ranking de exploradores | Como jogador quero ver um ranking baseado no meu desempenho no quiz para acompanhar meu progresso e me sentir motivado. | Desejável |  Pendente | |
 | RF15 | Exibir localização e redes sociais | Como visitante quero ver o endereço físico e as redes sociais do projeto para me situar e acompanhá-lo em outros canais. | Essencial |  Pendente | |
-| RF16 | Enviar mensagem de contato | Como visitante quero preencher e enviar um formulário de contato, sendo avisado se algo estiver errado ou se o envio for concluído, para tirar dúvidas com segurança de que fui atendido. | | Essencial | Pendente | |
+| RF16 | Enviar mensagem de contato | Como visitante quero preencher e enviar um formulário de contato, sendo avisado se algo estiver errado ou se o envio for concluído, para tirar dúvidas com segurança de que fui atendido. | Essencial | Pendente | |
 | RF17 | Navegar com menu fixo e atalho ao topo | Como visitante quero acessar qualquer seção do site rapidamente enquanto navego, e voltar ao topo com um clique, para me deslocar pela página com agilidade. | Importante |  Pendente | |
 | RF18 | Consultar perguntas frequentes | Como visitante quero encontrar respostas para dúvidas comuns para resolver questões simples sem precisar entrar em contato. | Desejável |  Pendente | |
 
