@@ -35,49 +35,24 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 
 | ID | Title | Description | Priority | Status | Arquivo / Implementação |
 | -- | ----- | ----------- | -------- | ------ | ----------------------- |
-| RF01 |Apresentação do Projeto | O sistema deve apresentar, na página inicial, o nome e o propósito do Projeto Mangue Vivo de forma imediata e visível. | Essencial |   Concluído||
-| RF02 | Quem Somos | O sistema deve exibir uma seção "Quem Somos", descrevendo o vínculo institucional do projeto com a UFC e o Departamento de Engenharia de Pesca. | Essencial | Concluído | |
-| RF03 | Missão e Objetivos | O sistema deve exibir a missão e os objetivos do Projeto Mangue Vivo em uma seção dedicada. | Essencial | Concluído | |
-| RF04 | Equipe do Projeto | O sistema deve apresentar a equipe do projeto (coordenação, servidores e integrantes), incluindo nome, foto e função de cada membro. | Essencial | Concluído | |
-| RF05 | História do Projeto | O sistema deve exibir a história do projeto por meio de uma linha do tempo, com marcos cronológicos relevantes. | Importante | | |
-| RF06 | Ações do Projeto | O sistema deve listar as ações desenvolvidas pelo projeto, como trilhas guiadas, mutirões de limpeza e educação ambiental nas escolas, com descrição de cada uma. | Essencial | Concluído | |
-| RF07 | Galeria de Fotos | O sistema deve exibir uma galeria de fotos das atividades realizadas pelo projeto. | Importante | | |
-| RF08 | Navegação da Galeria | O sistema deve permitir a navegação entre as fotos da galeria por meio de controles de avançar/voltar. | Desejável | | |
-| RF09 | Material Educativo | O sistema deve funcionar como material de apoio e consulta durante apresentações em escolas e trilhas, organizando conteúdo educativo de forma acessível via celular, em formato tipo glossário ou slide digital. | Desejável | | |
-| RF10 | Tour Virtual | O sistema deve disponibilizar vídeos de tour virtual de locais visitados pelo projeto (ex: Parque do Cocó, Barra do Ceará), incentivando a visita presencial às trilhas. | Desejável | | |
-| RF11 | Jornal Digital | O sistema deve disponibilizar acesso ao jornal/revista digital do projeto, permitindo a visualização de edições publicadas. | Essencial | | |
-| RF12 | Eventos | O sistema deve exibir uma seção de eventos (informando data, horário e descrição de cada atividade divulgada). | Essencial | | |
-| RF13 | Status do Evento | O sistema deve sinalizar visualmente quando um evento já foi encerrado. | Desejável | | |
-| RF14 | Inscrição em Eventos | O sistema deve permitir a inscrição em eventos (palestras, trilhas e demais atividades) por meio de formulário integrado (ex: Google Forms embutido na página). | Essencial | | |
-| RF15 | Quiz Educativo | O sistema deve disponibilizar um quiz/jogo educativo do tipo "Quem é esse animal?", utilizando silhuetas de animais do mangue para fixação de conteúdo. | Essencial | | |
-| RF16 | Ranking de Exploradores | O sistema deve exibir um ranking de "exploradores", baseado no desempenho/compreensão de conteúdo dos usuários no quiz. | Desejável | | |
-| RF17 | Download do Jogo | O sistema deve disponibilizar um link para download do jogo educativo já existente do projeto (versão Android). | Importante | | |
-| RF18 | Localização | O sistema deve exibir a localização física do projeto (endereço completo). | Essencial | | |
-| RF19 | Redes Sociais | O sistema deve exibir os canais de redes sociais oficiais do projeto, com link de acesso direto. | Essencial | | |
-| RF20 | Formulário de Contato | O sistema deve fornecer um formulário de contato com campos de nome, e-mail e mensagem. | Desejável | | |
-| RF21 | Validação do Formulário | O sistema deve validar o preenchimento dos campos obrigatórios do formulário de contato antes do envio. | Essencial | | |
-| RF22 | Confirmação de Envio | O sistema deve exibir uma mensagem de confirmação ao usuário após o envio bem-sucedido do formulário de contato. | Essencial | | |
-| RF23 | Erro no Envio | O sistema deve exibir uma mensagem de erro caso o envio do formulário de contato falhe, sugerindo nova tentativa. | Essencial | | |
-| RF24 | Menu Fixo | O sistema deve manter um menu de navegação fixo durante a rolagem da página, permitindo acesso rápido às demais seções. | Importante | | |
-| RF25 | Retorno ao Topo | O sistema deve permitir que o usuário retorne ao topo da página a qualquer momento por meio de um atalho (ex: clique na logomarca). | Desejável | | |
-| RF26 | Perguntas Frequentes | O sistema deve exibir uma seção de Perguntas Frequentes (FAQ), com respostas às dúvidas mais comuns sobre participação e atividades do projeto. | Importante | | |
-| RNF01 | Acesso à Seção Quem Somos | O sistema deve permitir que um usuário sem familiaridade prévia encontre a seção "Quem Somos" em, no máximo, dois cliques a partir da página inicial. | Essencial | | |
-| RNF02 | Linguagem Acessível | O sistema deve exibir textos em linguagem clara e acessível, evitando termos técnicos que dificultem a compreensão por parte do público geral. | Essencial | | |
-| RNF03 | Indicadores Visuais | O sistema deve fornecer indicadores visuais (setas, cursores, efeitos de hover) para sinalizar elementos interativos, como fotos clicáveis e carrosséis. | Desejável | | |
-| RNF04 | Fotos da Equipe | As fotos de membros da equipe devem ser exibidas em formato arredondado, conforme ajuste visual solicitado pelo cliente. | Essencial | | |
-| RNF05 | Desempenho | O sistema deve carregar a página inicial em tempo adequado para uma boa experiência de navegação, mesmo em conexões móveis padrão. | Importante | | |
-| RNF06 | Indicador de Carregamento | O sistema deve exibir um indicador de carregamento sempre que um conteúdo (ex: jogo educativo, jornal digital, vídeo de tour virtual) demorar para carregar. | Desejável | | |
-| RNF07 | Mensagens de Erro | O sistema deve informar mensagens de erro claras ao usuário em caso de falha (ex: falha no envio do formulário, falha ao carregar o jogo), sem interromper a navegação nas demais seções. | Importante | | |
-| RNF08 | Disponibilidade das Seções | O sistema deve manter o conteúdo das demais seções acessível mesmo que uma funcionalidade específica (ex: jogo educativo) esteja indisponível. | Essencial | | |
-| RNF09 | Responsividade | O sistema deve ser responsivo, adaptando-se corretamente a smartphones, tablets e computadores, com prioridade de design mobile-first — especialmente considerando o uso do site como material de apoio em campo (RF09). | Essencial | | |
-| RNF10 | Compatibilidade com Navegadores | O sistema deve funcionar corretamente nos navegadores Google Chrome, Mozilla Firefox e Edge, em suas versões mais recentes. | Importante | | |
-| RNF11 | Contraste de Cores | O sistema deve seguir contraste mínimo de cores adequado para leitura, atendendo a critérios básicos de acessibilidade visual. | Essencial | | |
-| RNF12 | Texto Alternativo | O sistema deve manter textos alternativos (alt text) em imagens relevantes, permitindo compreensão por leitores de tela. | Importante | | |
-| RNF13 | Gerenciamento de Conteúdo | O sistema deve permitir que o cliente atualize ou solicite atualização de fotos e informações de forma facilitada, com o processo a ser definido futuramente junto à equipe. | Essencial | | |
-| RNF14 | Checkpoint 1 | O sistema deve ter, no mínimo, 10% dos requisitos funcionais codificados até a data do Checkpoint 1 (21/09/2026). | Essencial | | |
-| RNF15 | Checkpoint 3 | O sistema deve ter 100% dos requisitos funcionais codificados e disponibilizados via release no GitHub até o Checkpoint 3 (07/12/2026). | Essencial | | |
-| RNF16 | Proteção de Dados | O sistema não deve armazenar ou expor dados pessoais dos usuários além dos fornecidos voluntariamente nos formulários (contato e inscrição em eventos). | Essencial | | |
-| RNF17 | Direitos de Uso | O sistema deve utilizar apenas imagens e conteúdos com autorização de uso do Projeto Mangue Vivo ou de banco de imagens livre de direitos autorais. | Essencial | | |
+| RF01 | Apresentar o propósito do projeto | COMO visitante QUERO ver o propósito do Mangue Vivo assim que entro no site PARA entender rapidamente do que se trata. | Essencial |  Concluído | |
+| RF02 | Exibir a seção Quem Somos | COMO visitante QUERO conhecer quem é o Mangue Vivo PARA entender seu vínculo institucional. | Essencial | Concluído | |
+| RF03 | Exibir missão e objetivos | COMO visitante QUERO saber a missão e os objetivos do projeto PARA entender seus propósitos. | Essencial |  Concluído | |
+| RF04 | Exibir a equipe do projeto | COMO visitante QUERO ver a equipe do projeto PARA saber quem está por trás das ações do Mangue Vivo. | Importante |  Concluído | |
+| RF05 | Exibir a história do projeto | COMO visitante QUERO conhecer a história do projeto por uma linha do tempo PARA entender sua trajetória. | Importante |  Pendente | |
+| RF06 | Listar as ações desenvolvidas | COMO visitante QUERO ver quais ações o projeto já desenvolveu PARA conhecer seu impacto prático. | Essencial |  Concluído |
+| RF07 | Navegar pela galeria de fotos | COMO visitante QUERO ver e navegar pelas fotos das atividades PARA visualizar o projeto na prática. | Importante |  Pendente |
+| RF08 | Disponibilizar material de apoio para campo | COMO integrante do projeto QUERO usar o site como apoio em apresentações de trilhas e escolas PARA ter conteúdo organizado à mão em campo. | Desejável |  Pendente | |
+| RF09 | Exibir vídeos de tour virtual | COMO visitante QUERO assistir a um tour virtual dos locais do projeto PARA conhecer os espaços antes de visitar pessoalmente. | Desejável |  Pendente | |
+| RF10 | Acessar o jornal digital | COMO visitante QUERO acessar as edições do jornal digital PARA ler o conteúdo publicado. | Importante |  Pendente | |
+| RF11 | Listar eventos com status | COMO visitante QUERO ver os próximos eventos, com data e indicação se já encerraram, PARA saber quando e como participar. | Importante |  Pendente | |
+| RF12 | Inscrever-se em um evento | COMO visitante QUERO me inscrever em um evento pelo site PARA participar sem precisar sair da página. | Importante |  Pendente |
+| RF13 | Jogar o quiz educativo | COMO visitante QUERO jogar um quiz de adivinhar o animal do mangue, com opção de baixar o jogo completo, PARA aprender de forma divertida sobre a fauna local. | Desejável |  Pendente | |
+| RF14 | Exibir ranking de exploradores | COMO jogador QUERO ver um ranking baseado no meu desempenho no quiz PARA acompanhar meu progresso e me sentir motivado. | Desejável |  Pendente | |
+| RF15 | Exibir localização e redes sociais | COMO visitante QUERO ver o endereço físico e as redes sociais do projeto PARA me situar e acompanhá-lo em outros canais. | Essencial |  Pendente | |
+| RF16 | Enviar mensagem de contato | COMO visitante QUERO preencher e enviar um formulário de contato, sendo avisado se algo estiver errado ou se o envio for concluído, PARA tirar dúvidas com segurança de que fui atendido. | | Essencial | Pendente | |
+| RF17 | Navegar com menu fixo e atalho ao topo | COMO visitante QUERO acessar qualquer seção do site rapidamente enquanto navego, e voltar ao topo com um clique, PARA me deslocar pela página com agilidade. | Importante |  Pendente | |
+| RF18 | Consultar perguntas frequentes | COMO visitante QUERO encontrar respostas para dúvidas comuns PARA resolver questões simples sem precisar entrar em contato. | Desejável |  Pendente | |
 
 
 <a name="tecnologias"></a>
