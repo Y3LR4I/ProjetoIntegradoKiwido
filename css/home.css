@@ -127,33 +127,52 @@
 
 /* seção do quem somos */
 .quem-somos {
-    padding: 70px var(--margem-lateral);
+    background-color: var(--cor-secundaria);
+    padding: 210px var(--margem-lateral) 70px var(--margem-lateral);
 }
 
 .quem-somos-container {
-    max-width: var(--largura-conteudo);
+  max-width: var(--largura-conteudo);
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;  
-    align-items: center;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: stretch;
+    gap: 0;
+
+    background-color: var(--cor-fundo);
+    border-radius: 22px;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    padding: 15px 15px 15px 0;
 }
 
 .quem-somos-texto {
-    max-width: 550px;
-}
+    min-width: 0;
+    padding: 25px 35px 25px 40px;
+    align-self: center;}
 
 .quem-somos-texto p {
-    font-size: 18px;
+    min-width: 0;
+    font-size: 20px;
     line-height: 1.6;
 }
+.quem-somos-texto p .destaque{
+    font-weight: bolder;
+    color: var(--cor-principal);
+}
+.quem-somos-texto h2 {
+    font-size: 36px;
+    margin-bottom: 24px;
 
-.quem-somos-imagem {
+}
+
+.quem-somos-imagem { /* Mexi muito nesta parte de imagem pensando no melhor meio de aborda-la visualmente, não achei um resultado satisfatório, caso encontre sinta-se livre para alterá-lo */
     position: relative;
+    min-width: 0;
     width: 100%;
-    height: 500px;
-    left: -15px;
+    height: 455px;
+    align-self: stretch;
+    margin: 0;
 }
 
 .quem-somos-imagem img {
@@ -163,11 +182,11 @@
     left: 0;
 
     width: 100%;
-    height: 100%;
-
+    height: 120%;
+    
     object-fit: cover;
-
-     border-radius: 25px;
+    object-position: center;
+     border-radius: 22px;
 
     z-index: 2;
 }
@@ -180,16 +199,26 @@
     left: 15px;
 
     width: 100%;
-    height: 100%;
+    height: 120%;
 
-    background-color: var(--cor-principal);
+    background-color: var(--cor-quadrado);
 
     z-index: 1;
 }
+.ondulacao-quem-somos .ondas{ /*Area ondulada do nosso site */
+    fill: var(--cor-secundaria);
+    display: block;
+    width: 100%;
+    height: 250px;
 
+    border: 0;
+    margin: -2px;
+    padding: 0;
+    transform: rotate(180deg);
+}
 /* seção do nosso time */
 .nosso-time {
-    padding: 10px var(--margem-lateral);
+    padding: 100px var(--margem-lateral);
 }
 
 .nosso-time-container {
@@ -199,15 +228,16 @@
 
 .nosso-time-texto {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .nosso-time-texto h2 {
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .nosso-time-texto p {
-    text-align: left;
+    text-align: center;
     font-size: 18px;
     line-height: 1.6;
 }
@@ -347,9 +377,19 @@
     border-radius: 10px;
 }
 
+.ondulacao-nosso-time .ondas{
+    fill: var(--cor-principal);
+    display: block;
+    width: 100%;
+    height: 250px;
+    border: 0;
+    margin: 50px 0 -2px 0;
+    padding: 0;
+}
 /* seção nossa missão */
 .nossa-missao {
-    padding: 70px var(--margem-lateral);
+    padding: 70px var(--margem-lateral) 210px var(--margem-lateral);
+    background-color: var(--cor-principal);
 }
 
 .nossa-missao-container {
@@ -394,7 +434,7 @@
     width: 100%;
     height: 100%;
 
-    background-color: var(--cor-principal);
+    background-color: var(--cor-quadrado);
 
     z-index: 1;
 }
@@ -406,14 +446,17 @@
 .nossa-missao-texto h2 {
     font-size: 40px;
     margin-bottom: 15px;
-    color: var(--cor-principal);
+    color: var(--cor-fundo);
 }
 
 .nossa-missao-texto p {
     font-size: 18px;
     line-height: 1.6;
+    color: var(--cor-fundo);
 }
-
+.nossa-missao-texto p .destaque{
+    font-weight:bolder;
+}
 /* seção ações desenvolvidas */
 .acoes-desenvolvidas {
     padding: 70px var(--margem-lateral);
@@ -430,11 +473,14 @@
 
 .acoes-desenvolvidas-texto h2 {
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .acoes-desenvolvidas-texto p {
     font-size: 18px;
     line-height: 1.6;
+    text-align: center;
+
 }
 
 .acoes-carousel {
