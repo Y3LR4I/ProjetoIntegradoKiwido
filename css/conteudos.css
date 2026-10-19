@@ -1,0 +1,145 @@
+/* Banner de notícias */
+.banner-noticias {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Imagem de fundo do banner */
+.banner-noticias-imagem {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 600px;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+}
+
+/* Camada escura sobre a imagem */
+.banner-noticias::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.1)
+    );
+
+    z-index: 1;
+}
+
+/* Título e texto */
+.banner-noticias-conteudo {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    color: var(--cor-texto-hero);
+    box-sizing: border-box;
+}
+
+/* Título */
+.banner-noticias-conteudo h1 {
+    max-width: 400px;
+    margin: 0 0 16px;
+
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* Texto abaixo do título */
+.banner-noticias-conteudo p {
+    max-width: 400px;
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Barra de filtros e busca */
+.noticias-filtros {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    box-sizing: border-box;
+}
+
+/* Categorias à esquerda */
+.noticias-categorias {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Busca à direita */
+.noticias-busca {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.noticias-busca input {
+    width: 100%;
+    padding: 12px 16px;
+
+    border: 1px solid #D5D5D5;
+    border-radius: 30px;
+    outline: none;
+
+    color: var(--cor-buscar-noticia);
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.noticias-busca input::placeholder {
+    color: var(--cor-buscar-noticia);
+}
+
+.noticias-busca input:focus {
+    border-color: #F4A340;
+}
+
+/* Botões das categorias */
+.categoria-btn {
+    padding: 11px 20px;
+    height: 40px;
+
+    border: 1px solid var(--cor-borda-filtro-noticia);
+    border-radius: 30px;
+    background-color: #FFFFFF;
+
+    color: var(--cor-principal);
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Categoria selecionada */
+.categoria-btn.ativo {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    color: var(--cor-texto-hero);
+    font-weight: bold;
+}
