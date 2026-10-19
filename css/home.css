@@ -26,7 +26,7 @@
     transform: translate(-50%, -50%);
 
     z-index: 2;
-    color: #ffffff;
+    color: var(--cor-texto-hero);
 
     text-align: center;
 }
