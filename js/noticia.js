@@ -1,0 +1,410 @@
+/* =========================
+   ELEMENTOS DA PÁGINA
+========================= */
+
+const conteudoNoticia = document.querySelector("#conteudo-noticia");
+const corpoNoticia = document.querySelector("#corpo-noticia");
+const botaoCompartilhar = document.querySelector("#botao-compartilhar");
+const mensagemCompartilhar = document.querySelector("#mensagem-compartilhar");
+
+
+/* =========================
+   ÍCONES SVG
+========================= */
+
+function criarIcone(tipo) {
+    const icones = {
+        calendario: `
+            <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="3" y1="11" x2="21" y2="11"></line>
+            </svg>
+        `,
+        relogio: `
+            <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+        `
+    };
+
+    const elemento = document.createElement("span");
+    elemento.innerHTML = icones[tipo] || "";
+    elemento.setAttribute("aria-hidden", "true");
+
+    return elemento.firstElementChild;
+}
+
+
+/* =========================
+   CRIAR ELEMENTO COM TEXTO
+========================= */
+
+function criarElemento(tag, classe, texto) {
+    const elemento = document.createElement(tag);
+
+    if (classe) {
+        elemento.className = classe;
+    }
+
+    if (texto !== undefined) {
+        elemento.textContent = texto;
+    }
+
+    return elemento;
+}
+
+
+/* =========================
+   FORMATAR DATA
+========================= */
+
+function formatarData(data) {
+    const partes = data.split("-");
+
+    if (partes.length !== 3) {
+        return data;
+    }
+
+    const [ano, mes, dia] = partes;
+    const dataLocal = new Date(
+        Number(ano),
+        Number(mes) - 1,
+        Number(dia)
+    );
+
+    return dataLocal.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+
+/* =========================
+   CALCULAR TEMPO DE LEITURA
+========================= */
+
+function calcularTempoLeitura(conteudo) {
+    const textoCompleto = conteudo
+        .map(item => item.texto || "")
+        .join(" ");
+
+    const quantidadePalavras = textoCompleto
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean)
+        .length;
+
+    const minutos = Math.max(
+        1,
+        Math.ceil(quantidadePalavras / 200)
+    );
+
+    return `${minutos} min de leitura`;
+}
+
+
+/* =========================
+   MONTAR CABEÇALHO
+========================= */
+
+function renderizarCabecalho(noticia) {
+    conteudoNoticia.replaceChildren();
+
+    const metadados = criarElemento("div", "noticia-metadados");
+
+    const categoria = criarElemento(
+        "span",
+        "noticia-categoria",
+        noticia.categoria
+    );
+
+    const data = criarElemento("time", "noticia-data");
+    data.dateTime = noticia.data;
+    data.appendChild(criarIcone("calendario"));
+    data.appendChild(
+        criarElemento("span", "", formatarData(noticia.data))
+    );
+
+    metadados.append(categoria, data);
+
+    const titulo = criarElemento(
+        "h1",
+        "noticia-titulo",
+        noticia.titulo
+    );
+
+    const sinopse = criarElemento(
+        "p",
+        "noticia-sinopse",
+        noticia.sinopse
+    );
+
+    const informacoesAutor = criarElemento(
+        "div",
+        "noticia-informacoes-autor"
+    );
+
+    const autor = criarElemento("div", "noticia-autor");
+
+    const nomeAutor = noticia.autor || "Equipe Mangue Vivo";
+    const fotoAutor = noticia.fotoAutor;
+
+    if (fotoAutor) {
+        const imagemAutor = criarElemento("img", "noticia-autor-foto");
+        imagemAutor.src = fotoAutor;
+        imagemAutor.alt = `Foto de ${nomeAutor}`;
+        imagemAutor.loading = "lazy";
+
+        imagemAutor.addEventListener("error", () => {
+            const iniciais = criarElemento(
+                "div",
+                "noticia-autor-foto noticia-autor-iniciais",
+                nomeAutor
+                    .split(/\s+/)
+                    .slice(0, 2)
+                    .map(nome => nome[0])
+                    .join("")
+                    .toUpperCase()
+            );
+
+            iniciais.setAttribute("aria-label", nomeAutor);
+            imagemAutor.replaceWith(iniciais);
+        }, { once: true });
+
+        autor.appendChild(imagemAutor);
+    } else {
+        const iniciais = criarElemento(
+            "div",
+            "noticia-autor-foto noticia-autor-iniciais",
+            nomeAutor
+                .split(/\s+/)
+                .slice(0, 2)
+                .map(nome => nome[0])
+                .join("")
+                .toUpperCase()
+        );
+
+        iniciais.setAttribute("aria-label", nomeAutor);
+        autor.appendChild(iniciais);
+    }
+
+    const dadosAutor = criarElemento("div", "");
+
+    dadosAutor.appendChild(
+        criarElemento("p", "noticia-autor-nome", nomeAutor)
+    );
+
+    dadosAutor.appendChild(
+        criarElemento(
+            "p",
+            "noticia-autor-legenda",
+            "Autor(a) da notícia"
+        )
+    );
+
+    autor.appendChild(dadosAutor);
+
+    const tempoLeitura = criarElemento(
+        "div",
+        "noticia-tempo-leitura"
+    );
+
+    tempoLeitura.appendChild(criarIcone("relogio"));
+
+    tempoLeitura.appendChild(
+        criarElemento(
+            "span",
+            "",
+            calcularTempoLeitura(noticia.conteudo || [])
+        )
+    );
+
+    informacoesAutor.append(autor, tempoLeitura);
+
+    conteudoNoticia.append(
+        metadados,
+        titulo,
+        sinopse,
+        informacoesAutor
+    );
+}
+
+
+/* =========================
+   MONTAR CORPO DA NOTÍCIA
+========================= */
+
+function renderizarCorpo(noticia) {
+    corpoNoticia.replaceChildren();
+
+    const imagem = criarElemento("img", "noticia-imagem-destaque");
+
+    imagem.src = noticia.imagem;
+    imagem.alt = noticia.titulo;
+    imagem.loading = "eager";
+    imagem.decoding = "async";
+
+    imagem.addEventListener("error", () => {
+        imagem.remove();
+    }, { once: true });
+
+    corpoNoticia.appendChild(imagem);
+
+    const conteudo = Array.isArray(noticia.conteudo)
+        ? noticia.conteudo
+        : [];
+
+    conteudo.forEach(item => {
+        let elemento;
+
+        if (item.tipo === "subtitulo") {
+            elemento = criarElemento(
+                "h2",
+                "noticia-subtitulo",
+                item.texto
+            );
+        } else {
+            elemento = criarElemento(
+                "p",
+                "noticia-paragrafo",
+                item.texto
+            );
+        }
+
+        corpoNoticia.appendChild(elemento);
+    });
+
+    if (conteudo.length === 0 && noticia.texto) {
+        noticia.texto
+            .split(/\n\s*\n/)
+            .filter(paragrafo => paragrafo.trim())
+            .forEach(paragrafo => {
+                corpoNoticia.appendChild(
+                    criarElemento(
+                        "p",
+                        "noticia-paragrafo",
+                        paragrafo.trim()
+                    )
+                );
+            });
+    }
+}
+
+
+/* =========================
+   COMPARTILHAR NOTÍCIA
+========================= */
+
+async function compartilharNoticia() {
+    const titulo = document.querySelector(".noticia-titulo");
+
+    if (!titulo) {
+        return;
+    }
+
+    const dadosCompartilhamento = {
+        title: document.title,
+        text: titulo.textContent,
+        url: window.location.href
+    };
+
+    mensagemCompartilhar.textContent = "";
+
+    if (navigator.share) {
+        try {
+            await navigator.share(dadosCompartilhamento);
+        } catch (erro) {
+            if (erro.name !== "AbortError") {
+                mensagemCompartilhar.textContent =
+                    "Não foi possível abrir o compartilhamento.";
+            }
+        }
+
+        return;
+    }
+
+    try {
+        await navigator.clipboard.writeText(window.location.href);
+
+        mensagemCompartilhar.textContent =
+            "Link da notícia copiado!";
+    } catch (erro) {
+        mensagemCompartilhar.textContent =
+            "Não foi possível copiar automaticamente. Copie o endereço do navegador.";
+    }
+}
+
+botaoCompartilhar.addEventListener("click", compartilharNoticia);
+
+
+/* =========================
+   CARREGAR NOTÍCIA
+========================= */
+
+async function carregarNoticia() {
+    const parametros = new URLSearchParams(window.location.search);
+    const id = parametros.get("id");
+
+    if (!id) {
+        exibirErro("Nenhuma notícia foi selecionada.");
+        return;
+    }
+
+    try {
+        const resposta = await fetch("../data/noticias.json");
+
+        if (!resposta.ok) {
+            throw new Error("Não foi possível carregar as notícias.");
+        }
+
+        const noticias = await resposta.json();
+
+        const noticia = noticias.find(
+            item => String(item.id) === id
+        );
+
+        if (!noticia) {
+            exibirErro("A notícia solicitada não foi encontrada.");
+            return;
+        }
+
+        renderizarCabecalho(noticia);
+        renderizarCorpo(noticia);
+
+        document.title = `${noticia.titulo} | Mangue Vivo`;
+    } catch (erro) {
+        console.error("Erro ao carregar notícia:", erro);
+        exibirErro(
+            "Não foi possível carregar a notícia. Verifique se o arquivo JSON está acessível."
+        );
+    }
+}
+
+
+/* =========================
+   EXIBIR ERRO
+========================= */
+
+function exibirErro(mensagem) {
+    conteudoNoticia.replaceChildren();
+
+    const erro = criarElemento("p", "noticia-erro", mensagem);
+    conteudoNoticia.appendChild(erro);
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+carregarNoticia();

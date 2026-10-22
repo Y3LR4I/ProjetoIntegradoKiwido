@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notícias | Projeto Mangue Vivo</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/conteudos.css">
 </head>
@@ -14,6 +15,7 @@
 
     <!-- Header -->
     <div id="header-container"></div>
+
 
     <!-- Banner de Notícias -->
     <section class="banner-noticias">
@@ -30,37 +32,77 @@
             </p>
         </div>
 
+        <div class="divisor-onda" aria-hidden="true">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,45
+                    C180,140 280,-30 460,50
+                    C650,150 760,-35 920,55
+                    C1100,145 1280,-25 1440,45
+                    L1440,120 L0,120 Z" fill="var(--cor-fundo)" />
+            </svg>
+        </div>
+
     </section>
 
-    <!-- Barra de filtros e busca -->
-    <section class="noticias-filtros">
+    <!-- FILTROS E BUSCA -->
+    <section class="container noticias-filtros">
 
         <div class="noticias-categorias">
-            <button class="categoria-btn ativo" type="button">
+            <button class="categoria-btn ativo" type="button" data-categoria="Todas">
                 Todas
             </button>
 
-            <button class="categoria-btn" type="button">
+            <button class="categoria-btn" type="button" data-categoria="Projetos">
                 Projetos
             </button>
 
-            <button class="categoria-btn" type="button">
+            <button class="categoria-btn" type="button" data-categoria="Eventos">
                 Eventos
             </button>
 
-            <button class="categoria-btn" type="button">
+            <button class="categoria-btn" type="button" data-categoria="Comunidade">
                 Comunidade
             </button>
         </div>
 
         <div class="noticias-busca">
-            <input type="search" placeholder="Buscar notícias..." aria-label="Buscar notícias">
+            <input type="search" id="busca-noticias" placeholder="Buscar notícias..." aria-label="Buscar notícias">
         </div>
 
     </section>
 
+
+    <!-- LISTA DE NOTÍCIAS -->
+    <section class="container noticias-container">
+
+        <div class="row g-4" id="lista-noticias">
+            <!-- Os cards serão gerados pelo JavaScript -->
+        </div>
+
+        <!-- Mensagem quando não houver resultados -->
+        <p id="mensagem-vazia" class="text-center mt-4" hidden>
+            Nenhuma notícia encontrada.
+        </p>
+
+        <!-- PAGINAÇÃO -->
+        <nav class="mt-5" aria-label="Paginação das notícias" id="navegacao-noticias">
+            <ul class="pagination justify-content-center flex-wrap" id="paginacao-noticias">
+            </ul>
+        </nav>
+
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Componentes do projeto -->
     <script src="../js/components.js"></script>
+
+    <!-- JavaScript geral do projeto -->
     <script src="../js/script.js"></script>
+
+    <!-- JavaScript da página de notícias -->
+    <script src="../js/conteudos.js"></script>
 </body>
 
 </html>
