@@ -1,3 +1,24 @@
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.divisor-onda {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.divisor-onda svg {
+    display: block;
+    width: 100%;
+    height: 90px;
+}
+
 /* Banner de notícias */
 .banner-noticias {
     position: relative;
@@ -121,7 +142,7 @@
 
 /* Botões das categorias */
 .categoria-btn {
-    padding: 11px 20px;
+    padding: 0px 20px;
     height: 40px;
 
     border: 1px solid var(--cor-borda-filtro-noticia);
@@ -142,4 +163,218 @@
     border-color: var(--cor-secundaria);
     color: var(--cor-texto-hero);
     font-weight: bold;
+}
+
+/* =========================
+   ÁREA DAS NOTÍCIAS
+========================= */
+
+.noticias-container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+#lista-noticias {
+    align-items: stretch;
+}
+
+
+/* =========================
+   CARD DE NOTÍCIA
+========================= */
+
+.card-noticia {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--cor-card-noticia);
+    color: #ffffff;
+
+    border: 1px solid var(--cor-borda-filtro-noticia); 
+    border-radius: 30px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card-noticia:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+.card-noticia-imagem {
+    width: calc(100% - 12px);
+    height: 210px;
+
+    margin: 6px 6px 0;
+
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.card-noticia-corpo {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 18px 20px 20px;
+}
+
+
+/* Categoria */
+
+.card-noticia-categoria {
+    align-self: flex-start;
+
+    margin-bottom: 10px;
+
+    color: var(--cor-texto-card);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+
+/* Título: no máximo 2 linhas */
+
+.card-noticia-titulo {
+    margin-bottom: 0px;
+
+    color: var(--cor-principal);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* Data */
+
+.card-noticia-data {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 5px 0 5px 0;
+
+    color: var(--cor-texto-card);
+    font-size: 0.9rem;
+}
+
+.card-noticia-data svg {
+    flex-shrink: 0;
+}
+
+
+/* Sinopse: no máximo 4 linhas */
+
+.card-noticia-sinopse {
+    margin-bottom: 15px;
+
+    color: var(--cor-texto-card);
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    text-align:left;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+
+    overflow: hidden;
+}
+
+
+/* Link no final do card */
+
+.card-noticia-rodape {
+    margin-top: auto;
+}
+
+.card-noticia-link {
+    display: inline-block;
+
+    color: var(--cor-secundaria);
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.card-noticia-link:hover {
+    color: #ffd08c;
+    text-decoration: underline;
+}
+
+.card-noticia-link:focus-visible {
+    outline: 2px solid #ffb454;
+    outline-offset: 4px;
+}
+
+
+/* =========================
+   PAGINAÇÃO
+========================= */
+
+#paginacao-noticias .page-link {
+    color: var(--cor-verde, #174d35);
+    border-color: #d8e2da;
+}
+
+#paginacao-noticias .page-item.active .page-link {
+    color: #ffffff;
+    background-color: var(--cor-verde, #174d35);
+    border-color: var(--cor-verde, #174d35);
+}
+
+#paginacao-noticias .page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgb(23 77 53 / 20%);
+}
+
+#paginacao-noticias .page-item.disabled .page-link {
+    color: #777777;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 575.98px) {
+    .noticias-container {
+        padding-top: 28px;
+        padding-bottom: 40px;
+    }
+
+    .card-noticia-imagem {
+        height: 200px;
+    }
+
+    .card-noticia-corpo {
+        padding: 16px;
+    }
 }

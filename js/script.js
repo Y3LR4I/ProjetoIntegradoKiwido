@@ -157,20 +157,3 @@ if (acoesSlides.length && acoesIndicators.length && acoesPrevButton && acoesNext
         indicator.addEventListener("click", () => showAcoesSlide(index));
     });
 }
-
-
-/* =========================
-   FILTROS DE NOTÍCIAS
-========================= */
-
-const botoesCategorias = document.querySelectorAll(".categoria-btn");
-
-botoesCategorias.forEach(botao => {
-    botao.addEventListener("click", () => {
-        botoesCategorias.forEach(item => {
-            item.classList.remove("ativo");
-        });
-
-        botao.classList.add("ativo");
-    });
-});

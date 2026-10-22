@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "titulo": "Projeto realiza ação de preservação dos manguezais",
+        "categoria": "Projetos",
+        "data": "2026-04-22",
+        "sinopse": "Voluntários e moradores participaram de uma iniciativa para proteger os manguezais e conscientizar a população sobre a importância desse ecossistema.",
+        "imagem": "../assets/images/noticias/noticias1.webp",
+        "autor": "Equipe Mangue Vivo",
+        "fotoAutor": "../assets/images/time/Clara Domiciano.png",
+        "conteudo": [
+            {
+                "tipo": "paragrafo",
+                "texto": "O Projeto Mangue Vivo realizou uma ação voltada à preservação dos manguezais."
+            },
+            {
+                "tipo": "subtitulo",
+                "texto": "Mobilização da comunidade"
+            },
+            {
+                "tipo": "paragrafo",
+                "texto": "A atividade reuniu voluntários e moradores da comunidade para promover a conscientização ambiental e incentivar práticas sustentáveis."
+            },
+            {
+                "tipo": "subtitulo",
+                "texto": "A importância da preservação"
+            },
+            {
+                "tipo": "paragrafo",
+                "texto": "Iniciativas como essa contribuem para a proteção da biodiversidade e para o fortalecimento da relação entre a comunidade e o meio ambiente."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "Comunidade participa de atividade de educação ambiental",
+        "categoria": "Comunidade",
+        "data": "2026-05-10",
+        "sinopse": "Moradores participaram de atividades educativas sobre descarte correto de resíduos, conservação da natureza e preservação das áreas de mangue.",
+        "imagem": "../assets/images/noticias/noticias2.webp",
+        "autor": "Equipe Mangue Vivo",
+        "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+        "conteudo": [
+            {
+                "tipo": "paragrafo",
+                "texto": "O Mangue Vivo promoveu uma atividade de educação ambiental com a comunidade."
+            },
+            {
+                "tipo": "subtitulo",
+                "texto": "Educação ambiental na prática"
+            },
+            {
+                "tipo": "paragrafo",
+                "texto": "Durante o encontro, foram abordadas questões relacionadas ao descarte de resíduos e à conservação dos ecossistemas locais."
+            },
+            {
+                "tipo": "subtitulo",
+                "texto": "Participação comunitária"
+            },
+            {
+                "tipo": "paragrafo",
+                "texto": "A participação comunitária é fundamental para construir soluções ambientais duradouras."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "titulo": "Confira os próximos eventos do Mangue Vivo",
+        "categoria": "Eventos",
+        "data": "2026-06-05",
+        "sinopse": "Veja as próximas atividades, encontros e iniciativas ambientais organizadas pelo projeto e descubra como participar desse projeto de extensão.",
+        "imagem": "../assets/images/noticias/noticias3.webp",
+        "autor": "Equipe Mangue Vivo",
+        "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+        "conteudo": [
+            {
+                "tipo": "paragrafo",
+                "texto": "O Mangue Vivo está preparando novas atividades para aproximar a comunidade das ações de preservação ambiental."
+            },
+            {
+                "tipo": "subtitulo",
+                "texto": "Atividades previstas"
+            },
+            {
+                "tipo": "paragrafo",
+                "texto": "A programação poderá incluir encontros educativos, mobilizações comunitárias e atividades de conscientização."
+            },
+            {
+                "tipo": "subtitulo",
+                "texto": "Acompanhe a programação"
+            },
+            {
+                "tipo": "paragrafo",
+                "texto": "Acompanhe a página de eventos para consultar as informações de cada atividade."
+            }
+        ]
+    }
+]

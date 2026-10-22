@@ -6,12 +6,16 @@
 
     --cor-texto-header: #F2F9EF;
     --cor-texto-header-dest: #FF6A00;
+    --cor-texto-card: #416E21;
     
     --cor-texto-hero: #F2F9EF;
     --cor-texto: #222222;
 
     --cor-buscar-noticia: #94AC94;
     --cor-borda-filtro-noticia: #D0DFD0;
+    --cor-card-noticia: #F1FFE9;
+
+
 
     --largura-conteudo: 1200px;
     --margem-lateral: 30px;
@@ -58,6 +62,7 @@ h2 {
     left: 0;
     z-index: 1000;
 }
+
 
 .header-container {
     max-width: var(--largura-conteudo);

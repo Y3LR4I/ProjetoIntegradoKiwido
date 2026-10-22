@@ -1,0 +1,387 @@
+/* =========================
+   PÁGINA INDIVIDUAL DA NOTÍCIA
+========================= */
+
+.pagina-noticia {
+    background-color: var(--cor-fundo, #ffffff);
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CABEÇALHO VERDE
+========================= */
+
+.noticia-cabecalho {
+    position: relative;
+    background-color: var(--cor-principal, #26734d);
+    color: #ffffff;
+    padding: 35px 24px 125px;
+}
+
+.noticia-cabecalho-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.noticia-voltar {
+    display: inline-block;
+    margin-bottom: 35px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+}
+
+.noticia-voltar:hover {
+    color: #ffffff;
+    opacity: 0.75;
+}
+
+
+/* =========================
+   CATEGORIA E DATA
+========================= */
+
+.noticia-metadados {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.noticia-categoria {
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 50px;
+    background-color: #e4f2e8;
+    color: var(--cor-principal, #26734d);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.noticia-data {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.noticia-data svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   TÍTULO E SINOPSE
+========================= */
+
+.noticia-titulo {
+    max-width: 900px;
+    margin: 0 0 18px;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.noticia-sinopse {
+    max-width: 850px;
+    margin: 0 0 30px;
+    color: #edf5ef;
+    font-size: 1.08rem;
+    line-height: 1.7;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+
+/* =========================
+   AUTOR E TEMPO DE LEITURA
+========================= */
+
+.noticia-informacoes-autor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 850px;
+}
+
+.noticia-autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.noticia-autor-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    flex-shrink: 0;
+}
+
+.noticia-autor-iniciais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e4f2e8;
+    color: var(--cor-principal, #26734d);
+    font-weight: 700;
+}
+
+.noticia-autor-nome {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.noticia-autor-legenda {
+    margin: 3px 0 0;
+    color: #e4f2e8;
+    font-size: 0.85rem;
+}
+
+.noticia-tempo-leitura {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.noticia-tempo-leitura svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =========================
+   ONDA INFERIOR
+========================= */
+
+.noticia-onda {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.noticia-onda svg {
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+.noticia-onda path {
+    fill: var(--cor-fundo, #ffffff);
+}
+
+
+/* =========================
+   CORPO DA NOTÍCIA
+========================= */
+
+.noticia-corpo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 24px 70px;
+}
+
+.noticia-corpo {
+    color: var(--cor-texto, #333333);
+    font-size: 1.08rem;
+    line-height: 1.9;
+}
+
+.noticia-imagem-destaque {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    margin: 0 auto 35px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.noticia-paragrafo {
+    margin: 0 0 28px;
+    overflow-wrap: anywhere;
+}
+
+.noticia-subtitulo {
+    margin: 42px 0 18px;
+    color: var(--cor-principal, #26734d);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+
+/* =========================
+   BOTÃO COMPARTILHAR
+========================= */
+
+.noticia-compartilhar-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 45px;
+}
+
+.noticia-botao-compartilhar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-laranja, #f28c28);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.noticia-botao-compartilhar:hover {
+    background-color: var(--cor-laranja-hover, #dc7615);
+    transform: translateY(-2px);
+}
+
+.noticia-botao-compartilhar:focus-visible {
+    outline: 3px solid var(--cor-principal, #26734d);
+    outline-offset: 3px;
+}
+
+.noticia-botao-compartilhar svg {
+    display: block;
+}
+
+.noticia-mensagem-compartilhar {
+    margin: 10px 0 0;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   ESTADOS DE CARREGAMENTO E ERRO
+========================= */
+
+.noticia-carregando,
+.noticia-erro {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.noticia-erro a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    .noticia-cabecalho {
+        padding: 25px 20px 110px;
+    }
+
+    .noticia-voltar {
+        margin-bottom: 28px;
+    }
+
+    .noticia-titulo {
+        font-size: 2rem;
+    }
+
+    .noticia-sinopse {
+        font-size: 1rem;
+    }
+
+    .noticia-informacoes-autor {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .noticia-onda svg {
+        height: 75px;
+    }
+
+    .noticia-corpo-container {
+        padding: 20px 20px 50px;
+    }
+
+    .noticia-corpo {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .noticia-imagem-destaque {
+        max-height: 350px;
+        margin-bottom: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .noticia-cabecalho {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .noticia-metadados {
+        gap: 10px;
+    }
+
+    .noticia-titulo {
+        font-size: 1.7rem;
+    }
+
+    .noticia-autor-foto {
+        width: 44px;
+        height: 44px;
+    }
+
+    .noticia-onda svg {
+        height: 60px;
+    }
+
+    .noticia-corpo-container {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .noticia-botao-compartilhar {
+        width: 100%;
+    }
+}
