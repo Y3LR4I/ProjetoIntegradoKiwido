@@ -14,33 +14,17 @@ const mensagemCompartilhar = document.querySelector("#mensagem-compartilhar");
 
 function criarIcone(tipo) {
     const icones = {
-        calendario: `
-            <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-                <line x1="16" y1="3" x2="16" y2="7"></line>
-                <line x1="8" y1="3" x2="8" y2="7"></line>
-                <line x1="3" y1="11" x2="21" y2="11"></line>
-            </svg>
-        `,
-        relogio: `
-            <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-        `
+        calendario: "calendar_month",
+        relogio: "schedule"
     };
 
     const elemento = document.createElement("span");
-    elemento.innerHTML = icones[tipo] || "";
+
+    elemento.className = "material-symbols-outlined";
+    elemento.textContent = icones[tipo] || "";
     elemento.setAttribute("aria-hidden", "true");
 
-    return elemento.firstElementChild;
+    return elemento;
 }
 
 
@@ -200,18 +184,18 @@ function renderizarCabecalho(noticia) {
 
     const dadosAutor = criarElemento("div", "");
 
-    dadosAutor.appendChild(
-        criarElemento("p", "noticia-autor-nome", nomeAutor)
+    const textoAutor = criarElemento("p", "noticia-autor-nome");
+
+    textoAutor.appendChild(
+        document.createTextNode("Por ")
     );
 
-    dadosAutor.appendChild(
-        criarElemento(
-            "p",
-            "noticia-autor-legenda",
-            "Autor(a) da notícia"
-        )
+    textoAutor.appendChild(
+        criarElemento("strong", "", nomeAutor)
     );
 
+    dadosAutor.appendChild(textoAutor);
+    
     autor.appendChild(dadosAutor);
 
     const tempoLeitura = criarElemento(

@@ -1,98 +1,309 @@
+
 [
-    {
-        "id": 1,
-        "titulo": "Projeto realiza ação de preservação dos manguezais",
-        "categoria": "Projetos",
-        "data": "2026-04-22",
-        "sinopse": "Voluntários e moradores participaram de uma iniciativa para proteger os manguezais e conscientizar a população sobre a importância desse ecossistema.",
-        "imagem": "../assets/images/noticias/noticias1.webp",
-        "autor": "Equipe Mangue Vivo",
-        "fotoAutor": "../assets/images/time/Clara Domiciano.png",
-        "conteudo": [
-            {
-                "tipo": "paragrafo",
-                "texto": "O Projeto Mangue Vivo realizou uma ação voltada à preservação dos manguezais."
-            },
-            {
-                "tipo": "subtitulo",
-                "texto": "Mobilização da comunidade"
-            },
-            {
-                "tipo": "paragrafo",
-                "texto": "A atividade reuniu voluntários e moradores da comunidade para promover a conscientização ambiental e incentivar práticas sustentáveis."
-            },
-            {
-                "tipo": "subtitulo",
-                "texto": "A importância da preservação"
-            },
-            {
-                "tipo": "paragrafo",
-                "texto": "Iniciativas como essa contribuem para a proteção da biodiversidade e para o fortalecimento da relação entre a comunidade e o meio ambiente."
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "titulo": "Comunidade participa de atividade de educação ambiental",
-        "categoria": "Comunidade",
-        "data": "2026-05-10",
-        "sinopse": "Moradores participaram de atividades educativas sobre descarte correto de resíduos, conservação da natureza e preservação das áreas de mangue.",
-        "imagem": "../assets/images/noticias/noticias2.webp",
-        "autor": "Equipe Mangue Vivo",
-        "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
-        "conteudo": [
-            {
-                "tipo": "paragrafo",
-                "texto": "O Mangue Vivo promoveu uma atividade de educação ambiental com a comunidade."
-            },
-            {
-                "tipo": "subtitulo",
-                "texto": "Educação ambiental na prática"
-            },
-            {
-                "tipo": "paragrafo",
-                "texto": "Durante o encontro, foram abordadas questões relacionadas ao descarte de resíduos e à conservação dos ecossistemas locais."
-            },
-            {
-                "tipo": "subtitulo",
-                "texto": "Participação comunitária"
-            },
-            {
-                "tipo": "paragrafo",
-                "texto": "A participação comunitária é fundamental para construir soluções ambientais duradouras."
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "titulo": "Confira os próximos eventos do Mangue Vivo",
-        "categoria": "Eventos",
-        "data": "2026-06-05",
-        "sinopse": "Veja as próximas atividades, encontros e iniciativas ambientais organizadas pelo projeto e descubra como participar desse projeto de extensão.",
-        "imagem": "../assets/images/noticias/noticias3.webp",
-        "autor": "Equipe Mangue Vivo",
-        "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
-        "conteudo": [
-            {
-                "tipo": "paragrafo",
-                "texto": "O Mangue Vivo está preparando novas atividades para aproximar a comunidade das ações de preservação ambiental."
-            },
-            {
-                "tipo": "subtitulo",
-                "texto": "Atividades previstas"
-            },
-            {
-                "tipo": "paragrafo",
-                "texto": "A programação poderá incluir encontros educativos, mobilizações comunitárias e atividades de conscientização."
-            },
-            {
-                "tipo": "subtitulo",
-                "texto": "Acompanhe a programação"
-            },
-            {
-                "tipo": "paragrafo",
-                "texto": "Acompanhe a página de eventos para consultar as informações de cada atividade."
-            }
-        ]
-    }
+  {
+    "id": 1,
+    "titulo": "Projeto realiza ação de preservação dos manguezais",
+    "categoria": "Projetos",
+    "data": "2026-10-18",
+    "sinopse": "Voluntários e moradores participaram de uma iniciativa para proteger os manguezais e conscientizar a população sobre a importância desse ecossistema.",
+    "imagem": "../assets/images/noticias/noticias1.webp",
+    "autor": "Clara Domiciano",
+    "fotoAutor": "../assets/images/time/Clara Domiciano.png",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "O Projeto Mangue Vivo realizou uma ação voltada à preservação dos manguezais."},
+      {"tipo": "subtitulo", "texto": "Mobilização da comunidade"},
+      {"tipo": "paragrafo", "texto": "A atividade reuniu voluntários e moradores da comunidade para promover a conscientização ambiental e incentivar práticas sustentáveis."},
+      {"tipo": "subtitulo", "texto": "A importância da preservação"},
+      {"tipo": "paragrafo", "texto": "Iniciativas como essa contribuem para a proteção da biodiversidade e para o fortalecimento da relação entre a comunidade e o meio ambiente."}
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Comunidade participa de atividade de educação ambiental",
+    "categoria": "Comunidade",
+    "data": "2026-10-19",
+    "sinopse": "Moradores participaram de atividades educativas sobre descarte correto de resíduos, conservação da natureza e preservação das áreas de mangue.",
+    "imagem": "../assets/images/noticias/noticias2.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "O Mangue Vivo promoveu uma atividade de educação ambiental com a comunidade."},
+      {"tipo": "subtitulo", "texto": "Educação ambiental na prática"},
+      {"tipo": "paragrafo", "texto": "Durante o encontro, foram abordadas questões relacionadas ao descarte de resíduos e à conservação dos ecossistemas locais."},
+      {"tipo": "subtitulo", "texto": "Participação comunitária"},
+      {"tipo": "paragrafo", "texto": "A participação comunitária é fundamental para construir soluções ambientais duradouras."}
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Confira os próximos eventos do Mangue Vivo",
+    "categoria": "Eventos",
+    "data": "2026-10-20",
+    "sinopse": "Veja as próximas atividades, encontros e iniciativas ambientais organizadas pelo projeto e descubra como participar desse projeto de extensão.",
+    "imagem": "../assets/images/noticias/noticias3.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "O Mangue Vivo está preparando novas atividades para aproximar a comunidade das ações de preservação ambiental."},
+      {"tipo": "subtitulo", "texto": "Atividades previstas"},
+      {"tipo": "paragrafo", "texto": "A programação poderá incluir encontros educativos, mobilizações comunitárias e atividades de conscientização."},
+      {"tipo": "subtitulo", "texto": "Acompanhe a programação"},
+      {"tipo": "paragrafo", "texto": "Acompanhe a página de eventos para consultar as informações de cada atividade."}
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "Estudantes conhecem a biodiversidade dos manguezais",
+    "categoria": "Projetos",
+    "data": "2026-06-12",
+    "sinopse": "Uma atividade educativa aproximou estudantes da biodiversidade dos manguezais e da importância de conservar os ambientes costeiros.",
+    "imagem": "../assets/images/noticias/noticias4.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Estudantes participaram de uma atividade de educação ambiental dedicada ao conhecimento dos manguezais."},
+      {"tipo": "subtitulo", "texto": "Aprendendo com a natureza"},
+      {"tipo": "paragrafo", "texto": "Durante a atividade, foram apresentados exemplos da diversidade de animais e plantas encontrados nesse ecossistema."},
+      {"tipo": "subtitulo", "texto": "Conhecimento para preservar"},
+      {"tipo": "paragrafo", "texto": "Conhecer a biodiversidade é um passo importante para compreender os impactos ambientais e incentivar atitudes de conservação."}
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Mutirão incentiva o descarte correto de resíduos",
+    "categoria": "Comunidade",
+    "data": "2026-06-18",
+    "sinopse": "Uma mobilização comunitária destacou a importância de destinar corretamente os resíduos e evitar que o lixo chegue aos manguezais.",
+    "imagem": "../assets/images/noticias/noticias5.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "O descarte inadequado de resíduos pode comprometer a qualidade da água e prejudicar os animais que vivem nos manguezais."},
+      {"tipo": "subtitulo", "texto": "Pequenas atitudes, grandes mudanças"},
+      {"tipo": "paragrafo", "texto": "A iniciativa reforçou orientações sobre a separação do lixo e a utilização dos locais apropriados para descarte."},
+      {"tipo": "subtitulo", "texto": "Responsabilidade compartilhada"},
+      {"tipo": "paragrafo", "texto": "A conservação dos ambientes costeiros depende da participação dos moradores, visitantes e instituições."}
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "Mangue Vivo prepara encontro sobre conservação costeira",
+    "categoria": "Eventos",
+    "data": "2026-06-25",
+    "sinopse": "O projeto prepara um encontro educativo para conversar sobre os desafios da conservação costeira e a participação da comunidade.",
+    "imagem": "../assets/images/noticias/noticias6.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "A conservação dos ambientes costeiros será o tema central de um encontro educativo promovido pelo projeto."},
+      {"tipo": "subtitulo", "texto": "Um espaço de diálogo"},
+      {"tipo": "paragrafo", "texto": "A proposta é incentivar a troca de experiências e ampliar o conhecimento sobre os desafios enfrentados pelos ecossistemas locais."},
+      {"tipo": "subtitulo", "texto": "Como acompanhar"},
+      {"tipo": "paragrafo", "texto": "As informações sobre datas, horários e participação devem ser consultadas nos canais oficiais do projeto."}
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "Conheça os animais que dependem do manguezal",
+    "categoria": "Projetos",
+    "data": "2026-07-02",
+    "sinopse": "Caranguejos, moluscos, peixes e aves fazem parte da biodiversidade que encontra abrigo e alimento nos manguezais.",
+    "imagem": "../assets/images/noticias/noticias7.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Os manguezais oferecem condições essenciais para a sobrevivência de diferentes espécies de animais."},
+      {"tipo": "subtitulo", "texto": "Abrigo e alimentação"},
+      {"tipo": "paragrafo", "texto": "As raízes, o solo lodoso e a disponibilidade de alimento fazem desse ambiente uma área importante para diversas formas de vida."},
+      {"tipo": "subtitulo", "texto": "Protegendo a biodiversidade"},
+      {"tipo": "paragrafo", "texto": "Preservar o manguezal significa também proteger as espécies que dependem dele em diferentes fases de suas vidas."}
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Oficina apresenta práticas sustentáveis para o dia a dia",
+    "categoria": "Eventos",
+    "data": "2026-07-09",
+    "sinopse": "Uma oficina educativa apresenta atitudes simples que ajudam a reduzir a produção de resíduos e os impactos sobre o meio ambiente.",
+    "imagem": "../assets/images/noticias/noticias8.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Práticas sustentáveis podem ser incorporadas à rotina e contribuir para reduzir os impactos ambientais."},
+      {"tipo": "subtitulo", "texto": "Mudanças na rotina"},
+      {"tipo": "paragrafo", "texto": "A oficina aborda possibilidades como evitar desperdícios, reutilizar materiais e separar corretamente os resíduos."},
+      {"tipo": "subtitulo", "texto": "Consumo consciente"},
+      {"tipo": "paragrafo", "texto": "A adoção de hábitos responsáveis ajuda a fortalecer uma cultura de cuidado com a natureza."}
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "Moradores compartilham experiências sobre o mangue",
+    "categoria": "Comunidade",
+    "data": "2026-07-16",
+    "sinopse": "Relatos de moradores ajudam a valorizar a relação entre as comunidades costeiras e os manguezais ao longo do tempo.",
+    "imagem": "../assets/images/noticias/noticias9.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Os manguezais fazem parte da história e da rotina de diversas comunidades costeiras."},
+      {"tipo": "subtitulo", "texto": "Memórias e saberes locais"},
+      {"tipo": "paragrafo", "texto": "As experiências dos moradores podem contribuir para ampliar o entendimento sobre as transformações da região."},
+      {"tipo": "subtitulo", "texto": "Valorização da comunidade"},
+      {"tipo": "paragrafo", "texto": "Reconhecer os conhecimentos locais fortalece o diálogo entre a comunidade, a educação ambiental e as iniciativas de conservação."}
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "Projeto destaca a importância das raízes do mangue",
+    "categoria": "Projetos",
+    "data": "2026-07-23",
+    "sinopse": "As raízes dos manguezais ajudam a sustentar o ecossistema e oferecem abrigo para diferentes organismos.",
+    "imagem": "../assets/images/noticias/noticias10.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "As raízes são uma das características mais marcantes das árvores encontradas nos manguezais."},
+      {"tipo": "subtitulo", "texto": "Funções importantes"},
+      {"tipo": "paragrafo", "texto": "Essas estruturas oferecem abrigo para pequenos organismos e participam da dinâmica dos sedimentos no ambiente."},
+      {"tipo": "subtitulo", "texto": "Um ecossistema conectado"},
+      {"tipo": "paragrafo", "texto": "Compreender o papel das raízes ajuda a perceber como diferentes elementos do manguezal estão conectados."}
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "Roda de conversa debate os desafios da preservação",
+    "categoria": "Eventos",
+    "data": "2026-07-30",
+    "sinopse": "Uma roda de conversa propõe discutir ameaças aos manguezais e caminhos para ampliar a conscientização ambiental.",
+    "imagem": "../assets/images/noticias/noticias11.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Debater os desafios ambientais é uma forma de aproximar diferentes pessoas da conservação dos manguezais."},
+      {"tipo": "subtitulo", "texto": "Desafios atuais"},
+      {"tipo": "paragrafo", "texto": "Entre os temas que podem ser discutidos estão o descarte inadequado de resíduos, a ocupação desordenada e a perda de habitats."},
+      {"tipo": "subtitulo", "texto": "Construindo soluções"},
+      {"tipo": "paragrafo", "texto": "O diálogo pode ajudar a identificar iniciativas educativas e formas de participação da comunidade."}
+    ]
+  },
+  {
+    "id": 12,
+    "titulo": "Educação ambiental incentiva o cuidado com as águas",
+    "categoria": "Comunidade",
+    "data": "2026-08-06",
+    "sinopse": "A conscientização sobre o cuidado com rios, canais e áreas costeiras reforça a relação entre a qualidade da água e a saúde dos ecossistemas.",
+    "imagem": "../assets/images/noticias/noticias12.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "A qualidade da água influencia diretamente as condições de vida nos manguezais e em outros ambientes naturais."},
+      {"tipo": "subtitulo", "texto": "O caminho da água"},
+      {"tipo": "paragrafo", "texto": "Resíduos descartados incorretamente podem ser transportados pela chuva e alcançar rios, canais e regiões costeiras."},
+      {"tipo": "subtitulo", "texto": "Cuidar desde a origem"},
+      {"tipo": "paragrafo", "texto": "Evitar o descarte irregular e promover a educação ambiental são atitudes importantes para proteger os recursos hídricos."}
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "Mangue Vivo organiza atividade de sensibilização ambiental",
+    "categoria": "Projetos",
+    "data": "2026-08-13",
+    "sinopse": "A iniciativa busca estimular a reflexão sobre a relação entre as atividades humanas e a conservação dos ambientes naturais.",
+    "imagem": "../assets/images/noticias/noticias13.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "A sensibilização ambiental procura aproximar as pessoas dos desafios relacionados à conservação da natureza."},
+      {"tipo": "subtitulo", "texto": "Reflexão e aprendizado"},
+      {"tipo": "paragrafo", "texto": "Atividades educativas podem apresentar informações sobre os impactos das ações cotidianas nos ecossistemas."},
+      {"tipo": "subtitulo", "texto": "Participação contínua"},
+      {"tipo": "paragrafo", "texto": "O envolvimento da comunidade ajuda a transformar o conhecimento em atitudes de cuidado ambiental."}
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "Evento educativo aproxima público da conservação marinha",
+    "categoria": "Eventos",
+    "data": "2026-08-20",
+    "sinopse": "Uma atividade de educação ambiental apresenta conexões entre os manguezais, os estuários e os ambientes marinhos.",
+    "imagem": "../assets/images/noticias/noticias14.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Os manguezais estão conectados a outros ambientes costeiros e contribuem para a dinâmica dos ecossistemas da região."},
+      {"tipo": "subtitulo", "texto": "Ambientes interligados"},
+      {"tipo": "paragrafo", "texto": "A circulação da água e o deslocamento de diferentes organismos ajudam a conectar manguezais, estuários e áreas marinhas."},
+      {"tipo": "subtitulo", "texto": "Uma visão integrada"},
+      {"tipo": "paragrafo", "texto": "Compreender essas conexões reforça a importância de iniciativas de conservação que considerem o ambiente como um todo."}
+    ]
+  },
+  {
+    "id": 15,
+    "titulo": "Comunidade é convidada a colaborar com ações ambientais",
+    "categoria": "Comunidade",
+    "data": "2026-08-27",
+    "sinopse": "A participação dos moradores pode fortalecer iniciativas locais de educação ambiental e conservação dos ecossistemas.",
+    "imagem": "../assets/images/noticias/noticias15.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "A participação comunitária é uma aliada importante das ações de conservação ambiental."},
+      {"tipo": "subtitulo", "texto": "Como contribuir"},
+      {"tipo": "paragrafo", "texto": "Compartilhar informações educativas, evitar o descarte irregular e participar de atividades locais são algumas formas de colaborar."},
+      {"tipo": "subtitulo", "texto": "Cuidado coletivo"},
+      {"tipo": "paragrafo", "texto": "A união de diferentes pessoas e instituições pode fortalecer o compromisso com a proteção dos ambientes naturais."}
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "Projeto apresenta os benefícios dos manguezais para o litoral",
+    "categoria": "Projetos",
+    "data": "2026-09-03",
+    "sinopse": "Os manguezais desempenham funções ecológicas importantes e contribuem para o equilíbrio dos ambientes costeiros.",
+    "imagem": "../assets/images/noticias/noticias16.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Os manguezais são ecossistemas costeiros que oferecem diferentes benefícios ambientais."},
+      {"tipo": "subtitulo", "texto": "Proteção e biodiversidade"},
+      {"tipo": "paragrafo", "texto": "Esses ambientes fornecem abrigo para diversas espécies e participam de processos naturais importantes para o litoral."},
+      {"tipo": "subtitulo", "texto": "Conservar para o futuro"},
+      {"tipo": "paragrafo", "texto": "A conservação dos manguezais ajuda a manter suas funções ecológicas e os benefícios associados a esses ecossistemas."}
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "Atividade infantil ensina sobre a importância da natureza",
+    "categoria": "Eventos",
+    "data": "2026-09-10",
+    "sinopse": "Uma proposta educativa para o público infantil utiliza atividades lúdicas para incentivar o respeito à natureza e aos manguezais.",
+    "imagem": "../assets/images/noticias/noticias17.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "A educação ambiental pode ser trabalhada desde a infância por meio de experiências acessíveis e participativas."},
+      {"tipo": "subtitulo", "texto": "Aprender brincando"},
+      {"tipo": "paragrafo", "texto": "Desenhos, jogos e atividades de observação podem ajudar as crianças a conhecer os animais e as plantas dos manguezais."},
+      {"tipo": "subtitulo", "texto": "Formando atitudes conscientes"},
+      {"tipo": "paragrafo", "texto": "O contato com temas ambientais pode estimular a curiosidade e o cuidado com a natureza desde cedo."}
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "Mangue Vivo reforça mensagem de preservação ambiental",
+    "categoria": "Comunidade",
+    "data": "2026-09-17",
+    "sinopse": "A iniciativa reforça que a proteção dos manguezais depende de informação, responsabilidade coletiva e participação social.",
+    "imagem": "../assets/images/noticias/noticias18.webp",
+    "autor": "Equipe Mangue Vivo",
+    "fotoAutor": "../assets/images/autores/equipe-mangue-vivo.webp",
+    "conteudo": [
+      {"tipo": "paragrafo", "texto": "Preservar os manguezais exige atenção aos impactos ambientais e compromisso com práticas responsáveis."},
+      {"tipo": "subtitulo", "texto": "Informação como ferramenta"},
+      {"tipo": "paragrafo", "texto": "A divulgação de informações sobre os ecossistemas ajuda a ampliar a compreensão sobre sua importância."},
+      {"tipo": "subtitulo", "texto": "Um compromisso coletivo"},
+      {"tipo": "paragrafo", "texto": "Ações individuais e coletivas podem contribuir para a conservação da natureza e para o fortalecimento da consciência ambiental."}
+    ]
+  }
 ]

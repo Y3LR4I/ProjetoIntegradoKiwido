@@ -77,6 +77,7 @@
 .banner-noticias-conteudo h1 {
     max-width: 400px;
     margin: 0 0 16px;
+    font-family: "Righteous";
 
     font-size: 48px;
     font-weight: bold;
@@ -359,6 +360,70 @@
     color: #777777;
 }
 
+/* =========================
+   PAGINAÇÃO DAS NOTÍCIAS
+========================= */
+
+#navegacao-noticias .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+#paginacao-noticias .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50% !important;
+    background: transparent;
+
+    color: var(--cor-principal, #163812);
+    font-size: 16px;
+    font-weight: 600;
+
+    box-shadow: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Página atual */
+#paginacao-noticias .page-item.active .page-link {
+    background-color: var(--cor-secundaria, #f28c28);
+    color: #ffffff;
+}
+
+/* Efeito ao passar o mouse */
+#paginacao-noticias .page-item:not(.active):not(.disabled) .page-link:hover {
+    background-color: rgba(242, 140, 40, 0.12);
+    color: var(--cor-principal, #163812);
+}
+
+/* Setas desativadas nos limites */
+#paginacao-noticias .page-item.disabled .page-link {
+    background: transparent;
+    color: #777777;
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.card-noticia-data .material-symbols-outlined {
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+/* Remove o contorno azul padrão do Bootstrap */
+#paginacao-noticias .page-link:focus {
+    box-shadow: none;
+}
 
 /* =========================
    RESPONSIVIDADE
