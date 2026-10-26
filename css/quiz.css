@@ -1,0 +1,291 @@
+.quiz-container>.tela {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 70vh;
+}
+
+.quiz-container>.tela[hidden] {
+    display: none !important;
+}
+
+.quiz-container > .tela.saindo {
+    animation: desaparecerTela 0.4s ease forwards;
+}
+
+.quiz-container > .tela.entrando {
+    animation: aparecerTela 0.4s ease forwards;
+}
+
+@keyframes desaparecerTela {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes aparecerTela {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quiz-container > .tela.saindo,
+    .quiz-container > .tela.entrando {
+        animation-duration: 0.01ms;
+    }
+}
+
+button {
+    font: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.quiz-container {
+    width: 100%;
+    max-width: 760px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: relative;
+}
+
+.quiz-header {
+    width: 100%;
+    margin: 28px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+    padding: 20px;
+}
+
+.quiz-header a {
+    text-decoration: none;
+    color: rgb(36, 11, 11);
+}
+
+.inicio,
+.tela-resultado {
+    display: flex;
+    min-height: 70vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px;
+    text-align: center;
+    background-color: white;
+}
+
+.inicio .apresentacao p {}
+
+.subtitulo {
+    font-weight: bold;
+}
+
+.inicio .carrosel-animais {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.inicio .mascara-animais {
+    position: relative;
+    width: 450px;
+    height: 380px;
+    overflow: hidden;
+    border-radius: 38% 62% 55% 45% / 45% 40% 60% 55%;
+    background-color: #f4f8f0;
+    z-index: 1;
+}
+
+.mascara-animais img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 100;
+    transition: opacity .4s ease;
+}
+
+.inicio .carrosel-animais .sombra {
+    position: absolute;
+    width: 480px;
+    height: 400px;
+    border-radius: 38% 62% 55% 45% / 45% 40% 60% 55%;
+    background-color: rgb(28, 61, 61);
+    z-index: 0;
+    transform: translate(10px, 0px);
+}
+
+.mascara-animais img.trocando {
+    opacity: 0;
+}
+
+/*RESPONSIVIDADE Carrossel Inicial*/
+@media (max-width: 600px) {
+    .mascara-animal {
+        width: 180px;
+        height: 150px;
+    }
+
+    .carrossel-animais {
+        margin: 14px 0;
+    }
+}
+
+/* ---------------------------------------- */
+
+.descricao {
+    margin-top: 20px;
+}
+
+.botoes-container {
+    display: flex;
+    margin-top: 20px;
+    background-color: cadetblue;
+    width: 80%;
+    flex-flow: wrap column;
+}
+
+.btn {
+    text-align: center;
+    border-style: none;
+    border-radius: 20px;
+    font-weight: bolder;
+    padding: 20px 150px;
+    margin: 20px 0 20px 0;
+    transition: all .4s;
+}
+
+.btn:hover {
+    background-color: rgb(7, 7, 7);
+    cursor: pointer;
+    color: white;
+}
+.tela-jogo{
+    background-color: rgb(219, 248, 248);
+}
+
+.silhueta-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.imagem-silhueta{
+    width: 50%;
+    transition: opacity 0.2s ease;
+}
+
+.container-alternativas {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.alternativa {
+    background-color: aliceblue;
+    border-style: none;
+    border-radius: 20px;
+    width: 48%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 1%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alternativa:not(:disabled):hover{
+    cursor:pointer;
+background-color: rgb(255, 194, 170);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.correta{
+background-color: rgb(165, 228, 165);
+font-weight: bolder;
+}
+
+.incorreta{
+    background-color: rgb(250, 184, 184);
+}
+
+
+
+
+
+.descricao-animal {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    animation: aparecerDescricao 0.35s ease;
+}
+
+.descricao-animal h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.descricao-animal p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+.botoes-imagem {
+    display: flex;
+    justify-content: left;
+    margin: 16px 0;
+}
+
+.botao-imagem {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(28, 61, 61);
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.botao-imagem:hover {
+    background-color: rgb(45, 91, 91);
+    transform: scale(1.05);
+}
+@keyframes aparecerDescricao {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

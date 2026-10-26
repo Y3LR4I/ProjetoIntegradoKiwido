@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz dos Animais do Mangue | Mangue Vivo</title>]
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/quiz/quiz.js" defer></script>
+    <script src="js/quiz/carrossel.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Nome do projeto">
+            </a>
+
+            <nav class="menu">
+                <a href="index.html">Quem Somos</a>
+                <a href="pages/acoes.html">Ações</a>
+                <a href="pages/conteudos.html">Conteúdos</a>
+                <a href="pages/contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <header class="quiz-header">
+            <a class="quizLogo" href="index.html" aria-label="Mangue Vivo">
+                Mangue Vivo
+            </a>
+
+            <span class="tag">DESAFIO DO MANGUE</span>
+        </header>
+
+        <section id="tela-inicio" class="tela inicio">
+            <div class="apresentacao">
+                <p class="subtitulo">VOCÊ CONHECE O MANGUE?</p>
+
+                <div class="carrosel-animais">
+                    <div class="mascara-animais">
+                        <img id="imagem-animal" src="assets/images/animais/bigua.png" alt="Biguá do mangue">
+                    </div>
+
+                    <div class="sombra"></div>
+                </div>
+
+                <h1>ESCRAFUNCHE!!!</h1>
+
+                <p class="descricao">
+                    Observe a silhueta, descubra qual animal ela representa
+                    e teste seus conhecimentos sobre a vida no manguezal.
+                </p>
+            </div>
+
+            <div class="botoes-container">
+                <button id="btn-iniciar" class="btn btn-principal" type="button">
+                    Começar o desafio
+                </button>
+
+                <button id="btn-bestiario" class="btn btn-principal" type="button">
+                    Acessar bestiário
+                </button>
+            </div>
+
+            <footer class="inicio-footer">
+                <div class="parcerias">
+                    <span>Mangue Vivo</span>
+                    <span>SMD</span>
+                </div>
+            </footer>
+        </section>
+
+        <section id="tela-jogo" class="tela tela-jogo" hidden>
+            <div class="barra-progresso">
+                <div id="progresso" class="progresso"></div>
+            </div>
+
+            <h1 class="pergunta-titulo">
+                Qual animal está representado nesta silhueta?
+            </h1>
+
+            <p id="tempo" class="cronometro" aria-live="polite">
+                Tempo: 10s
+            </p>
+
+            <div class="silhueta-container">
+                <img id="imagem-silhueta" class="imagem-silhueta" src="" alt="Silhueta do animal para adivinhar">
+            </div>
+
+            <p id="mensagem-ajuda" class="mensagem-ajuda">
+                Escolha uma das alternativas abaixo.
+            </p>
+
+            <div id="alternativas" class="container-alternativas"></div>
+
+            <button id="btn-proximo" class="btn btn-principal" type="button" hidden>
+                Próximo animal
+            </button>
+        </section>
+
+        <section id="tela-resultado" class="tela resultado" hidden>
+            <p class="subtitulo">DESAFIO CONCLUÍDO</p>
+
+            <h1>Mandou bem!</h1>
+
+            <p id="texto-resultado" class="descricao"></p>
+
+            <p id="pontuacao-final" class="pontuacao-final"></p>
+
+            <button id="btn-reiniciar" class="btn btn-principal" type="button">
+                Jogar novamente
+            </button>
+
+            <button id="btn-telaInicial" type="button">
+                Retornar à tela inicial
+            </button>
+        </section>
+    </main>
+</body>
+
+</html>
