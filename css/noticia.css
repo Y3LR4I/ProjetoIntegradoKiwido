@@ -1,3 +1,7 @@
+/* Sombra exclusiva da página individual de notícia */
+body:has(.pagina-noticia) .header {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 /* =========================
    PÁGINA INDIVIDUAL DA NOTÍCIA
 ========================= */
@@ -5,6 +9,18 @@
 .pagina-noticia {
     background-color: var(--cor-fundo, #ffffff);
     min-height: 100vh;
+}
+
+.noticia-data .material-symbols-outlined,
+.noticia-tempo-leitura .material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.material-symbols-outlined {
+    position: relative;
+    top: -2px;
 }
 
 
@@ -65,7 +81,7 @@
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    color: #ffffff;
+    color: var(--cor-fundo);
     font-size: 0.9rem;
 }
 
@@ -83,11 +99,11 @@
 .noticia-titulo {
     max-width: 900px;
     margin: 0 0 18px;
-    color: #ffffff;
+    color: var(--cor-texto-header);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.5px;
+    font-family: "Righteous", sans-serif;
 
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -99,7 +115,7 @@
 .noticia-sinopse {
     max-width: 850px;
     margin: 0 0 30px;
-    color: #edf5ef;
+    color: var(--cor-texto-header);
     font-size: 1.08rem;
     line-height: 1.7;
 
@@ -118,10 +134,10 @@
 .noticia-informacoes-autor {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 80px;
     max-width: 850px;
+    color: var(--cor-texto-header);
 }
 
 .noticia-autor {
@@ -150,10 +166,14 @@
 }
 
 .noticia-autor-nome {
-    margin: 0;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 400;
+    color: inherit;
+    margin-bottom: 0px;
+}
+
+.noticia-autor-nome strong {
+    font-weight: 700;
 }
 
 .noticia-autor-legenda {
@@ -229,12 +249,14 @@
 .noticia-paragrafo {
     margin: 0 0 28px;
     overflow-wrap: anywhere;
+    color: var(--cor-principal);
+    font-size: 1.3rem;
 }
 
 .noticia-subtitulo {
     margin: 42px 0 18px;
     color: var(--cor-principal, #26734d);
-    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.35;
 }

@@ -19,9 +19,15 @@ async function carregarComponente(seletor, caminho) {
     }
 }
 
+
 function marcarPaginaAtual(container) {
     const paginaAtual = window.location.pathname;
     const links = container.querySelectorAll('.menu a');
+
+    // A página individual de notícia pertence à seção Conteúdos.
+    const paginaParaComparacao = paginaAtual.endsWith('/pages/noticia.html')
+        ? paginaAtual.replace('/noticia.html', '/conteudos.html')
+        : paginaAtual;
 
     links.forEach(link => {
         const urlLink = new URL(link.getAttribute('href'), document.baseURI);
@@ -32,11 +38,11 @@ function marcarPaginaAtual(container) {
             caminhoLink.endsWith('/');
 
         const ehPaginaInicial =
-            paginaAtual.endsWith('/index.html') ||
-            paginaAtual.endsWith('/');
+            paginaParaComparacao.endsWith('/index.html') ||
+            paginaParaComparacao.endsWith('/');
 
         const corresponde =
-            caminhoLink === paginaAtual ||
+            caminhoLink === paginaParaComparacao ||
             (ehHome && ehPaginaInicial);
 
         link.classList.toggle('ativo', corresponde);
@@ -49,7 +55,15 @@ function marcarPaginaAtual(container) {
     });
 }
 
+
 carregarComponente(
     '#header-container',
     new URL('../components/header.html', document.currentScript.src).href
+);
+
+const urlComponents = new URL('../components/', document.currentScript.src);
+
+carregarComponente(
+    '#footer-container',
+    new URL('footer.html', urlComponents).href
 );

@@ -156,4 +156,4 @@ if (acoesSlides.length && acoesIndicators.length && acoesPrevButton && acoesNext
     acoesIndicators.forEach((indicator, index) => {
         indicator.addEventListener("click", () => showAcoesSlide(index));
     });
-}
+}   

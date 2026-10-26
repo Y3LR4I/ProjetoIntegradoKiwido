@@ -28,6 +28,19 @@
     padding: 0 var(--margem-lateral);
 }
 
+/* =========================
+   FONTES
+========================= */
+
+@font-face {
+    font-family: "Righteous";
+    src: url("../assets/fonts/Righteous-Regular.woff")
+        format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* remover margens padrão */
 * {
     margin: 0;
@@ -109,4 +122,335 @@ h2 {
 .menu a.ativo {
     color: var(--cor-texto-header-dest);
     font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    width: 100%;
+    background-color: var(--cor-header, #163812);
+    color: var(--cor-texto-header, #F9FFF9);
+}
+
+.footer-container {
+    width: 100%;
+    max-width: var(--largura-conteudo, 1200px);
+    margin: 0 auto;
+    padding: 56px var(--margem-lateral, 30px) 24px;
+}
+
+/* Grade principal: 3 colunas e 2 linhas */
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.3fr);
+    column-gap: 48px;
+    row-gap: 40px;
+    align-items: start;
+}
+
+/* =========================
+   IDENTIDADE
+========================= */
+
+.footer-identidade {
+    min-width: 0;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    color: var(--cor-texto-header, #F9FFF9);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.footer-descricao {
+    max-width: 280px;
+    margin: 0;
+
+    color: rgba(249, 255, 249, 0.78);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* =========================
+   NAVEGAÇÃO, SERVIÇOS E RECURSOS
+========================= */
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    min-width: 0;
+}
+
+.footer-grupo h3,
+.footer-contato h3,
+.footer-horario h3 {
+    margin: 0 0 18px;
+
+    color: var(--cor-texto-header, #F9FFF9);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.footer-grupo ul,
+.footer-contato-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-grupo a,
+.footer-contato a,
+.footer-redes a {
+    color: rgba(249, 255, 249, 0.78);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+/* =========================
+   CONTATO
+========================= */
+
+.footer-contato {
+    min-width: 0;
+}
+
+.footer-contato-lista {
+    gap: 14px;
+}
+
+.footer-contato-lista li {
+    color: rgba(249, 255, 249, 0.78);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.footer-contato-lista .footer-endereco {
+    margin-top: 2px;
+}
+
+/* =========================
+   REDES SOCIAIS
+========================= */
+
+.footer-redes {
+    grid-column: 1 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+/* Título em uma linha própria */
+.footer-redes h3 {
+    flex-basis: 100%;
+    margin: 0;
+    color: var(--cor-texto-header, #F9FFF9);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Links em uma única linha */
+.footer-redes a,
+.footer-redes span {
+    flex-shrink: 0;
+}
+
+.footer-redes a {
+    white-space: nowrap;
+}
+
+.footer-redes span {
+    color: rgba(249, 255, 249, 0.5);
+    font-size: 0.875rem;
+}
+
+/* =========================
+   HORÁRIO DE FUNCIONAMENTO
+========================= */
+
+.footer-horario {
+    grid-column: 3;
+    min-width: 0;
+}
+
+.footer-horario h3 {
+    margin-bottom: 14px;
+}
+
+.footer-horario p {
+    margin: 0 0 8px;
+
+    color: rgba(249, 255, 249, 0.78);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* =========================
+   HOVER DOS LINKS
+========================= */
+
+.footer a:hover {
+    color: #F4A340;
+}
+
+.footer a:focus-visible {
+    outline: 2px solid #F4A340;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.footer-copyright {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(249, 255, 249, 0.18);
+}
+
+.footer-copyright p {
+    margin: 0;
+
+    color: rgba(249, 255, 249, 0.65);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-align: right;
+}
+
+/* =========================
+   ONDAS ACIMA DO FOOTER
+========================= */
+
+.footer-ondas {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    line-height: 0;
+    background-color: transparent;
+}
+
+.footer-ondas-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1000px) {
+    .footer-grid {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.7fr);
+        column-gap: 36px;
+        row-gap: 36px;
+    }
+
+    .footer-links {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .footer-contato {
+        grid-column: 1 / -1;
+    }
+
+    .footer-redes {
+        grid-column: 1 / -1;
+    }
+
+    .footer-horario {
+        grid-column: 1 / -1;
+    }
+
+    .footer-contato-lista {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        padding: 40px 20px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 32px;
+    }
+
+    .footer-identidade,
+    .footer-links,
+    .footer-contato,
+    .footer-redes,
+    .footer-horario {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 20px;
+    }
+
+    .footer-grupo:first-child {
+        grid-row: span 2;
+    }
+
+    .footer-contato-lista {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .footer-redes {
+        gap: 8px 10px;
+    }
+
+    .footer-copyright {
+        margin-top: 32px;
+    }
+
+    .footer-copyright p {
+        font-size: 0.75rem;
+    }
+
+    .footer-redes {
+        grid-column: 1;
+        flex-wrap: wrap;
+    }
+
+    .footer-redes a,
+    .footer-redes span {
+        white-space: nowrap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer a {
+        transition: none;   
+    }
 }

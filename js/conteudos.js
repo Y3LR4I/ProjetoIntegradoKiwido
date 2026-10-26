@@ -120,44 +120,14 @@ function formatarData(data) {
 /* =========================
    ÍCONE DE CALENDÁRIO
 ========================= */
-
 function criarIconeCalendario() {
-    const svg = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "svg"
-    );
+    const icone = document.createElement("span");
 
-    svg.setAttribute("width", "18");
-    svg.setAttribute("height", "18");
-    svg.setAttribute("viewBox", "0 0 24 24");
-    svg.setAttribute("fill", "none");
-    svg.setAttribute("stroke", "currentColor");
-    svg.setAttribute("stroke-width", "2");
-    svg.setAttribute("stroke-linecap", "round");
-    svg.setAttribute("stroke-linejoin", "round");
-    svg.setAttribute("aria-hidden", "true");
+    icone.className = "material-symbols-outlined";
+    icone.textContent = "calendar_month";
+    icone.setAttribute("aria-hidden", "true");
 
-    const elementos = [
-        ["rect", { x: "3", y: "5", width: "18", height: "16", rx: "2" }],
-        ["line", { x1: "16", y1: "3", x2: "16", y2: "7" }],
-        ["line", { x1: "8", y1: "3", x2: "8", y2: "7" }],
-        ["line", { x1: "3", y1: "11", x2: "21", y2: "11" }]
-    ];
-
-    elementos.forEach(([tag, atributos]) => {
-        const elemento = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            tag
-        );
-
-        Object.entries(atributos).forEach(([nome, valor]) => {
-            elemento.setAttribute(nome, valor);
-        });
-
-        svg.appendChild(elemento);
-    });
-
-    return svg;
+    return icone;
 }
 
 
@@ -251,21 +221,28 @@ function criarCard(noticia) {
 ========================= */
 
 function obterNoticiasFiltradas() {
-    return todasNoticias.filter(noticia => {
-        const correspondeCategoria =
-            categoriaSelecionada === "Todas" ||
-            noticia.categoria.toLocaleLowerCase("pt-BR") ===
-            categoriaSelecionada.toLocaleLowerCase("pt-BR");
+    return todasNoticias
+        .filter(noticia => {
+            const correspondeCategoria =
+                categoriaSelecionada === "Todas" ||
+                noticia.categoria.toLocaleLowerCase("pt-BR") ===
+                categoriaSelecionada.toLocaleLowerCase("pt-BR");
 
-        const titulo = (noticia.titulo || "")
-            .toLocaleLowerCase("pt-BR");
+            const titulo = (noticia.titulo || "")
+                .toLocaleLowerCase("pt-BR");
 
-        const correspondeBusca = titulo.includes(termoBusca);
+            const correspondeBusca = titulo.includes(termoBusca);
 
-        return correspondeCategoria && correspondeBusca;
-    });
+            return correspondeCategoria && correspondeBusca;
+        })
+        .sort((a, b) => {
+            // Mais recente primeiro
+            const comparacaoData = b.data.localeCompare(a.data);
+
+            // Em caso de empate, maior ID primeiro
+            return comparacaoData || Number(b.id) - Number(a.id);
+        });
 }
-
 
 
 /* =========================
@@ -329,7 +306,7 @@ function renderizarPaginacao(totalPaginas) {
 
     paginacao.appendChild(
         criarBotaoPagina(
-            "Anterior",
+            "<",
             paginaAtual - 1,
             { desabilitado: paginaAtual === 1 }
         )
@@ -352,7 +329,7 @@ function renderizarPaginacao(totalPaginas) {
 
     paginacao.appendChild(
         criarBotaoPagina(
-            "Próxima",
+            ">",
             paginaAtual + 1,
             { desabilitado: paginaAtual === totalPaginas }
         )
