@@ -195,7 +195,7 @@ function renderizarCabecalho(noticia) {
     );
 
     dadosAutor.appendChild(textoAutor);
-    
+
     autor.appendChild(dadosAutor);
 
     const tempoLeitura = criarElemento(
@@ -330,6 +330,108 @@ async function compartilharNoticia() {
 
 botaoCompartilhar.addEventListener("click", compartilharNoticia);
 
+/* =========================
+   NAVEGAÇÃO ENTRE NOTÍCIAS
+========================= */
+
+function renderizarNavegacaoNoticias(noticias, noticiaAtual) {
+    const navegacao = document.querySelector("#navegacao-noticias");
+
+    if (!navegacao) {
+        return;
+    }
+
+    navegacao.replaceChildren();
+
+    // Ordena da notícia mais recente para a mais antiga.
+    const noticiasOrdenadas = [...noticias].sort((a, b) => {
+        const comparacaoData = String(b.data || "")
+            .localeCompare(String(a.data || ""));
+
+        if (comparacaoData !== 0) {
+            return comparacaoData;
+        }
+
+        // Desempate para notícias publicadas na mesma data.
+        return Number(b.id) - Number(a.id);
+    });
+
+    const indiceAtual = noticiasOrdenadas.findIndex(
+        noticia => String(noticia.id) === String(noticiaAtual.id)
+    );
+
+    if (indiceAtual === -1) {
+        return;
+    }
+
+    // Como a lista está em ordem decrescente:
+    // índice + 1 = notícia anterior, mais antiga.
+    // índice - 1 = próxima notícia, mais recente.
+    const noticiaAnterior = noticiasOrdenadas[indiceAtual + 1];
+    const proximaNoticia = noticiasOrdenadas[indiceAtual - 1];
+
+    function criarCard(noticia, tipo) {
+        if (!noticia) {
+            return null;
+        }
+
+        const link = criarElemento(
+            "a",
+            `card-navegacao-noticia card-${tipo}`
+        );
+
+        link.href = `noticia.html?id=${encodeURIComponent(noticia.id)}`;
+
+        const indicador = criarElemento(
+            "span",
+            "card-navegacao-indicador"
+        );
+
+        const icone = criarElemento(
+            "span",
+            "material-symbols-outlined",
+            tipo === "anterior" ? "chevron_left" : "chevron_right"
+        );
+
+        icone.setAttribute("aria-hidden", "true");
+
+        const textoIndicador = criarElemento(
+            "span",
+            "",
+            tipo === "anterior" ? "Notícia anterior" : "Próxima notícia"
+        );
+
+        if (tipo === "anterior") {
+            indicador.append(icone, textoIndicador);
+        } else {
+            indicador.append(textoIndicador, icone);
+        }
+
+        const titulo = criarElemento(
+            "span",
+            "card-navegacao-titulo",
+            noticia.titulo
+        );
+
+        link.append(indicador, titulo);
+
+        return link;
+    }
+
+    const cardAnterior = criarCard(noticiaAnterior, "anterior");
+    const cardProxima = criarCard(proximaNoticia, "proxima");
+
+    if (cardAnterior) {
+        navegacao.appendChild(cardAnterior);
+    }
+
+    if (cardProxima) {
+        navegacao.appendChild(cardProxima);
+    }
+
+    // Não exibe o espaço de navegação se só houver uma notícia.
+    navegacao.hidden = navegacao.childElementCount === 0;
+}
 
 /* =========================
    CARREGAR NOTÍCIA
@@ -364,6 +466,7 @@ async function carregarNoticia() {
 
         renderizarCabecalho(noticia);
         renderizarCorpo(noticia);
+        renderizarNavegacaoNoticias(noticias, noticia);
 
         document.title = `${noticia.titulo} | Mangue Vivo`;
     } catch (erro) {

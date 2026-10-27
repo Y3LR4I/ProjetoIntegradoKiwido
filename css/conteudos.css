@@ -167,6 +167,30 @@
 }
 
 /* =========================
+   CAMPO DE BUSCA
+========================= */
+
+.noticias-busca {
+    position: relative;
+}
+
+.noticias-busca .icone-busca {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+
+    font-size: 22px;
+    line-height: 1;
+    color: var(--cor-header);
+    pointer-events: none;
+}
+
+.noticias-busca input {
+    padding-left: 44px;
+}
+
+/* =========================
    ÁREA DAS NOTÍCIAS
 ========================= */
 
