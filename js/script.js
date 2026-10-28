@@ -1,55 +1,19 @@
 /* =========================
-   CARROSSEL DO BANNER
+   CARROSSEL AUTOMÁTICO DA HERO
 ========================= */
 
-const slides = document.querySelectorAll(".slide");
-const indicators = document.querySelectorAll(".indicator");
+const heroSlides = document.querySelectorAll(".hero-slide");
 
-const prevButton = document.querySelector(".carousel-button.prev");
-const nextButton = document.querySelector(".carousel-button.next");
+let currentHeroSlide = 0;
 
-let currentSlide = 0;
+if (heroSlides.length > 1) {
+    setInterval(() => {
+        heroSlides[currentHeroSlide].classList.remove("active");
 
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
-    indicators.forEach(indicator => indicator.classList.remove("active"));
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
 
-    if (!slides.length || !indicators.length) return;
-
-    slides[index].classList.add("active");
-    indicators[index].classList.add("active");
-    currentSlide = index;
-}
-
-function nextSlide() {
-    if (!slides.length || !indicators.length) return;
-
-    let next = currentSlide + 1;
-
-    if (next >= slides.length) next = 0;
-
-    showSlide(next);
-}
-
-function prevSlide() {
-    if (!slides.length || !indicators.length) return;
-
-    let previous = currentSlide - 1;
-
-    if (previous < 0) previous = slides.length - 1;
-
-    showSlide(previous);
-}
-
-if (slides.length && indicators.length && prevButton && nextButton) {
-    nextButton.addEventListener("click", nextSlide);
-    prevButton.addEventListener("click", prevSlide);
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => showSlide(index));
-    });
-
-    setInterval(nextSlide, 5000);
+        heroSlides[currentHeroSlide].classList.add("active");
+    }, 5000);
 }
 
 

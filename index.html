@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Mangue Vivo</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
@@ -14,50 +16,74 @@
     <!--header da página - logo e menu-->
     <div id="header-container"></div>
 
-    <!--seção do carrosel de imagens-->
-    <section class="carousel">
+    <section class="hero">
 
-        <div class="carousel-container">
-
-            <!--imagens da hero section-->
-            <div class="slide active">
-                <img src="assets/images/hero/img_hero_section01.png" alt="Mangue Vivo">
+        <div class="hero-carousel">
+            <div class="hero-slide active">
+                <img src="assets/images/hero/img_hero_section01.png" alt="Ecossistema de manguezal">
             </div>
 
-            <div class="slide">
-                <img src="assets/images/hero/img_hero_section02.png" alt="Mangue Vivo">
+            <div class="hero-slide">
+                <img src="assets/images/hero/img_hero_section02.png" alt="Paisagem do manguezal">
             </div>
 
-            <div class="slide">
-                <img src="assets/images/hero/img_hero_section03.png" alt="Mangue Vivo">
+            <div class="hero-slide">
+                <img src="assets/images/hero/img_hero_section03.png" alt="Natureza e conservação ambiental">
             </div>
 
-            <div class="slide">
-                <img src="assets/images/hero/img_hero_section04.jfif" alt="Mangue Vivo">
+            <div class="hero-slide">
+                <img src="assets/images/hero/img_hero_section04.jfif" alt="Projeto Mangue Vivo">
             </div>
+        </div>
 
-            <!--textos fixos-->
-            <div class="carousel-text">
-                <p>PROJETO</p>
-                <h1>Mangue Vivo</h1>
-            </div>
+        <div class="hero-overlay"></div>
 
-            <!--botão esquerdo-->
-            <button class="carousel-button prev" aria-label="Banner anterior">
-                <img src="assets/icones/seta-esquerda.png" alt="">
-            </button>
+        <div class="hero-conteudo">
 
-            <!--botão direito-->
-            <button class="carousel-button next" aria-label="Próximo banner">
-                <img src="assets/icones/seta-direita.png" alt="">
-            </button>
+            <!-- Painel com borda orgânica -->
+            <svg class="hero-painel" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+                <path d="
+    M 0 0
+    H 1000
+    C 1000 100, 940 170, 865 235
+    C 800 290, 790 330, 825 375
+    C 865 430, 935 490, 975 555
+    C 990 580, 1000 605, 1000 630
+    L 1000 700
+    H 0
+    Z
+" />
+            </svg>
 
-            <!--indicadores-->
-            <div class="carousel-indicators">
-                <button class="indicator active" aria-label="Banner 1"></button>
-                <button class="indicator" aria-label="Banner 2"></button>
-                <button class="indicator" aria-label="Banner 3"></button>
-                <button class="indicator" aria-label="Banner 4"></button>
+            <!-- Conteúdo alinhado às outras seções -->
+            <div class="hero-container">
+
+                <div class="hero-texto">
+
+                    <span class="hero-identificacao">
+                        PROJETO MANGUE VIVO
+                    </span>
+
+                    <h1>
+                        Protegendo o Mangue e<br>
+                        preservando Fortaleza.
+                    </h1>
+
+                    <p>
+                        Educação ambiental e conservação dos manguezais.
+                        Juntos por um futuro mais sustentável!
+                    </p>
+
+                    <a href="#quem-somos" class="hero-botao">
+                        <span>Conheça o projeto</span>
+
+                        <span class="material-symbols-outlined" aria-hidden="true">
+                            arrow_forward
+                        </span>
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
@@ -65,7 +91,7 @@
     </section>
 
     <!--seção quem somos-->
-    <section class="quem-somos">
+    <section class="quem-somos" id="quem-somos">
 
         <div class="quem-somos-container">
 
@@ -222,7 +248,7 @@
                         <div class="membro">
                             <img src="assets/images/time/Maressa Marinho.png" alt="Maressa Marinho">
 
-                            <h3>Maressa Marinho</h3> 
+                            <h3>Maressa Marinho</h3>
 
                             <p>Integrante</p>
                         </div>
