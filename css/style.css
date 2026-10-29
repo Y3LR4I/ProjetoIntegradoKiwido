@@ -114,6 +114,7 @@ h2 {
 
 .menu a {
     text-decoration: none;
+    font-size: 18px;
     color: var(--cor-texto-header);
 }
 

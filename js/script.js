@@ -16,6 +16,50 @@ if (heroSlides.length > 1) {
     }, 5000);
 }
 
+/* =========================
+   TROCAR IMAGENS DA SESSÃO QUEM SOMOS
+========================= */
+
+const imagensQuemSomos = document.querySelector(".quem-somos-imagens");
+
+if (imagensQuemSomos) {
+    const imagemPrincipal = imagensQuemSomos.querySelector(
+        ".quem-somos-imagem-principal"
+    );
+
+    const imagensSecundarias = imagensQuemSomos.querySelectorAll(
+        ".quem-somos-imagens-secundarias img"
+    );
+
+    if (imagemPrincipal && imagensSecundarias.length === 2) {
+        const imagens = [
+            imagemPrincipal,
+            imagensSecundarias[0],
+            imagensSecundarias[1]
+        ];
+
+        setInterval(() => {
+            imagens.forEach(imagem => imagem.classList.add("trocando"));
+
+            setTimeout(() => {
+                const primeiraImagem = imagens[0].getAttribute("src");
+                const primeiroAlt = imagens[0].getAttribute("alt");
+
+                imagens[0].src = imagens[1].src;
+                imagens[0].alt = imagens[1].alt;
+
+                imagens[1].src = imagens[2].src;
+                imagens[1].alt = imagens[2].alt;
+
+                imagens[2].src = primeiraImagem;
+                imagens[2].alt = primeiroAlt;
+
+                imagens.forEach(imagem => imagem.classList.remove("trocando"));
+            }, 500);
+        }, 4000);
+    }
+}
+
 
 /* =========================
    CARROSSEL DO NOSSO TIME
@@ -69,55 +113,36 @@ if (timeSlides.length && timeIndicators.length && timePrevButton && timeNextButt
     });
 }
 
+/* CARROSSEL AUTOMÁTICO DAS AÇÕES EM DESTAQUE */
 
-/* =========================
-   CARROSSEL DAS AÇÕES
-========================= */
+const destaqueAcoesSlides = document.querySelectorAll(
+    ".acoes-destaque-slide"
+);
 
-const acoesSlides = document.querySelectorAll(".acoes-slide");
-const acoesIndicators = document.querySelectorAll(".acoes-indicator");
+let destaqueAcoesAtual = 0;
 
-const acoesPrevButton = document.querySelector(".acoes-carousel-button.prev");
-const acoesNextButton = document.querySelector(".acoes-carousel-button.next");
+function mostrarDestaqueAcao(index) {
+    if (!destaqueAcoesSlides.length) return;
 
-let currentAcoesSlide = 0;
-
-function showAcoesSlide(index) {
-    acoesSlides.forEach(slide => slide.classList.remove("active"));
-    acoesIndicators.forEach(indicator => indicator.classList.remove("active"));
-
-    if (!acoesSlides.length || !acoesIndicators.length) return;
-
-    acoesSlides[index].classList.add("active");
-    acoesIndicators[index].classList.add("active");
-    currentAcoesSlide = index;
-}
-
-function nextAcoesSlide() {
-    if (!acoesSlides.length || !acoesIndicators.length) return;
-
-    let next = currentAcoesSlide + 1;
-
-    if (next >= acoesSlides.length) next = 0;
-
-    showAcoesSlide(next);
-}
-
-function prevAcoesSlide() {
-    if (!acoesSlides.length || !acoesIndicators.length) return;
-
-    let previous = currentAcoesSlide - 1;
-
-    if (previous < 0) previous = acoesSlides.length - 1;
-
-    showAcoesSlide(previous);
-}
-
-if (acoesSlides.length && acoesIndicators.length && acoesPrevButton && acoesNextButton) {
-    acoesNextButton.addEventListener("click", nextAcoesSlide);
-    acoesPrevButton.addEventListener("click", prevAcoesSlide);
-
-    acoesIndicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => showAcoesSlide(index));
+    destaqueAcoesSlides.forEach(slide => {
+        slide.classList.remove("active");
     });
-}   
+
+    destaqueAcoesAtual = index;
+
+    destaqueAcoesSlides[destaqueAcoesAtual].classList.add("active");
+}
+
+if (destaqueAcoesSlides.length > 1) {
+    mostrarDestaqueAcao(0);
+
+    setInterval(() => {
+        destaqueAcoesAtual++;
+
+        if (destaqueAcoesAtual >= destaqueAcoesSlides.length) {
+            destaqueAcoesAtual = 0;
+        }
+
+        mostrarDestaqueAcao(destaqueAcoesAtual);
+    }, 5000);
+}
