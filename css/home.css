@@ -1,216 +1,685 @@
-/* seção do carrosel */
+/* =========================
+   HERO
+========================= */
 
-.carousel-container {
+.hero {
     position: relative;
     width: 100%;
     height: 700px;
     overflow: hidden;
+    isolation: isolate;
+    background-color: var(--cor-fundo);
 }
 
-.carousel-container::after {
-    content: "";
+/* Carrossel de imagens */
+
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 630px;
+}
+
+.hero-slide {
     position: absolute;
     inset: 0;
-
-    background-color: rgba(0, 0, 0, 0.35);
-
-    z-index: 1;
-    pointer-events: none;
-}
-
-.carousel-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 2;
-    color: var(--cor-texto-hero);
-
-    text-align: center;
-}
-
-.carousel-text h1 {
-    font-size: 80px;
-    margin-bottom: 15px;
-}
-
-.carousel-text p {
-    font-size: 40px;
-    max-width: 600px;
-}
-
-.slide {
-    display: none;
     width: 100%;
     height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
-.slide.active {
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-slide img {
     display: block;
-}
-
-.slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
-.carousel-button {
+/* Escurecimento sutil da imagem */
+
+.hero-overlay {
     position: absolute;
-    bottom: 30px;
+    inset: 0 0 14% 0;
+    z-index: 1;
 
-    width: 45px;
-    height: 45px;
+    background-color: rgba(0, 0, 0, 0.12);
 
+    pointer-events: none;
+}
+
+/* Camada do conteúdo */
+
+.hero-conteudo {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+/* Painel verde com curva orgânica */
+
+.hero-painel {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 62%;
+    height: 100%;
+
+    fill: var(--cor-fundo);
+
+    pointer-events: none;
+}
+
+/* Alinhamento com as demais seções */
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    height: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-texto {
+    width: 100%;
+    max-width: 570px;
+    padding-top: 0;
+    box-sizing: border-box;
+}
+
+.hero-identificacao {
+    display: block;
+    margin-bottom: 20px;
+    font-family: "Righteous";
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--cor-principal);
+}
+
+.hero-texto h1 {
+    margin: 0 0 20px;
+
+    font-family: "Righteous";
+    font-size: 46px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--cor-texto-card);
+}
+
+.hero-texto p {
+    max-width: 350px;
+
+    margin: 0 0 30px;
+
+    font-size: 18px;
+    line-height: 1.35;
+
+    color: var(--cor-texto);
+}
+
+/* Botão */
+
+.hero-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    background-color: var(--cor-secundaria);
+    color: #FFFFFF;
+
+    font-size: 16px;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.hero-botao:hover {
+    background-color: #D9572C;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.hero-botao .material-symbols-outlined {
+    font-size: 22px;
+}
+
+#quem-somos {
+    scroll-margin-top: 100px;
+}
+
+.quem-somos {
+    padding: 70px var(--margem-lateral);
+    background-color: var(--cor-fundo);
+}
+
+.quem-somos-titulo {
+    margin: 0 0 40px;
+    text-align: center;
+    color: var(--cor-secundaria);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.quem-somos-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+
+    width: 100%;
+    height: 560px;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+    padding: 40px;
+
+    background-color: var(--cor-fundo);
+    border-radius: 18px;
+    box-shadow: -8px 10px 22px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
+}
+
+.quem-somos-texto {
+    min-width: 0;
+}
+
+.forte{
+    color:var(--cor-principal);
+}
+
+.quem-somos-texto p {
+    margin: 0 0 24px;
+    color: var(--cor-texto);
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.quem-somos-texto p:last-child {
+    margin-bottom: 0;
+}
+.quem-somos-imagens {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 14px;
+    width: 100%;
+    height: 360px;
+    min-height: 360px;
+}
+
+.quem-somos-frame {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 3px solid var(--cor-secundaria);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.quem-somos-frame-principal {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.quem-somos-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     border: none;
-    border-radius: 50%;
+    border-radius: 0;
+    box-sizing: border-box;
+    transition: opacity 0.5s ease;
+}
 
-    background-color: #F15A22;
-    cursor: pointer;
+.quem-somos-frame img.trocando {
+    opacity: 0;
+}
 
+.quem-somos-imagens-secundarias {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* =========================
+   NOSSA HISTÓRIA
+========================= */
+
+.nossa-historia {
+    padding: 0px var(--margem-lateral);
+    background-color: var(--cor-fundo);
+    overflow: hidden;
+}
+
+.historia-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+}
+
+.historia-titulo {
+    margin: 0 0 12px;
+    color: var(--cor-principal);
+    text-align: center;
+    font-size: 48px;
+}
+
+.historia-subtitulo {
+    margin: 0 auto 0px;
+    max-width: 650px;
+    color: var(--cor-texto);
+    text-align: center;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* Área da linha do tempo */
+
+.historia-linha-do-tempo {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: stretch;
+    width: 100%;
+    min-height: 450px;
+}
+
+/* Barra verde reta */
+
+.historia-linha-do-tempo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background-color: var(--cor-principal);
+    border-radius: 999px;
+    transform: translateY(-50%);
+}
+
+/* Cada marco */
+
+.historia-marco {
+    position: relative;
+    min-width: 0;
+    min-height: 450px;
+}
+
+/* Bolinhas com os anos */
+
+.historia-ano {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    z-index: 2;
+    width: 66px;
+    height: 66px;
+    padding: 0;
+
+    color: var(--cor-principal);
+    background-color: var(--cor-fundo);
+    border: 8px solid var(--cor-principal);
+    border-radius: 50%;
+
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transform: translate(-50%, -50%);
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.carousel-button img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
+.historia-ano:hover,
+.historia-ano:focus-visible,
+.historia-marco:focus-within .historia-ano {
+    background-color: var(--cor-texto-card);
+    color: var(--cor-fundo);
+    transform: translate(-50%, -50%) scale(1.16);
+    box-shadow: 0 0 0 7px rgba(35, 143, 31, 0.18);
+    outline: none;
 }
 
-.carousel-button.prev {
-    left: 30px;
-}
+/* Cards */
 
-.carousel-button.next {
-    right: 30px;
-}
-
-.carousel-indicators {
+.historia-card {
     position: absolute;
-    bottom: 40px;
     left: 50%;
+    z-index: 2;
+
+    width: calc(100% - 12px);
+    max-width: 210px;
+    padding: 18px;
+
+    background-color: var(--cor-card-noticia);
+    border: 2px solid var(--cor-principal);
+    border-radius: 14px;
+    box-shadow: 0 5px 14px rgba(22, 56, 18, 0.12);
 
     transform: translateX(-50%);
-
-    display: flex;
-    gap: 10px;
-
-    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
 }
 
-.indicator {
-    width: 10px;
-    height: 10px;
-
-    border: none;
-    border-radius: 180px;
-
-    background-color: #B5B5B5;
-
-    cursor: pointer;
+/* Mostra o balão ao passar o mouse sobre o ano */
+.historia-marco:has(.historia-ano:hover) .historia-card {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
-.indicator.active {
-    width: 35px;
-    height: 10px;
-
-    background-color: #F15A22;
-
-    border-radius: 10px;
+/* Também mostra ao navegar pelo teclado */
+.historia-marco:has(.historia-ano:focus-visible) .historia-card {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
-/* seção do quem somos */
-.quem-somos {
-    padding: 70px var(--margem-lateral);
+.historia-card h3 {
+    margin: 0 0 10px;
+    color: var(--cor-secundaria);
+    font-size: 17px;
+    line-height: 1.3;
 }
 
-.quem-somos-container {
-    max-width: var(--largura-conteudo);
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;  
-    align-items: center;
-}
-
-.quem-somos-texto {
-    max-width: 550px;
-}
-
-.quem-somos-texto p {
-    font-size: 18px;
+.historia-card p {
+    margin: 0;
+    color: var(--cor-texto-card);
+    font-size: 14px;
     line-height: 1.6;
 }
 
-.quem-somos-imagem {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    left: -15px;
+/* Cards acima da barra */
+
+.historia-marco-superior .historia-card {
+    bottom: calc(50% + 42px);
 }
 
-.quem-somos-imagem img {
+/* Bico inferior do balão */
+
+.historia-marco-superior .historia-card::before,
+.historia-marco-superior .historia-card::after {
+    content: "";
     position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-     border-radius: 25px;
-
-    z-index: 2;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translateX(-50%);
 }
 
-.imagem-quadrado { /* quadrado que fica atrás da imagem */
+.historia-marco-superior .historia-card::before {
+    bottom: -14px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 14px solid var(--cor-principal);
+}
 
+.historia-marco-superior .historia-card::after {
+    bottom: -10px;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 12px solid #FFFFFF;
+}
+
+/* Cards abaixo da barra */
+
+.historia-marco-inferior .historia-card {
+    top: calc(50% + 42px);
+}
+
+/* Bico superior do balão */
+
+.historia-marco-inferior .historia-card::before,
+.historia-marco-inferior .historia-card::after {
+    content: "";
     position: absolute;
-
-    top: 15px;
-    left: 15px;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: var(--cor-principal);
-
-    z-index: 1;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translateX(-50%);
 }
 
-/* seção do nosso time */
+.historia-marco-inferior .historia-card::before {
+    top: -14px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 14px solid var(--cor-principal);
+}
+
+.historia-marco-inferior .historia-card::after {
+    top: -10px;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 12px solid #FFFFFF;
+}
+
+/* Destaque do card relacionado ao ano */
+
+.historia-marco:has(.historia-ano:hover) .historia-card,
+.historia-marco:has(.historia-ano:focus-visible) .historia-card,
+.historia-marco:has(.historia-card:hover) .historia-card {
+    box-shadow: 0 10px 24px rgba(22, 56, 18, 0.2);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+    .nossa-historia {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .historia-linha-do-tempo {
+        grid-template-columns: repeat(5, minmax(150px, 1fr));
+        min-width: 810px;
+    }
+
+    .historia-container {
+        min-width: 0;
+    }
+
+    .historia-linha-do-tempo {
+        min-height: 440px;
+    }
+
+    .historia-marco {
+        min-height: 440px;
+    }
+
+    .historia-card {
+        width: calc(100% - 16px);
+        padding: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nossa-historia {
+        padding: 50px 20px;
+    }
+
+    .historia-titulo {
+        font-size: 30px;
+    }
+
+    .historia-subtitulo {
+        margin-bottom: 35px;
+        font-size: 14px;
+    }
+
+    .historia-linha-do-tempo {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        min-height: auto;
+        gap: 0;
+        padding: 0 0 0 8px;
+    }
+
+    /* No celular, a barra fica vertical para facilitar a leitura */
+
+    .historia-linha-do-tempo::before {
+        top: 0;
+        bottom: 0;
+        left: 31px;
+        right: auto;
+        width: 8px;
+        height: auto;
+        border-radius: 999px;
+        transform: none;
+    }
+
+    .historia-marco,
+    .historia-marco-superior,
+    .historia-marco-inferior {
+        display: flex;
+        align-items: center;
+        min-height: 0;
+        padding: 15px 0;
+    }
+
+    .historia-ano {
+        position: relative;
+        top: auto;
+        left: auto;
+        flex: 0 0 62px;
+        width: 62px;
+        height: 62px;
+        font-size: 12px;
+        transform: none;
+    }
+
+    .historia-ano:hover,
+    .historia-ano:focus-visible,
+    .historia-marco:focus-within .historia-ano {
+        transform: scale(1.1);
+    }
+
+    .historia-card,
+    .historia-marco-superior .historia-card,
+    .historia-marco-inferior .historia-card {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        flex: 1;
+        width: auto;
+        max-width: none;
+        margin-left: 18px;
+        padding: 16px;
+        transform: none;
+    }
+
+    /* No celular, todos os balões apontam para a esquerda */
+
+    .historia-marco-superior .historia-card::before,
+    .historia-marco-inferior .historia-card::before {
+        top: 22px;
+        bottom: auto;
+        left: -9px;
+        transform: none;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-right: 9px solid var(--cor-secundaria);
+        border-left: 0;
+    }
+
+    .historia-marco-superior .historia-card::after,
+    .historia-marco-inferior .historia-card::after {
+        top: 23px;
+        bottom: auto;
+        left: -6px;
+        transform: none;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid #FFFFFF;
+        border-left: 0;
+    }
+}
+
+
+/* =========================
+   SEÇÃO NOSSO TIME
+========================= */
+
 .nosso-time {
-    padding: 10px var(--margem-lateral);
+    padding-bottom: 60px
 }
 
 .nosso-time-container {
+    width: 100%;
     max-width: var(--largura-conteudo);
     margin: 0 auto;
 }
 
+/* Título e subtítulo */
+
 .nosso-time-texto {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 45px;
 }
 
 .nosso-time-texto h2 {
-    margin-bottom: 5px;
+    margin: 0 0 10px;
+    color: var(--cor-principal);
+    font-size: 48px;
+    font-weight: 700;
+    
 }
 
 .nosso-time-texto p {
-    text-align: left;
+    margin: 0;
+    text-align: center;
+    color: var(--cor-texto);
     font-size: 18px;
     line-height: 1.6;
 }
+
+/* Carrossel */
 
 .time-carousel {
     position: relative;
@@ -225,10 +694,8 @@
 
 .time-slide {
     display: none;
-
     width: 100%;
-
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 30px;
 }
 
@@ -236,70 +703,68 @@
     display: grid;
 }
 
+/* Card de cada integrante */
+
 .membro {
     width: 100%;
+    min-width: 0;
     text-align: center;
 }
 
+/* Foto circular com borda secundária */
+
 .membro img {
     display: block;
-
-    width: 100%;
+    width: 250px;
+    max-width: 100%;
     aspect-ratio: 1 / 1;
-
+    margin: 0 auto 20px;
     object-fit: cover;
-
-    border-radius: 20px;
-
-    margin-bottom: 20px;
+    border: 4px solid var(--cor-secundaria);
+    border-radius: 50%;
+    box-sizing: border-box;
 }
+/* Nome */
 
 .membro h3 {
+    min-height: 0;
+    margin: 0 0 8px;
+    color: var(--cor-principal);
     font-size: 20px;
-
-    line-height: 1.2;
-
-    min-height: 30px;
-
-    margin-bottom: 0px;
-
-    color: var(--cor-secundaria);
+    line-height: 1.3;
+    font-weight: 700;
 }
+
+/* Função */
 
 .membro p {
-    font-size: 16px;
-
-    line-height: 1.4;
-
+    margin: 0;
     color: var(--cor-texto);
+    font-size: 16px;
+    line-height: 1.5;
 }
+
+/* Botões de navegação */
 
 .time-carousel-button {
     position: absolute;
-
     bottom: 0;
-
     width: 45px;
     height: 45px;
-
+    padding: 0;
     border: none;
     border-radius: 50%;
-
-    background-color: #F15A22;
-
+    background-color: var(--cor-secundaria);
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     z-index: 2;
 }
 
 .time-carousel-button img {
     width: 20px;
     height: 20px;
-
     object-fit: contain;
 }
 
@@ -311,45 +776,65 @@
     right: 0;
 }
 
+/* Indicadores */
+
 .time-carousel-indicators {
     position: absolute;
-
     bottom: 10px;
-
     left: 50%;
-
     transform: translateX(-50%);
-
     display: flex;
-
+    align-items: center;
     gap: 10px;
 }
 
 .time-indicator {
     width: 10px;
     height: 10px;
-
+    padding: 0;
     border: none;
-
     border-radius: 180px;
-
     background-color: #B5B5B5;
-
     cursor: pointer;
 }
 
 .time-indicator.active {
     width: 35px;
     height: 10px;
-
-    background-color: #F15A22;
-
+    background-color: var(--cor-secundaria);
     border-radius: 10px;
+}
+
+/* =========================
+   ONDAS SUPERIORES
+========================= */
+
+.missao-ondas-superiores {
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+    background-color: var(--cor-fundo);
+    line-height: 0;
+}
+
+.missao-ondas-superiores svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================
+   FUNDO VERDE
+========================= */
+
+.missao-acoes {
+    background-color: var(--cor-principal);
+    color: #FFFFFF;
 }
 
 /* seção nossa missão */
 .nossa-missao {
-    padding: 70px var(--margem-lateral);
+    padding: 80px var(--margem-lateral);
 }
 
 .nossa-missao-container {
@@ -394,7 +879,7 @@
     width: 100%;
     height: 100%;
 
-    background-color: var(--cor-principal);
+    background-color: var(--cor-texto-card);
 
     z-index: 1;
 }
@@ -406,179 +891,550 @@
 .nossa-missao-texto h2 {
     font-size: 40px;
     margin-bottom: 15px;
-    color: var(--cor-principal);
+    color: var(--cor-fundo);
 }
 
 .nossa-missao-texto p {
     font-size: 18px;
     line-height: 1.6;
+    color: var(--cor-fundo);
 }
 
-/* seção ações desenvolvidas */
-.acoes-desenvolvidas {
-    padding: 70px var(--margem-lateral);
+/* ========================================
+   AÇÕES EM DESTAQUE
+======================================== */
+.acoes-desenvolvidas-texto p{
+    color: var(--cor-fundo);
+    text-align: center;
 }
 
-.acoes-desenvolvidas-container {
-    max-width: var(--largura-conteudo);
+.acoes-desenvolvidas-texto h2{
+    color: var(--cor-fundo);
+    text-align: center;
+    padding-top: 80px;
+}
+
+.acoes-destaque {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    min-height: 750px;
+
+    background-color: #263D24;
+}
+
+/* Imagem de fundo em largura total */
+
+.acoes-destaque-imagem {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(10, 25, 10, 0.78) 0%,
+            rgba(10, 25, 10, 0.45) 45%,
+            rgba(10, 25, 10, 0.12) 100%
+        ),
+        url("../assets/images/home/home-trilha.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Conteúdo centralizado e respeitando as margens do site */
+.acoes-destaque-conteudo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 750px;
     margin: 0 auto;
+    padding: 0px var(--margem-lateral) 100px;
+    box-sizing: border-box;
 }
 
-.acoes-desenvolvidas-texto {
-    margin-bottom: 30px;
-}
+/* ========================================
+   CARROSSEL
+======================================== */
 
-.acoes-desenvolvidas-texto h2 {
-    margin-bottom: 5px;
-}
-
-.acoes-desenvolvidas-texto p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.acoes-carousel {
+/* Card alinhado à margem esquerda */
+.acoes-destaque-carousel {
     position: relative;
     width: 100%;
-    padding-bottom: 70px;
+    max-width: 450px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.acoes-carousel-container {
+/* Área que contém os três cards */
+
+.acoes-destaque-slides {
+    position: relative;
     width: 100%;
-    overflow: hidden;
 }
 
-.acoes-slide {
+/* Cada slide ocupa o mesmo espaço */
+
+.acoes-destaque-slide {
     display: none;
-
     width: 100%;
-
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
 }
 
-.acoes-slide.active {
-    display: grid;
+.acoes-destaque-slide.active {
+    display: block;
+    animation: acaoDestaqueEntrada 0.4s ease;
 }
 
-.acao-card {
-    min-height: 450px;
+/* Animação de entrada */
 
-    padding: 30px;
+@keyframes acaoDestaqueEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
 
-    background-color:var(--cor-fundo);
-    border: 3px solid rgba(44, 96, 42, 0.2);
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    border-radius: 20px;
+/* ========================================
+   CARD INDIVIDUAL
+======================================== */
 
+.acoes-destaque .acao-card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    width: 400px;
+    min-height: 500px;
+    padding: 35px;
+
+    background-color: var(--cor-fundo);
+
+    border: 3px solid rgba(44, 96, 42, 0.2);
+    border-radius: 20px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    position: relative;
 }
 
-.acao-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border: 3px solid var(--cor-principal);
+.acoes-destaque .acao-card:hover {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-.acao-card > img {
-    width: 100px;
-    height: 100px;
+/* Ícone do card */
+
+.acoes-destaque .acao-card > img {
+    display: block;
+
+    width: 85px;
+    height: 85px;
+    margin-bottom: 25px;
 
     object-fit: contain;
-
-    margin-bottom: 25px;
 }
 
-.acao-card h3 {
-    font-size: 45px;
-    line-height: 1.2;
+/* Título */
 
-    margin-bottom: 12px;
+.acoes-destaque .acao-card h3 {
+    margin: 0 0 15px;
 
     color: var(--cor-secundaria);
+
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.acao-card p {
-    font-size: 16px;
-    line-height: 1.5;
-    padding-top: 15px;
+/* Descrição */
+
+.acoes-destaque .acao-card p {
+    margin: 0;
+    padding-top: 10px;
 
     color: var(--cor-texto);
+
+    font-size: 22px;
+    line-height: 1.6;
 }
 
-.acoes-carousel-button {
-    position: absolute;
+/* ========================================
+   INDICADORES DO CARROSSEL
+======================================== */
 
-    bottom: 0;
+.acoes-destaque-indicadores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 
-    width: 45px;
-    height: 45px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+/* Cada indicador */
+
+.acoes-destaque-indicador {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+
+    background-color: rgba(255, 255, 255, 0.5);
 
     border: none;
     border-radius: 50%;
 
-    background-color: #F15A22;
-
     cursor: pointer;
 
-    display: flex;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Indicador ativo */
+
+.acoes-destaque-indicador.active {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.25);
+}
+
+.acoes-destaque-indicador:hover {
+    background-color: #FFFFFF;
+}
+
+.acoes-destaque-indicador:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 4px;
+}
+
+/* ========================================
+   BOTÃO VEJA MAIS
+======================================== */
+
+/* Botão alinhado à margem direita */
+.acoes-destaque-botao {
+    position: absolute;
+    right: var(--margem-lateral);
+    bottom: 150px;
+    z-index: 3;
+
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+
+    padding: 14px 24px;
+    box-sizing: border-box;
+
+    color: var(--cor-texto-card);
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-texto-card);
+    border-radius: 30px;
+
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.acoes-destaque-botao .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.acoes-destaque-botao:hover {
+    color: var(--cor-fundo);
+    background-color: var(--cor-texto-card);
+
+    transform: translateY(-3px);
+}
+
+.acoes-destaque-botao:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 4px;
+}
+
+/* ========================================
+   ONDA INFERIOR
+======================================== */
+
+.acoes-destaque-ondas {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    z-index: 2;
+
+    width: 100%;
+    height: 120px;
+
+    overflow: hidden;
+    line-height: 0;
+
+    pointer-events: none;
+}
+
+.acoes-destaque-ondas svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================
+   RESPONSIVIDADE — TABLETS
+======================================== */
+
+@media (max-width: 900px) {
+    .acoes-destaque,
+    .acoes-destaque-conteudo {
+        min-height: 570px;
+    }
+
+    .acoes-destaque-conteudo {
+        padding-top: 50px;
+        padding-bottom: 150px;
+    }
+
+    .acoes-destaque-carousel {
+        max-width: 400px;
+    }
+
+    .acoes-destaque .acao-card {
+        min-height: 360px;
+        padding: 28px;
+    }
+
+    .acoes-destaque .acao-card h3 {
+        font-size: 28px;
+    }
+
+    .acoes-destaque-botao {
+        right: var(--margem-lateral);
+        bottom: 140px;
+    }
+
+    .acoes-destaque-ondas {
+        height: 100px;
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE — CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+    .acoes-destaque,
+    .acoes-destaque-conteudo {
+        min-height: 650px;
+    }
+
+    .acoes-destaque-imagem {
+        background-position: center;
+    }
+
+    .acoes-destaque-imagem {
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(10, 25, 10, 0.72),
+                rgba(10, 25, 10, 0.48)
+            ),
+            url("../assets/images/home/img_acoes_desenvolvidas.png");
+    }
+
+    .acoes-destaque-conteudo {
+        align-items: center;
+
+        padding: 45px 24px 170px;
+    }
+
+    .acoes-destaque-carousel {
+        max-width: 100%;
+    }
+
+    .acoes-destaque .acao-card {
+        min-height: 350px;
+        padding: 25px;
+    }
+
+    .acoes-destaque .acao-card > img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
+
+    .acoes-destaque .acao-card h3 {
+        font-size: 26px;
+    }
+
+    .acoes-destaque .acao-card p {
+        font-size: 15px;
+    }
+
+    .acoes-destaque-indicadores {
+        margin-top: 22px;
+    }
+
+    .acoes-destaque-botao {
+        right: 24px;
+        bottom: 125px;
+
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+
+    .acoes-destaque-ondas {
+        height: 80px;
+    }
+}
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .acoes-destaque-slide.active {
+        animation: none;
+    }
+
+    .acoes-destaque .acao-card,
+    .acoes-destaque-indicador,
+    .acoes-destaque-botao {
+        transition: none;
+    }
+}
+
+
+
+/* =========================
+   ONDAS INFERIORES
+========================= */
+
+.acoes-destaque-ondas {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
 
     z-index: 2;
+    width: 100%;
+    height: 100px;
+
+    overflow: hidden;
+    line-height: 0;
+    pointer-events: none;
 }
 
-.acoes-carousel-button img {
-    width: 20px;
-    height: 20px;
-
-    object-fit: contain;
+.acoes-destaque-ondas svg {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
-.acoes-carousel-button.prev {
-    left: 0;
+
+
+@media (max-width: 768px) {
+    .quem-somos {
+        padding: 50px 20px;
+    }
+
+    .quem-somos-titulo {
+        margin-bottom: 28px;
+        font-size: 28px;
+    }
+
+    .quem-somos-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 24px;
+    }
+
+    .quem-somos-imagens {
+        height: 280px;
+    }
+
+    .quem-somos-texto p {
+        font-size: 15px;
+        text-align: left;
+    }
 }
 
-.acoes-carousel-button.next {
-    right: 0;
+@media (max-width: 420px) {
+    .quem-somos-imagens {
+        grid-template-columns: 1fr 0.8fr;
+        height: 220px;
+        gap: 8px;
+    }
+
+    .quem-somos-imagens-secundarias {
+        gap: 8px;
+    }
+
+    .quem-somos-imagens img {
+        border-radius: 8px;
+    }
 }
 
-.acoes-carousel-indicators {
-    position: absolute;
+@media (max-width: 768px) {
+    .hero {
+        height: 540px;
+    }
 
-    bottom: 10px;
+    .hero-carousel {
+        height: 48%;
+    }
 
-    left: 50%;
+    .hero-overlay {
+        inset: 0 0 52% 0;
+    }
 
-    transform: translateX(-50%);
+    .hero-painel {
+        width: 100%;
+        height: 100%;
+    }
 
-    display: flex;
+    .hero-container {
+        padding: 0 24px;
+    }
 
-    gap: 10px;
+    .hero-texto {
+        padding-top: 270px;
+    }
+
+    .hero-identificacao {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .hero-texto h1 {
+        font-size: 27px;
+    }
+
+    .hero-texto p {
+        font-size: 16px;
+    }
 }
-
-.acoes-indicator {
-    width: 10px;
-    height: 10px;
-
-    border: none;
-
-    border-radius: 180px;
-
-    background-color: #B5B5B5;
-
-    cursor: pointer;
-}
-
-.acoes-indicator.active {
-    width: 35px;
-    height: 10px;
-
-    background-color: #F15A22;
-
-    border-radius: 10px;
-}
-
 
 

@@ -1,55 +1,63 @@
 /* =========================
-   CARROSSEL DO BANNER
+   CARROSSEL AUTOMÁTICO DA HERO
 ========================= */
 
-const slides = document.querySelectorAll(".slide");
-const indicators = document.querySelectorAll(".indicator");
+const heroSlides = document.querySelectorAll(".hero-slide");
 
-const prevButton = document.querySelector(".carousel-button.prev");
-const nextButton = document.querySelector(".carousel-button.next");
+let currentHeroSlide = 0;
 
-let currentSlide = 0;
+if (heroSlides.length > 1) {
+    setInterval(() => {
+        heroSlides[currentHeroSlide].classList.remove("active");
 
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
-    indicators.forEach(indicator => indicator.classList.remove("active"));
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
 
-    if (!slides.length || !indicators.length) return;
-
-    slides[index].classList.add("active");
-    indicators[index].classList.add("active");
-    currentSlide = index;
+        heroSlides[currentHeroSlide].classList.add("active");
+    }, 5000);
 }
 
-function nextSlide() {
-    if (!slides.length || !indicators.length) return;
+/* =========================
+   TROCAR IMAGENS DA SESSÃO QUEM SOMOS
+========================= */
 
-    let next = currentSlide + 1;
+const imagensQuemSomos = document.querySelector(".quem-somos-imagens");
 
-    if (next >= slides.length) next = 0;
+if (imagensQuemSomos) {
+    const imagemPrincipal = imagensQuemSomos.querySelector(
+        ".quem-somos-imagem-principal"
+    );
 
-    showSlide(next);
-}
+    const imagensSecundarias = imagensQuemSomos.querySelectorAll(
+        ".quem-somos-imagens-secundarias img"
+    );
 
-function prevSlide() {
-    if (!slides.length || !indicators.length) return;
+    if (imagemPrincipal && imagensSecundarias.length === 2) {
+        const imagens = [
+            imagemPrincipal,
+            imagensSecundarias[0],
+            imagensSecundarias[1]
+        ];
 
-    let previous = currentSlide - 1;
+        setInterval(() => {
+            imagens.forEach(imagem => imagem.classList.add("trocando"));
 
-    if (previous < 0) previous = slides.length - 1;
+            setTimeout(() => {
+                const primeiraImagem = imagens[0].getAttribute("src");
+                const primeiroAlt = imagens[0].getAttribute("alt");
 
-    showSlide(previous);
-}
+                imagens[0].src = imagens[1].src;
+                imagens[0].alt = imagens[1].alt;
 
-if (slides.length && indicators.length && prevButton && nextButton) {
-    nextButton.addEventListener("click", nextSlide);
-    prevButton.addEventListener("click", prevSlide);
+                imagens[1].src = imagens[2].src;
+                imagens[1].alt = imagens[2].alt;
 
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => showSlide(index));
-    });
+                imagens[2].src = primeiraImagem;
+                imagens[2].alt = primeiroAlt;
 
-    setInterval(nextSlide, 5000);
+                imagens.forEach(imagem => imagem.classList.remove("trocando"));
+            }, 500);
+        }, 4000);
+    }
 }
 
 
@@ -105,55 +113,36 @@ if (timeSlides.length && timeIndicators.length && timePrevButton && timeNextButt
     });
 }
 
+/* CARROSSEL AUTOMÁTICO DAS AÇÕES EM DESTAQUE */
 
-/* =========================
-   CARROSSEL DAS AÇÕES
-========================= */
+const destaqueAcoesSlides = document.querySelectorAll(
+    ".acoes-destaque-slide"
+);
 
-const acoesSlides = document.querySelectorAll(".acoes-slide");
-const acoesIndicators = document.querySelectorAll(".acoes-indicator");
+let destaqueAcoesAtual = 0;
 
-const acoesPrevButton = document.querySelector(".acoes-carousel-button.prev");
-const acoesNextButton = document.querySelector(".acoes-carousel-button.next");
+function mostrarDestaqueAcao(index) {
+    if (!destaqueAcoesSlides.length) return;
 
-let currentAcoesSlide = 0;
-
-function showAcoesSlide(index) {
-    acoesSlides.forEach(slide => slide.classList.remove("active"));
-    acoesIndicators.forEach(indicator => indicator.classList.remove("active"));
-
-    if (!acoesSlides.length || !acoesIndicators.length) return;
-
-    acoesSlides[index].classList.add("active");
-    acoesIndicators[index].classList.add("active");
-    currentAcoesSlide = index;
-}
-
-function nextAcoesSlide() {
-    if (!acoesSlides.length || !acoesIndicators.length) return;
-
-    let next = currentAcoesSlide + 1;
-
-    if (next >= acoesSlides.length) next = 0;
-
-    showAcoesSlide(next);
-}
-
-function prevAcoesSlide() {
-    if (!acoesSlides.length || !acoesIndicators.length) return;
-
-    let previous = currentAcoesSlide - 1;
-
-    if (previous < 0) previous = acoesSlides.length - 1;
-
-    showAcoesSlide(previous);
-}
-
-if (acoesSlides.length && acoesIndicators.length && acoesPrevButton && acoesNextButton) {
-    acoesNextButton.addEventListener("click", nextAcoesSlide);
-    acoesPrevButton.addEventListener("click", prevAcoesSlide);
-
-    acoesIndicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => showAcoesSlide(index));
+    destaqueAcoesSlides.forEach(slide => {
+        slide.classList.remove("active");
     });
-}   
+
+    destaqueAcoesAtual = index;
+
+    destaqueAcoesSlides[destaqueAcoesAtual].classList.add("active");
+}
+
+if (destaqueAcoesSlides.length > 1) {
+    mostrarDestaqueAcao(0);
+
+    setInterval(() => {
+        destaqueAcoesAtual++;
+
+        if (destaqueAcoesAtual >= destaqueAcoesSlides.length) {
+            destaqueAcoesAtual = 0;
+        }
+
+        mostrarDestaqueAcao(destaqueAcoesAtual);
+    }, 5000);
+}
