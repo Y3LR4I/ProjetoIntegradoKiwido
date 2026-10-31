@@ -1,10 +1,10 @@
-.quiz-container>.tela {
+.quiz-container > .tela {
     width: 100%;
     box-sizing: border-box;
     min-height: 70vh;
 }
 
-.quiz-container>.tela[hidden] {
+.quiz-container > .tela[hidden] {
     display: none !important;
 }
 
@@ -96,8 +96,6 @@ body {
     background-color: white;
 }
 
-.inicio .apresentacao p {}
-
 .subtitulo {
     font-weight: bold;
 }
@@ -144,18 +142,6 @@ body {
     opacity: 0;
 }
 
-/*RESPONSIVIDADE Carrossel Inicial*/
-@media (max-width: 600px) {
-    .mascara-animal {
-        width: 180px;
-        height: 150px;
-    }
-
-    .carrossel-animais {
-        margin: 14px 0;
-    }
-}
-
 /* ---------------------------------------- */
 
 .descricao {
@@ -185,18 +171,61 @@ body {
     cursor: pointer;
     color: white;
 }
-.tela-jogo{
+
+.tela-jogo {
     background-color: rgb(219, 248, 248);
 }
 
-.silhueta-container{
+.opcao-cronometro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12px 0;
+}
+
+.opcao-cronometro label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.opcao-cronometro input {
+    width: 18px;
+    height: 18px;
+    accent-color: #2e8b57;
+    cursor: pointer;
+}
+
+.barra-progresso-container {
+    display: block;
+    width: 100%;
+    height: 14px;
+    background-color: #d9e8df;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 12px 0 20px;
+    box-sizing: border-box;
+}
+
+.barra-progresso {
+    display: block;
+    width: 20%;
+    height: 100%;
+    background-color: #2e8b57;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.silhueta-container {
     display: flex;
     width: 100%;
     justify-content: center;
-
 }
 
-.imagem-silhueta{
+.imagem-silhueta {
     width: 50%;
     transition: opacity 0.2s ease;
 }
@@ -218,25 +247,21 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.alternativa:not(:disabled):hover{
-    cursor:pointer;
-background-color: rgb(255, 194, 170);
+.alternativa:not(:disabled):hover {
+    cursor: pointer;
+    background-color: rgb(255, 194, 170);
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.correta{
-background-color: rgb(165, 228, 165);
-font-weight: bolder;
+.correta {
+    background-color: rgb(165, 228, 165);
+    font-weight: bolder;
 }
 
-.incorreta{
+.incorreta {
     background-color: rgb(250, 184, 184);
 }
-
-
-
-
 
 .descricao-animal {
     width: 100%;
@@ -256,6 +281,7 @@ font-weight: bolder;
     margin-bottom: 0;
     line-height: 1.6;
 }
+
 .botoes-imagem {
     display: flex;
     justify-content: left;
@@ -278,6 +304,7 @@ font-weight: bolder;
     background-color: rgb(45, 91, 91);
     transform: scale(1.05);
 }
+
 @keyframes aparecerDescricao {
     from {
         opacity: 0;
@@ -287,5 +314,389 @@ font-weight: bolder;
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@property --progresso-tempo {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+.cronometro-pizza {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #2e8b57 0% var(--progresso-tempo),
+        #d9e8df var(--progresso-tempo) 100%
+    );
+    transition: none;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* TELA DE RESULTADO */
+
+.tela-resultado {
+    justify-content: center;
+    gap: 12px;
+}
+
+.imagem-resultado-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    height: 230px;
+    margin: 8px auto;
+}
+
+.imagem-resultado-container img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.botoes-resultado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* BESTIÁRIO */
+
+.tela-bestiario,
+.tela-detalhes-animal {
+    width: 100%;
+    min-height: 70vh;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.quiz-container > .tela-bestiario[hidden],
+.quiz-container > .tela-detalhes-animal[hidden] {
+    display: none !important;
+}
+
+.cabecalho-bestiario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.cabecalho-bestiario-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.cabecalho-bestiario h2,
+.detalhes-animal-texto h2 {
+    margin: 8px 0 16px;
+    color: #244b38;
+    font-size: 2rem;
+}
+
+.cabecalho-bestiario p,
+.detalhes-animal-texto p {
+    line-height: 1.7;
+}
+
+.subtitulo {
+    margin-bottom: 8px;
+    color: #527b5c;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.botao-voltar-bestiario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: 1px solid #cbdaca;
+    border-radius: 12px;
+    background: #edf4e9;
+    color: #244b38;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.botao-voltar-bestiario:hover {
+    background: #d8e8d4;
+    transform: translateY(-2px);
+}
+
+.lista-animais {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.cartao-animal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #d5e2d5;
+    border-radius: 20px;
+    background: #fffdf5;
+    color: #244b38;
+    font: inherit;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.cartao-animal:hover {
+    transform: translateY(-5px);
+    border-color: #8eaf91;
+    box-shadow: 0 10px 24px rgba(36, 75, 56, 0.12);
+}
+
+.cartao-animal img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+.cartao-animal span {
+    display: block;
+    width: 100%;
+    line-height: 1.5;
+}
+
+.cartao-animal:focus-visible,
+.botao-voltar-bestiario:focus-visible {
+    outline: 3px solid #367b50;
+    outline-offset: 4px;
+}
+
+.detalhes-animal-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+    margin-top: 32px;
+}
+
+.detalhes-animal-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 350px;
+    padding: 24px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #edf4e9;
+    box-sizing: border-box;
+}
+
+.detalhes-animal-imagem img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+}
+
+.detalhes-animal-texto {
+    min-width: 0;
+}
+
+.detalhes-animal-texto h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.detalhes-animal-texto p:not(.subtitulo) {
+    color: #46584a;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* RESPONSIVIDADE — TODAS AS TELAS PEQUENAS */
+
+@media (max-width: 900px) {
+    .lista-animais {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .detalhes-animal-conteudo {
+        gap: 28px;
+    }
+
+    .detalhes-animal-imagem {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    /*opcao cronometro*/
+    .opcao-cronometro label {
+        font-size: 0.9rem;
+    }
+
+    /* Carrossel da tela inicial */
+    .inicio .mascara-animais {
+        width: 180px;
+        height: 150px;
+    }
+
+    .inicio .carrosel-animais {
+        margin: 14px 0;
+    }
+
+    .inicio .carrosel-animais .sombra {
+        width: 200px;
+        height: 170px;
+    }
+
+    /* Imagem da tela de resultado */
+    .imagem-resultado-container {
+        max-width: 220px;
+        height: 180px;
+    }
+
+    /* Botões da tela de resultado */
+    .botoes-resultado {
+        flex-direction: column;
+    }
+
+    .botoes-resultado button {
+        width: 100%;
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+
+    /* Botões gerais */
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 20px;
+        box-sizing: border-box;
+    }
+
+    /* Área do jogo */
+    .imagem-silhueta {
+        width: 80%;
+    }
+
+    .alternativa {
+        width: 100%;
+        margin: 1% 0;
+    }
+
+    .botoes-container {
+        width: 100%;
+    }
+
+    /* Cabeçalho */
+    .quiz-header {
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    /* Bestiário */
+    .tela-bestiario,
+    .tela-detalhes-animal {
+        padding: 20px;
+    }
+
+    .cabecalho-bestiario {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 24px;
+    }
+
+    .cabecalho-bestiario h2 {
+        font-size: 1.8rem;
+    }
+
+    .lista-animais {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .cartao-animal {
+        gap: 12px;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .cartao-animal img {
+        height: 110px;
+    }
+
+    .cartao-animal span {
+        font-size: 0.9rem;
+    }
+
+    .detalhes-animal-conteudo {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .detalhes-animal-imagem {
+        min-height: 220px;
+        padding: 16px;
+    }
+
+    .detalhes-animal-imagem img {
+        max-height: 300px;
+    }
+
+    .detalhes-animal-texto h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .lista-animais {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-animal img {
+        height: 150px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cartao-animal,
+    .botao-voltar-bestiario {
+        transition: none;
+    }
+
+    .cartao-animal:hover,
+    .botao-voltar-bestiario:hover {
+        transform: none;
     }
 }

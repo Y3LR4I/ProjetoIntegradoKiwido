@@ -2,6 +2,8 @@
 const telaInicio = document.getElementById("tela-inicio");
 const telaJogo = document.getElementById("tela-jogo");
 const telaResultado = document.getElementById("tela-resultado");
+const telaBestiario = document.getElementById("tela-bestiario");
+const telaDetalhesAnimal = document.getElementById("tela-detalhes-animal");
 
 // interacoes
 const btnIniciar = document.getElementById("btn-iniciar");
@@ -9,7 +11,10 @@ const btnBestiario = document.getElementById("btn-bestiario");
 const btnProximo = document.getElementById("btn-proximo");
 const btnReiniciar = document.getElementById("btn-reiniciar");
 const btnTelaInicial = document.getElementById("btn-telaInicial");
+const btnFecharBestiario = document.getElementById("btn-fechar-bestiario");
+const btnVoltarBestiario = document.getElementById("btn-voltar-bestiario");
 const containerPerguntas = document.getElementById("alternativas");
+const listaAnimais = document.getElementById("lista-animais");
 
 // interface
 const barraProgresso = document.getElementById("progresso");
@@ -18,6 +23,12 @@ const msgAjuda = document.getElementById("mensagem-ajuda");
 const descricao = document.getElementById("texto-resultado");
 const pontuacaoF = document.getElementById("pontuacao-final");
 const elementoTempo = document.getElementById("tempo");
+const opcaoCronometro = document.getElementById("usar-cronometro");
+const imagemDetalhesAnimal = document.getElementById("imagem-detalhes-animal");
+const nomeDetalhesAnimal = document.getElementById("nome-detalhes-animal");
+const descricaoDetalhesAnimal = document.getElementById("descricao-detalhes-animal");
+
+elementoTempo.classList.add("cronometro-pizza");
 
 // Estados do jogo
 const totalRounds = 5;
@@ -31,13 +42,20 @@ let intervaloCronometro = null;
 let embaralharPerguntas = [];
 let jogoFinalizado = false;
 let transicaoEmAndamento = false;
+let usarCronometro = true;
+
+let telaAnteriorBestiario = null;
 
 //sons
 const somClique = new Audio("assets/images/sons/quiz/click.mp3");
 const somselecao = new Audio("assets/images/sons/quiz/selecao.mp3");
+const somCronometro = new Audio("assets/images/sons/quiz/cronometro.mp3");
+const somTransicao = new Audio("assets/images/sons/quiz/transicao.mp3");
 
 somClique.volume = 0.4;
-somselecao.volume = 0.4;
+somselecao.volume = 0.2;
+somCronometro.volume = 0.2;
+somTransicao.volume = 0.01;
 
 const animais = [
     {
@@ -50,56 +68,56 @@ const animais = [
     {
         silhueta: "assets/images/animais/bigua.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/bigua.png",
         nome: "Biguá",
         descricao: "O biguá é uma ave aquática que mergulha para capturar peixes. É comum observá-lo em ambientes como rios, lagoas e regiões costeiras."
     },
     {
         silhueta: "assets/images/animais/figuinha-Mangue.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/figuinha-Mangue.png",
         nome: "Figuinha Do Mangue",
         descricao: "A figuinha-do-mangue é uma pequena ave associada a ambientes costeiros e vegetados. Como outras aves, participa das relações ecológicas do ambiente em que vive."
     },
     {
         silhueta: "assets/images/animais/garca-Branca-Grande.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/garca-Branca-Grande.png",
         nome: "Garça Branca Grande",
         descricao: "A garça-branca-grande se destaca pela plumagem branca, pelo pescoço comprido e pelo bico longo. Costuma procurar alimento em águas rasas."
     },
     {
         silhueta: "assets/images/animais/macarico-Asa-Branca.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/macarico-Asa-Branca.png",
         nome: "Maçarico De Asa Branca",
         descricao: "Os maçaricos são aves que frequentemente procuram pequenos invertebrados em áreas úmidas. Seus bicos e pernas ajudam na busca por alimento."
     },
     {
         silhueta: "assets/images/animais/pernilongo-Costas-Negras.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/pernilongo-Costas-Negras.png",
         nome: "Pernilongo de Costas Negras",
         descricao: "O pernilongo-de-costas-negras é uma ave de pernas compridas, adaptadas para caminhar em águas rasas enquanto procura pequenos organismos para se alimentar."
     },
     {
         silhueta: "assets/images/animais/macarico-Pintado.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/macarico-Pintado.png",
         nome: "Maçarico Pintado",
         descricao: "O maçarico-pintado é uma ave limícola que procura alimento em margens e áreas úmidas. Sua alimentação pode incluir pequenos invertebrados."
     },
     {
         silhueta: "assets/images/animais/saracura-Mangue.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/saracura-Mangue.png",
         nome: "Saracura Do Mangue",
         descricao: "A saracura-do-mangue está associada a ambientes úmidos e vegetados. Costuma se movimentar entre a vegetação, onde encontra abrigo e alimento."
     },
     {
         silhueta: "assets/images/animais/macarico-bico-torto.png",
         desenho: "assets/images/animais/nomeAnimalDesenho.png",
-        fotografia: "assets/images/animais/.png",
+        fotografia: "assets/images/animais/macarico-bico-torto.png",
         nome: "Maçarico De Bico Torto",
         descricao: "O maçarico-de-bico-torto tem como característica marcante o formato curvado do bico, que pode auxiliar na procura por alimento em substratos naturais."
     }
@@ -124,23 +142,36 @@ function selecionarSilhuetaRounds() {
 }
 
 function telaVisivelAtual() {
-    if (!telaInicio.hidden) {
+    if (telaInicio && !telaInicio.hidden) {
         return telaInicio;
     }
 
-    if (!telaJogo.hidden) {
+    if (telaJogo && !telaJogo.hidden) {
         return telaJogo;
     }
 
-    return telaResultado;
+    if (telaResultado && !telaResultado.hidden) {
+        return telaResultado;
+    }
+
+    if (telaDetalhesAnimal && !telaDetalhesAnimal.hidden) {
+        return telaDetalhesAnimal;
+    }
+
+    if (telaBestiario && !telaBestiario.hidden) {
+        return telaBestiario;
+    }
+
+    return telaInicio;
 }
 
 async function trocarTela(telaAtual, proximaTela, aoMostrar = null) {
-    if (transicaoEmAndamento) {
+    if (transicaoEmAndamento || !telaAtual || !proximaTela) {
         return;
     }
 
     transicaoEmAndamento = true;
+    tocarSomTransicao();
 
     if (telaAtual === proximaTela) {
         telaAtual.classList.add("saindo");
@@ -192,6 +223,8 @@ function comecarJogo() {
 
     pararCronometro();
 
+    usarCronometro = opcaoCronometro ? opcaoCronometro.checked : true;
+
     indiceAtual = 0;
     pontuacao = 0;
     tempoRestante = limiteTempo;
@@ -226,7 +259,7 @@ function mostrarPergunta() {
     };
 
     imagemSilhueta.src = animalCorreto.silhueta;
-    imagemSilhueta.alt = animalCorreto.descricao;
+    imagemSilhueta.alt = `Silhueta do animal do round ${indiceAtual + 1}`;
 
     const tituloPergunta = document.querySelector(".pergunta-titulo");
 
@@ -237,6 +270,7 @@ function mostrarPergunta() {
     containerPerguntas.innerHTML = "";
     btnProximo.hidden = true;
 
+    msgAjuda.hidden = false;
     msgAjuda.textContent = "Observe a silhueta e escolha a alternativa correta.";
 
     const progresso = (indiceAtual / totalRounds) * 100;
@@ -272,7 +306,13 @@ function mostrarPergunta() {
         containerPerguntas.appendChild(botao);
     });
 
-    iniciarCronometro();
+    if (usarCronometro) {
+        elementoTempo.style.display = "";
+        iniciarCronometro();
+    } else {
+        pararCronometro();
+        elementoTempo.style.display = "none";
+    }
 }
 
 function gerarAlternativas(animalCorreto) {
@@ -283,65 +323,6 @@ function gerarAlternativas(animalCorreto) {
     const animaisErrados = embaralharArray(outrosAnimais).slice(0, 3);
 
     return embaralharArray([animalCorreto, ...animaisErrados]);
-}
-
-function exibirDescricao(animal) {
-    const cartaoDescricao = document.createElement("div");
-    cartaoDescricao.classList.add("descricao-animal");
-
-    imagemSilhueta.src = animal.desenho;
-    imagemSilhueta.alt = `Desenho de ${animal.nome}`;
-
-    imagemSilhueta.onerror = () => {
-        console.error("Não foi possível carregar a imagem:", imagemSilhueta.src);
-    };
-
-    const nomeAnimal = document.createElement("h2");
-    nomeAnimal.textContent = animal.nome;
-
-    const botoesImagem = document.createElement("div");
-    botoesImagem.classList.add("botoes-imagem");
-
-    const btnFotografia = document.createElement("button");
-    btnFotografia.type = "button";
-    btnFotografia.classList.add("botao-imagem");
-    btnFotografia.textContent = "Ver animal real";
-
-   btnFotografia.addEventListener("click", () => {
-        imagemSilhueta.style.opacity = "0";
-
-        setTimeout(() => {
-            imagemSilhueta.onload = () => {
-                imagemSilhueta.style.opacity = "1";
-            };
-
-            imagemSilhueta.onerror = () => {
-                imagemSilhueta.style.opacity = "1";
-                console.error("Não foi possível carregar a fotografia:", animal.fotografia);
-            };
-
-            imagemSilhueta.src = animal.fotografia;
-            imagemSilhueta.alt = `Fotografia real de ${animal.nome}`;
-
-            btnFotografia.hidden = true;
-
-            if (imagemSilhueta.complete && imagemSilhueta.naturalWidth > 0) {
-                imagemSilhueta.style.opacity = "1";
-            }
-        }, 200);
-    });
-
-    const textoDescricao = document.createElement("p");
-    textoDescricao.textContent = animal.descricao;
-
-    botoesImagem.appendChild(btnFotografia);
-
-    cartaoDescricao.appendChild(nomeAnimal);
-    cartaoDescricao.appendChild(botoesImagem);
-    cartaoDescricao.appendChild(textoDescricao);
-
-    containerPerguntas.innerHTML = "";
-    containerPerguntas.appendChild(cartaoDescricao);
 }
 
 function verificarResposta(animalEscolhido, animalCorreto, botaoEscolhido) {
@@ -373,11 +354,7 @@ function verificarResposta(animalEscolhido, animalCorreto, botaoEscolhido) {
         msgAjuda.textContent = `Resposta incorreta! O animal era ${animalCorreto.nome}.`;
     }
 
-    setTimeout(() => {
-        exibirDescricao(animalCorreto);
-        btnProximo.hidden = false;
-        msgAjuda.hidden = true
-    }, 1000);
+    btnProximo.hidden = false;
 }
 
 function destacarRespostaCerta(animalCorreto) {
@@ -395,14 +372,20 @@ function destacarRespostaCerta(animalCorreto) {
 function iniciarCronometro() {
     pararCronometro();
 
+    if (!usarCronometro) {
+        elementoTempo.style.display = "none";
+        return;
+    }
+
+    elementoTempo.style.display = "";
     tempoRestante = limiteTempo;
 
     atualizarCronometro();
 
     intervaloCronometro = setInterval(() => {
         tempoRestante--;
-
         atualizarCronometro();
+        tocarSomCronometro();
 
         if (tempoRestante <= 0) {
             tempoRestante = 0;
@@ -417,7 +400,10 @@ function iniciarCronometro() {
 }
 
 function atualizarCronometro() {
-    elementoTempo.textContent = `Tempo: ${tempoRestante}s`;
+    const progressoTempo = (tempoRestante / limiteTempo) * 100;
+
+    elementoTempo.style.setProperty("--progresso-tempo", `${progressoTempo}%`);
+    elementoTempo.setAttribute("aria-label", `Tempo restante: ${tempoRestante} segundos`);
 }
 
 function pararCronometro() {
@@ -428,20 +414,27 @@ function pararCronometro() {
 }
 
 function tempoEsgotado() {
-    if (respondida || jogoFinalizado) {
+    if (!usarCronometro || respondida || jogoFinalizado) {
         return;
     }
 
     respondida = true;
 
     const animalCorreto = embaralharPerguntas[indiceAtual];
+    const botoes = containerPerguntas.querySelectorAll(".alternativa");
+
+    pararCronometro();
+
+    botoes.forEach((botao) => {
+        botao.disabled = true;
+
+        if (botao.textContent === animalCorreto.nome) {
+            botao.classList.add("correta");
+        }
+    });
 
     msgAjuda.textContent = `Tempo esgotado! O animal era ${animalCorreto.nome}.`;
-
-    setTimeout(() => {
-        exibirDescricao(animalCorreto);
-        btnProximo.hidden = false;
-    }, 2000);
+    btnProximo.hidden = false;
 }
 
 function proximaPergunta() {
@@ -450,14 +443,12 @@ function proximaPergunta() {
     }
 
     indiceAtual++;
-    msgAjuda.hidden = false;
-
     mostrarPergunta();
 }
 
 function finalizarJogo() {
     pararCronometro();
-
+    barraProgresso.style.width = "100%";
     jogoFinalizado = true;
 
     trocarTela(telaJogo, telaResultado, () => {
@@ -468,9 +459,98 @@ function finalizarJogo() {
             : pontuacao >= 3
                 ? "Muito bem! Você é definitivamente um entusiasta do mangue!"
                 : "Continue explorando o manguezal, tenho certeza de que você vai se sair melhor!";
-
-        barraProgresso.style.width = "100%";
     });
+}
+
+function abrirBestiario() {
+    if (transicaoEmAndamento) {
+        return;
+    }
+
+    pararCronometro();
+
+    telaAnteriorBestiario = telaVisivelAtual();
+
+    if (telaAnteriorBestiario === telaBestiario || telaAnteriorBestiario === telaDetalhesAnimal) {
+        telaAnteriorBestiario = telaInicio;
+    }
+
+    if (!listaAnimais) {
+        console.error("Não foi encontrado o elemento lista-animais no HTML.");
+        return;
+    }
+
+    listaAnimais.innerHTML = "";
+    
+    animais.forEach((animal, indice) => {
+        const botaoAnimal = document.createElement("button");
+        botaoAnimal.type = "button";
+        botaoAnimal.classList.add("cartao-animal");
+
+        const imagemAnimal = document.createElement("img");
+        imagemAnimal.src = animal.fotografia;
+        imagemAnimal.alt = animal.nome;
+
+        const nomeAnimal = document.createElement("span");
+        nomeAnimal.textContent = animal.nome;
+
+        botaoAnimal.appendChild(imagemAnimal);
+        botaoAnimal.appendChild(nomeAnimal);
+
+        botaoAnimal.addEventListener("click", () => {
+            abrirDetalhesAnimal(indice);
+        });
+
+        listaAnimais.appendChild(botaoAnimal);
+    });
+
+    const telaAtual = telaVisivelAtual();
+
+    trocarTela(telaAtual, telaBestiario);
+}
+
+function abrirDetalhesAnimal(indice) {
+    if (transicaoEmAndamento) {
+        return;
+    }
+
+    const animal = animais[indice];
+
+    if (!animal) {
+        return;
+    }
+
+    imagemDetalhesAnimal.src = animal.fotografia;
+    imagemDetalhesAnimal.alt = `Fotografia de ${animal.nome}`;
+
+    imagemDetalhesAnimal.onerror = () => {
+        imagemDetalhesAnimal.onerror = null;
+        imagemDetalhesAnimal.src = animal.silhueta;
+    };
+
+    nomeDetalhesAnimal.textContent = animal.nome;
+    descricaoDetalhesAnimal.textContent = animal.descricao;
+
+    trocarTela(telaBestiario, telaDetalhesAnimal);
+}
+
+function voltarAoBestiario() {
+    if (transicaoEmAndamento) {
+        return;
+    }
+
+    trocarTela(telaDetalhesAnimal, telaBestiario);
+}
+
+function fecharBestiario() {
+    if (transicaoEmAndamento) {
+        return;
+    }
+
+    const telaAtual = telaVisivelAtual();
+    const destino = telaAnteriorBestiario || telaInicio;
+
+    trocarTela(telaAtual, destino);
 }
 
 btnIniciar.addEventListener("click", comecarJogo);
@@ -478,6 +558,16 @@ btnIniciar.addEventListener("click", comecarJogo);
 btnReiniciar.addEventListener("click", comecarJogo);
 
 btnProximo.addEventListener("click", proximaPergunta);
+
+btnBestiario.addEventListener("click", abrirBestiario);
+
+if (btnFecharBestiario) {
+    btnFecharBestiario.addEventListener("click", fecharBestiario);
+}
+
+if (btnVoltarBestiario) {
+    btnVoltarBestiario.addEventListener("click", voltarAoBestiario);
+}
 
 btnTelaInicial.addEventListener("click", () => {
     if (transicaoEmAndamento) {
@@ -500,10 +590,20 @@ btnTelaInicial.addEventListener("click", () => {
 
 function tocarSomClique() {
     somClique.currentTime = 0;
-    somClique.play().catch(() => {});
+    somClique.play().catch(() => { });
 }
 
 function tocarSomSelecao() {
     somselecao.currentTime = 0;
-    somselecao.play().catch(() => {});
+    somselecao.play().catch(() => { });
+}
+
+function tocarSomCronometro() {
+    somCronometro.currentTime = 0;
+    somCronometro.play().catch(() => { });
+}
+
+function tocarSomTransicao() {
+    somTransicao.currentTime = 0;
+    somTransicao.play().catch(() => { });
 }

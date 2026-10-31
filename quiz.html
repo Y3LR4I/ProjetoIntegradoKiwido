@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz dos Animais do Mangue | Mangue Vivo</title>]
+    <title>Quiz dos Animais do Mangue | Mangue Vivo</title>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="stylesheet" href="css/quiz.css">
     <link rel="stylesheet" href="css/style.css">
@@ -13,8 +13,10 @@
 </head>
 
 <body>
-    <header class="header">
+     <header class="header">
+
         <div class="header-container">
+
             <a href="index.html" class="logo">
                 <img src="assets/images/logo.png" alt="Nome do projeto">
             </a>
@@ -25,9 +27,11 @@
                 <a href="pages/conteudos.html">Conteúdos</a>
                 <a href="pages/contato.html">Contato</a>
             </nav>
-        </div>
-    </header>
 
+        </div>
+
+    </header>
+    
     <main class="quiz-container">
         <header class="quiz-header">
             <a class="quizLogo" href="index.html" aria-label="Mangue Vivo">
@@ -54,7 +58,15 @@
                 <p class="descricao">
                     Observe a silhueta, descubra qual animal ela representa
                     e teste seus conhecimentos sobre a vida no manguezal.
+                    Você terá 10 segundos para adivinhar o animal, boa sorte!!!
                 </p>
+            </div>
+
+            <div class="opcao-cronometro">
+                <label for="usar-cronometro">
+                    <input type="checkbox" id="usar-cronometro" checked>
+                    Jogar com cronômetro de 10 segundos
+                </label>
             </div>
 
             <div class="botoes-container">
@@ -76,17 +88,15 @@
         </section>
 
         <section id="tela-jogo" class="tela tela-jogo" hidden>
-            <div class="barra-progresso">
-                <div id="progresso" class="progresso"></div>
+            <div class="barra-progresso-container">
+                <div id="progresso" class="barra-progresso"></div>
             </div>
 
             <h1 class="pergunta-titulo">
                 Qual animal está representado nesta silhueta?
             </h1>
 
-            <p id="tempo" class="cronometro" aria-live="polite">
-                Tempo: 10s
-            </p>
+            <div id="tempo" class="cronometro" aria-live="polite"></div>
 
             <div class="silhueta-container">
                 <img id="imagem-silhueta" class="imagem-silhueta" src="" alt="Silhueta do animal para adivinhar">
@@ -106,19 +116,59 @@
         <section id="tela-resultado" class="tela resultado" hidden>
             <p class="subtitulo">DESAFIO CONCLUÍDO</p>
 
-            <h1>Mandou bem!</h1>
+            <h1 id="titulo-resultado">Mandou bem!</h1>
+
+            <div class="imagem-resultado-container">
+                <img id="imagem-resultado" src="assets/images/animais/bigua.png"
+                    alt="Animal representando o resultado do desafio">
+            </div>
 
             <p id="texto-resultado" class="descricao"></p>
 
             <p id="pontuacao-final" class="pontuacao-final"></p>
 
-            <button id="btn-reiniciar" class="btn btn-principal" type="button">
-                Jogar novamente
+            <div class="botoes-resultado">
+                <button id="btn-reiniciar" class="btn btn-principal" type="button">
+                    Jogar novamente
+                </button>
+
+                <button id="btn-telaInicial" type="button"> Retornar à tela inicial </button>
+            </div>
+        </section>
+        <section id="tela-bestiario" class="tela tela-bestiario" hidden>
+            <header class="cabecalho-bestiario">
+                <div class="cabecalho-bestiario-texto">
+                    <p class="subtitulo">EXPLORE A VIDA NO MANGUE</p>
+                    <h2>Bestiário do Mangue</h2>
+                    <p>Conheça as aves que fazem parte desse ecossistema.</p>
+                </div>
+
+                <button id="btn-fechar-bestiario" class="botao-voltar-bestiario" type="button">
+                    Voltar ao início
+                </button>
+            </header>
+
+            <div id="lista-animais" class="lista-animais" aria-label="Lista de animais do mangue"></div>
+        </section>
+
+        <section id="tela-detalhes-animal" class="tela tela-detalhes-animal" hidden>
+            <button id="btn-voltar-bestiario" class="botao-voltar-bestiario" type="button">
+                 Voltar ao bestiário
             </button>
 
-            <button id="btn-telaInicial" type="button">
-                Retornar à tela inicial
-            </button>
+            <div class="detalhes-animal-conteudo">
+                <div class="detalhes-animal-imagem">
+                    <img id="imagem-detalhes-animal" src="" alt="">
+                </div>
+
+                <div class="detalhes-animal-texto">
+                    <p class="subtitulo">CONHEÇA A ESPÉCIE</p>
+
+                    <h2 id="nome-detalhes-animal"></h2>
+
+                    <p id="descricao-detalhes-animal"></p>
+                </div>
+            </div>
         </section>
     </main>
 </body>
