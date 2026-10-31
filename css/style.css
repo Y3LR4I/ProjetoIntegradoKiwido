@@ -124,6 +124,90 @@ h2 {
     font-weight: bold;
 }
 
+/* Item que contém submenu */
+.menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Área invisível para manter a conexão do hover */
+.menu-item::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 12px;
+}
+
+/* Balão do submenu */
+.submenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 220px;
+    padding: 12px;
+
+    background-color: #F9FFF9;
+    border-radius: 14px;
+    border-top: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Pontinha do balão */
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #F9FFF9;
+
+    z-index: 1;
+}
+
+/* Links do submenu */
+.submenu a {
+    display: block;
+    padding: 10px 12px;
+
+    color: var(--cor-principal);
+    font-size: 16px;
+    text-decoration: none;
+
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.submenu a:hover {
+    background-color: #E8F2E4;
+}
+
+/* Mostrar ao passar o mouse ou navegar pelo teclado */
+.menu-item:hover .submenu,
+.menu-item:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
 /* =========================
    FOOTER
 ========================= */

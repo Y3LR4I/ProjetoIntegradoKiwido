@@ -7,6 +7,8 @@
     <title>Projeto Mangue Vivo</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
@@ -242,12 +244,6 @@
 
             <div class="time-carousel">
 
-                <!-- botão esquerdo -->
-                <button class="time-carousel-button prev" aria-label="Membro anterior">
-                    <img src="assets/icones/seta-esquerda.png" alt="">
-                </button>
-
-
                 <!-- cards dos membros -->
                 <div class="time-carousel-container">
 
@@ -363,21 +359,22 @@
 
                 </div>
 
+                <!-- Controles do carrossel -->
+                <div class="time-carousel-controls">
 
-                <!-- botão direito -->
-                <button class="time-carousel-button next" aria-label="Próximo membro">
-                    <img src="assets/icones/seta-direita.png" alt="">
-                </button>
+                    <button class="time-carousel-button prev" type="button" aria-label="Equipe anterior">
+                        <span class="material-symbols-rounded">chevron_left</span>
+                    </button>
 
+                    <div class="time-carousel-indicators">
+                        <button class="time-indicator active" type="button" aria-label="Equipe 1"></button>
+                        <button class="time-indicator" type="button" aria-label="Equipe 2"></button>
+                        <button class="time-indicator" type="button" aria-label="Equipe 3"></button>
+                    </div>
 
-                <!-- indicadores -->
-                <div class="time-carousel-indicators">
-
-                    <button class="time-indicator active" aria-label="Equipe 1"></button>
-
-                    <button class="time-indicator" aria-label="Equipe 2"></button>
-
-                    <button class="time-indicator" aria-label="Equipe 3"></button>
+                    <button class="time-carousel-button next" type="button" aria-label="Próxima equipe">
+                        <span class="material-symbols-rounded">chevron_right</span>
+                    </button>
 
                 </div>
 
@@ -440,7 +437,7 @@
             </div>
         </section>
 
-        
+
 
     </section>
 
@@ -526,7 +523,87 @@
                    C180,20 360,105 540,65
                    C720,20 900,0 1080,65
                    C1260,115 1350,45 1440,55
-                   L1440,120 L0,120 Z" fill="#F1FFE9" />
+                   L1440,120 L0,120 Z" fill="var(--cor-fundo)" />
+            </svg>
+        </div>
+
+
+    </section>
+
+    <!-- SEÇÃO CONTEÚDOS -->
+    <section class="conteudos-home">
+
+        <div class="conteudos-home-container">
+
+            <div class="conteudos-home-texto">
+                <h2>Conteúdos</h2>
+
+                <p>
+                    Acesse as notícias do nosso jornal redigido pelos nosso integrantes!
+                </p>
+            </div>
+
+            <div class="conteudos-home-cards">
+
+                <!-- CARD 1 -->
+                <a href="pages/conteudos.html" class="conteudos-home-card">
+                    <img src="assets/icones/icone_jornal.png" alt="" aria-hidden="true">
+
+                    <h3>Nosso Jornal</h3>
+
+                    <p>
+                        Confira os últimos eventos do Mangue Vivo e se inscreva nos próximos.
+                    </p>
+
+                    <span class="material-symbols-rounded conteudos-home-seta" aria-hidden="true">
+                        arrow_forward
+                    </span>
+                </a>
+
+                <!-- CARD 2 -->
+                <a href="pages/noticias.html" class="conteudos-home-card">
+                    <img src="assets/icones/icone_eventos.png" alt="" aria-hidden="true">
+
+
+                    <h3>Eventos</h3>
+
+                    <p>
+                        Acesse os materiais educativos do Mangue Vivo e aprenda sobre a flora e a fauna.
+                    </p>
+
+                    <span class="material-symbols-rounded conteudos-home-seta" aria-hidden="true">
+                        arrow_forward
+                    </span>
+                </a>
+
+                <!-- CARD 3 -->
+                <a href="pages/galeria.html" class="conteudos-home-card">
+                    <img src="assets/icones/icone_galeria.png" alt="" aria-hidden="true">
+
+                    <h3>Materiais educativos</h3>
+
+                    <p>
+                        Veja registros das atividades, eventos e ações
+                        desenvolvidas pela equipe do projeto.
+                    </p>
+
+                    <span href="/projeto-mangue-vivo/pages/conteudos.html" class="material-symbols-rounded conteudos-home-seta" aria-hidden="true">
+                        arrow_forward
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- ONDAS INFERIORES: SOBEM SOBRE A IMAGEM -->
+        <div class="acoes-destaque-ondas" aria-hidden="true">
+            <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0,80
+                   C180,20 360,105 540,65
+                   C720,20 900,0 1080,65
+                   C1260,115 1350,45 1440,55
+                   L1440,120 L0,120 Z" fill="var(--cor-texto-card)" />
             </svg>
         </div>
 
