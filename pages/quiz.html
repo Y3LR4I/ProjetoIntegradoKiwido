@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz dos Animais do Mangue | Mangue Vivo</title>
+
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz.css">
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main class="quiz-container">
+
+        <section id="tela-inicio" class="tela inicio">
+            <div class="apresentacao">
+                <div class="apresentacao-texto">
+
+                    <p class="subtitulo">VOCÊ CONHECE O MANGUE?</p>
+
+                    <h1>Quiz do Mangue!</h1>
+
+                    <p class="instrucoes">
+                        Observe o animal e teste seus conhecimentos sobre a vida no manguezal.
+                        Com o cronômetro ligado, você terá 10 segundos para adivinhá-lo.
+                        Boa sorte!
+                    </p>
+
+                    <div class="botoes-container">
+                        <button id="btn-iniciar" class="btn btn-principal">Jogar</button>
+                        <button id="btn-bestiario" class="btn btn-secundario">Bestiário</button>
+                    </div>
+
+                    <div class="opcao-cronometro">
+                        <label>
+                            <input type="checkbox" id="ativar-cronometro">
+                            Ativar cronômetro
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="carrosel-animais">
+
+                    <div class="mascara-animais">
+                        <div class="fundo-carrossel">
+                            <img src="../assets/images/quiz/textura-mangue.png" alt="">
+                        </div>
+                    </div>
+
+                    <img id="imagem-animal" src="../assets/images/quiz/animais/biguateste.png" alt="Biguá">
+
+                    <div class="sombra"></div>
+
+                </div>
+            </div>
+
+            <div class="container-cards">
+                <div class="cartao-informativo">
+                    <div class="cartao-cabecalho">
+                        <div class="cartao-icone">
+                            <img src="../assets/icones/icone_vaso.svg" alt="rodadas">
+                        </div>
+                        <h2>5 rodadas</h2>
+                    </div>
+                    <p>Descubra 5 animais do manguezal, um por rodada!</p>
+                </div>
+
+                <div class="cartao-informativo">
+                    <div class="cartao-cabecalho">
+                        <div class="cartao-icone">
+                            <img src="../assets/icones/icone_alternativas.svg" alt="Alternativas">
+                        </div>
+                        <h2>4 alternativas</h2>
+                    </div>
+                    <p>Descubra 5 animais do manguezal, um por rodada!</p>
+                </div>
+
+                <div class="cartao-informativo">
+                    <div class="cartao-cabecalho">
+                        <div class="cartao-icone">
+                            <img src="../assets/icones/icone_insignia.svg" alt="Insígnia">
+                        </div>
+                        <h2>Colete insígnias!</h2>
+                    </div>
+                    <p>Não desista e tente novamente! Conquiste todas as insígnias especiais do Quiz.</p>
+                </div>
+            </div>
+
+            <div class="quiz-mangue-ondas" aria-hidden="true">
+                <svg viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path d="M0,100
+                        C180,45 360,145 540,95
+                        C720,45 900,40 1080,95
+                        C1260,155 1350,75 1440,85
+                        L1440,180 L0,180 Z" fill="var(--cor-fundo)" />
+                </svg>
+            </div>
+        </section>
+
+        <section id="tela-jogo" class="tela tela-jogo" hidden>
+
+            <div class="area-jogo">
+                <div class="quadro-jogo">
+
+                    <div class="cabecalho-pergunta">
+                        <h1 class="pergunta-titulo">Que bicho do Mangue é esse?</h1>
+                        <span id="round-atual" class="round-atual">Round 01</span>
+                    </div>
+
+                    <div id="tempo" class="cronometro" aria-live="polite"></div>
+
+                    <div class="silhueta-container">
+                        <img id="imagem-silhueta" class="imagem-silhueta" src=""
+                            alt="Silhueta do animal para adivinhar">
+                    </div>
+
+                    <p class="credito-imagem">Crédito da imagem: nome do fotógrafo</p>
+
+                    <div id="alternativas" class="container-alternativas"></div>
+
+                    <button id="btn-proximo" class="btn btn-principal" type="button" hidden>
+                        Próximo animal
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="textura-inferior" aria-hidden="true">
+                <img src="../assets/images/quiz/textura-mangue.png" alt="">
+            </div>
+
+        </section>
+
+        <section id="tela-resultado" class="tela resultado" hidden>
+
+            <div class="quadro-resultado">
+
+                <div class="cabecalho-resultado">
+                    <span class="titulo-resultado">Desafio concluído!</span>
+                    <span class="pontuacao-etiqueta" id="etiqueta-pontuacao">3/5</span>
+                </div>
+
+                <div class="medalha-resultado">
+                    <img src="../assets/icones/icone_insignia.svg" alt="Uma conquista pelos seus feitos!!!">
+                </div>
+
+                <p class="insignia-resultado">
+                    Você conseguiu a insígnia:
+                    <strong id="nome-insignia">"Explorador"</strong>
+                </p>
+
+                <h2 id="texto-resultado">Você acertou 3 de 5 animais!</h2>
+
+                <p id="pontuacao-final">
+                    Continue explorando o Manguezal, tenho certeza de que você vai se sair ainda melhor!
+                </p>
+
+                <div class="botoes-resultado">
+                    <button type="button" id="btn-reiniciar" class="btn-resultado btn-reiniciar">
+                        Jogar novamente
+                    </button>
+
+                    <button type="button" id="btn-telaInicial" class="btn-resultado btn-inicio">
+                        Tela inicial
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="tela-bestiario" class="tela tela-bestiario" hidden>
+            <header class="cabecalho-bestiario">
+                <div class="cabecalho-bestiario-texto">
+                    <p class="subtitulo">EXPLORE A VIDA NO MANGUE</p>
+                    <h2>Bestiário do Mangue</h2>
+                    <p>Conheça as aves que fazem parte desse ecossistema.</p>
+                </div>
+
+                <button id="btn-fechar-bestiario" class="botao-voltar-bestiario" type="button">
+                    Voltar ao início
+                </button>
+            </header>
+
+            <div id="lista-animais" class="lista-animais" aria-label="Lista de animais do mangue"></div>
+        </section>
+
+        <section id="tela-detalhes-animal" class="tela tela-detalhes-animal" hidden>
+            <button id="btn-voltar-bestiario" class="botao-voltar-bestiario" type="button">
+                Voltar ao bestiário
+            </button>
+
+            <div class="detalhes-animal-conteudo">
+                <div class="detalhes-animal-imagem">
+                    <img id="imagem-detalhes-animal" src="" alt="">
+                </div>
+
+                <div class="detalhes-animal-texto">
+                    <p class="subtitulo">CONHEÇA A ESPÉCIE</p>
+
+                    <h2 id="nome-detalhes-animal"></h2>
+
+                    <p id="descricao-detalhes-animal"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/components.js" defer></script>
+    <script src="../js/quiz/quiz.js" defer></script>
+    <!-- <script src="../js/quiz/carrossel.js" defer></script>   PAUSADO -->
+</body>
+
+</html>

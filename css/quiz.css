@@ -1,0 +1,1272 @@
+/* Define as características gerais de todas as telas do quiz */
+
+.quiz-container>.tela {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+/* Esconde as telas que possuem o atributo hidden. */
+
+.quiz-container>.tela[hidden] {
+    display: none !important;
+}
+
+/* Aplica a animação de saída */
+
+.quiz-container>.tela.saindo {
+    animation: desaparecerTela 0.4s ease forwards;
+}
+
+/* Aplica a animação de entrada */
+
+.quiz-container>.tela.entrando {
+    animation: aparecerTela 0.4s ease forwards;
+}
+
+/* Cria a animação de ocultar a tela */
+
+@keyframes desaparecerTela {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Cria a animação de mostrar a tela */
+
+@keyframes aparecerTela {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+O keyFrame cria 2 pontos, um inicial e um final, e realiza uma combinacao entre eles
+*/
+
+/* Por questao de acessibildade respeita a opcao de reducao de movimento do navegador */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .quiz-container>.tela.saindo,
+    .quiz-container>.tela.entrando {
+        animation-duration: 0.01ms;
+    }
+}
+
+button {
+    font: inherit;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header-container,
+#footer-container {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* O container que comportara as interacoes */
+
+.quiz-container {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: relative;
+}
+
+/* TELA INICIAL */
+
+#tela-inicio {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 90vh;
+    padding: 30px 7% 55px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #3f7025;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* ONDULACAO NA PARTE INFERIOR DA TELA INICIAL */
+
+.quiz-mangue-ondas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.quiz-mangue-ondas svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Organiza a apresentação inicial em duas colunas. */
+
+.inicio .apresentacao {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 35px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.apresentacao-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 550px;
+}
+
+.inicio .apresentacao .subtitulo {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.inicio .apresentacao .subtitulo,
+.apresentacao-texto h1 {
+    font-family: 'Righteous', sans-serif;
+}
+.apresentacao-texto h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 3.5rem;
+    line-height: 1.15;
+}
+
+.inicio .apresentacao .instrucoes {
+    max-width: 500px;
+    margin: 25px 0 0;
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+/*
+CARROSSEL
+*/
+
+/* Organiza a tela de carrossel inicial */
+.carrosel-animais {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    overflow: visible;
+}
+
+.mascara-animais {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    border: 10px solid #f07842;
+
+}
+
+#fundo-carrossel {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(0.85);
+}
+
+#imagem-animal {
+    /*Precisa que seja normalizado o tamanho das imagens com fundo transparentes*/
+    position: absolute;
+    width: 150%;
+    height: auto;
+    object-fit: contain;
+    bottom: -10%;
+    right: -30%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.sombra {
+    position: absolute;
+    z-index: 2;
+}
+
+/* ---------------------------------------- */
+
+/* Organiza o grupo de botões da tela inicial. */
+
+.botoes-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 14px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn {
+    font: inherit;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    font-weight: 700;
+    padding: 10px 25px;
+    margin: 0;
+    transition: all .3s ease;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.inicio .btn-principal {
+    background-color: transparent;
+    color: #f07842;
+    border: 2px solid #f07842;
+}
+
+.inicio .btn-secundario {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.inicio .btn-principal:hover {
+    background-color: #f07842;
+    color: #ffffff;
+}
+
+.inicio .btn-secundario:hover {
+    background-color: #ffffff;
+    color: #244b20;
+}
+
+/* Cartões informativos da tela inicial */
+
+.container-cards {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 50px;
+    width: 100%;
+    margin: 20px auto 0;
+}
+
+.cartao-informativo {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    min-height: 90px;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-color: #f4f8f0;
+    color: #193c19;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    transition: all  0.4s ease;
+}
+
+.cartao-informativo:hover{
+    cursor:default;
+    transform: translateY(-5px);
+}
+
+.cartao-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.cartao-cabecalho h2 {
+    margin: 0;
+    font-size: 14px;
+    color: #193c19;
+}
+.cartao-icone {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f07842;
+    color: #ffffff;
+}
+
+.cartao-icone img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+.cartao-informativo p {
+    margin: 2px 0 0 37px;
+    font-size: 9px;
+    line-height: 1.3;
+    color: #294329;
+}
+/* Opção de ativar ou desativar o cronômetro */
+
+.opcao-cronometro {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0 0;
+}
+
+.opcao-cronometro label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Estiliza a caixa do cronômetro. */
+
+.opcao-cronometro input {
+    width: 18px;
+    height: 18px;
+    accent-color: #f07842;
+    cursor: pointer;
+}
+
+/* JOGO */
+
+.quiz-container>.tela-jogo {
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 35px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #e9eee4;
+}
+
+.area-jogo {
+    margin: 50px 0 100px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 70%;
+    min-height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadro-jogo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 50%;
+    max-width: 650px;
+    min-height: 0;
+    padding: 60px 32px 24px;
+    box-sizing: border-box;
+    background-color: #f4f8f0;
+    border: 3px solid #244b20;
+    border-radius: 18px;
+    box-shadow: 5px 6px 8px rgba(0, 0, 0, 0.2);
+}
+/* header informativos do jogo */
+
+.cabecalho-pergunta {
+    position: absolute;
+    top: -18px;
+    left: -50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    z-index: 5;
+}
+
+.pergunta-titulo {
+    width: auto;
+    margin: 0;
+    padding: 10px 18px;
+    border: 2px solid #244b20;
+    border-radius: 20px;
+    background-color: #f4f8f0;
+    color: #244b20;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    text-align: left;
+}
+.round-atual {
+    display: inline-block;
+    margin-left: 0;
+    padding: 20px 20px;
+    border-radius: 20px;
+    background-color: #f07842;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Posiciona o cronômetro no canto superior direito */
+
+#tempo {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    z-index: 3;
+}
+
+/* Centraliza a silhueta dentro da area do jogo */
+
+.silhueta-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: -12px;
+}
+
+/* Define o tamanho e a transição da imagem da silhueta */
+
+.imagem-silhueta {
+    border: 3px solid #385318;
+    display: block;
+    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+/* Crédito da imagem */
+
+.credito-imagem {
+    align-self: flex-start;
+    width: 100%;
+    margin: -5px 0 15px;
+    color: #62735d;
+    font-size: 0.7rem;
+    text-align: left;
+}
+
+/* Texto de ajuda */
+
+.mensagem-ajuda {
+    width: 100%;
+    margin: 40px 0 0 0;
+    color: #244b20;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* Organiza o espaço onde as alternativas serão inseridas */
+
+.container-alternativas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+}
+
+/* Design dos botoes de alternativa */
+
+.alternativa {
+    background-color: aliceblue;
+    border-style: none;
+    border-radius: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    margin: 0;
+    color: #244b20;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito quando as alternativas ainda estiverem habilitadas */
+
+.alternativa:not(:disabled):hover {
+    cursor: pointer;
+    background-color: rgb(255, 194, 170);
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Indica visualmente a alternativa correta. */
+
+.correta {
+    background-color: rgb(165, 228, 165);
+    font-weight: bolder;
+}
+
+/* Indica visualmente a alternativa incorreta. */
+
+.incorreta {
+    background-color: rgb(250, 184, 184);
+}
+
+
+/* Registra uma propriedade CSS personalizada para controlar o progresso do cronômetro. */
+
+@property --progresso-tempo {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+/* Cria a aparência do cronometro pizza */
+
+.cronometro-pizza {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: conic-gradient(#f07842 0% var(--progresso-tempo),
+            #d9e8df var(--progresso-tempo) 100%);
+    transition: none;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Textura inferior da tela do jogo */
+
+
+.textura-inferior {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.textura-inferior img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+/* TELA DE RESULTADO */
+
+/* Organiza os elementos da tela de resultado. */
+.quiz-container>.resultado {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    min-height: 650px;
+    padding: 45px 20px 60px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f8f0;
+    color: #193c19;
+    overflow: hidden;
+}
+
+/* Cartão principal */
+
+.quadro-resultado {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 650px);
+    min-height: 480px;
+    padding: 55px 40px 35px;
+    box-sizing: border-box;
+    border: 3px solid #244b20;
+    border-radius: 12px;
+    background-color: #f4f8f0;
+    box-shadow: 5px 6px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* header de informacoes do resultado */
+
+.cabecalho-resultado {
+    position: absolute;
+    top: -18px;
+    left: -50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    z-index: 2;
+}
+
+.titulo-resultado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    min-height: 27px;
+    padding: 4px 15px;
+    box-sizing: border-box;
+    border: 2px solid #244b20;
+    border-radius: 12px;
+    background-color: #f4f8f0;
+    color: #193c19;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.pontuacao-etiqueta {
+    display: inline-block;
+    margin-left: 0;
+    padding: 20px 50px;
+    border-radius: 20px;
+    background-color: #f07842;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Medalha com troféu */
+
+.medalha-resultado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background-color: #f07842;
+    color: #ffffff;
+}
+
+.medalha-resultado svg {
+    width: 105px;
+    height: 105px;
+}
+
+/* Insígnia conquistada */
+
+.insignia-resultado {
+    margin: 0 0 20px;
+    color: #193c19;
+    font-size: 0.9rem;
+}
+
+.insignia-resultado strong {
+    color: #f07842;
+}
+
+/* Pontuação */
+
+#texto-resultado {
+    width: 100%;
+    margin: 0 0 12px;
+    color: #193c19;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+}
+
+/* Mensagem de desempenho */
+
+#pontuacao-final {
+    width: 100%;
+    max-width: 470px;
+    margin: 0;
+    color: #193c19;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Botões */
+
+.botoes-resultado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.btn-resultado {
+    min-width: 125px;
+    padding: 10px 15px;
+    border: 2px solid;
+    border-radius: 11px;
+    background-color: transparent;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-reiniciar {
+    border-color: #f07842;
+    color: #f07842;
+}
+
+.btn-inicio {
+    border-color: #3f7025;
+    color: #244b20;
+}
+
+.btn-reiniciar:hover {
+    background-color: #f07842;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-inicio:hover {
+    background-color: #3f7025;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-resultado:focus-visible {
+    outline: 3px solid #244b20;
+    outline-offset: 4px;
+}
+
+/* BESTIÁRIO */
+
+.tela-bestiario,
+.tela-detalhes-animal {
+    width: 100%;
+    min-height: 70vh;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.cabecalho-bestiario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.cabecalho-bestiario-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.cabecalho-bestiario h2,
+.detalhes-animal-texto h2 {
+    margin: 8px 0 16px;
+    color: #244b38;
+    font-size: 2rem;
+}
+
+.cabecalho-bestiario p,
+.detalhes-animal-texto p {
+    line-height: 1.7;
+}
+
+.subtitulo {
+    margin-bottom: 8px;
+    color: #527b5c;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+/* Botao que vai retornar das paginas para o bestiario */
+
+.botao-voltar-bestiario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: 1px solid #cbdaca;
+    border-radius: 12px;
+    background: #edf4e9;
+    color: #244b38;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.botao-voltar-bestiario:hover {
+    background: #d8e8d4;
+    transform: translateY(-2px);
+}
+
+/* CARTAO DOS ANIMAIS */
+
+.lista-animais {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.cartao-animal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #d5e2d5;
+    border-radius: 20px;
+    background: #fffdf5;
+    color: #244b38;
+    font: inherit;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cartao-animal:hover {
+    transform: translateY(-5px);
+    border-color: #8eaf91;
+    box-shadow: 0 10px 24px rgba(36, 75, 56, 0.12);
+}
+
+.cartao-animal img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+/* Aparência do nome do animal nos cartões */
+
+.cartao-animal span {
+    display: block;
+    width: 100%;
+    line-height: 1.5;
+}
+
+/* Cor do foco pelo teclado [Tab] */
+
+.cartao-animal:focus-visible,
+.botao-voltar-bestiario:focus-visible {
+    outline: 3px solid #367b50;
+    outline-offset: 4px;
+}
+
+/* Tela de detalhes do animal */
+
+.detalhes-animal-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+    margin-top: 32px;
+}
+
+.detalhes-animal-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 350px;
+    padding: 24px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #edf4e9;
+    box-sizing: border-box;
+}
+
+.detalhes-animal-imagem img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+}
+
+.detalhes-animal-texto {
+    min-width: 0;
+}
+
+.detalhes-animal-texto h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+/* Estiliza os parágrafos da tela de detalhes, exceto os subtítulos. */
+
+.detalhes-animal-texto p:not(.subtitulo) {
+    color: #46584a;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/*
+RESPONSIVIDADE DAS TELAS PEQUENAS
+*/
+
+/* Aplica ajustes quando a largura da tela é de até 900px. */
+
+@media (max-width: 900px) {
+    .inicio .apresentacao {
+        gap: 25px;
+    }
+
+    .inicio .mascara-animais {
+        width: 280px;
+    }
+
+    .inicio .carrosel-animais .sombra {
+        width: 300px;
+    }
+
+    .cartao-informativo {
+        flex-basis: 160px;
+        padding: 12px;
+    }
+
+    .lista-animais {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .detalhes-animal-conteudo {
+        gap: 28px;
+    }
+
+    .detalhes-animal-imagem {
+        min-height: 280px;
+    }
+
+    .quadro-jogo {
+        width: 94%;
+        padding: 75px 25px 25px;
+    }
+
+    .imagem-silhueta {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* Aplica ajustes para telas com largura de até 600px, como celulares. */
+
+@media (max-width: 600px) {
+    #tela-inicio {
+        min-height: auto;
+        padding: 35px 24px 55px;
+    }
+
+    #tela-inicio::after {
+        display: none;
+    }
+
+    .inicio .apresentacao {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .apresentacao-texto {
+        width: 100%;
+    }
+
+    .inicio .apresentacao .subtitulo {
+        font-size: 0.8rem;
+    }
+
+    .apresentacao-texto h1 {
+        font-size: 2rem;
+    }
+
+    .inicio .apresentacao .instrucoes {
+        margin-top: 15px;
+        font-size: 0.95rem;
+    }
+
+    /* Carrossel da tela inicial */
+
+    .inicio .carrosel-animais {
+        margin: 15px 0;
+    }
+
+    .inicio .mascara-animais {
+        width: 220px;
+    }
+
+    .inicio .carrosel-animais .sombra {
+        width: 235px;
+    }
+
+    .botoes-container {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 20px;
+    }
+
+    .botoes-container .btn {
+        width: 100%;
+    }
+
+    .opcao-cronometro {
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .opcao-cronometro label {
+        font-size: 0.85rem;
+    }
+
+    .container-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin: 15px auto 0;
+    }
+
+    .cartao-informativo {
+        width: 100%;
+        max-width: 300px;
+        flex: initial;
+        min-height: 85px;
+    }
+
+    .cabecalho-bestiario h2 {
+        font-size: 1.8rem;
+    }
+
+    .lista-animais {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .cartao-animal {
+        gap: 12px;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .cartao-animal img {
+        height: 110px;
+    }
+
+    /* Nome dos animais na lista */
+
+    .cartao-animal span {
+        font-size: 0.9rem;
+    }
+
+    .detalhes-animal-conteudo {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .detalhes-animal-imagem {
+        min-height: 220px;
+        padding: 16px;
+    }
+
+    .detalhes-animal-imagem img {
+        max-height: 300px;
+    }
+
+    .detalhes-animal-texto h2 {
+        font-size: 2rem;
+    }
+
+    .tela-bestiario,
+    .tela-detalhes-animal {
+        padding: 24px 16px;
+    }
+
+    .cabecalho-bestiario {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .quiz-container>.tela-jogo {
+        padding: 25px 10px;
+    }
+
+    .quadro-jogo {
+        width: 100%;
+        padding: 75px 16px 20px;
+        gap: 12px;
+    }
+
+    #tempo {
+        top: 14px;
+        right: 16px;
+    }
+
+    .pergunta-titulo {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .round-atual {
+        font-size: 0.75rem;
+    }
+
+    .imagem-silhueta {
+        width: 220px;
+        height: 220px;
+    }
+
+    .container-alternativas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .alternativa {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+
+    .cronometro-pizza {
+        width: 55px;
+        height: 55px;
+    }
+
+    .botoes-resultado {
+        flex-direction: column;
+    }
+
+    .botoes-resultado button {
+        width: 100%;
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+}
+
+/* Mais ajustes para telas muito estreitas, de até 360px. */
+
+@media (max-width: 360px) {
+    .lista-animais {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-animal img {
+        height: 150px;
+    }
+
+    .inicio .mascara-animais {
+        width: 190px;
+    }
+
+    .imagem-silhueta {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cartao-animal,
+    .botao-voltar-bestiario {
+        transition: none;
+    }
+
+    .cartao-animal:hover,
+    .botao-voltar-bestiario:hover {
+        transform: none;
+    }
+}
+
+
+/*Telas menores como notebooks*/
+@media screen and (min-width: 901px) and (max-height: 800px) {
+
+    .quiz-container>.tela-jogo {
+        position: relative;
+        flex: 1;
+        min-height: 600px;
+        height: auto;
+        padding: 12px 20px;
+        box-sizing: border-box;
+    }
+
+    .area-jogo {
+        min-height: 400px;
+        min-height: 0;
+        margin: 10px 0 50px;
+    }
+
+    .quadro-jogo {
+        width: 50%;
+        gap: clamp(5px, 1vh, 10px);
+        padding-top: 55px;
+        padding-bottom: 32px;
+    }
+
+    .imagem-silhueta {
+        margin: 10px 0 0 0;
+        width: clamp(150px, 27vh, 220px);
+        height: clamp(150px, 27vh, 220px);
+    }
+
+    .alternativa {
+        padding: clamp(8px, 1.3vh, 12px);
+    }
+
+    .textura-inferior {
+        height: 100px;
+    }
+}
