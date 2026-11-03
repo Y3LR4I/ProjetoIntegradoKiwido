@@ -1,8 +1,14 @@
+/* =========================
+   ESTRUTURA DO HERO
+========================= */
+
+/* Define a área principal do banner e controla o conteúdo que ultrapassa seus limites */
 .hero-section {
     position: relative;
     overflow: hidden;
 }
 
+/* Divisor decorativo em formato de onda na parte inferior do banner */
 .divisor-onda {
     position: absolute;
     bottom: -1px;
@@ -13,13 +19,18 @@
     pointer-events: none;
 }
 
+/* Faz o SVG da onda ocupar toda a largura disponível */
 .divisor-onda svg {
     display: block;
     width: 100%;
     height: 90px;
 }
 
-/* Banner de notícias */
+/* =========================
+   BANNER DE NOTÍCIAS
+========================= */
+
+/* Estrutura principal do banner com imagem de fundo e conteúdo centralizado */
 .banner-noticias {
     position: relative;
     width: 100%;
@@ -30,7 +41,7 @@
     align-items: center;
 }
 
-/* Imagem de fundo do banner */
+/* Imagem utilizada como fundo do banner */
 .banner-noticias-imagem {
     position: absolute;
     inset: 0;
@@ -44,7 +55,7 @@
     z-index: 0;
 }
 
-/* Camada escura sobre a imagem */
+/* Cria uma camada escura sobre a imagem para melhorar a leitura do texto */
 .banner-noticias::after {
     content: "";
     position: absolute;
@@ -59,7 +70,7 @@
     z-index: 1;
 }
 
-/* Título e texto */
+/* Container que organiza o título e o texto do banner */
 .banner-noticias-conteudo {
     position: relative;
     z-index: 2;
@@ -73,7 +84,7 @@
     box-sizing: border-box;
 }
 
-/* Título */
+/* Estilização do título principal do banner */
 .banner-noticias-conteudo h1 {
     max-width: 400px;
     margin: 0 0 16px;
@@ -83,7 +94,7 @@
     font-weight: bold;
 }
 
-/* Texto abaixo do título */
+/* Estilização do texto abaixo do título */
 .banner-noticias-conteudo p {
     max-width: 400px;
     margin: 0;
@@ -92,7 +103,11 @@
     line-height: 1.6;
 }
 
-/* Barra de filtros e busca */
+/* =========================
+   FILTROS E BUSCA
+========================= */
+
+/* Barra que reúne os filtros de categorias e o campo de busca */
 .noticias-filtros {
     width: 100%;
     max-width: 1200px;
@@ -107,19 +122,20 @@
     box-sizing: border-box;
 }
 
-/* Categorias à esquerda */
+/* Organiza os botões de categorias à esquerda */
 .noticias-categorias {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-/* Busca à direita */
+/* Define a largura do campo de busca à direita */
 .noticias-busca {
     width: 300px;
     flex-shrink: 0;
 }
 
+/* Estilização do campo de entrada da busca */
 .noticias-busca input {
     width: 100%;
     padding: 12px 16px;
@@ -133,15 +149,17 @@
     box-sizing: border-box;
 }
 
+/* Define a cor do texto de orientação dentro do campo de busca */
 .noticias-busca input::placeholder {
     color: var(--cor-buscar-noticia);
 }
 
+/* Destaca a borda do campo quando ele recebe foco */
 .noticias-busca input:focus {
     border-color: #F4A340;
 }
 
-/* Botões das categorias */
+/* Estilização padrão dos botões de categorias */
 .categoria-btn {
     padding: 0px 20px;
     height: 40px;
@@ -158,7 +176,7 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-/* Categoria selecionada */
+/* Destaca visualmente a categoria selecionada */
 .categoria-btn.ativo {
     background-color: var(--cor-secundaria);
     border-color: var(--cor-secundaria);
@@ -170,10 +188,12 @@
    CAMPO DE BUSCA
 ========================= */
 
+/* Permite posicionar o ícone dentro do campo de busca */
 .noticias-busca {
     position: relative;
 }
 
+/* Posiciona o ícone de lupa dentro do campo de busca */
 .noticias-busca .icone-busca {
     position: absolute;
     top: 50%;
@@ -186,6 +206,7 @@
     pointer-events: none;
 }
 
+/* Aumenta o espaçamento interno à esquerda para não sobrepor o texto ao ícone */
 .noticias-busca input {
     padding-left: 44px;
 }
@@ -194,20 +215,22 @@
    ÁREA DAS NOTÍCIAS
 ========================= */
 
+/* Define os espaçamentos verticais da área que contém os cards */
 .noticias-container {
     padding-top: 40px;
     padding-bottom: 60px;
 }
 
+/* Faz os itens da lista de notícias ocuparem a altura disponível */
 #lista-noticias {
     align-items: stretch;
 }
-
 
 /* =========================
    CARD DE NOTÍCIA
 ========================= */
 
+/* Estrutura e aparência geral dos cards de notícias */
 .card-noticia {
     height: 100%;
     display: flex;
@@ -222,21 +245,23 @@
 
     box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 
+    /* Suaviza a animação de elevação e sombra */
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
 }
 
+/* Eleva o card e intensifica sua sombra quando o cursor passa sobre ele */
 .card-noticia:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
 }
 
-
 /* =========================
-   IMAGEM
+   IMAGEM DO CARD
 ========================= */
 
+/* Define o tamanho, o posicionamento e o recorte da imagem do card */
 .card-noticia-imagem {
     width: calc(100% - 12px);
     height: 210px;
@@ -247,11 +272,11 @@
     border-radius: 30px;
 }
 
-
 /* =========================
-   CONTEÚDO
+   CONTEÚDO DO CARD
 ========================= */
 
+/* Organiza verticalmente as informações do card */
 .card-noticia-corpo {
     flex: 1;
 
@@ -261,9 +286,7 @@
     padding: 18px 20px 20px;
 }
 
-
-/* Categoria */
-
+/* Categoria da notícia exibida no card */
 .card-noticia-categoria {
     align-self: flex-start;
 
@@ -276,9 +299,7 @@
     letter-spacing: 0.4px;
 }
 
-
-/* Título: no máximo 2 linhas */
-
+/* Título da notícia, limitado a duas linhas */
 .card-noticia-titulo {
     margin-bottom: 0px;
 
@@ -287,6 +308,7 @@
     font-weight: 700;
     line-height: 1.4;
 
+    /* Limita a exibição do texto a duas linhas */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -295,9 +317,7 @@
     overflow: hidden;
 }
 
-
-/* Data */
-
+/* Data de publicação da notícia, acompanhada de um ícone */
 .card-noticia-data {
     display: flex;
     align-items: center;
@@ -309,13 +329,12 @@
     font-size: 0.9rem;
 }
 
+/* Impede que o ícone da data seja comprimido */
 .card-noticia-data svg {
     flex-shrink: 0;
 }
 
-
-/* Sinopse: no máximo 4 linhas */
-
+/* Sinopse da notícia, limitada a quatro linhas */
 .card-noticia-sinopse {
     margin-bottom: 15px;
 
@@ -325,6 +344,7 @@
 
     text-align:left;
 
+    /* Limita a exibição do texto a quatro linhas */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
@@ -333,13 +353,12 @@
     overflow: hidden;
 }
 
-
-/* Link no final do card */
-
+/* Posiciona o link na parte inferior do card */
 .card-noticia-rodape {
     margin-top: auto;
 }
 
+/* Estilização do link para acessar a notícia completa */
 .card-noticia-link {
     display: inline-block;
 
@@ -350,36 +369,41 @@
     transition: color 0.2s ease;
 }
 
+/* Altera a cor do link quando o cursor passa sobre ele */
 .card-noticia-link:hover {
     color: #ffd08c;
     text-decoration: underline;
 }
 
+/* Destaca o link quando ele recebe foco pela navegação do teclado */
 .card-noticia-link:focus-visible {
     outline: 2px solid #ffb454;
     outline-offset: 4px;
 }
 
-
 /* =========================
    PAGINAÇÃO
 ========================= */
 
+/* Define a cor dos números e das bordas dos botões de paginação */
 #paginacao-noticias .page-link {
     color: var(--cor-verde, #174d35);
     border-color: #d8e2da;
 }
 
+/* Destaca o botão correspondente à página atual */
 #paginacao-noticias .page-item.active .page-link {
     color: #ffffff;
     background-color: var(--cor-verde, #174d35);
     border-color: var(--cor-verde, #174d35);
 }
 
+/* Define o efeito de foco dos botões de paginação */
 #paginacao-noticias .page-link:focus {
     box-shadow: 0 0 0 0.2rem rgb(23 77 53 / 20%);
 }
 
+/* Define a cor dos botões de paginação desativados */
 #paginacao-noticias .page-item.disabled .page-link {
     color: #777777;
 }
@@ -388,6 +412,7 @@
    PAGINAÇÃO DAS NOTÍCIAS
 ========================= */
 
+/* Organiza os elementos da paginação e centraliza os botões */
 #navegacao-noticias .pagination {
     display: flex;
     align-items: center;
@@ -396,6 +421,7 @@
     margin-bottom: 0;
 }
 
+/* Personaliza os botões da paginação */
 #paginacao-noticias .page-link {
     display: flex;
     align-items: center;
@@ -417,19 +443,19 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-/* Página atual */
+/* Destaca o botão da página atualmente selecionada */
 #paginacao-noticias .page-item.active .page-link {
     background-color: var(--cor-secundaria, #f28c28);
     color: #ffffff;
 }
 
-/* Efeito ao passar o mouse */
+/* Aplica um fundo suave ao passar o cursor sobre páginas disponíveis */
 #paginacao-noticias .page-item:not(.active):not(.disabled) .page-link:hover {
     background-color: rgba(242, 140, 40, 0.12);
     color: var(--cor-principal, #163812);
 }
 
-/* Setas desativadas nos limites */
+/* Estiliza as setas quando estão desativadas nos limites da paginação */
 #paginacao-noticias .page-item.disabled .page-link {
     background: transparent;
     color: #777777;
@@ -437,6 +463,7 @@
     cursor: not-allowed;
 }
 
+/* Ajusta o tamanho e o alinhamento do ícone de data do Material Symbols */
 .card-noticia-data .material-symbols-outlined {
     font-size: 18px;
     line-height: 1;
@@ -444,7 +471,8 @@
     position: relative;
     top: -1px;
 }
-/* Remove o contorno azul padrão do Bootstrap */
+
+/* Remove o contorno azul padrão do Bootstrap ao focar na paginação */
 #paginacao-noticias .page-link:focus {
     box-shadow: none;
 }
@@ -453,16 +481,21 @@
    RESPONSIVIDADE
 ========================= */
 
+/* Ajustes dos cards e da área de notícias em telas pequenas */
 @media (max-width: 575.98px) {
+
+    /* Reduz os espaçamentos verticais da área de notícias */
     .noticias-container {
         padding-top: 28px;
         padding-bottom: 40px;
     }
 
+    /* Reduz a altura das imagens dos cards em telas pequenas */
     .card-noticia-imagem {
         height: 200px;
     }
 
+    /* Reduz o espaçamento interno do conteúdo dos cards */
     .card-noticia-corpo {
         padding: 16px;
     }

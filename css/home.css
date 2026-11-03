@@ -1,3 +1,9 @@
+/*
+ * HOME.CSS — estilos exclusivos da página inicial.
+ * Organizado por seção; as regras responsivas adaptam os componentes
+ * para tablets e celulares sem alterar a estrutura do HTML.
+ */
+
 /* =========================
    HERO
 ========================= */
@@ -11,8 +17,7 @@
     background-color: var(--cor-fundo);
 }
 
-/* Carrossel de imagens */
-
+/* Carrossel de imagens do banner principal. */
 .hero-carousel {
     position: absolute;
     top: 0;
@@ -21,6 +26,7 @@
     height: 630px;
 }
 
+/* Os slides ficam sobrepostos; somente o slide ativo fica visível. */
 .hero-slide {
     position: absolute;
     inset: 0;
@@ -40,6 +46,7 @@
     visibility: visible;
 }
 
+/* Faz a imagem preencher todo o espaço do slide sem distorção. */
 .hero-slide img {
     display: block;
     width: 100%;
@@ -48,8 +55,7 @@
     object-position: center;
 }
 
-/* Escurecimento sutil da imagem */
-
+/* Camada escura sobre o banner para melhorar a leitura dos textos. */
 .hero-overlay {
     position: absolute;
     inset: 0 0 14% 0;
@@ -60,16 +66,14 @@
     pointer-events: none;
 }
 
-/* Camada do conteúdo */
-
+/* Camada que agrupa o painel decorativo e o conteúdo textual. */
 .hero-conteudo {
     position: absolute;
     inset: 0;
     z-index: 2;
 }
 
-/* Painel verde com curva orgânica */
-
+/* Painel em SVG que cria a borda curva sobre a imagem do banner. */
 .hero-painel {
     position: absolute;
     top: 0;
@@ -83,8 +87,7 @@
     pointer-events: none;
 }
 
-/* Alinhamento com as demais seções */
-
+/* Alinhamento do conteúdo do banner com as demais seções. */
 .hero-container {
     position: relative;
     width: 100%;
@@ -104,6 +107,7 @@
     box-sizing: border-box;
 }
 
+/* Identificação do projeto acima do título principal. */
 .hero-identificacao {
     display: block;
     margin-bottom: 20px;
@@ -134,8 +138,7 @@
     color: var(--cor-texto);
 }
 
-/* Botão */
-
+/* Botão que leva o usuário até a apresentação do projeto. */
 .hero-botao {
     display: inline-flex;
     align-items: center;
@@ -167,6 +170,11 @@
     font-size: 22px;
 }
 
+/* =========================
+   QUEM SOMOS
+========================= */
+
+/* Ajusta a posição de destino quando o usuário acessa a seção por uma âncora. */
 #quem-somos {
     scroll-margin-top: 100px;
 }
@@ -184,6 +192,7 @@
     font-weight: 700;
 }
 
+/* Organiza o texto e as imagens em duas colunas. */
 .quem-somos-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -206,8 +215,9 @@
     min-width: 0;
 }
 
-.forte{
-    color:var(--cor-principal);
+/* Destaca trechos importantes do texto de apresentação. */
+.forte {
+    color: var(--cor-principal);
 }
 
 .quem-somos-texto p {
@@ -221,6 +231,8 @@
 .quem-somos-texto p:last-child {
     margin-bottom: 0;
 }
+
+/* Agrupa a imagem principal e as duas imagens secundárias. */
 .quem-somos-imagens {
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
@@ -230,6 +242,7 @@
     min-height: 360px;
 }
 
+/* Mantém as imagens dentro dos seus respectivos quadros. */
 .quem-somos-frame {
     width: 100%;
     height: 100%;
@@ -261,6 +274,7 @@
     opacity: 0;
 }
 
+/* Organiza as duas imagens secundárias em uma coluna. */
 .quem-somos-imagens-secundarias {
     display: grid;
     grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -302,8 +316,7 @@
     font-size: 22px;
 }
 
-/* Área da linha do tempo */
-
+/* Grade que distribui os marcos históricos ao longo da linha do tempo. */
 .historia-linha-do-tempo {
     position: relative;
     display: grid;
@@ -313,8 +326,7 @@
     min-height: 450px;
 }
 
-/* Barra verde reta */
-
+/* Linha central da timeline, desenhada atrás dos anos. */
 .historia-linha-do-tempo::before {
     content: "";
     position: absolute;
@@ -327,16 +339,14 @@
     transform: translateY(-50%);
 }
 
-/* Cada marco */
-
+/* Cada marco histórico ocupa uma coluna da grade. */
 .historia-marco {
     position: relative;
     min-width: 0;
     min-height: 450px;
 }
 
-/* Bolinhas com os anos */
-
+/* Botões circulares que representam os anos da linha do tempo. */
 .historia-ano {
     position: absolute;
     z-index: 3;
@@ -367,6 +377,7 @@
         box-shadow 0.25s ease;
 }
 
+/* Destaca o ano quando recebe hover ou foco pelo teclado. */
 .historia-ano:hover,
 .historia-ano:focus-visible,
 .historia-marco:focus-within .historia-ano {
@@ -377,8 +388,7 @@
     outline: none;
 }
 
-/* Cards */
-
+/* Cartões com informações de cada marco histórico. */
 .historia-card {
     position: absolute;
     left: 50%;
@@ -406,14 +416,14 @@
         transform 0.25s ease;
 }
 
-/* Mostra o balão ao passar o mouse sobre o ano */
+/* Exibe o cartão relacionado ao ano que está recebendo hover. */
 .historia-marco:has(.historia-ano:hover) .historia-card {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-/* Também mostra ao navegar pelo teclado */
+/* Mantém a exibição do cartão durante a navegação pelo teclado. */
 .historia-marco:has(.historia-ano:focus-visible) .historia-card {
     opacity: 1;
     visibility: visible;
@@ -434,14 +444,12 @@
     line-height: 1.7;
 }
 
-/* Cards acima da barra */
-
+/* Posiciona os cartões dos marcos acima da linha central. */
 .historia-marco-superior .historia-card {
     bottom: calc(50% + 55px);
 }
 
-/* Bico inferior do balão */
-
+/* Cria a ponta inferior dos balões dos cartões superiores. */
 .historia-marco-superior .historia-card::before,
 .historia-marco-superior .historia-card::after {
     content: "";
@@ -452,6 +460,7 @@
     transform: translateX(-50%);
 }
 
+/* Borda externa da ponta do balão. */
 .historia-marco-superior .historia-card::before {
     bottom: -14px;
     border-left: 13px solid transparent;
@@ -459,6 +468,7 @@
     border-top: 14px solid var(--cor-principal);
 }
 
+/* Parte interna da ponta, sobreposta à borda externa. */
 .historia-marco-superior .historia-card::after {
     bottom: -10px;
     border-left: 11px solid transparent;
@@ -466,14 +476,12 @@
     border-top: 12px solid #FFFFFF;
 }
 
-/* Cards abaixo da barra */
-
+/* Posiciona os cartões dos marcos abaixo da linha central. */
 .historia-marco-inferior .historia-card {
     top: calc(50% + 55px);
 }
 
-/* Bico superior do balão */
-
+/* Cria a ponta superior dos balões dos cartões inferiores. */
 .historia-marco-inferior .historia-card::before,
 .historia-marco-inferior .historia-card::after {
     content: "";
@@ -484,6 +492,7 @@
     transform: translateX(-50%);
 }
 
+/* Borda externa da ponta do balão. */
 .historia-marco-inferior .historia-card::before {
     top: -14px;
     border-left: 13px solid transparent;
@@ -491,6 +500,7 @@
     border-bottom: 14px solid var(--cor-principal);
 }
 
+/* Parte interna da ponta, sobreposta à borda externa. */
 .historia-marco-inferior .historia-card::after {
     top: -10px;
     border-left: 11px solid transparent;
@@ -498,151 +508,12 @@
     border-bottom: 12px solid #FFFFFF;
 }
 
-/* Destaque do card relacionado ao ano */
-
+/* Reforça a sombra do cartão quando ele está em destaque. */
 .historia-marco:has(.historia-ano:hover) .historia-card,
 .historia-marco:has(.historia-ano:focus-visible) .historia-card,
 .historia-marco:has(.historia-card:hover) .historia-card {
     box-shadow: 0 10px 24px rgba(22, 56, 18, 0.2);
 }
-
-/* =========================
-   RESPONSIVIDADE
-========================= */
-
-@media (max-width: 900px) {
-    .nossa-historia {
-        padding-top: 55px;
-        padding-bottom: 55px;
-    }
-
-    .historia-linha-do-tempo {
-        grid-template-columns: repeat(5, minmax(150px, 1fr));
-        min-width: 810px;
-    }
-
-    .historia-container {
-        min-width: 0;
-    }
-
-    .historia-linha-do-tempo {
-        min-height: 440px;
-    }
-
-    .historia-marco {
-        min-height: 440px;
-    }
-
-    .historia-card {
-        width: calc(100% - 16px);
-        padding: 14px;
-    }
-}
-
-@media (max-width: 600px) {
-    .nossa-historia {
-        padding: 50px 20px;
-    }
-
-    .historia-titulo {
-        font-size: 30px;
-    }
-
-    .historia-subtitulo {
-        margin-bottom: 35px;
-        font-size: 14px;
-    }
-
-    .historia-linha-do-tempo {
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        min-height: auto;
-        gap: 0;
-        padding: 0 0 0 8px;
-    }
-
-    /* No celular, a barra fica vertical para facilitar a leitura */
-
-    .historia-linha-do-tempo::before {
-        top: 0;
-        bottom: 0;
-        left: 31px;
-        right: auto;
-        width: 8px;
-        height: auto;
-        border-radius: 999px;
-        transform: none;
-    }
-
-    .historia-marco,
-    .historia-marco-superior,
-    .historia-marco-inferior {
-        display: flex;
-        align-items: center;
-        min-height: 0;
-        padding: 15px 0;
-    }
-
-    .historia-ano {
-        position: relative;
-        top: auto;
-        left: auto;
-        flex: 0 0 62px;
-        width: 62px;
-        height: 62px;
-        font-size: 12px;
-        transform: none;
-    }
-
-    .historia-ano:hover,
-    .historia-ano:focus-visible,
-    .historia-marco:focus-within .historia-ano {
-        transform: scale(1.1);
-    }
-
-    .historia-card,
-    .historia-marco-superior .historia-card,
-    .historia-marco-inferior .historia-card {
-        position: relative;
-        top: auto;
-        bottom: auto;
-        left: auto;
-        flex: 1;
-        width: auto;
-        max-width: none;
-        margin-left: 18px;
-        padding: 16px;
-        transform: none;
-    }
-
-    /* No celular, todos os balões apontam para a esquerda */
-
-    .historia-marco-superior .historia-card::before,
-    .historia-marco-inferior .historia-card::before {
-        top: 22px;
-        bottom: auto;
-        left: -9px;
-        transform: none;
-        border-top: 9px solid transparent;
-        border-bottom: 9px solid transparent;
-        border-right: 9px solid var(--cor-secundaria);
-        border-left: 0;
-    }
-
-    .historia-marco-superior .historia-card::after,
-    .historia-marco-inferior .historia-card::after {
-        top: 23px;
-        bottom: auto;
-        left: -6px;
-        transform: none;
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
-        border-right: 8px solid #FFFFFF;
-        border-left: 0;
-    }
-}
-
 
 /* =========================
    SEÇÃO NOSSO TIME
@@ -658,8 +529,7 @@
     margin: 0 auto;
 }
 
-/* Título e subtítulo */
-
+/* Título e subtítulo da seção. */
 .nosso-time-texto {
     text-align: center;
     margin-bottom: 45px;
@@ -670,7 +540,7 @@
     color: var(--cor-principal);
     font-size: 48px;
     font-weight: 700;
-    
+
 }
 
 .nosso-time-texto p {
@@ -681,8 +551,7 @@
     line-height: 1.6;
 }
 
-/* Carrossel */
-
+/* Área principal do carrossel de integrantes. */
 .time-carousel {
     position: relative;
     width: 100%;
@@ -694,6 +563,7 @@
     overflow: hidden;
 }
 
+/* Cada slide contém um grupo de integrantes. */
 .time-slide {
     display: none;
     width: 100%;
@@ -701,20 +571,19 @@
     gap: 30px;
 }
 
+/* Somente o grupo ativo é exibido. */
 .time-slide.active {
     display: grid;
 }
 
-/* Card de cada integrante */
-
+/* Card individual de cada integrante. */
 .membro {
     width: 100%;
     min-width: 0;
     text-align: center;
 }
 
-/* Foto circular com borda secundária */
-
+/* Foto circular com borda na cor secundária. */
 .membro img {
     display: block;
     width: 250px;
@@ -726,8 +595,8 @@
     border-radius: 50%;
     box-sizing: border-box;
 }
-/* Nome */
 
+/* Nome e função do integrante. */
 .membro h3 {
     min-height: 0;
     margin: 0 0 8px;
@@ -737,8 +606,6 @@
     font-weight: 700;
 }
 
-/* Função */
-
 .membro p {
     margin-bottom: 10px;
     color: var(--cor-texto);
@@ -746,8 +613,7 @@
     line-height: 1.5;
 }
 
-/* Controles do carrossel */
-
+/* Controles de navegação do carrossel. */
 .time-carousel-controls {
     position: absolute;
     bottom: 10px;
@@ -760,8 +626,7 @@
     gap: 18px;
 }
 
-/* Setas de navegação */
-
+/* Botões de avançar e voltar. */
 .time-carousel-button {
     display: flex;
     align-items: center;
@@ -794,8 +659,7 @@
     border-radius: 4px;
 }
 
-/* Indicadores */
-
+/* Indicadores que representam os grupos de integrantes. */
 .time-carousel-indicators {
     display: flex;
     align-items: center;
@@ -818,16 +682,14 @@
         background-color 0.25s ease;
 }
 
+/* Destaca o indicador do grupo atualmente visível. */
 .time-indicator.active {
     width: 45px;
     height: 13px;
     background-color: var(--cor-secundaria);
 }
 
-/* =========================
-   ONDAS SUPERIORES
-========================= */
-
+/* Onda SVG decorativa que conecta a seção clara ao fundo verde. */
 .missao-ondas-superiores {
     width: 100%;
     height: 90px;
@@ -843,7 +705,7 @@
 }
 
 /* =========================
-   FUNDO VERDE
+   SEÇÃO NOSSA MISSÃO
 ========================= */
 
 .missao-acoes {
@@ -851,7 +713,7 @@
     color: #FFFFFF;
 }
 
-/* seção nossa missão */
+/* Seção que apresenta a missão e os objetivos do projeto. */
 .nossa-missao {
     padding: 80px var(--margem-lateral);
 }
@@ -866,6 +728,7 @@
     align-items: center;
 }
 
+/* Área da imagem e do quadrado decorativo deslocado. */
 .nossa-missao-imagem {
     position: relative;
 
@@ -873,6 +736,7 @@
     height: 500px;
 }
 
+/* Imagem principal posicionada sobre o elemento decorativo. */
 .nossa-missao-imagem img {
     position: absolute;
 
@@ -889,6 +753,7 @@
     z-index: 2;
 }
 
+/* Quadrado de fundo deslocado em relação à imagem principal. */
 .nossa-missao-imagem .imagem-quadrado {
     position: absolute;
 
@@ -903,6 +768,7 @@
     z-index: 1;
 }
 
+/* Limita a largura do texto para manter a leitura confortável. */
 .nossa-missao-texto {
     max-width: 550px;
 }
@@ -920,16 +786,17 @@
 }
 
 /* ========================================
-   AÇÕES EM DESTAQUE
+   AÇÕES DESENVOLVIDAS
 ======================================== */
-.acoes-desenvolvidas-texto p{
+
+.acoes-desenvolvidas-texto p {
     color: var(--cor-fundo);
     text-align: center;
     font-size: 22px;
     line-height: 1.6;
 }
 
-.acoes-desenvolvidas-texto h2{
+.acoes-desenvolvidas-texto h2 {
     color: var(--cor-fundo);
     text-align: center;
     padding-top: 80px;
@@ -945,8 +812,7 @@
     background-color: #263D24;
 }
 
-/* Imagem de fundo em largura total */
-
+/* Imagem decorativa posicionada atrás do conteúdo da seção de ações. */
 .acoes-destaque-imagem {
     position: absolute;
     inset: 0;
@@ -956,12 +822,10 @@
     height: 100%;
 
     background-image:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(10, 25, 10, 0.78) 0%,
             rgba(10, 25, 10, 0.45) 45%,
-            rgba(10, 25, 10, 0.12) 100%
-        ),
+            rgba(10, 25, 10, 0.12) 100%),
         url("../assets/images/home/home-trilha.png");
 
     background-size: cover;
@@ -970,7 +834,7 @@
 }
 
 
-/* Conteúdo centralizado e respeitando as margens do site */
+/* Conteúdo centralizado e respeitando as margens do site. */
 .acoes-destaque-conteudo {
     position: relative;
     display: flex;
@@ -984,10 +848,10 @@
 }
 
 /* ========================================
-   CARROSSEL
+   CARROSSEL DE AÇÕES DESENVOLVIDAS
 ======================================== */
 
-/* Card alinhado à margem esquerda */
+/* Área que controla a largura e o posicionamento do carrossel. */
 .acoes-destaque-carousel {
     position: relative;
     width: 100%;
@@ -996,15 +860,13 @@
     box-sizing: border-box;
 }
 
-/* Área que contém os três cards */
-
+/* Área que contém os três cards. */
 .acoes-destaque-slides {
     position: relative;
     width: 100%;
 }
 
-/* Cada slide ocupa o mesmo espaço */
-
+/* Apenas o slide com a classe active fica visível. */
 .acoes-destaque-slide {
     display: none;
     width: 100%;
@@ -1015,8 +877,7 @@
     animation: acaoDestaqueEntrada 0.4s ease;
 }
 
-/* Animação de entrada */
-
+/* Animação aplicada quando um novo slide recebe a classe active. */
 @keyframes acaoDestaqueEntrada {
     from {
         opacity: 0;
@@ -1029,10 +890,7 @@
     }
 }
 
-/* ========================================
-   CARD INDIVIDUAL
-======================================== */
-
+/* Card de açõe desenvolvidas */
 .acoes-destaque .acao-card {
     display: flex;
     flex-direction: column;
@@ -1061,9 +919,8 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* Ícone do card */
-
-.acoes-destaque .acao-card > img {
+/* Ícone ilustrativo do card. */
+.acoes-destaque .acao-card>img {
     display: block;
 
     width: 85px;
@@ -1073,8 +930,7 @@
     object-fit: contain;
 }
 
-/* Título */
-
+/* Título do card. */
 .acoes-destaque .acao-card h3 {
     margin: 0 0 15px;
 
@@ -1085,8 +941,7 @@
     line-height: 1.2;
 }
 
-/* Descrição */
-
+/* Texto descritivo do card. */
 .acoes-destaque .acao-card p {
     margin: 0;
     padding-top: 10px;
@@ -1097,9 +952,7 @@
     line-height: 1.6;
 }
 
-/* ========================================
-   INDICADORES DO CARROSSEL
-======================================== */
+/* Indicardores do carrossel */
 
 .acoes-destaque-indicadores {
     display: flex;
@@ -1111,8 +964,7 @@
     margin-top: 25px;
 }
 
-/* Cada indicador */
-
+/* Cada indicador representa um slide do carrossel. */
 .acoes-destaque-indicador {
     width: 12px;
     height: 12px;
@@ -1130,8 +982,7 @@
         transform 0.3s ease;
 }
 
-/* Indicador ativo */
-
+/* Destaca o indicador do slide atualmente exibido. */
 .acoes-destaque-indicador.active {
     background-color: var(--cor-secundaria);
     transform: scale(1.25);
@@ -1146,11 +997,7 @@
     outline-offset: 4px;
 }
 
-/* ========================================
-   BOTÃO VEJA MAIS
-======================================== */
-
-/* Botão alinhado à margem direita */
+/* Botão alinhado à margem direita da seção. */
 .acoes-destaque-botao {
     position: absolute;
     right: var(--margem-lateral);
@@ -1196,10 +1043,7 @@
     outline-offset: 4px;
 }
 
-/* ========================================
-   ONDA INFERIOR
-======================================== */
-
+/* Onda SVG que encerra visualmente a seção de ações. */
 .acoes-destaque-ondas {
     position: absolute;
     right: 0;
@@ -1223,11 +1067,448 @@
     height: 100%;
 }
 
-/* ========================================
-   RESPONSIVIDADE — TABLETS
-======================================== */
+/* =========================
+   ONDAS INFERIORES
+========================= */
 
+.acoes-destaque-ondas {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+
+    z-index: 2;
+    width: 100%;
+    height: 100px;
+
+    overflow: hidden;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.acoes-destaque-ondas svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================
+   CONTEÚDOS
+========================= */
+
+/* Seção de atalhos para os principais conteúdos disponíveis no projeto. */
+.conteudos-home {
+    position: relative;
+    padding: 80px var(--margem-lateral) 150px;
+    background-color: var(--cor-fundo);
+    overflow: hidden;
+}
+
+.conteudos-home-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+}
+
+/* Título e subtítulo da seção. */
+.conteudos-home-texto {
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.conteudos-home-texto h2 {
+    margin: 0 0 12px;
+    color: var(--cor-principal);
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.conteudos-home-texto p {
+    max-width: 750px;
+    margin: 0 auto;
+
+    color: var(--cor-texto);
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+/* Grade que organiza os três cards lado a lado em telas maiores. */
+.conteudos-home-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+
+/* Card que direciona para uma área específica de conteúdo. */
+.conteudos-home-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 400px;
+    min-height: 500px;
+    padding: 35px;
+
+    color: inherit;
+    background-color: var(--cor-fundo);
+
+    border: 3px solid rgba(44, 96, 42, 0.2);
+    border-radius: 20px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+
+    text-decoration: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Imagem ou ícone ilustrativo do card. */
+.conteudos-home-card>img {
+    display: block;
+
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+
+    object-fit: contain;
+}
+
+/* Efeito visual aplicado quando o usuário passa o mouse pelo card. */
+.conteudos-home-card:hover {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.16);
+    transform: translateY(-5px);
+}
+
+/* Estilo para ícones de fonte, caso sejam utilizados nos cards. */
+.conteudos-home-icone {
+    margin-bottom: 25px;
+
+    color: var(--cor-secundaria);
+    font-size: 65px;
+}
+
+/* Área de altura fixa para alinhar títulos com uma ou duas linhas. */
+.conteudos-home-card h3 {
+    margin: 0 0 15px;
+    display: flex;
+    align-items: center;
+    height: 120px;
+
+    color: var(--cor-secundaria);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+/* Texto descritivo de cada card. */
+.conteudos-home-card p {
+    margin: 0;
+    padding-top: 10px;
+    color: var(--cor-texto);
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+/* Seta posicionada no canto do card; acompanha o hover do link. */
+.conteudos-home-seta {
+    position: absolute;
+    right: 25px;
+    bottom: 22px;
+
+    color: var(--cor-secundaria);
+    font-size: 34px;
+
+    transition: transform 0.3s ease;
+}
+
+.conteudos-home-card:hover .conteudos-home-seta {
+    transform: translateX(6px);
+}
+
+/* Destaque de foco para navegação por teclado. */
+.conteudos-home-card:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 5px;
+}
+
+/* Onda SVG posicionada no fim da seção para criar a transição entre fundos. */
+.conteudos-home-ondas {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+
+    z-index: 2;
+
+    width: 100%;
+    height: 120px;
+
+    overflow: hidden;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.conteudos-home-ondas svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================
+   SEÇÃO CONTATO
+========================= */
+
+.contato {
+    width: 100%;
+    padding: 80px var(--margem-lateral);
+    background-color: var(--cor-fundo);
+}
+
+.contato-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+}
+
+/* TÍTULO PRINCIPAL */
+
+.contato-titulo {
+    margin-bottom: 45px;
+}
+
+.contato-titulo h2 {
+    color: var(--cor-principal);
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ORGANIZAÇÃO DAS DUAS COLUNAS */
+
+.contato-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: start;
+}
+
+/* COLUNA ESQUERDA */
+
+.contato-informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contato-bloco {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* TÍTULOS DOS BLOCOS */
+
+.contato-subtitulo {
+    width: 320px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-align: center;
+
+    color: var(--cor-fundo);
+    font-size: 24px;
+    font-weight: 600;
+
+    margin: 0;
+}
+
+.contato-subtitulo-verde {
+    background-color: var(--cor-texto-card);
+}
+
+.contato-subtitulo-laranja {
+    background-color: var(--cor-secundaria);
+}
+
+/* ENDEREÇO */
+
+.contato-endereco {
+    color: var(--cor-texto);
+    font-size: 20px;
+    font-style: normal;
+    line-height: 1.8;
+}
+
+/* REDES SOCIAIS */
+
+.contato-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contato-rede {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: var(--cor-texto);
+    font-size: 20px;
+    text-decoration: none;
+
+    width: fit-content;
+}
+
+.contato-rede img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.contato-rede:hover {
+    color: var(--cor-texto-card);
+}
+
+/* COLUNA DIREITA — FORMULÁRIO */
+
+.contato-formulario-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contato-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contato-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.contato-campo label {
+    color: var(--cor-texto);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contato-campo input,
+.contato-campo textarea {
+    width: 100%;
+    padding: 14px 16px;
+
+    border: 2px solid var(--cor-borda-filtro-noticia);
+    border-radius: 30px;
+
+    background-color: #FFFFFF;
+    color: var(--cor-texto);
+
+    font-family: inherit;
+    font-size: 18px;
+
+    outline: none;
+}
+
+.contato-campo input {
+    height: 48px;
+}
+
+.contato-campo textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contato-campo input:focus,
+.contato-campo textarea:focus {
+    border-color: var(--cor-texto-card);
+}
+
+.contato-campo input::placeholder,
+.contato-campo textarea::placeholder {
+    color: #888888;
+}
+
+/* CAPTCHA */
+
+.contato-captcha {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+}
+
+/* BOTÃO ENVIAR */
+
+.contato-botao {
+    width: fit-content;
+    min-width: 150px;
+    padding: 13px 30px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-fundo);
+
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contato-botao:hover {
+    filter: brightness(0.9);
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+/* Ajustes para tablets e telas intermediárias. */
 @media (max-width: 900px) {
+    .nossa-historia {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    /* Mantém os cinco marcos em uma linha com rolagem horizontal. */
+    .historia-linha-do-tempo {
+        grid-template-columns: repeat(5, minmax(150px, 1fr));
+        min-width: 810px;
+    }
+
+    .historia-container {
+        min-width: 0;
+    }
+
+    .historia-linha-do-tempo {
+        min-height: 440px;
+    }
+
+    .historia-marco {
+        min-height: 440px;
+    }
+
+    .historia-card {
+        width: calc(100% - 16px);
+        padding: 14px;
+    }
+
+    /* Ajustes do carrossel de ações para telas de tablet. */
     .acoes-destaque,
     .acoes-destaque-conteudo {
         min-height: 570px;
@@ -1259,13 +1540,123 @@
     .acoes-destaque-ondas {
         height: 100px;
     }
+
+    /* CONTATO */
+
+    .contato-conteudo {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .contato-titulo h2 {
+        font-size: 34px;
+    }
 }
 
-/* ========================================
-   RESPONSIVIDADE — CELULARES
-======================================== */
-
+/* Em celulares, a linha do tempo passa a ter disposição vertical. */
 @media (max-width: 600px) {
+    .nossa-historia {
+        padding: 50px 20px;
+    }
+
+    .historia-titulo {
+        font-size: 30px;
+    }
+
+    .historia-subtitulo {
+        margin-bottom: 35px;
+        font-size: 14px;
+    }
+
+    .historia-linha-do-tempo {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        min-height: auto;
+        gap: 0;
+        padding: 0 0 0 8px;
+    }
+
+    /* Linha vertical que conecta os anos na versão mobile. */
+    .historia-linha-do-tempo::before {
+        top: 0;
+        bottom: 0;
+        left: 31px;
+        right: auto;
+        width: 8px;
+        height: auto;
+        border-radius: 999px;
+        transform: none;
+    }
+
+    .historia-marco,
+    .historia-marco-superior,
+    .historia-marco-inferior {
+        display: flex;
+        align-items: center;
+        min-height: 0;
+        padding: 15px 0;
+    }
+
+    .historia-ano {
+        position: relative;
+        top: auto;
+        left: auto;
+        flex: 0 0 62px;
+        width: 62px;
+        height: 62px;
+        font-size: 12px;
+        transform: none;
+    }
+
+    .historia-ano:hover,
+    .historia-ano:focus-visible,
+    .historia-marco:focus-within .historia-ano {
+        transform: scale(1.1);
+    }
+
+    /* Os cartões ficam ao lado dos anos na versão mobile. */
+    .historia-card,
+    .historia-marco-superior .historia-card,
+    .historia-marco-inferior .historia-card {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        flex: 1;
+        width: auto;
+        max-width: none;
+        margin-left: 18px;
+        padding: 16px;
+        transform: none;
+    }
+
+    /* Ajusta as pontas dos balões para apontarem para a linha vertical. */
+    .historia-marco-superior .historia-card::before,
+    .historia-marco-inferior .historia-card::before {
+        top: 22px;
+        bottom: auto;
+        left: -9px;
+        transform: none;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-right: 9px solid var(--cor-secundaria);
+        border-left: 0;
+    }
+
+    .historia-marco-superior .historia-card::after,
+    .historia-marco-inferior .historia-card::after {
+        top: 23px;
+        bottom: auto;
+        left: -6px;
+        transform: none;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid #FFFFFF;
+        border-left: 0;
+    }
+
+    /* Ajustes do carrossel de ações para telas de celular. */
     .acoes-destaque,
     .acoes-destaque-conteudo {
         min-height: 650px;
@@ -1275,13 +1666,12 @@
         background-position: center;
     }
 
+    /* Imagem e intensidade do gradiente ajustadas para telas menores. */
     .acoes-destaque-imagem {
         background-image:
-            linear-gradient(
-                90deg,
+            linear-gradient(90deg,
                 rgba(10, 25, 10, 0.72),
-                rgba(10, 25, 10, 0.48)
-            ),
+                rgba(10, 25, 10, 0.48)),
             url("../assets/images/home/img_acoes_desenvolvidas.png");
     }
 
@@ -1300,7 +1690,7 @@
         padding: 25px;
     }
 
-    .acoes-destaque .acao-card > img {
+    .acoes-destaque .acao-card>img {
         width: 70px;
         height: 70px;
         margin-bottom: 20px;
@@ -1331,50 +1721,9 @@
     }
 }
 
-/* ========================================
-   ACESSIBILIDADE
-======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    .acoes-destaque-slide.active {
-        animation: none;
-    }
-
-    .acoes-destaque .acao-card,
-    .acoes-destaque-indicador,
-    .acoes-destaque-botao {
-        transition: none;
-    }
-}
-
-
-
 /* =========================
-   ONDAS INFERIORES
+   RESPONSIVIDADE — QUEM SOMOS
 ========================= */
-
-.acoes-destaque-ondas {
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    left: 0;
-
-    z-index: 2;
-    width: 100%;
-    height: 100px;
-
-    overflow: hidden;
-    line-height: 0;
-    pointer-events: none;
-}
-
-.acoes-destaque-ondas svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-
 
 @media (max-width: 768px) {
     .quem-somos {
@@ -1400,25 +1749,7 @@
         font-size: 15px;
         text-align: left;
     }
-}
 
-@media (max-width: 420px) {
-    .quem-somos-imagens {
-        grid-template-columns: 1fr 0.8fr;
-        height: 220px;
-        gap: 8px;
-    }
-
-    .quem-somos-imagens-secundarias {
-        gap: 8px;
-    }
-
-    .quem-somos-imagens img {
-        border-radius: 8px;
-    }
-}
-
-@media (max-width: 768px) {
     .hero {
         height: 540px;
     }
@@ -1458,178 +1789,34 @@
     }
 }
 
-/* =========================
-   SEÇÃO CONTEÚDOS
-========================= */
+@media (max-width: 420px) {
+    .quem-somos-imagens {
+        grid-template-columns: 1fr 0.8fr;
+        height: 220px;
+        gap: 8px;
+    }
 
-.conteudos-home {
-    position: relative;
-    padding: 80px var(--margem-lateral) 150px;
-    background-color: var(--cor-fundo);
-    overflow: hidden;
+    .quem-somos-imagens-secundarias {
+        gap: 8px;
+    }
+
+    .quem-somos-imagens img {
+        border-radius: 8px;
+    }
 }
 
-.conteudos-home-container {
-    position: relative;
-    z-index: 1;
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
 
-    width: 100%;
-    max-width: var(--largura-conteudo);
-    margin: 0 auto;
-}
+@media (prefers-reduced-motion: reduce) {
+    .acoes-destaque-slide.active {
+        animation: none;
+    }
 
-/* Título e subtítulo */
-
-.conteudos-home-texto {
-    margin-bottom: 55px;
-    text-align: center;
-}
-
-.conteudos-home-texto h2 {
-    margin: 0 0 12px;
-    color: var(--cor-principal);
-    text-align: center;
-    font-size: 48px;
-    font-weight: 700;
-}
-
-.conteudos-home-texto p {
-    max-width: 750px;
-    margin: 0 auto;
-
-    color: var(--cor-texto);
-    font-size: 22px;
-    line-height: 1.6;
-}
-
-/* Cards */
-
-.conteudos-home-cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 30px;
-}
-
-.conteudos-home-card {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    width: 400px;
-    min-height: 500px;
-    padding: 35px;
-
-    color: inherit;
-    background-color: var(--cor-fundo);
-
-    border: 3px solid rgba(44, 96, 42, 0.2);
-    border-radius: 20px;
-
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
-
-    text-decoration: none;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
-}
-
-.conteudos-home-card > img {
-    display: block;
-
-    width: 100px;
-    height: 100px;
-    margin-bottom: 25px;
-
-    object-fit: contain;
-}
-
-.conteudos-home-card:hover {
-    border-color: var(--cor-secundaria);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.16);
-    transform: translateY(-5px);
-}
-
-/* Ícone */
-
-.conteudos-home-icone {
-    margin-bottom: 25px;
-
-    color: var(--cor-secundaria);
-    font-size: 65px;
-}
-
-/* Título do card */
-
-.conteudos-home-card h3 {
-    margin: 0 0 15px;
-    display: flex;
-    align-items: center;
-    height: 120px;
-
-    color: var(--cor-secundaria);
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.25;
-}
-
-/* Descrição */
-
-.conteudos-home-card p {
-    margin: 0;
-    padding-top: 10px;
-    color: var(--cor-texto);
-    font-size: 22px;
-    line-height: 1.6;
-}
-
-/* Seta no canto inferior direito */
-
-.conteudos-home-seta {
-    position: absolute;
-    right: 25px;
-    bottom: 22px;
-
-    color: var(--cor-secundaria);
-    font-size: 34px;
-
-    transition: transform 0.3s ease;
-}
-
-.conteudos-home-card:hover .conteudos-home-seta {
-    transform: translateX(6px);
-}
-
-.conteudos-home-card:focus-visible {
-    outline: 3px solid var(--cor-secundaria);
-    outline-offset: 5px;
-}
-
-/* =========================
-   ONDA INFERIOR
-========================= */
-
-.conteudos-home-ondas {
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    left: 0;
-
-    z-index: 2;
-
-    width: 100%;
-    height: 120px;
-
-    overflow: hidden;
-    line-height: 0;
-    pointer-events: none;
-}
-
-.conteudos-home-ondas svg {
-    display: block;
-    width: 100%;
-    height: 100%;
+    .acoes-destaque .acao-card,
+    .acoes-destaque-indicador,
+    .acoes-destaque-botao {
+        transition: none;
+    }
 }
