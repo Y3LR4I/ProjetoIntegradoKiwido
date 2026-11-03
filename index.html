@@ -5,21 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Mangue Vivo</title>
+
+    <!-- Ícones utilizados nos botões e controles da página. -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+
+    <!-- Folhas de estilo gerais e específicas da página inicial. -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
 
-    <!--header da página - logo e menu-->
+    <!-- COMPONENTE COMPARTILHADO: cabeçalho carregado pelo components.js -->
     <div id="header-container"></div>
 
+    <!-- HERO: banner principal com carrossel, painel decorativo e chamada para ação -->
     <section class="hero">
 
+        <!-- Carrossel de imagens do banner principal. -->
         <div class="hero-carousel">
             <div class="hero-slide active">
                 <img src="assets/images/hero/img_hero_section01.png" alt="Ecossistema de manguezal">
@@ -38,11 +44,13 @@
             </div>
         </div>
 
+        <!-- Camada sem interação que melhora o contraste do conteúdo sobre as imagens. -->
         <div class="hero-overlay"></div>
 
+        <!-- Conteúdo textual e painel decorativo do banner. -->
         <div class="hero-conteudo">
 
-            <!-- Painel com borda orgânica -->
+            <!-- Painel em SVG com formato orgânico que fica à esquerda do banner. -->
             <svg class="hero-painel" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
                 <path d="
                     M 0 0
@@ -57,7 +65,7 @@
                 " />
             </svg>
 
-            <!-- Conteúdo alinhado às outras seções -->
+            <!-- Texto e botão posicionados sobre o painel orgânico. -->
             <div class="hero-container">
 
                 <div class="hero-texto">
@@ -92,13 +100,14 @@
 
     </section>
 
-    <!--seção quem somos-->
+    <!-- QUEM SOMOS: apresentação do projeto e imagens relacionadas às atividades. -->
     <section class="quem-somos" id="quem-somos">
 
         <h2 class="quem-somos-titulo">Quem somos?</h2>
 
         <div class="quem-somos-container">
 
+            <!-- Texto institucional de apresentação do projeto. -->
             <div class="quem-somos-texto">
 
                 <p>
@@ -123,6 +132,7 @@
 
             </div>
 
+            <!-- Conjunto de imagens que acompanha a apresentação do projeto. -->
             <div class="quem-somos-imagens">
 
                 <div class="quem-somos-frame quem-somos-frame-principal">
@@ -130,6 +140,7 @@
                         alt="Atividade do projeto Mangue Vivo">
                 </div>
 
+                <!-- Imagens secundárias organizadas ao lado da imagem principal. -->
                 <div class="quem-somos-imagens-secundarias">
 
                     <div class="quem-somos-frame">
@@ -147,6 +158,7 @@
 
     </section>
 
+    <!-- NOSSA HISTÓRIA: linha do tempo com os principais marcos anuais do projeto. -->
     <section class="nossa-historia" id="nossa-historia">
         <div class="historia-container">
 
@@ -155,6 +167,7 @@
                 Conheça os momentos que construíram a trajetória do Mangue Vivo.
             </p>
 
+            <!-- Cada artigo representa um ano e seu respectivo acontecimento. -->
             <div class="historia-linha-do-tempo">
 
                 <article class="historia-marco historia-marco-superior">
@@ -231,7 +244,7 @@
         </div>
     </section>
 
-    <!--seção nosso time-->
+    <!-- NOSSO TIME: carrossel que apresenta os integrantes do projeto. -->
     <section class="nosso-time">
 
         <div class="nosso-time-container">
@@ -241,12 +254,12 @@
                 <p>Conheça a equipe por trás do Mangue Vivo!</p>
             </div>
 
-
             <div class="time-carousel">
 
-                <!-- cards dos membros -->
+                <!-- Slides do carrossel: cada grupo reúne os integrantes exibidos juntos. -->
                 <div class="time-carousel-container">
 
+                    <!-- Primeiro grupo de integrantes. -->
                     <div class="time-slide active">
 
                         <div class="membro">
@@ -283,7 +296,7 @@
 
                     </div>
 
-
+                    <!-- Segundo grupo de integrantes. -->
                     <div class="time-slide">
 
                         <div class="membro">
@@ -320,7 +333,7 @@
 
                     </div>
 
-
+                    <!-- Terceiro grupo de integrantes. -->
                     <div class="time-slide">
 
                         <div class="membro">
@@ -359,13 +372,14 @@
 
                 </div>
 
-                <!-- Controles do carrossel -->
+                <!-- Controles utilizados para navegar entre os grupos de integrantes. -->
                 <div class="time-carousel-controls">
 
                     <button class="time-carousel-button prev" type="button" aria-label="Equipe anterior">
                         <span class="material-symbols-rounded">chevron_left</span>
                     </button>
 
+                    <!-- Indicadores mostram qual grupo está sendo exibido. -->
                     <div class="time-carousel-indicators">
                         <button class="time-indicator active" type="button" aria-label="Equipe 1"></button>
                         <button class="time-indicator" type="button" aria-label="Equipe 2"></button>
@@ -384,7 +398,7 @@
 
     </section>
 
-    <!-- ONDAS SUPERIORES DA SEÇÃO -->
+    <!-- ELEMENTO DECORATIVO: onda que faz a transição para a seção de fundo verde. -->
     <div class="missao-ondas-superiores" aria-hidden="true">
         <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path d="M0,64 C180,120 360,20 540,55
@@ -394,7 +408,7 @@
         </svg>
     </div>
 
-    <!-- FUNDO VERDE: MISSÃO + TÍTULO DAS AÇÕES -->
+    <!-- MISSÃO E OBJETIVOS: apresentação da finalidade e dos objetivos do projeto. -->
     <section class="missao-acoes">
 
         <section class="nossa-missao" id="nossa-missao">
@@ -428,6 +442,7 @@
                     </div>
                 </div>
 
+                <!-- Imagem ilustrativa acompanhada de um elemento decorativo. -->
                 <div class="nossa-missao-imagem">
                     <div class="imagem-quadrado"></div>
 
@@ -437,12 +452,12 @@
             </div>
         </section>
 
-
-
     </section>
 
-    <!-- IMAGEM DE LARGURA TOTAL + CARDS -->
+    <!-- AÇÕES EM DESTAQUE: carrossel de ações realizadas pelo projeto. -->
     <section class="acoes-destaque">
+
+        <!-- Título e texto de apresentação da seção. -->
         <section class="acoes-desenvolvidas" id="acoes-desenvolvidas">
             <div class="acoes-desenvolvidas-texto">
                 <h2>Ações desenvolvidas</h2>
@@ -453,15 +468,16 @@
             </div>
         </section>
 
+        <!-- Imagem utilizada como plano de fundo da seção. -->
         <div class="acoes-destaque-imagem" aria-hidden="true"></div>
 
         <div class="acoes-destaque-conteudo">
 
             <div class="acoes-destaque-carousel">
 
+                <!-- Slides do carrossel: cada slide apresenta uma ação do projeto. -->
                 <div class="acoes-destaque-slides">
 
-                    <!-- CARD 1 -->
                     <article class="acoes-destaque-slide active">
                         <div class="acao-card">
                             <img src="assets/icones/icone_livro.png" alt="" aria-hidden="true">
@@ -475,7 +491,6 @@
                         </div>
                     </article>
 
-                    <!-- CARD 2 -->
                     <article class="acoes-destaque-slide">
                         <div class="acao-card">
                             <img src="assets/icones/icone_estudo.png" alt="" aria-hidden="true">
@@ -489,7 +504,6 @@
                         </div>
                     </article>
 
-                    <!-- CARD 3 -->
                     <article class="acoes-destaque-slide">
                         <div class="acao-card">
                             <img src="assets/icones/icone_plantar.png" alt="" aria-hidden="true">
@@ -507,6 +521,7 @@
 
             </div>
 
+            <!-- Atalho para a galeria com registros das ações. -->
             <a href="pages/galeria.html" class="acoes-destaque-botao">
                 <span class="material-symbols-outlined" aria-hidden="true">
                     photo_camera
@@ -516,7 +531,7 @@
 
         </div>
 
-        <!-- ONDAS INFERIORES: SOBEM SOBRE A IMAGEM -->
+        <!-- Onda decorativa que encerra a seção sem remover a imagem de fundo. -->
         <div class="acoes-destaque-ondas" aria-hidden="true">
             <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <path d="M0,80
@@ -527,10 +542,9 @@
             </svg>
         </div>
 
-
     </section>
 
-    <!-- SEÇÃO CONTEÚDOS -->
+    <!-- CONTEÚDOS: atalhos para o jornal, eventos e materiais educativos. -->
     <section class="conteudos-home">
 
         <div class="conteudos-home-container">
@@ -543,9 +557,9 @@
                 </p>
             </div>
 
+            <!-- Cards que direcionam para as diferentes áreas de conteúdo. -->
             <div class="conteudos-home-cards">
 
-                <!-- CARD 1 -->
                 <a href="pages/conteudos.html" class="conteudos-home-card">
                     <img src="assets/icones/icone_jornal.png" alt="" aria-hidden="true">
 
@@ -560,10 +574,8 @@
                     </span>
                 </a>
 
-                <!-- CARD 2 -->
                 <a href="pages/noticias.html" class="conteudos-home-card">
                     <img src="assets/icones/icone_eventos.png" alt="" aria-hidden="true">
-
 
                     <h3>Eventos</h3>
 
@@ -576,7 +588,6 @@
                     </span>
                 </a>
 
-                <!-- CARD 3 -->
                 <a href="pages/galeria.html" class="conteudos-home-card">
                     <img src="assets/icones/icone_galeria.png" alt="" aria-hidden="true">
 
@@ -587,7 +598,8 @@
                         desenvolvidas pela equipe do projeto.
                     </p>
 
-                    <span href="/projeto-mangue-vivo/pages/conteudos.html" class="material-symbols-rounded conteudos-home-seta" aria-hidden="true">
+                    <span href="/projeto-mangue-vivo/pages/conteudos.html"
+                        class="material-symbols-rounded conteudos-home-seta" aria-hidden="true">
                         arrow_forward
                     </span>
                 </a>
@@ -596,7 +608,7 @@
 
         </div>
 
-        <!-- ONDAS INFERIORES: SOBEM SOBRE A IMAGEM -->
+        <!-- Onda decorativa que encerra Conteúdos e faz a transição para o rodapé. -->
         <div class="acoes-destaque-ondas" aria-hidden="true">
             <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <path d="M0,80
@@ -609,8 +621,118 @@
 
     </section>
 
+    <!-- CONTATO: informações de localização, redes sociais e formulário de contato. -->
+    <section class="contato" id="contato">
+        <div class="contato-container">
+
+            <!-- Título principal da seção. -->
+            <div class="contato-titulo">
+                <h2>Contato</h2>
+            </div>
+
+            <div class="contato-conteudo">
+
+                <!-- COLUNA ESQUERDA: localização e redes sociais. -->
+                <div class="contato-informacoes">
+
+                    <!-- Informações sobre a localização do projeto. -->
+                    <div class="contato-bloco">
+
+                        <h3 class="contato-subtitulo contato-subtitulo-verde">
+                            Nossa localização
+                        </h3>
+
+                        <address class="contato-endereco">
+                            Av. Mister Hull, s/n - Pici, Fortaleza - CE<br>
+                            CEP 60455-760<br>
+                            Universidade Federal do Ceará - Campus do Pici<br>
+                            Bloco 702
+                        </address>
+
+                    </div>
+
+                    <!-- Links para as redes sociais do projeto. -->
+                    <div class="contato-bloco">
+
+                        <h3 class="contato-subtitulo contato-subtitulo-verde">
+                            Nossas redes sociais
+                        </h3>
+
+                        <div class="contato-redes">
+
+                            <a href="https://www.instagram.com/manguevivo_ufc/" class="contato-rede" target="_blank"
+                                rel="noopener noreferrer">
+
+                                <img src="assets/icones/instagram-foto.png" alt="">
+
+                                <span>@manguevivo_ufc</span>
+
+                            </a>
+
+                            <a href="https://www.facebook.com/programamanguevivo" class="contato-rede" target="_blank"
+                                rel="noopener noreferrer">
+
+                                <img src="assets/icones/facebook-foto.png" alt="">
+
+                                <span>@programamanguevivo</span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- COLUNA DIREITA: formulário para envio de mensagens. -->
+                <div class="contato-formulario-container">
+
+                    <h3 class="contato-subtitulo contato-subtitulo-laranja">
+                        Contate-nos
+                    </h3>
+
+                    <form class="contato-formulario">
+
+                        <div class="contato-campo">
+                            <label for="contato-nome">Nome*</label>
+                            <input type="text" id="contato-nome" name="nome" placeholder="seu nome aqui" required>
+                        </div>
+
+                        <div class="contato-campo">
+                            <label for="contato-email">Email*</label>
+                            <input type="email" id="contato-email" name="email" placeholder="seuemail@email.com"
+                                required>
+                        </div>
+
+                        <div class="contato-campo">
+                            <label for="contato-mensagem">Mensagem*</label>
+                            <textarea id="contato-mensagem" name="mensagem" placeholder="sua mensagem aqui"
+                                required></textarea>
+                        </div>
+
+                        <!-- Espaço reservado para a integração do CAPTCHA. -->
+                        <div class="contato-captcha" id="captcha-container">
+                            <!-- O CAPTCHA será inserido aqui. -->
+                        </div>
+
+                        <button type="submit" class="contato-botao">
+                            Enviar
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- COMPONENTE COMPARTILHADO: rodapé carregado pelo components.js. -->
     <div id="footer-container"></div>
 
+    <!-- Scripts responsáveis pelos componentes compartilhados e interações da página. -->
     <script src="js/components.js"></script>
     <script src="js/script.js"></script>
 

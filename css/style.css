@@ -1,26 +1,32 @@
-/* variaveis globais */
+/* =========================
+   VARIÁVEIS GLOBAIS
+========================= */
 :root {
+    /* Cores principais da identidade visual */
     --cor-principal: #163812;
     --cor-secundaria: #EF6B3B;
     --cor-fundo: #F2F9EF;
 
+    /* Cores utilizadas no cabeçalho e nos textos */
     --cor-texto-header: #F2F9EF;
     --cor-texto-header-dest: #FF6A00;
     --cor-texto-card: #416E21;
-    
+
+    /* Cores gerais dos textos */
     --cor-texto-hero: #F2F9EF;
     --cor-texto: #222222;
 
+    /* Cores utilizadas na busca e nos filtros de notícias */
     --cor-buscar-noticia: #94AC94;
     --cor-borda-filtro-noticia: #D0DFD0;
     --cor-card-noticia: #F1FFE9;
 
-
-
+    /* Largura máxima do conteúdo e espaçamento lateral padrão */
     --largura-conteudo: 1200px;
     --margem-lateral: 30px;
 }
 
+/* Container padrão para limitar e centralizar o conteúdo das páginas */
 .container {
     width: 100%;
     max-width: var(--largura-conteudo);
@@ -32,6 +38,7 @@
    FONTES
 ========================= */
 
+/* Importação da fonte personalizada utilizada no projeto */
 @font-face {
     font-family: "Righteous";
     src: url("../assets/fonts/Righteous-Regular.woff")
@@ -40,22 +47,28 @@
     font-display: swap;
 }
 
-/* remover margens padrão */
+/* =========================
+   TAGS GERAIS
+========================= */
+
+/* Remove as margens e os espaçamentos internos padrão dos elementos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* configurações em tags gerais */
+/* Configurações gerais do corpo da página */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
 
+    /* Compensa a altura do header fixo para evitar sobreposição do conteúdo */
     padding-top: 120px;
 }
 
+/* Estilo padrão dos títulos de segundo nível */
 h2 {
     text-align: left;
     font-size: 40px;
@@ -63,7 +76,11 @@ h2 {
     color: var(--cor-principal);
 }
 
-/* header do site */
+/* =========================
+   HEADER
+========================= */
+
+/* Cabeçalho fixo no topo da página */
 .header {
     width: 100%;
     height: 120px;
@@ -75,7 +92,7 @@ h2 {
     z-index: 1000;
 }
 
-
+/* Container que organiza o logo e o menu de navegação */
 .header-container {
     max-width: var(--largura-conteudo);
     height: 100%;
@@ -87,6 +104,7 @@ h2 {
     justify-content: space-between;
 }
 
+/* Organiza o logo e seu nome horizontalmente */
 .logo {
     display: flex;
     align-items: center;
@@ -94,12 +112,14 @@ h2 {
     text-decoration: none;
 }
 
+/* Define o tamanho e o comportamento da imagem do logo */
 .logo img {
     height: 120px;
     width: auto;
     object-fit: contain;
 }
 
+/* Estilização do nome exibido ao lado do logo */
 .logo-nome {
     color: #F9FFF9;
     font-size: 24px;
@@ -107,31 +127,46 @@ h2 {
     white-space: nowrap;
 }
 
+/* Organiza os links do menu horizontalmente */
 .menu {
     display: flex;
     gap: 80px;
 }
 
+/* Estilo padrão dos links de navegação */
 .menu a {
     text-decoration: none;
     font-size: 18px;
     color: var(--cor-texto-header);
 }
 
-/* Link da página atual */
-.menu a.ativo {
+/* Mantém os botões dos submenus com a aparência dos links do menu */
+.menu-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: 18px;
+    color: var(--cor-texto-header);
+    cursor: pointer;
+}
+
+/* Destaca o link correspondente à página atual */
+.menu a.ativo,
+.menu-link.ativo {
     color: var(--cor-texto-header-dest);
     font-weight: bold;
 }
 
-/* Item que contém submenu */
+/* Item do menu que contém um submenu */
 .menu-item {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-/* Área invisível para manter a conexão do hover */
+/* Cria uma área invisível abaixo do item para manter o hover
+   ativo durante a movimentação do cursor até o submenu */
 .menu-item::after {
     content: "";
     position: absolute;
@@ -141,33 +176,39 @@ h2 {
     height: 12px;
 }
 
-/* Balão do submenu */
+
+/* Balão que contém os links do submenu */
 .submenu {
     position: absolute;
     top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
 
+    /* Organiza os links verticalmente */
     display: flex;
     flex-direction: column;
     gap: 5px;
 
+    /* Define dimensões e espaçamento interno */
     min-width: 220px;
     padding: 12px;
 
+    /* Aparência do balão */
     background-color: #F9FFF9;
     border-radius: 14px;
     border-top: none;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 
+    /* Mantém o submenu oculto inicialmente */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
+    /* Suaviza a transição de aparecimento e desaparecimento */
     transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-/* Pontinha do balão */
+/* Cria a ponta triangular na parte superior do balão */
 .submenu::before {
     content: "";
     position: absolute;
@@ -175,6 +216,7 @@ h2 {
     left: 50%;
     transform: translateX(-50%);
 
+    /* Bordas transparentes formam o triângulo */
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #F9FFF9;
@@ -182,7 +224,7 @@ h2 {
     z-index: 1;
 }
 
-/* Links do submenu */
+/* Estilização individual dos links do submenu */
 .submenu a {
     display: block;
     padding: 10px 12px;
@@ -196,11 +238,12 @@ h2 {
     transition: background-color 0.2s ease;
 }
 
+/* Altera o fundo do link quando o cursor passa sobre ele */
 .submenu a:hover {
     background-color: #E8F2E4;
 }
 
-/* Mostrar ao passar o mouse ou navegar pelo teclado */
+/* Exibe o submenu quando o item recebe hover ou foco pelo teclado */
 .menu-item:hover .submenu,
 .menu-item:focus-within .submenu {
     opacity: 1;
@@ -212,12 +255,14 @@ h2 {
    FOOTER
 ========================= */
 
+/* Estrutura geral do rodapé */
 .footer {
     width: 100%;
     background-color: var(--cor-header, #163812);
     color: var(--cor-texto-header, #F9FFF9);
 }
 
+/* Container responsável por centralizar o conteúdo do rodapé */
 .footer-container {
     width: 100%;
     max-width: var(--largura-conteudo, 1200px);
@@ -225,8 +270,7 @@ h2 {
     padding: 56px var(--margem-lateral, 30px) 24px;
 }
 
-/* Grade principal: 3 colunas e 2 linhas */
-
+/* Grade principal do rodapé, organizada em 3 colunas e 2 linhas */
 .footer-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.3fr);
@@ -235,14 +279,12 @@ h2 {
     align-items: start;
 }
 
-/* =========================
-   IDENTIDADE
-========================= */
-
+/* Área de identificação do projeto */
 .footer-identidade {
     min-width: 0;
 }
 
+/* Nome ou logotipo textual do projeto no rodapé */
 .footer-logo {
     display: inline-block;
     margin-bottom: 16px;
@@ -254,6 +296,7 @@ h2 {
     text-decoration: none;
 }
 
+/* Texto descritivo sobre o projeto */
 .footer-descricao {
     max-width: 280px;
     margin: 0;
@@ -263,10 +306,7 @@ h2 {
     line-height: 1.8;
 }
 
-/* =========================
-   NAVEGAÇÃO, SERVIÇOS E RECURSOS
-========================= */
-
+/* Organiza os grupos de links do rodapé em três colunas */
 .footer-links {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -274,6 +314,7 @@ h2 {
     min-width: 0;
 }
 
+/* Títulos das seções de links, contato e horário */
 .footer-grupo h3,
 .footer-contato h3,
 .footer-horario h3 {
@@ -285,6 +326,7 @@ h2 {
     line-height: 1.4;
 }
 
+/* Remove os marcadores das listas e organiza seus itens verticalmente */
 .footer-grupo ul,
 .footer-contato-lista {
     display: flex;
@@ -296,6 +338,7 @@ h2 {
     list-style: none;
 }
 
+/* Estilo padrão dos links dos grupos, contato e redes sociais */
 .footer-grupo a,
 .footer-contato a,
 .footer-redes a {
@@ -307,18 +350,17 @@ h2 {
     transition: color 0.2s ease;
 }
 
-/* =========================
-   CONTATO
-========================= */
-
+/* Área de informações de contato */
 .footer-contato {
     min-width: 0;
 }
 
+/* Define o espaçamento entre os itens de contato */
 .footer-contato-lista {
     gap: 14px;
 }
 
+/* Estilização dos itens da lista de contato */
 .footer-contato-lista li {
     color: rgba(249, 255, 249, 0.78);
     font-size: 0.875rem;
@@ -326,14 +368,12 @@ h2 {
     overflow-wrap: anywhere;
 }
 
+/* Pequeno ajuste no espaçamento do endereço */
 .footer-contato-lista .footer-endereco {
     margin-top: 2px;
 }
 
-/* =========================
-   REDES SOCIAIS
-========================= */
-
+/* Área das redes sociais, ocupando as duas primeiras colunas da grade */
 .footer-redes {
     grid-column: 1 / 3;
     display: flex;
@@ -343,7 +383,7 @@ h2 {
     min-width: 0;
 }
 
-/* Título em uma linha própria */
+/* Faz o título das redes sociais ocupar uma linha inteira */
 .footer-redes h3 {
     flex-basis: 100%;
     margin: 0;
@@ -353,34 +393,35 @@ h2 {
     line-height: 1.4;
 }
 
-/* Links em uma única linha */
+/* Impede que os links e separadores encolham */
 .footer-redes a,
 .footer-redes span {
     flex-shrink: 0;
 }
 
+/* Mantém os nomes das redes sociais em uma única linha */
 .footer-redes a {
     white-space: nowrap;
 }
 
+/* Estilização dos separadores entre os links das redes sociais */
 .footer-redes span {
     color: rgba(249, 255, 249, 0.5);
     font-size: 0.875rem;
 }
 
-/* =========================
-   HORÁRIO DE FUNCIONAMENTO
-========================= */
-
+/* Área que apresenta os horários de funcionamento */
 .footer-horario {
     grid-column: 3;
     min-width: 0;
 }
 
+/* Ajusta o espaço abaixo do título de horários */
 .footer-horario h3 {
     margin-bottom: 14px;
 }
 
+/* Estilização dos textos de horário */
 .footer-horario p {
     margin: 0 0 8px;
 
@@ -389,24 +430,19 @@ h2 {
     line-height: 1.6;
 }
 
-/* =========================
-   HOVER DOS LINKS
-========================= */
-
+/* Altera a cor dos links do rodapé ao passar o cursor */
 .footer a:hover {
     color: #F4A340;
 }
 
+/* Destaca os links quando recebem foco pela navegação do teclado */
 .footer a:focus-visible {
     outline: 2px solid #F4A340;
     outline-offset: 4px;
     border-radius: 2px;
 }
 
-/* =========================
-   COPYRIGHT
-========================= */
-
+/* Área inferior do rodapé destinada aos direitos autorais */
 .footer-copyright {
     display: flex;
     justify-content: flex-end;
@@ -416,6 +452,7 @@ h2 {
     border-top: 1px solid rgba(249, 255, 249, 0.18);
 }
 
+/* Estilização do texto de direitos autorais */
 .footer-copyright p {
     margin: 0;
 
@@ -425,10 +462,7 @@ h2 {
     text-align: right;
 }
 
-/* =========================
-   ONDAS ACIMA DO FOOTER
-========================= */
-
+/* Área que contém a onda decorativa do rodapé */
 .footer-ondas {
     width: 100%;
     height: 100px;
@@ -437,6 +471,7 @@ h2 {
     background-color: transparent;
 }
 
+/* Faz o SVG da onda ocupar todo o espaço disponível */
 .footer-ondas-svg {
     display: block;
     width: 100%;
@@ -447,30 +482,38 @@ h2 {
    RESPONSIVIDADE
 ========================= */
 
+/* Ajustes do rodapé para telas menores, como tablets */
 @media (max-width: 1000px) {
+
+    /* Reduz a grade principal de três para duas colunas */
     .footer-grid {
         grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.7fr);
         column-gap: 36px;
         row-gap: 36px;
     }
 
+    /* Posiciona os grupos de links na segunda coluna */
     .footer-links {
         grid-column: 2;
         grid-row: 1;
     }
 
+    /* Faz a seção de contato ocupar toda a largura da grade */
     .footer-contato {
         grid-column: 1 / -1;
     }
 
+    /* Faz a seção de redes sociais ocupar toda a largura */
     .footer-redes {
         grid-column: 1 / -1;
     }
 
+    /* Faz a seção de horários ocupar toda a largura */
     .footer-horario {
         grid-column: 1 / -1;
     }
 
+    /* Organiza os itens de contato em duas colunas */
     .footer-contato-lista {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -478,16 +521,21 @@ h2 {
     }
 }
 
+/* Ajustes do rodapé para telas de celular */
 @media (max-width: 600px) {
+
+    /* Reduz os espaçamentos internos do rodapé */
     .footer-container {
         padding: 40px 20px 20px;
     }
 
+    /* Organiza a grade principal em uma única coluna */
     .footer-grid {
         grid-template-columns: minmax(0, 1fr);
         row-gap: 32px;
     }
 
+    /* Faz todas as seções ocuparem a mesma coluna */
     .footer-identidade,
     .footer-links,
     .footer-contato,
@@ -497,42 +545,52 @@ h2 {
         grid-row: auto;
     }
 
+    /* Organiza os grupos de links em duas colunas */
     .footer-links {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 28px 20px;
     }
 
+    /* Faz o primeiro grupo de links ocupar duas linhas */
     .footer-grupo:first-child {
         grid-row: span 2;
     }
 
+    /* Organiza os itens de contato em uma única coluna */
     .footer-contato-lista {
         grid-template-columns: minmax(0, 1fr);
     }
 
+    /* Ajusta o espaçamento entre os elementos das redes sociais */
     .footer-redes {
         gap: 8px 10px;
     }
 
+    /* Reduz o espaço acima da área de direitos autorais */
     .footer-copyright {
         margin-top: 32px;
     }
 
+    /* Reduz o tamanho do texto de direitos autorais */
     .footer-copyright p {
         font-size: 0.75rem;
     }
 
+    /* Permite que os elementos das redes sociais quebrem de linha */
     .footer-redes {
         grid-column: 1;
         flex-wrap: wrap;
     }
 
+    /* Mantém os links e separadores das redes sociais sem quebra interna */
     .footer-redes a,
     .footer-redes span {
         white-space: nowrap;
     }
 }
 
+/* Respeita a preferência do usuário por animações reduzidas,
+   removendo a transição dos links do rodapé */
 @media (prefers-reduced-motion: reduce) {
     .footer a {
         transition: none;   

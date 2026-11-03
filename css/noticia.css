@@ -1,4 +1,8 @@
-/* Sombra exclusiva da página individual de notícia */
+/* =========================
+   HEADER DA NOTÍCIA
+========================= */
+
+/* Adiciona uma sombra ao cabeçalho somente na página individual de notícia */
 body:has(.pagina-noticia) .header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -7,11 +11,13 @@ body:has(.pagina-noticia) .header {
    PÁGINA INDIVIDUAL DA NOTÍCIA
 ========================= */
 
+/* Define o fundo e a altura mínima da página da notícia */
 .pagina-noticia {
     background-color: var(--cor-fundo, #ffffff);
     min-height: 100vh;
 }
 
+/* Configura os ícones de data e tempo de leitura */
 .noticia-data .material-symbols-outlined,
 .noticia-tempo-leitura .material-symbols-outlined {
     font-size: 20px;
@@ -19,16 +25,17 @@ body:has(.pagina-noticia) .header {
     flex-shrink: 0;
 }
 
+/* Ajuste geral de posicionamento dos ícones Material Symbols */
 .material-symbols-outlined {
     position: relative;
     top: -2px;
 }
 
-
 /* =========================
    CABEÇALHO VERDE
 ========================= */
 
+/* Área superior da notícia, com fundo verde e texto branco */
 .noticia-cabecalho {
     position: relative;
     background-color: var(--cor-principal, #26734d);
@@ -36,11 +43,13 @@ body:has(.pagina-noticia) .header {
     padding: 35px 24px 125px;
 }
 
+/* Limita e centraliza o conteúdo do cabeçalho */
 .noticia-cabecalho-container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Link para retornar à página anterior ou à listagem de notícias */
 .noticia-voltar {
     display: inline-block;
     margin-bottom: 35px;
@@ -50,16 +59,17 @@ body:has(.pagina-noticia) .header {
     transition: opacity 0.2s ease;
 }
 
+/* Reduz a opacidade do link quando o cursor passa sobre ele */
 .noticia-voltar:hover {
     color: #ffffff;
     opacity: 0.75;
 }
 
-
 /* =========================
    CATEGORIA E DATA
 ========================= */
 
+/* Organiza as informações de categoria e data da notícia */
 .noticia-metadados {
     display: flex;
     align-items: center;
@@ -68,6 +78,7 @@ body:has(.pagina-noticia) .header {
     margin-bottom: 22px;
 }
 
+/* Etiqueta que identifica a categoria da notícia */
 .noticia-categoria {
     display: inline-block;
     padding: 7px 15px;
@@ -78,6 +89,7 @@ body:has(.pagina-noticia) .header {
     font-weight: 600;
 }
 
+/* Organiza a data e seu ícone horizontalmente */
 .noticia-data {
     display: inline-flex;
     align-items: center;
@@ -86,17 +98,18 @@ body:has(.pagina-noticia) .header {
     font-size: 0.9rem;
 }
 
+/* Define as dimensões do ícone da data */
 .noticia-data svg {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
 }
 
-
 /* =========================
    TÍTULO E SINOPSE
 ========================= */
 
+/* Estilização do título principal da notícia */
 .noticia-titulo {
     max-width: 900px;
     margin: 0 0 18px;
@@ -106,6 +119,7 @@ body:has(.pagina-noticia) .header {
     letter-spacing: -0.5px;
     font-family: "Righteous", sans-serif;
 
+    /* Limita o título a duas linhas */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -113,6 +127,7 @@ body:has(.pagina-noticia) .header {
     overflow: hidden;
 }
 
+/* Texto de apresentação ou resumo da notícia */
 .noticia-sinopse {
     max-width: 850px;
     margin: 0 0 30px;
@@ -120,6 +135,7 @@ body:has(.pagina-noticia) .header {
     font-size: 1.08rem;
     line-height: 1.7;
 
+    /* Limita a sinopse a três linhas */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -127,11 +143,11 @@ body:has(.pagina-noticia) .header {
     overflow: hidden;
 }
 
-
 /* =========================
    AUTOR E TEMPO DE LEITURA
 ========================= */
 
+/* Organiza as informações do autor e o tempo estimado de leitura */
 .noticia-informacoes-autor {
     display: flex;
     align-items: center;
@@ -141,6 +157,7 @@ body:has(.pagina-noticia) .header {
     color: var(--cor-texto-header);
 }
 
+/* Agrupa a foto ou identificação do autor com seu nome */
 .noticia-autor {
     display: flex;
     align-items: center;
@@ -148,6 +165,7 @@ body:has(.pagina-noticia) .header {
     min-width: 0;
 }
 
+/* Define o tamanho e o formato circular da foto do autor */
 .noticia-autor-foto {
     width: 50px;
     height: 50px;
@@ -157,6 +175,7 @@ body:has(.pagina-noticia) .header {
     flex-shrink: 0;
 }
 
+/* Estilização das iniciais exibidas quando não há foto do autor */
 .noticia-autor-iniciais {
     display: flex;
     align-items: center;
@@ -166,6 +185,7 @@ body:has(.pagina-noticia) .header {
     font-weight: 700;
 }
 
+/* Estilização do nome do autor */
 .noticia-autor-nome {
     font-size: 14px;
     font-weight: 400;
@@ -173,16 +193,19 @@ body:has(.pagina-noticia) .header {
     margin-bottom: 0px;
 }
 
+/* Destaca o nome do autor quando utiliza a tag strong */
 .noticia-autor-nome strong {
     font-weight: 700;
 }
 
+/* Texto complementar abaixo do nome do autor */
 .noticia-autor-legenda {
     margin: 3px 0 0;
     color: #e4f2e8;
     font-size: 0.85rem;
 }
 
+/* Organiza o ícone e o tempo estimado de leitura */
 .noticia-tempo-leitura {
     display: inline-flex;
     align-items: center;
@@ -192,16 +215,17 @@ body:has(.pagina-noticia) .header {
     white-space: nowrap;
 }
 
+/* Define as dimensões do ícone de tempo de leitura */
 .noticia-tempo-leitura svg {
     width: 20px;
     height: 20px;
 }
 
-
 /* =========================
    ONDA INFERIOR
 ========================= */
 
+/* Posiciona a onda decorativa na parte inferior do cabeçalho */
 .noticia-onda {
     position: absolute;
     left: 0;
@@ -211,33 +235,37 @@ body:has(.pagina-noticia) .header {
     pointer-events: none;
 }
 
+/* Define o tamanho do SVG responsável pela onda */
 .noticia-onda svg {
     display: block;
     width: 100%;
     height: 100px;
 }
 
+/* Define a cor de preenchimento da onda */
 .noticia-onda path {
     fill: var(--cor-fundo, #ffffff);
 }
-
 
 /* =========================
    CORPO DA NOTÍCIA
 ========================= */
 
+/* Container que centraliza o conteúdo principal da notícia */
 .noticia-corpo-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 24px 70px;
 }
 
+/* Define a aparência geral do texto da notícia */
 .noticia-corpo {
     color: var(--cor-texto, #333333);
     font-size: 1.08rem;
     line-height: 1.9;
 }
 
+/* Imagem principal exibida no corpo da notícia */
 .noticia-imagem-destaque {
     display: block;
     width: 100%;
@@ -247,6 +275,7 @@ body:has(.pagina-noticia) .header {
     object-fit: cover;
 }
 
+/* Estilização dos parágrafos do conteúdo da notícia */
 .noticia-paragrafo {
     margin: 0 0 28px;
     overflow-wrap: anywhere;
@@ -254,6 +283,7 @@ body:has(.pagina-noticia) .header {
     font-size: 1.3rem;
 }
 
+/* Estilização dos subtítulos utilizados ao longo da notícia */
 .noticia-subtitulo {
     margin: 42px 0 18px;
     color: var(--cor-principal, #26734d);
@@ -262,17 +292,18 @@ body:has(.pagina-noticia) .header {
     line-height: 1.35;
 }
 
-
 /* =========================
    BOTÃO COMPARTILHAR
 ========================= */
 
+/* Posiciona o botão de compartilhamento à direita */
 .noticia-compartilhar-container {
     display: flex;
     justify-content: flex-end;
     margin-top: 45px;
 }
 
+/* Estilização do botão de compartilhamento */
 .noticia-botao-compartilhar {
     display: inline-flex;
     align-items: center;
@@ -286,42 +317,49 @@ body:has(.pagina-noticia) .header {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+
+    /* Suaviza as mudanças de cor e posição do botão */
     transition:
         background-color 0.2s ease,
         transform 0.2s ease;
 }
 
+/* Altera a cor e eleva levemente o botão ao passar o cursor */
 .noticia-botao-compartilhar:hover {
     background-color: var(--cor-laranja-hover, #dc7615);
     transform: translateY(-2px);
 }
 
+/* Destaca o botão quando recebe foco pela navegação do teclado */
 .noticia-botao-compartilhar:focus-visible {
     outline: 3px solid var(--cor-principal, #26734d);
     outline-offset: 3px;
 }
 
+/* Garante que o SVG do botão seja exibido como bloco */
 .noticia-botao-compartilhar svg {
     display: block;
 }
 
+/* Mensagem exibida após uma ação de compartilhamento */
 .noticia-mensagem-compartilhar {
     margin: 10px 0 0;
     text-align: right;
     font-size: 0.9rem;
 }
 
-
 /* =========================
    ESTADOS DE CARREGAMENTO E ERRO
 ========================= */
 
+/* Estilização das mensagens exibidas durante o carregamento ou em caso de erro */
 .noticia-carregando,
 .noticia-erro {
     color: #ffffff;
     font-size: 1rem;
 }
 
+/* Define a aparência dos links exibidos na mensagem de erro */
 .noticia-erro a {
     color: #ffffff;
     text-decoration: underline;
@@ -331,6 +369,7 @@ body:has(.pagina-noticia) .header {
    NAVEGAÇÃO ENTRE NOTÍCIAS
 ========================= */
 
+/* Organiza os cards de notícia anterior e próxima em duas colunas */
 .navegacao-noticias {
     display: grid;
     grid-template-columns: repeat(2, 450px);
@@ -341,10 +380,12 @@ body:has(.pagina-noticia) .header {
     margin: 45px auto 48px;
 }
 
+/* Oculta a navegação quando o atributo hidden está presente */
 .navegacao-noticias[hidden] {
     display: none;
 }
 
+/* Estrutura e aparência dos cards de navegação entre notícias */
 .card-navegacao-noticia {
     display: flex;
     flex-direction: column;
@@ -362,18 +403,22 @@ body:has(.pagina-noticia) .header {
     border-radius: 30px;
 
     text-decoration: none;
+
+    /* Suaviza as mudanças de fundo, sombra e posição */
     transition:
         background-color 0.2s ease,
         box-shadow 0.2s ease,
         transform 0.2s ease;
 }
 
+/* Altera o fundo, adiciona sombra e eleva o card ao passar o cursor */
 .card-navegacao-noticia:hover {
     background-color: #E7F6DE;
     box-shadow: 0 4px 12px rgba(22, 56, 18, 0.12);
     transform: translateY(-2px);
 }
 
+/* Destaca o card quando recebe foco pela navegação do teclado */
 .card-navegacao-noticia:focus-visible {
     outline: 3px solid #E98A28;
     outline-offset: 4px;
@@ -381,6 +426,7 @@ body:has(.pagina-noticia) .header {
 
 /* Indicadores em laranja */
 
+/* Organiza o indicador e seu ícone */
 .card-navegacao-indicador {
     display: flex;
     align-items: center;
@@ -391,6 +437,7 @@ body:has(.pagina-noticia) .header {
     font-weight: 600;
 }
 
+/* Ajusta o tamanho e o alinhamento dos ícones Material Symbols */
 .card-navegacao-indicador .material-symbols-outlined {
     font-size: 24px;
     line-height: 1;
@@ -401,27 +448,30 @@ body:has(.pagina-noticia) .header {
 
 /* Títulos na cor principal */
 
+/* Estilização do título da notícia anterior ou próxima */
 .card-navegacao-titulo {
     color: #163812;
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.5;
 
+    /* Permite quebrar palavras longas para evitar que ultrapassem o card */
     overflow-wrap: anywhere;
 }
 
 /* Alinhamento dos cards */
 
+/* Alinha o conteúdo do card da notícia anterior à esquerda */
 .card-anterior {
     text-align: left;
 }
 
+/* Alinha o conteúdo do card da próxima notícia à direita */
 .card-proxima {
     text-align: right;
 }
 
-/* Responsividade */
-
+/* Bloco reservado para ajustes responsivos em telas de até 600px */
 @media (max-width: 600px) {}
 
 
@@ -429,89 +479,109 @@ body:has(.pagina-noticia) .header {
    RESPONSIVIDADE
 ========================= */
 
+/* Ajustes da página individual da notícia para telas de até 768px */
 @media (max-width: 768px) {
 
+    /* Reduz os espaçamentos internos do cabeçalho */
     .noticia-cabecalho {
         padding: 25px 20px 110px;
     }
 
+    /* Reduz o espaço abaixo do link de retorno */
     .noticia-voltar {
         margin-bottom: 28px;
     }
 
+    /* Reduz o tamanho do título em telas menores */
     .noticia-titulo {
         font-size: 2rem;
     }
 
+    /* Ajusta o tamanho da sinopse */
     .noticia-sinopse {
         font-size: 1rem;
     }
 
+    /* Organiza as informações do autor e do tempo de leitura verticalmente */
     .noticia-informacoes-autor {
         align-items: flex-start;
         flex-direction: column;
         gap: 18px;
     }
 
+    /* Reduz a altura da onda decorativa */
     .noticia-onda svg {
         height: 75px;
     }
 
+    /* Reduz os espaçamentos do container do corpo da notícia */
     .noticia-corpo-container {
         padding: 20px 20px 50px;
     }
 
+    /* Ajusta o tamanho e o espaçamento entre linhas do texto */
     .noticia-corpo {
         font-size: 1rem;
         line-height: 1.8;
     }
 
+    /* Limita a altura da imagem principal em telas menores */
     .noticia-imagem-destaque {
         max-height: 350px;
         margin-bottom: 28px;
     }
 
+    /* Organiza os cards de notícia anterior e próxima em uma única coluna */
     .navegacao-noticias {
         grid-template-columns: 1fr;
         gap: 14px;
         margin: 24px 0 36px;
     }
 
+    /* Ajusta a altura mínima e o espaçamento interno dos cards */
     .card-navegacao-noticia {
         min-height: 100px;
         padding: 18px;
     }
 }
 
+/* Ajustes adicionais para celulares com telas de até 480px */
 @media (max-width: 480px) {
 
+    /* Reduz o espaçamento lateral do cabeçalho */
     .noticia-cabecalho {
         padding-right: 16px;
         padding-left: 16px;
     }
 
+    /* Reduz o espaço entre as informações de categoria e data */
     .noticia-metadados {
         gap: 10px;
     }
 
+    /* Reduz ainda mais o tamanho do título */
     .noticia-titulo {
         font-size: 1.7rem;
     }
 
+    /* Reduz as dimensões da foto do autor */
     .noticia-autor-foto {
         width: 44px;
         height: 44px;
     }
 
+    /* Reduz a altura da onda decorativa */
     .noticia-onda svg {
         height: 60px;
     }
 
+    /* Reduz os espaçamentos laterais do corpo da notícia */
     .noticia-corpo-container {
         padding-right: 16px;
         padding-left: 16px;
     }
 
+    /* Faz o botão de compartilhamento ocupar toda a largura disponível */
     .noticia-botao-compartilhar {
         width: 100%;
     }
