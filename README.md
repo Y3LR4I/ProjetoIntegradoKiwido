@@ -61,7 +61,13 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 
 * **HTML5** — Estrutura e organização das páginas do site.
 * **CSS3** — Estilização, layout, responsividade e identidade visual.
-* **JavaScript** — Implementação de interações e funcionalidades do site, como o carrossel de banners.
+* **JavaScript** — Implementação de interações e funcionalidades do site, como o carrossel de banners e os quizzes.
+* **Bootstrap 5.3.8** — Framework utilizado para auxiliar na construção de layouts responsivos e componentes da interface.
+* **Node.js** — Ambiente de execução JavaScript utilizado no desenvolvimento do backend.
+* **Express** — Framework utilizado para criação do servidor e gerenciamento das rotas da API.
+* **Nodemailer** — Biblioteca utilizada para realizar o envio de e-mails pelo formulário de contato.
+* **Cloudflare Turnstile** — Ferramenta utilizada para proteção do formulário contra envios automatizados e spam.
+* **Postman** — Ferramenta utilizada para testar e validar as requisições da API.
 * **Git** — Controle de versão do código-fonte.
 * **GitHub** — Hospedagem do repositório e gerenciamento do código.
 * **Figma** — Prototipação e desenvolvimento da interface visual do projeto.
@@ -74,38 +80,114 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 ```text
 projeto-mangue-vivo/
 │
+├── .postman/
+│   └── resources.yaml
+│
 ├── assets/
+│   ├── fonts/
+│   ├── icones/
 │   └── images/
-│       ├── logo.png
-│       ├── img_hero_section01.png
-│       ├── img_hero_section02.png
-│       ├── img_hero_section03.png
-│       └── img_qm_somos.png
+│       ├── hero/
+│       ├── home/
+│       ├── logo/
+│       ├── noticias/
+│       ├── quiz/
+│       │   ├── animais/
+│       │   └── sons/
+│       └── time/
+│
+├── backend/
+│   ├── node_modules/
+│   ├── .env
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
+│
+├── components/
+│   ├── footer.html
+│   └── header.html
 │
 ├── css/
-│   ├── style.css
-│   └── home.css
+│   ├── conteudos.css
+│   ├── home.css
+│   ├── noticia.css
+│   ├── quiz.css
+│   └── style.css
+│
+├── data/
+│   └── noticias.json
 │
 ├── js/
+│   ├── quiz/
+│   │   ├── carrossel.js
+│   │   └── quiz.js
+│   ├── components.js
+│   ├── contato.js
+│   ├── conteudos.js
+│   ├── noticia.js
 │   └── script.js
 │
 ├── pages/
-│   ├── acoes.html
 │   ├── conteudos.html
-│   └── contato.html
+│   ├── noticia.html
+│   └── quiz.html
+│
+├── postman/
 │
 ├── index.html
-└── README.md
+└── readme.md
 ```
 
 ### Descrição
 
-* **assets/images/** — Armazena as imagens utilizadas no site, como logo, banners e imagens das seções.
+* **.postman/** — Contém arquivos de configuração e recursos utilizados pelo Postman para gerenciar e testar as requisições da API.
+* **assets/** — Armazena os recursos visuais utilizados no site, como fontes, ícones e imagens.
+* **assets/fonts/** — Contém as fontes utilizadas na interface do site.
+* **assets/icones/** — Armazena os ícones utilizados nas páginas e nos componentes.
+* **assets/images/** — Reúne as imagens utilizadas no projeto, organizadas por finalidade.
+* **assets/images/hero/** — Armazena as imagens da seção principal (hero) das páginas.
+* **assets/images/home/** — Contém as imagens específicas da página inicial.
+* **assets/images/logo/** — Armazena os arquivos de logotipo do projeto.
+* **assets/images/noticias/** — Contém as imagens utilizadas nas notícias.
+* **assets/images/quiz/** — Armazena as imagens utilizadas nos quizzes.
+* **assets/images/quiz/animais/** — Contém imagens de animais utilizadas nas atividades do quiz.
+* **assets/images/quiz/sons/** — Armazena imagens relacionadas às atividades de identificação de sons.
+* **assets/images/time/** — Contém imagens dos integrantes da equipe.
+* **backend/** — Contém os arquivos responsáveis pelo funcionamento do servidor e pelo processamento do formulário de contato.
+* **backend/node_modules/** — Armazena as dependências instaladas do Node.js.
+* **backend/.env** — Guarda variáveis de ambiente e informações sensíveis utilizadas pelo backend.
+* **backend/.gitignore** — Define os arquivos e pastas que devem ser ignorados pelo Git.
+* **backend/package-lock.json** — Registra as versões exatas das dependências instaladas no projeto.
+* **backend/package.json** — Contém as informações do projeto backend e suas dependências.
+* **backend/server.js** — Arquivo principal do servidor, responsável pelas rotas, validações e envio de e-mails.
+* **components/** — Armazena os componentes HTML reutilizáveis nas páginas.
+* **components/footer.html** — Define a estrutura do rodapé do site.
+* **components/header.html** — Define a estrutura do cabeçalho e do menu de navegação.
 * **css/** — Contém os arquivos responsáveis pela estilização das páginas.
+* **css/conteudos.css** — Define os estilos da página de conteúdos.
+* **css/home.css** — Contém os estilos específicos da página inicial.
+* **css/noticia.css** — Define os estilos da página individual de notícias.
+* **css/quiz.css** — Contém os estilos das páginas e elementos do quiz.
+* **css/style.css** — Armazena os estilos globais e compartilhados do site.
+* **data/** — Armazena os arquivos de dados utilizados pelo projeto.
+* **data/noticias.json** — Contém os dados das notícias exibidas no site.
 * **js/** — Contém os scripts JavaScript responsáveis pelas funcionalidades e interações.
+* **js/quiz/** — Reúne os scripts responsáveis pelo funcionamento do quiz.
+* **js/quiz/carrossel.js** — Controla o funcionamento do carrossel utilizado no quiz.
+* **js/quiz/quiz.js** — Implementa a lógica e as interações do quiz.
+* **js/components.js** — Responsável por carregar e gerenciar os componentes reutilizáveis, como cabeçalho e rodapé.
+* **js/contato.js** — Controla o envio e as interações do formulário de contato com o backend.
+* **js/conteudos.js** — Gerencia a exibição, os filtros, a busca e a paginação dos conteúdos.
+* **js/noticia.js** — Controla a exibição e as funcionalidades da página individual de notícias.
+* **js/script.js** — Contém os scripts gerais e funcionalidades compartilhadas do site.
 * **pages/** — Armazena as páginas secundárias do site.
+* **pages/conteudos.html** — Página responsável pela apresentação dos conteúdos e notícias.
+* **pages/noticia.html** — Página destinada à exibição completa de uma notícia.
+* **pages/quiz.html** — Página que apresenta as atividades e os quizzes interativos.
+* **postman/** — Armazena arquivos relacionados ao gerenciamento e à organização das requisições da API no Postman.
 * **index.html** — Página inicial do projeto.
-* **README.md** — Documentação e informações sobre o projeto
+* **README.md** — Documentação com informações sobre o projeto, sua estrutura e instruções de execução.
 
 <a name="documento"></a>
 
