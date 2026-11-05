@@ -147,13 +147,15 @@
 
     padding: 10px 18px;
 
+    border: 1px solid var(--cor-secundaria);
     border-radius: 30px;
 
-    background-color: var(--cor-secundaria);
-    color: #FFFFFF;
+    background-color: var(--cor-fundo);
+    color: var(--cor-secundaria);
 
     font-size: 16px;
     text-decoration: none;
+    font-weight: 700;
 
     transition:
         background-color 0.2s ease,
@@ -161,8 +163,8 @@
 }
 
 .hero-botao:hover {
-    background-color: #D9572C;
-    color: #FFFFFF;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-fundo);
     transform: translateY(-2px);
 }
 
@@ -1503,6 +1505,415 @@
     border: 1px solid #E7AAAA;
 }
 
+/* ==============================
+   SEÇÃO NOSSOS JOGOS
+================================= */
+
+.jogos-destaque {
+    position: relative;
+
+    background-color: var(--cor-texto-card);
+
+    padding: 70px var(--margem-lateral) 190px;
+}
+
+/* Card principal */
+
+.jogos-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+
+    margin: 0 auto;
+
+    padding: 55px 50px 65px;
+
+    background-color: var(--cor-fundo);
+
+    border-radius: 20px;
+}
+
+/* Cabeçalho */
+
+.jogos-cabecalho {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.jogos-cabecalho h2 {
+    color: var(--cor-principal);
+
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.jogos-cabecalho p {
+    color: var(--cor-principal);
+
+    font-size: 22px;
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+.jogos-cabecalho strong {
+    color: var(--cor-secundaria);
+}
+
+/* Lista de cards */
+
+.jogos-lista {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+/* Card individual */
+
+.jogo-card {
+    position: relative;
+    display: block;
+
+    padding: 25px;
+
+    background-color: var(--cor-fundo);
+
+    border-radius: 25px;
+
+    border: 4px solid var(--cor-principal);
+
+    text-decoration: none;
+    color: inherit;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.jogo-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Cabeçalho do card */
+
+.jogo-card-cabecalho {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.jogo-card-cabecalho h3 {
+    color: var(--cor-principal);
+
+    font-size: 23px;
+    font-weight: 700;
+
+    text-align: center;
+
+    margin: 0;
+}
+
+/* Botão de informação */
+
+.jogo-info {
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.jogo-info button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+
+    border: 1.5px solid var(--cor-secundaria);
+    border-radius: 50%;
+
+    background-color: transparent;
+    color: var(--cor-secundaria);
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: help;
+}
+
+/* Caixa de informação */
+
+.jogo-tooltip {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 35px;
+    right: 0;
+
+    width: 230px;
+
+    padding: 12px 14px;
+
+    background-color: var(--cor-principal);
+    color: white;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    border-radius: 8px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+/* Exibe a informação ao passar o mouse ou focar */
+
+.jogo-info:hover .jogo-tooltip,
+.jogo-info:focus-within .jogo-tooltip {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+/* Imagem */
+
+.jogo-imagem {
+    display: block;
+
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+}
+
+/* Categorias */
+
+.jogo-categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.jogo-categorias span {
+    padding: 7px 14px;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-principal);
+
+    border: 1px solid var(--cor-principal);
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Onda inferior */
+
+.jogos-ondas {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 120px;
+
+    line-height: 0;
+}
+
+.jogos-ondas svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-fundo);
+}
+
+/* ==============================
+   PERGUNTAS FREQUENTES
+================================= */
+
+.faq-destaque {
+    background-color: var(--cor-fundo);
+
+    padding: 80px var(--margem-lateral);
+    padding-bottom: 40px;
+}
+
+.faq-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+
+    margin: 0 auto;
+}
+
+/* Título */
+
+.faq-container > h2 {
+    color: var(--cor-principal);
+
+    font-size: 48px;
+    font-weight: 700;
+
+    margin-bottom: 35px;
+}
+
+/* Lista de perguntas */
+
+.faq-lista {
+    width: 100%;
+}
+
+/* Cada pergunta */
+
+.faq-item {
+    border-bottom: 1px solid var(--cor-texto-card);
+}
+
+/* Área clicável */
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 22px 10px;
+
+    color: var(--cor-principal);
+
+    font-size: 22px;
+    font-weight: 600;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Remove a seta padrão */
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Seta personalizada */
+
+.faq-seta {
+    flex-shrink: 0;
+
+    width: 11px;
+    height: 11px;
+
+    border-right: 2px solid var(--cor-principal);
+    border-bottom: 2px solid var(--cor-principal);
+
+    transform: rotate(45deg);
+
+    transition: transform 0.25s ease;
+}
+
+/* Seta quando aberto */
+
+.faq-item[open] .faq-seta {
+    transform: rotate(225deg);
+}
+
+/* Respostas */
+
+.faq-resposta {
+    padding: 0 40px 20px 10px;
+
+    animation: faq-aparecer 0.25s ease;
+}
+
+.faq-resposta p {
+    color: var(--cor-principal);
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+/* Animação de abertura */
+
+@keyframes faq-aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bloco de contato */
+#contato {
+    scroll-margin-top: 100px;
+}
+
+.faq-contato {
+    padding: 25px 10px;
+}
+
+.faq-contato h3 {
+    color: var(--cor-principal);
+
+    font-size: 22px;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.faq-contato p {
+    color: var(--cor-principal);
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+.faq-contato a {
+    color: var(--cor-secundaria);
+
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.faq-contato a:hover {
+    text-decoration: underline;
+}
+
 /* =========================
    RESPONSIVIDADE
 ========================= */
@@ -1816,6 +2227,49 @@
     .hero-texto p {
         font-size: 16px;
     }
+
+    .jogos-container {
+        padding: 40px 25px 45px;
+    }
+
+    .jogos-cabecalho h2 {
+        font-size: 30px;
+    }
+
+    .jogos-cabecalho p {
+        font-size: 16px;
+    }
+
+    .jogos-lista {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .jogo-imagem {
+        height: 210px;
+    }
+
+    .faq-destaque {
+        padding: 50px 25px;
+    }
+
+    .faq-container > h2 {
+        font-size: 30px;
+    }
+
+    .faq-item summary {
+        font-size: 16px;
+        padding: 20px 5px;
+    }
+
+    .faq-resposta p,
+    .faq-contato p {
+        font-size: 15px;
+    }
+
+    .faq-contato h3 {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 420px) {
@@ -1832,6 +2286,43 @@
     .quem-somos-imagens img {
         border-radius: 8px;
     }
+
+    .jogos-destaque {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .jogos-container {
+        padding: 35px 18px 40px;
+    }
+
+    .jogos-card-cabecalho h3,
+    .jogo-card-cabecalho h3 {
+        font-size: 19px;
+    }
+
+    .jogo-card {
+        padding: 18px;
+    }
+
+    .faq-destaque {
+        padding: 40px 15px;
+    }
+
+    .faq-container > h2 {
+        font-size: 27px;
+    }
+
+    .faq-item summary {
+        gap: 12px;
+    }
+
+    .faq-resposta {
+        padding-right: 10px;
+    }
+
+
+
 }
 
 /* ========================================
