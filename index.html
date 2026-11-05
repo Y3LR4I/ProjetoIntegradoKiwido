@@ -691,7 +691,11 @@
                         Contate-nos
                     </h3>
 
-                    <form class="contato-formulario">
+                    <!-- Mensagem de retorno do formulário. -->
+                    <div class="contato-feedback" id="contato-feedback" role="status" aria-live="polite">
+                    </div>
+
+                    <form class="contato-formulario" id="form-contato">
 
                         <div class="contato-campo">
                             <label for="contato-nome">Nome*</label>
@@ -712,7 +716,14 @@
 
                         <!-- Espaço reservado para a integração do CAPTCHA. -->
                         <div class="contato-captcha" id="captcha-container">
-                            <!-- O CAPTCHA será inserido aqui. -->
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAFzXgt9nmYwRRS99">
+                            </div>
+                        </div>
+
+                        <!-- Campo Honeypot: deve permanecer vazio para usuários legítimos. -->
+                        <div class="campo-honeypot" aria-hidden="true">
+                            <label for="site">Não preencha este campo</label>
+                            <input type="text" id="site" name="site" tabindex="-1" autocomplete="off">
                         </div>
 
                         <button type="submit" class="contato-botao">
@@ -732,9 +743,13 @@
     <!-- COMPONENTE COMPARTILHADO: rodapé carregado pelo components.js. -->
     <div id="footer-container"></div>
 
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer>
+    </script>
+
     <!-- Scripts responsáveis pelos componentes compartilhados e interações da página. -->
     <script src="js/components.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/contato.js"></script>
 
 </body>
 

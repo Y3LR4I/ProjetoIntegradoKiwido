@@ -1448,6 +1448,12 @@
     align-items: center;
 }
 
+/* MASCARA DO CAMPO HONEYPOT */
+.campo-honeypot {
+    position: absolute;
+    left: -9999px;
+}
+
 /* BOTÃO ENVIAR */
 
 .contato-botao {
@@ -1473,6 +1479,29 @@
     filter: brightness(0.9);
 }
 
+/* MENSAGENS DE RETORNO DO FORMULÁRIO */
+
+.contato-feedback {
+    display: none;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.contato-feedback.sucesso {
+    display: block;
+    background-color: #E2F5DF;
+    color: #245C27;
+    border: 1px solid #A8D5A3;
+}
+
+.contato-feedback.erro {
+    display: block;
+    background-color: #FCE8E8;
+    color: #9B2525;
+    border: 1px solid #E7AAAA;
+}
 
 /* =========================
    RESPONSIVIDADE
