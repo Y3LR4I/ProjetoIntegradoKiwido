@@ -127,6 +127,33 @@ h2 {
     white-space: nowrap;
 }
 
+/* Botão hambúrguer: oculto na versão desktop */
+.menu-hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Três linhas que formam o ícone */
+.menu-hamburguer span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--cor-texto-header);
+
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
 /* Organiza os links do menu horizontalmente */
 .menu {
     display: flex;
@@ -586,6 +613,133 @@ h2 {
     .footer-redes a,
     .footer-redes span {
         white-space: nowrap;
+    }
+}
+
+/* =========================
+   HEADER - TABLET E MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* Reduz a altura do cabeçalho */
+    .header {
+        height: 90px;
+    }
+
+    /* Mantém a logo à esquerda e o botão à direita */
+    .header-container {
+        position: relative;
+    }
+
+    /* Redimensiona a imagem da logo */
+    .logo img {
+        height: 85px;
+    }
+
+    /* Reduz o nome do projeto */
+    .logo-nome {
+        font-size: 21px;
+    }
+
+    /* Exibe o botão hambúrguer */
+    .menu-hamburguer {
+        display: flex;
+    }
+
+    /* Menu fechado inicialmente */
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 15px var(--margem-lateral);
+
+        background-color: var(--cor-principal);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Menu aberto */
+    .menu.aberto {
+        display: flex;
+    }
+
+    /* Links principais */
+    .menu > a,
+    .menu-link {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+
+        text-align: left;
+        font-size: 18px;
+    }
+
+    /* Organiza os itens que possuem submenu */
+    .menu-item {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Remove a área invisível usada pelo hover no desktop */
+    .menu-item::after {
+        display: none;
+    }
+
+    /* Submenus no layout vertical */
+    .submenu {
+        position: static;
+        transform: none;
+
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+
+        padding: 0 0 10px 15px;
+        gap: 2px;
+
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* Remove a ponta triangular dos submenus */
+    .submenu::before {
+        display: none;
+    }
+
+    /* Links dos submenus */
+    .submenu a {
+        color: var(--cor-texto-header);
+        white-space: normal;
+    }
+
+    .submenu a:hover {
+        background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Abre o submenu quando seu botão recebe foco */
+    .menu-item:focus-within .submenu {
+        display: flex;
+    }
+
+    /* Impede que o hover do desktop abra submenus no tablet */
+    .menu-item:hover .submenu {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
