@@ -1,4 +1,23 @@
 /* =========================
+   AJUSTE DE CAMINHOS
+========================= */
+
+// Identifica se o site está sendo executado localmente no Laragon.
+function ajustarCaminho(caminho) {
+
+    const caminhoLocal = '/projeto-mangue-vivo';
+
+    const estaNoLaragon =
+        window.location.pathname === caminhoLocal ||
+        window.location.pathname.startsWith(`${caminhoLocal}/`);
+
+    // Adiciona o prefixo apenas quando estiver no ambiente local.
+    return estaNoLaragon
+        ? `${caminhoLocal}${caminho}`
+        : caminho;
+}
+
+/* =========================
    CARREGAMENTO DE COMPONENTES
 ========================= */
 
@@ -22,6 +41,14 @@ async function carregarComponente(seletor, caminho) {
 
         // Insere o conteúdo HTML recebido dentro do elemento.
         container.innerHTML = await resposta.text();
+
+        // Ajusta os caminhos dos links conforme o ambiente.
+        container.querySelectorAll('[data-link]').forEach(link => {
+            link.setAttribute(
+                'href',
+                ajustarCaminho(link.dataset.link)
+            );
+        });
 
         // Identifica a página atual e aplica o destaque no menu correspondente.
         marcarPaginaAtual(container);
@@ -108,7 +135,6 @@ function marcarPaginaAtual(container) {
         }
     });
 }
-
 
 /* =========================
    CARREGAMENTO DO HEADER

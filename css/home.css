@@ -89,21 +89,20 @@
 
 /* Alinhamento do conteúdo do banner com as demais seções. */
 .hero-container {
-    position: relative;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    max-width: var(--largura-conteudo);
     height: 100%;
-    margin-left: 300px;
     box-sizing: border-box;
-
-    display: flex;
-    align-items: center;
 }
 
 .hero-texto {
-    width: 100%;
+    position: absolute;
+    left: clamp(24px, 10vw, 200px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100% - 40px);
     max-width: 570px;
-    padding-top: 0;
     box-sizing: border-box;
 }
 
@@ -379,15 +378,18 @@
         box-shadow 0.25s ease;
 }
 
-/* Destaca o ano quando recebe hover ou foco pelo teclado. */
-.historia-ano:hover,
-.historia-ano:focus-visible,
-.historia-marco:focus-within .historia-ano {
+/* Destaca o ano somente enquanto o mouse está sobre ele. */
+.historia-ano:hover {
     background-color: var(--cor-texto-card);
     color: var(--cor-fundo);
     transform: translate(-50%, -50%) scale(1.5);
     box-shadow: 0 0 0 7px rgba(35, 143, 31, 0.18);
-    outline: none;
+}
+
+/* Mantém um destaque acessível durante a navegação pelo teclado. */
+.historia-ano:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 5px;
 }
 
 /* Cartões com informações de cada marco histórico. */
@@ -1097,6 +1099,10 @@
 /* =========================
    CONTEÚDOS
 ========================= */
+/* Bloco de contato */
+#conteudos {
+    scroll-margin-top: 100px;
+}
 
 /* Seção de atalhos para os principais conteúdos disponíveis no projeto. */
 .conteudos-home {
@@ -1508,6 +1514,9 @@
 /* ==============================
    SEÇÃO NOSSOS JOGOS
 ================================= */
+#jogos {
+    scroll-margin-top: 100px;
+}
 
 .jogos-destaque {
     position: relative;
@@ -1757,6 +1766,9 @@
 /* ==============================
    PERGUNTAS FREQUENTES
 ================================= */
+#FAQ {
+    scroll-margin-top: 100px;
+}
 
 .faq-destaque {
     background-color: var(--cor-fundo);
@@ -1774,7 +1786,7 @@
 
 /* Título */
 
-.faq-container > h2 {
+.faq-container>h2 {
     color: var(--cor-principal);
 
     font-size: 48px;
@@ -1917,6 +1929,36 @@
 /* =========================
    RESPONSIVIDADE
 ========================= */
+@media (max-width: 1024px) {
+    .hero-texto h1 {
+        font-size: 38px;
+    }
+
+    .quem-somos-texto p {
+        font-size: 16px;
+    }
+
+    .nossa-missao-texto p {
+        font-size: 16px;
+    }
+
+    .menu {
+        gap: 60px;
+    }
+
+    .menu a,
+    .menu-link {
+        font-size: 16px;
+    }
+
+    .logo-nome {
+        font-size: 20px;
+    }
+
+    .logo img {
+        height: 100px;
+    }
+}
 
 /* Ajustes para tablets e telas intermediárias. */
 @media (max-width: 900px) {
@@ -2208,11 +2250,17 @@
     }
 
     .hero-container {
-        padding: 0 24px;
+        padding: 0;
     }
 
     .hero-texto {
-        padding-top: 270px;
+        left: 24px;
+        top: auto;
+        bottom: 30px;
+        transform: none;
+        width: calc(100% - 48px);
+        max-width: 570px;
+        padding-top: 0;
     }
 
     .hero-identificacao {
@@ -2253,7 +2301,7 @@
         padding: 50px 25px;
     }
 
-    .faq-container > h2 {
+    .faq-container>h2 {
         font-size: 30px;
     }
 
@@ -2309,7 +2357,7 @@
         padding: 40px 15px;
     }
 
-    .faq-container > h2 {
+    .faq-container>h2 {
         font-size: 27px;
     }
 

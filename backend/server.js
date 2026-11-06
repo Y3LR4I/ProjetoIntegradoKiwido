@@ -42,17 +42,6 @@ const app = express();
 // Captura a Secret Key do Turnstile
 const turnstileSecretKey = process.env.TURNSTILE_SECRET_KEY;
 
-//TEMPORÁRIO
-console.log('E-mail configurado:', process.env.EMAIL_USER);
-console.log(
-    'Senha de app carregada:',
-    Boolean(process.env.EMAIL_APP_PASSWORD)
-);
-console.log(
-    'Quantidade de caracteres:',
-    process.env.EMAIL_APP_PASSWORD?.length
-);
-
 // Configura o serviço de envio de e-mails pelo Gmail.
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -62,9 +51,13 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Permite a comunicação com o frontend do Laragon.
+// Permite a comunicação com o frontend local e publicado.
 app.use(cors({
-    origin: 'http://localhost'
+    origin: [
+        'http://localhost',
+        'http://127.0.0.1',
+        'https://mangue-vivo.vercel.app'
+    ]
 }));
 
 // Define a porta do servidor
@@ -230,7 +223,12 @@ app.post('/contato', contatoLimiter, async (req, res) => {
 
 });
 
-// Inicia o servidor
-app.listen(PORT, () => {
-    console.log(`Servidor iniciado em http://localhost:${PORT}`);
-});
+// Exporta a aplicação para a Vercel.
+module.exports = app;
+
+// Inicia o servidor somente quando executado localmente.
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Servidor iniciado em http://localhost:${PORT}`);
+    });
+}
