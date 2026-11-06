@@ -113,6 +113,54 @@ function showTimeSlide(index) {
     currentTimeSlide = index;
 }
 
+// Controla a abertura e o fechamento do menu hambúrguer.
+document.addEventListener('click', function (event) {
+
+    const botao = event.target.closest('.menu-hamburguer');
+    const menu = document.querySelector('.menu');
+
+    if (!menu) return;
+
+    // Abre ou fecha o menu ao clicar no hambúrguer.
+    if (botao) {
+        const aberto = menu.classList.toggle('aberto');
+
+        botao.setAttribute('aria-expanded', aberto);
+        botao.setAttribute(
+            'aria-label',
+            aberto ? 'Fechar menu de navegação' : 'Abrir menu de navegação'
+        );
+
+        return;
+    }
+
+    // Fecha o menu ao selecionar um link de navegação.
+    if (event.target.closest('.menu a')) {
+        menu.classList.remove('aberto');
+
+        const hamburguer = document.querySelector('.menu-hamburguer');
+
+        if (hamburguer) {
+            hamburguer.setAttribute('aria-expanded', 'false');
+            hamburguer.setAttribute('aria-label', 'Abrir menu de navegação');
+        }
+
+        return;
+    }
+
+    // Fecha o menu ao clicar fora do cabeçalho.
+    if (!event.target.closest('.header')) {
+        menu.classList.remove('aberto');
+
+        const hamburguer = document.querySelector('.menu-hamburguer');
+
+        if (hamburguer) {
+            hamburguer.setAttribute('aria-expanded', 'false');
+            hamburguer.setAttribute('aria-label', 'Abrir menu de navegação');
+        }
+    }
+});
+
 // Avança para o próximo slide do carrossel.
 function nextTimeSlide() {
     // Interrompe a função caso não existam slides ou indicadores.
