@@ -73,7 +73,7 @@ formularioContato.addEventListener('submit', async (evento) => {
     try {
 
         // Envia os dados para o servidor Node.js.
-        const resposta = await fetch('http://localhost:3000/contato', {
+        const resposta = await fetch('https://mangue-vivo-backend.vercel.app/contato', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
