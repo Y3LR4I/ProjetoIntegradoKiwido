@@ -33,35 +33,34 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 
 ## Requisitos
 
-| ID | Title | Description | Priority | Status | Arquivo / Implementação |
-| -- | ----- | ----------- | -------- | ------ | ----------------------- |
-| RF01 | Apresentar o propósito do projeto | Como visitante quero ver o propósito do Mangue Vivo assim que entro no site para entender rapidamente do que se trata. | Essencial | Concluído | |
-| RF02 | Exibir a seção Quem Somos | Como visitante quero conhecer quem é o Mangue Vivo para entender seu vínculo institucional. | Essencial | Concluído | |
-| RF03 | Exibir missão e objetivos | Como visitante quero saber a missão e os objetivos do projeto para entender seus propósitos. | Essencial | Concluído | |
-| RF04 | Exibir a equipe do projeto | Como visitante quero ver a equipe do projeto para saber quem está por trás das ações do Mangue Vivo. | Importante | Concluído | |
-| RF05 | Exibir a história do projeto | Como visitante quero conhecer a história do projeto por uma linha do tempo para entender sua trajetória. | Importante | Concluído | |
-| RF06 | Listar as ações desenvolvidas | Como visitante quero ver quais ações o projeto já desenvolveu para conhecer seu impacto prático. | Essencial | Concluído | |
-| RF07 | Navegar pela galeria de fotos | Como visitante quero escolher um álbum por categoria (ações do grupo, trilhas guiadas, educação ambiental) e navegar pelas fotos para visualizar cada tipo de atividade do projeto na prática. | Importante | Pendente | |
-| RF08 | Disponibilizar material de apoio para campo | Como visitante quero consultar conteúdo educativo sobre o manguezal em formato de slides para aprender sobre o ecossistema, inclusive durante trilhas e visitas a escolas. | Desejável | Pendente | |
-| RF09 | Exibir vídeos de tour virtual | Como visitante quero assistir a vídeos de tour virtual (POV) dentro da galeria para conhecer os locais antes de visitar pessoalmente. | Desejável | Pendente | |
-| RF10 | Acessar o jornal digital | Como visitante quero acessar as edições do jornal digital para ler o conteúdo publicado. | Importante | Concluído | |
-| RF11 | Listar eventos com status | Como visitante quero ver os próximos eventos, com data e indicação se já encerraram, para saber quando e como participar. | Importante | Pendente | |
-| RF12 | Inscrever-se em um evento | Como visitante quero me inscrever em um evento pelo site para participar sem precisar sair da página. | Importante | Pendente | |
-| RF13a | Iniciar uma partida do quiz | Como visitante quero iniciar uma nova partida do quiz para começar a jogar e testar meus conhecimentos sobre os animais do mangue. | Desejável | Concluído | |
-| RF13b | Exibir a silhueta do animal | Como jogador quero ver a silhueta de um animal do mangue para tentar identificá-lo. | Desejável | Pendente | |
-| RF13c | Responder por meio de opções de múltipla escolha | Como jogador quero escolher o nome do animal entre opções apresentadas para responder de forma rápida e sem precisar digitar. | Desejável | Concluído | |
-| RF13d | Revelar a resposta correta e a informação educativa após responder | Como jogador quero ver a resposta correta e uma informação educativa sobre o animal após responder para aprender mais sobre a fauna do mangue, mesmo quando erro. | Desejável | Concluído | |
-| RF13e | Revelar a resposta e a informação educativa quando o tempo se esgota | Como jogador quero que o jogo, após os 10 segundos caso eu não responda, me mostre a resposta correta e a informação educativa sobre o próximo animal para manter o ritmo da partida. | Desejável | Concluído | |
-| RF13f | Calcular a pontuação | Como jogador quero acumular pontos a cada acerto durante a partida para acompanhar meu desempenho. | Desejável | Concluído | |
-| RF13g | Exibir tela de pontuação com insígnia correspondente | Como visitante quero saber minha pontuação ao final do quiz e descobrir a minha insígnia para provar meu conhecimento. | Desejável | Pendente | |
-| RF13h | Reiniciar o quiz | Como jogador quero poder refazer o quiz para tentar melhorar minha pontuação. | Desejável | Concluído | |
-| RF13i | Acessar o mostruário | Como usuário quero acessar a lista de animais presentes no mangue para fixar o conhecimento e explorar o ecossistema do mangue. | Desejável | Pendente | |
-| RF14 | Adaptar a tela ao dispositivo | Como usuário quero que a minha tela se adapte ao meu dispositivo para facilitar meu acesso. | Essencial | Pendente | |
-| RF15 | Exibir localização e redes sociais | Como visitante quero ver o endereço físico e as redes sociais do projeto para me situar e acompanhá-lo em outros canais. | Essencial | Concluído | |
-| RF16 | Enviar mensagem de contato | Como visitante quero preencher e enviar um formulário de contato, sendo avisado se algo estiver errado ou se o envio for concluído, para tirar dúvidas com segurança de que fui atendido. | Essencial | Concluído | |
-| RF17 | Navegar com menu fixo e atalho ao topo | Como visitante quero acessar qualquer seção do site rapidamente enquanto navego, e voltar ao topo com um clique, para me deslocar pela página com agilidade. | Importante | Concluído | |
-| RF18 | Consultar perguntas frequentes | Como visitante quero encontrar respostas para dúvidas comuns para resolver questões simples sem precisar entrar em contato. | Desejável | Concluído | |
-
+| ID | Title | Description | Status | Arquivo / Implementação |
+| -- | ----- | ----------- | ------ | ----------------------- |
+| RF01 | Apresentar o propósito do projeto | Como visitante quero ver o propósito do Mangue Vivo assim que entro no site para entender rapidamente do que se trata. | Concluído | |
+| RF02 | Exibir a seção Quem Somos | Como visitante quero conhecer quem é o Mangue Vivo para entender seu vínculo institucional. | Concluído | |
+| RF03 | Exibir missão e objetivos | Como visitante quero saber a missão e os objetivos do projeto para entender seus propósitos. | Concluído | |
+| RF04 | Exibir a equipe do projeto | Como visitante quero ver a equipe do projeto para saber quem está por trás das ações do Mangue Vivo. | Concluído | |
+| RF05 | Exibir a história do projeto | Como visitante quero conhecer a história do projeto por uma linha do tempo para entender sua trajetória. | Concluído | |
+| RF06 | Listar as ações desenvolvidas | Como visitante quero ver quais ações o projeto já desenvolveu para conhecer seu impacto prático. | Concluído | |
+| RF07 | Navegar pela galeria de fotos | Como visitante quero escolher um álbum por categoria (ações do grupo, trilhas guiadas, educação ambiental) e navegar pelas fotos para visualizar cada tipo de atividade do projeto na prática. | Pendente | |
+| RF08 | Disponibilizar material de apoio para campo | Como visitante quero consultar conteúdo educativo sobre o manguezal em formato de slides para aprender sobre o ecossistema, inclusive durante trilhas e visitas a escolas. | Pendente | |
+| RF09 | Exibir vídeos de tour virtual | Como visitante quero assistir a vídeos de tour virtual (POV) dentro da galeria para conhecer os locais antes de visitar pessoalmente. | Pendente | |
+| RF10 | Acessar o jornal digital | Como visitante quero acessar as edições do jornal digital para ler o conteúdo publicado. | Concluído | |
+| RF11 | Listar eventos com status | Como visitante quero ver os próximos eventos, com data e indicação se já encerraram, para saber quando e como participar. | Pendente | |
+| RF12 | Inscrever-se em um evento | Como visitante quero me inscrever em um evento pelo site para participar sem precisar sair da página. | Pendente | |
+| RF13a | Iniciar uma partida do quiz | Como visitante quero iniciar uma nova partida do quiz para começar a jogar e testar meus conhecimentos sobre os animais do mangue. | Concluído | |
+| RF13b | Exibir a silhueta do animal | Como jogador quero ver a silhueta de um animal do mangue para tentar identificá-lo. | Pendente | |
+| RF13c | Responder por meio de opções de múltipla escolha | Como jogador quero escolher o nome do animal entre opções apresentadas para responder de forma rápida e sem precisar digitar. | Concluído | |
+| RF13d | Revelar a resposta correta e a informação educativa após responder | Como jogador quero ver a resposta correta e uma informação educativa sobre o animal após responder para aprender mais sobre a fauna do mangue, mesmo quando erro. | Concluído | |
+| RF13e | Revelar a resposta e a informação educativa quando o tempo se esgota | Como jogador quero que o jogo, após os 10 segundos caso eu não responda, me mostre a resposta correta e a informação educativa sobre o próximo animal para manter o ritmo da partida. | Concluído | |
+| RF13f | Calcular a pontuação | Como jogador quero acumular pontos a cada acerto durante a partida para acompanhar meu desempenho. | Concluído | |
+| RF13g | Exibir tela de pontuação com insígnia correspondente | Como visitante quero saber minha pontuação ao final do quiz e descobrir a minha insígnia para provar meu conhecimento. | Pendente | |
+| RF13h | Reiniciar o quiz | Como jogador quero poder refazer o quiz para tentar melhorar minha pontuação. | Concluído | |
+| RF13i | Acessar o mostruário | Como usuário quero acessar a lista de animais presentes no mangue para fixar o conhecimento e explorar o ecossistema do mangue. | Pendente | |
+| RF14 | Adaptar a tela ao dispositivo | Como usuário quero que a minha tela se adapte ao meu dispositivo para facilitar meu acesso. | Pendente | |
+| RF15 | Exibir localização e redes sociais | Como visitante quero ver o endereço físico e as redes sociais do projeto para me situar e acompanhá-lo em outros canais. | Concluído | |
+| RF16 | Enviar mensagem de contato | Como visitante quero preencher e enviar um formulário de contato, sendo avisado se algo estiver errado ou se o envio for concluído, para tirar dúvidas com segurança de que fui atendido. | Concluído | |
+| RF17 | Navegar com menu fixo e atalho ao topo | Como visitante quero acessar qualquer seção do site rapidamente enquanto navego, e voltar ao topo com um clique, para me deslocar pela página com agilidade. | Concluído | |
+| RF18 | Consultar perguntas frequentes | Como visitante quero encontrar respostas para dúvidas comuns para resolver questões simples sem precisar entrar em contato. | Concluído | |
 <a name="tecnologias"></a>
 
 ## Tecnologias
