@@ -1,0 +1,651 @@
+
+/* ==============================
+   PÁGINA DO BESTIÁRIO - quiz.html
+============================== */
+
+.tela-bestiario {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 0;
+    padding: 55px 7% 45px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background: var(--cor-fundo);
+    color: var(--cor-principal);
+    overflow: hidden;
+}
+
+.bestiario-container,
+.detalhes-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.bestiario-container {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* O Header e a apresentação */
+
+.bestiario-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 25px;
+    flex-shrink: 0;
+}
+
+.bestiario-subtitulo,
+.detalhes-subtitulo {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--cor-texto-card);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.bestiario-apresentacao h1 {
+    margin: 0 0 12px;
+    color: var(--cor-principal);
+    font-size: clamp(30px, 4vw, 46px);
+}
+
+.bestiario-apresentacao p {
+    max-width: 430px;
+    margin: 0;
+    color: var(--cor-principal);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Botões de voltar */
+
+.btn-voltar-inicio,
+.btn-voltar-detalhes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding: 9px 18px;
+    border: 1.5px solid var(--cor-principal);
+    border-radius: 25px;
+    background: transparent;
+    color: var(--cor-principal);
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-voltar-inicio:hover,
+.btn-voltar-detalhes:hover {
+    background: var(--cor-principal);
+    color: var(--cor-fundo);
+}
+
+.seta-voltar {
+    width: 8px;
+    height: 8px;
+    border-left: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+}
+
+/* Campo de pesquisa */
+
+.bestiario-pesquisa {
+    position: relative;
+    width: min(100%, 310px);
+    margin: 0 0 30px auto;
+    flex-shrink: 0;
+}
+
+.bestiario-pesquisa input {
+    width: 100%;
+    height: 40px;
+    padding: 0 15px 0 38px;
+    border: 1px solid var(--cor-borda-filtro-noticia);
+    border-radius: 25px;
+    outline: none;
+    background: transparent;
+    color: var(--cor-principal);
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.bestiario-pesquisa input:focus {
+    border-color: var(--cor-texto-card);
+    box-shadow: 0 0 0 3px rgba(65, 110, 33, 0.12);
+}
+
+.bestiario-pesquisa input::placeholder {
+    color: var(--cor-buscar-noticia);
+}
+
+.icone-pesquisa {
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--cor-buscar-noticia);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.icone-pesquisa::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 1.5px;
+    right: -4px;
+    bottom: -2px;
+    background: var(--cor-buscar-noticia);
+    transform: rotate(45deg);
+}
+
+/* Categorias e lista de animais */
+
+.bestiario-conteudo {
+    display: grid;
+    grid-template-columns: 225px minmax(0, 1fr);
+    gap: 55px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.bestiario-categorias {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 15px 35px 15px 0;
+    border-right: 2px solid var(--cor-borda-filtro-noticia);
+}
+
+.categoria-animal {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background: transparent;
+    color: var(--cor-principal);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.categoria-animal:hover {
+    background: #E8F2E4;
+}
+
+.categoria-animal.ativa {
+    background: var(--cor-secundaria);
+    color: var(--cor-fundo);
+}
+
+.bestiario-lista-container {
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 12px;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-texto-card) #E8F2E4;
+}
+
+.lista-animais {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Personalização da barra de rolagem */
+
+.bestiario-lista-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.bestiario-lista-container::-webkit-scrollbar-track {
+    background: #E8F2E4;
+    border-radius: 10px;
+}
+
+.bestiario-lista-container::-webkit-scrollbar-thumb {
+    background: var(--cor-texto-card);
+    border-radius: 10px;
+}
+
+.bestiario-lista-container::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-principal);
+}
+
+/* Cartões dos animais */
+
+.cartao-animal {
+    width: 100%;
+    min-height: 125px;
+    display: grid;
+    grid-template-columns: 145px minmax(0, 1fr) 38px;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 18px 12px 12px;
+    border: 1.5px solid var(--cor-borda-filtro-noticia);
+    border-radius: 22px;
+    background: var(--cor-card-noticia);
+    color: var(--cor-principal);
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.cartao-animal:hover {
+    transform: translateX(4px);
+    border-color: var(--cor-texto-card);
+    box-shadow: 0 4px 12px rgba(22, 56, 18, 0.08);
+}
+
+.cartao-animal>img:first-child {
+    width: 145px;
+    height: 100px;
+    border-radius: 13px;
+    object-fit: contain;
+    background: #F9FFF9;
+}
+
+.cartao-animal-info {
+    min-width: 0;
+}
+
+.cartao-animal-info h2 {
+    margin: 0 0 12px;
+    color: var(--cor-principal);
+    font-size: 17px;
+}
+
+.cartao-animal-info p {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    color: var(--cor-texto-card);
+    font-size: 11px;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.cartao-animal-seta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1.5px solid var(--cor-borda-filtro-noticia);
+    border-radius: 50%;
+    background: transparent;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cartao-animal:hover .cartao-animal-seta {
+    transform: translateX(3px);
+    background-color: #E8F2E4;
+}
+
+.nenhum-animal {
+    padding: 35px 15px;
+    color: var(--cor-texto-card);
+    font-size: 14px;
+    text-align: center;
+}
+
+.nenhum-animal[hidden] {
+    display: none;
+}
+
+/* ==============================
+   PÁGINA DE DETALHES DO ANIMAL
+============================== */
+
+.tela-detalhes-animal {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    padding: 55px 7% 150px;
+    box-sizing: border-box;
+    background: var(--cor-fundo);
+    color: var(--cor-principal);
+    overflow: hidden;
+}
+
+.detalhes-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.btn-voltar-detalhes {
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+/* Organização da imagem e das informações */
+
+.detalhes-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: 30px;
+}
+
+.detalhes-imagem-area {
+    width: 100%;
+    min-width: 0;
+}
+
+.detalhes-imagem-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.18 / 1;
+    padding: 4px;
+    box-sizing: border-box;
+    border: 1.5px solid var(--cor-borda-filtro-noticia);
+    border-radius: 18px;
+    background: var(--cor-card-noticia);
+    overflow: hidden;
+}
+
+#imagem-detalhes-animal {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+    object-fit: contain;
+}
+
+/* Botão para alternar entre as imagens */
+
+.btn-alternar-imagem {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid var(--cor-principal);
+    border-radius: 50%;
+    background: #F9FFF9;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 2;
+}
+
+.btn-alternar-imagem:hover {
+    transform: scale(1.08);
+}
+
+.btn-alternar-imagem img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+}
+
+/* Textos e descrição do animal */
+
+.credito-detalhes {
+    margin-top: 18px;
+    color: var(--cor-texto-card);
+    font-size: 11px;
+}
+
+.detalhes-informacoes {
+    min-width: 0;
+    padding-top: 0;
+}
+
+.detalhes-informacoes h1 {
+    margin: 0 0 20px;
+    color: var(--cor-principal);
+    font-size: clamp(28px, 3vw, 42px);
+}
+
+.descricao-detalhes {
+    margin: 0;
+    color: var(--cor-principal);
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+/* Caixa de curiosidades com efeito de ampliação ao passar o mouse */
+
+.curiosidade-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 35px;
+    padding: 12px 15px;
+    border: 1.5px solid var(--cor-borda-filtro-noticia);
+    border-radius: 15px;
+    background: var(--cor-card-noticia);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transform: scale(1);
+    transform-origin: center;
+}
+
+.curiosidade-container:hover {
+    cursor: none;
+    z-index: 2;
+    transform: scale(1.1);
+    border-color: var(--cor-texto-card);
+    box-shadow: 0 6px 16px rgba(22, 56, 18, 0.12);
+}
+
+.folha-curiosidades {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.curiosidade-container:hover .folha-curiosidades {
+    transform: scale(1.15);
+}
+
+.curiosidade-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.curiosidade-container h2 {
+    margin: 0 0 5px;
+    color: var(--cor-principal);
+    font-size: 13px;
+}
+
+.curiosidade-container p {
+    margin: 0;
+    color: var(--cor-texto-card);
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+/* Onda inferior da página de detalhes */
+
+.detalhes-ondas-inferior {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    z-index: 1;
+    pointer-events: none;
+    line-height: 0;
+}
+
+.detalhes-ondas-inferior svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/* Textura decorativa inferior */
+
+.textura-detalhes-inferior {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.textura-detalhes-inferior img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 750px) {
+
+    .tela-bestiario {
+        height: 100vh;
+        min-height: 0;
+        padding: 30px 5% 30px;
+    }
+
+    .tela-detalhes-animal {
+        padding: 40px 5% 120px;
+    }
+
+    .detalhes-ondas-superiores {
+        height: 90px;
+    }
+
+    .bestiario-container {
+        height: 100%;
+        min-height: 0;
+    }
+
+    .bestiario-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bestiario-pesquisa {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .bestiario-conteudo {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: 15px;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .bestiario-categorias {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 0 15px;
+        border-right: none;
+        border-bottom: 2px solid var(--cor-borda-filtro-noticia);
+    }
+
+    .categoria-animal {
+        width: auto;
+        min-width: 90px;
+    }
+
+    .bestiario-lista-container {
+        height: 100%;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .detalhes-container {
+        max-width: 550px;
+    }
+
+    .detalhes-conteudo {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 25px;
+    }
+
+    .detalhes-imagem-container {
+        aspect-ratio: 1.18 / 1;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cartao-animal {
+        grid-template-columns: 85px minmax(0, 1fr) 28px;
+        gap: 12px;
+        padding: 10px;
+        min-height: 105px;
+    }
+
+    .cartao-animal>img:first-child {
+        width: 85px;
+        height: 85px;
+    }
+
+    .cartao-animal-info h2 {
+        font-size: 14px;
+        margin-bottom: 7px;
+    }
+
+    .cartao-animal-info p {
+        font-size: 10px;
+        -webkit-line-clamp: 2;
+    }
+
+    .categoria-animal {
+        min-width: 0;
+        padding: 9px 13px;
+        font-size: 11px;
+    }
+
+    .detalhes-imagem-container {
+        aspect-ratio: 1.1 / 1;
+    }
+
+    .curiosidade-container {
+        padding: 13px;
+    }
+}
