@@ -1,6 +1,5 @@
-
 /* ==============================
-   PÁGINA DO BESTIÁRIO - quiz.html
+   PAGINA DO BESTIARIO - quiz.html
 ============================== */
 
 .tela-bestiario {
@@ -33,7 +32,7 @@
     flex-direction: column;
 }
 
-/* O Header e a apresentação */
+/* o header e a apresentacao */
 
 .bestiario-cabecalho {
     display: flex;
@@ -67,7 +66,7 @@
     line-height: 1.5;
 }
 
-/* Botões de voltar */
+/* botoes de voltar */
 
 .btn-voltar-inicio,
 .btn-voltar-detalhes {
@@ -100,7 +99,7 @@
     transform: rotate(45deg);
 }
 
-/* Campo de pesquisa */
+/* campo de pesquisa */
 
 .bestiario-pesquisa {
     position: relative;
@@ -115,7 +114,6 @@
     padding: 0 15px 0 38px;
     border: 1px solid var(--cor-borda-filtro-noticia);
     border-radius: 25px;
-    outline: none;
     background: transparent;
     color: var(--cor-principal);
     font-size: 13px;
@@ -129,6 +127,7 @@
 
 .bestiario-pesquisa input::placeholder {
     color: var(--cor-buscar-noticia);
+    opacity: 1;
 }
 
 .icone-pesquisa {
@@ -153,7 +152,7 @@
     transform: rotate(45deg);
 }
 
-/* Categorias e lista de animais */
+/* categorias e lista de animais */
 
 .bestiario-conteudo {
     display: grid;
@@ -213,7 +212,7 @@
     gap: 18px;
 }
 
-/* Personalização da barra de rolagem */
+/* personalizacao da barra de rolagem */
 
 .bestiario-lista-container::-webkit-scrollbar {
     width: 7px;
@@ -233,7 +232,7 @@
     background: var(--cor-principal);
 }
 
-/* Cartões dos animais */
+/* cartoes dos animais */
 
 .cartao-animal {
     width: 100%;
@@ -320,7 +319,7 @@
 }
 
 /* ==============================
-   PÁGINA DE DETALHES DO ANIMAL
+   PAGINA DE DETALHES DO ANIMAL
 ============================== */
 
 .tela-detalhes-animal {
@@ -347,7 +346,7 @@
     margin-bottom: 30px;
 }
 
-/* Organização da imagem e das informações */
+/* organizacao da imagem e das informacoes */
 
 .detalhes-conteudo {
     display: grid;
@@ -381,7 +380,7 @@
     object-fit: contain;
 }
 
-/* Botão para alternar entre as imagens */
+/* botao para alternar entre as imagens */
 
 .btn-alternar-imagem {
     position: absolute;
@@ -411,7 +410,7 @@
     object-fit: contain;
 }
 
-/* Textos e descrição do animal */
+/* textos e descricao do animal */
 
 .credito-detalhes {
     margin-top: 18px;
@@ -438,7 +437,7 @@
     white-space: pre-line;
 }
 
-/* Caixa de curiosidades com efeito de ampliação ao passar o mouse */
+/* caixa de curiosidades com zoom ao passar o mouse */
 
 .curiosidade-container {
     position: relative;
@@ -494,7 +493,7 @@
     line-height: 1.4;
 }
 
-/* Onda inferior da página de detalhes */
+/* onda inferior da pagina de detalhes */
 
 .detalhes-ondas-inferior {
     position: absolute;
@@ -512,7 +511,8 @@
     width: 100%;
     height: 100%;
 }
-/* Textura decorativa inferior */
+
+/* textura decorativa inferior */
 
 .textura-detalhes-inferior {
     position: absolute;
@@ -529,6 +529,74 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+/* ==============================
+   ACESSIBILIDADE
+============================== */
+
+/* esconde visualmente elementos destinados apenas a leitores de tela */
+.texto-acessivel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* define o contorno de foco visivel para navegacao via teclado */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
+}
+
+/* reforca o foco em botoes e cards especificos do bestiario */
+.categoria-animal:focus-visible,
+.cartao-animal:focus-visible,
+.btn-voltar-inicio:focus-visible,
+.btn-voltar-detalhes:focus-visible,
+.btn-alternar-imagem:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 2px var(--cor-fundo);
+}
+
+/* ajusta o foco do input de pesquisa para manter a estetica */
+.bestiario-pesquisa input:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 0 2px var(--cor-fundo);
+}
+
+/* destaca visualmente a categoria ativa para usuarios com auxilio visual */
+.categoria-animal.ativa {
+    border: 2px solid var(--cor-principal);
+    font-weight: 800;
+}
+
+/* estiliza elementos desativados */
+button:disabled,
+input:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+/* garante destaque na borda do cartao ao focar pelo teclado */
+.cartao-animal:focus-visible {
+    border-color: var(--cor-principal);
+}
+
+/* destaca o container de curiosidades caso algum elemento interno receba foco */
+.curiosidade-container:focus-within {
+    border-color: var(--cor-principal);
 }
 
 /* ==============================
@@ -647,5 +715,56 @@
 
     .curiosidade-container {
         padding: 13px;
+    }
+}
+
+/* desativa animacoes complexas para usuarios com preferencia de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    .tela-bestiario *,
+    .tela-detalhes-animal *,
+    .tela-bestiario *::before,
+    .tela-detalhes-animal *::before,
+    .tela-bestiario *::after,
+    .tela-detalhes-animal *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .cartao-animal:hover,
+    .cartao-animal:hover .cartao-animal-seta,
+    .btn-alternar-imagem:hover,
+    .curiosidade-container:hover,
+    .curiosidade-container:hover .folha-curiosidades {
+        transform: none;
+    }
+}
+
+/* aumenta contraste e grossura de bordas para perfis com necessidade de alto contraste */
+@media (prefers-contrast: more) {
+    .cartao-animal,
+    .detalhes-imagem-container,
+    .curiosidade-container,
+    .btn-voltar-inicio,
+    .btn-voltar-detalhes {
+        border-width: 2px;
+        border-color: var(--cor-principal);
+    }
+
+    .bestiario-categorias {
+        border-color: var(--cor-principal);
+    }
+
+    .categoria-animal.ativa {
+        outline: 2px solid var(--cor-principal);
+        outline-offset: 2px;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible,
+    [tabindex]:focus-visible {
+        outline-width: 4px;
     }
 }

@@ -1,17 +1,12 @@
-
 .quiz-container>.tela {
     width: 100%;
     box-sizing: border-box;
     min-height: 100vh;
 }
 
-/* Oculta as telas inativas do quiz. */
-
 .quiz-container>.tela[hidden] {
     display: none !important;
 }
-
-/* Controla as animações de transição entre as telas. */
 
 .quiz-container>.tela.saindo {
     animation: desaparecerTela 0.4s ease forwards;
@@ -45,18 +40,33 @@
     }
 }
 
-/* Desativa o movimento das transições para usuários que preferem movimento reduzido. */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .quiz-container>.tela.saindo,
-    .quiz-container>.tela.entrando {
-        animation-duration: 0.01ms;
-    }
-}
-
 button {
     font: inherit;
+}
+
+/* marca o contorno visivel no elemento focado via navegacao por teclado */
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* esconde visualmente elementos destinados apenas a leitores de tela */
+.texto-acessivel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 body {
@@ -71,8 +81,6 @@ body {
     width: 100%;
     flex-shrink: 0;
 }
-
-/* Organiza as telas do quiz entre o cabeçalho e o rodapé. */
 
 .quiz-container {
     width: 100%;
@@ -96,7 +104,7 @@ body {
     font-family: "Righteous", sans-serif;
 }
 
-/* TELA INICIAL */
+/* tela inicial */
 
 #tela-inicio {
     position: relative;
@@ -114,8 +122,6 @@ body {
     overflow: hidden;
 }
 
-/* Onda decorativa posicionada na parte inferior da tela inicial. */
-
 .quiz-mangue-ondas {
     position: absolute;
     bottom: 0;
@@ -131,8 +137,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
-/* Organiza o texto e o carrossel em duas colunas. */
 
 .inicio .apresentacao {
     position: relative;
@@ -180,9 +184,7 @@ body {
     line-height: 1.55;
 }
 
-/* CARROSSEL DE ANIMAIS */
-
-/* Mantido como elemento visual estático até a inclusão de mais imagens. */
+/* carrossel do bicho em destaque */
 
 .carrosel-animais {
     position: relative;
@@ -224,9 +226,7 @@ body {
     z-index: 2;
 }
 
-/* BOTÕES DA TELA INICIAL */
-
-/* Alinha os botões e permite que eles quebrem de linha quando necessário. */
+/* botoes da home */
 
 .botoes-container {
     display: flex;
@@ -276,9 +276,7 @@ body {
     color: var(--cor-principal);
 }
 
-/* CARTÕES INFORMATIVOS */
-
-/* Distribui os cartões horizontalmente na tela inicial. */
+/* cards com infos basicas */
 
 .container-cards {
     position: relative;
@@ -339,7 +337,7 @@ body {
 .cartao-informativo p {
     margin: 2px 0 0 37px;
     font-size: 16px;
-    line-height: 1.3;
+    line-height: 1.5;
     color: var(--cor-principal);
 }
 
@@ -349,9 +347,7 @@ body {
     object-fit: contain;
 }
 
-/* OPÇÃO DE CRONÔMETRO */
-
-/* Posiciona a opção de ativar o cronômetro abaixo dos botões. */
+/* checkbox do timer */
 
 .opcao-cronometro {
     position: relative;
@@ -369,18 +365,19 @@ body {
     justify-content: center;
     gap: 10px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--cor-texto-header);
 }
 
 .opcao-cronometro input {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     accent-color: var(--cor-secundaria);
     cursor: pointer;
+    flex-shrink: 0;
 }
 
-/* TELA DO JOGO */
+/* tela principal do quiz */
 
 .quiz-container>.tela-jogo {
     position: relative;
@@ -407,8 +404,6 @@ body {
     align-items: center;
 }
 
-/* Cartão que reúne a pergunta, a imagem e as alternativas. */
-
 .quadro-jogo {
     position: relative;
     display: flex;
@@ -427,9 +422,7 @@ body {
     box-shadow: 5px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* CABEÇALHO DA PERGUNTA */
-
-/* Posiciona o título e a identificação da rodada sobre o cartão. */
+/* caixa de titulo e contador de rodada */
 
 .cabecalho-pergunta {
     position: absolute;
@@ -452,7 +445,7 @@ body {
     background-color: var(--cor-fundo);
     color: var(--cor-principal);
     font-size: 1.05rem;
-    line-height: 1.3;
+    line-height: 1.4;
     text-align: left;
 }
 
@@ -463,11 +456,11 @@ body {
     border-radius: 20px;
     background-color: var(--cor-secundaria);
     color: var(--cor-texto-header);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
 }
 
-/* Posiciona o cronômetro no canto superior direito do cartão. */
+/* reloginho no canto do card */
 
 #tempo {
     position: absolute;
@@ -476,9 +469,11 @@ body {
     z-index: 3;
 }
 
-/* CRONÔMETRO CIRCULAR */
+#tempo[hidden] {
+    display: none !important;
+}
 
-/* A propriedade personalizada permite animar o preenchimento do círculo. */
+/* timer em pizza via conic-gradient */
 
 @property --progresso {
     syntax: "<percentage>";
@@ -502,8 +497,6 @@ body {
     color: transparent;
 }
 
-/* Inicia a contagem visual do cronômetro. */
-
 .cronometro-pizza.cronometro-ativo {
     animation: diminuirCronometro var(--duracao-cronometro) linear forwards;
 }
@@ -526,9 +519,7 @@ body {
     display: none !important;
 }
 
-/* IMAGEM E ALTERNATIVAS */
-
-/* Centraliza a imagem do animal dentro do cartão. */
+/* silhueta e botoes de opcao */
 
 .silhueta-container {
     display: flex;
@@ -549,18 +540,15 @@ body {
     transition: opacity 0.2s ease;
 }
 
-/* Crédito da imagem exibida na rodada. */
-
 .credito-imagem {
     align-self: flex-start;
     width: 100%;
     margin: -1px 0 15px;
     color: var(--cor-texto-card);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
     text-align: left;
 }
-
-/* Organiza as alternativas em duas colunas. */
 
 .container-alternativas {
     display: grid;
@@ -575,11 +563,13 @@ body {
     border: 2px solid var(--cor-principal);
     border-radius: 7px;
     width: 100%;
+    min-height: 48px;
     box-sizing: border-box;
     padding: 15px;
     margin: 0;
     color: var(--cor-principal);
     font-weight: 600;
+    line-height: 1.4;
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -589,24 +579,29 @@ body {
     transform: scale(1.03);
 }
 
-/* Diferencia visualmente as respostas corretas e incorretas. */
-
-.correta {
-    background-color: rgb(165, 228, 165);
-    font-weight: bolder;
+.alternativa:disabled {
+    cursor: default;
+    opacity: 1;
 }
 
-.incorreta {
+.alternativa.correta {
+    background-color: rgb(165, 228, 165);
+    color: #163812;
+    border: 3px solid #245B24;
+    font-weight: 700;
+}
+
+.alternativa.incorreta {
     background-color: rgb(250, 184, 184);
+    color: #641D1D;
+    border: 3px solid #8B2525;
+    font-weight: 700;
 }
 
 #btn-proximo {
     padding: 12px 25px;
     margin-top: 10px;
     align-self: flex-start;
-    visibility: hidden;
-    opacity: 0;
-    animation: none;
     border: 2px solid var(--cor-principal);
     border-radius: 20px;
     background-color: var(--cor-fundo);
@@ -621,9 +616,11 @@ body {
     transform: translateY(-2px);
 }
 
-/* TEXTURA INFERIOR DAS TELAS */
+#btn-proximo[hidden] {
+    display: none !important;
+}
 
-/* Elemento decorativo posicionado na base das telas do jogo e do resultado. */
+/* onda de fundo no rodape */
 
 .textura-inferior {
     position: absolute;
@@ -644,9 +641,7 @@ body {
     object-position: center bottom;
 }
 
-/* TELA DE RESULTADO */
-
-/* Centraliza o cartão de pontuação e mantém a textura no fundo. */
+/* tela final de pontuacao */
 
 .quiz-container>.resultado {
     position: relative;
@@ -663,8 +658,6 @@ body {
     color: var(--cor-principal);
     overflow: hidden;
 }
-
-/* Cartão principal com a pontuação e a insígnia conquistada. */
 
 .quadro-resultado {
     position: relative;
@@ -684,7 +677,7 @@ body {
     text-align: center;
 }
 
-/* CABEÇALHO DO RESULTADO */
+/* topo do card de resultado */
 
 .cabecalho-resultado {
     position: absolute;
@@ -713,7 +706,7 @@ body {
     background-color: var(--cor-fundo);
     color: var(--cor-principal);
     font-size: 1.05rem;
-    line-height: 1.3;
+    line-height: 1.4;
     text-align: left;
     box-shadow: none;
 }
@@ -734,7 +727,7 @@ body {
     font-weight: 700;
 }
 
-/* INSÍGNIA CONQUISTADA */
+/* arte da medalha ganha */
 
 .medalha-resultado {
     display: flex;
@@ -774,12 +767,6 @@ body {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .medalha-resultado {
-        animation: none;
-    }
-}
-
 #nome-insignia.insignia-semeador {
     color: #8B5E3C;
 }
@@ -792,14 +779,14 @@ body {
     color: #EF6B3B;
 }
 
-/* TEXTO DA PONTUAÇÃO */
+/* textos do placar */
 
 #texto-resultado {
     width: 100%;
     margin: 20px 0 5px;
     color: var(--cor-principal);
     font-size: clamp(1.25rem, 3vw, 1.65rem);
-    line-height: 1.2;
+    line-height: 1.4;
     text-align: left;
 }
 
@@ -808,12 +795,16 @@ body {
     max-width: 100%;
     margin: 0;
     color: var(--cor-principal);
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.5;
     text-align: left;
 }
 
-/* BOTÕES DO RESULTADO */
+.insignia-resultado {
+    line-height: 1.5;
+}
+
+/* botoes para reiniciar ou sair */
 
 .botoes-resultado {
     display: flex;
@@ -827,13 +818,14 @@ body {
 
 .btn-resultado {
     min-width: 0;
+    min-height: 44px;
     padding: 15px 20px;
     border: 2px solid;
     border-radius: 11px;
     background-color: transparent;
     font: inherit;
-    font-size: 0.75rem;
-    white-space: nowrap;
+    font-size: 0.85rem;
+    white-space: normal;
     cursor: pointer;
     transition: all 0.25s ease;
 }
@@ -860,14 +852,7 @@ body {
     transform: translateY(-2px);
 }
 
-.btn-resultado:focus-visible {
-    outline: 3px solid var(--cor-principal);
-    outline-offset: 4px;
-}
-
-/* RESPONSIVIDADE */
-
-/* Ajustes para telas com largura de até 900px. */
+/* regras para telas menores */
 
 @media (max-width: 900px) {
     .inicio .apresentacao {
@@ -898,8 +883,6 @@ body {
     }
 }
 
-/* Ajustes para telas com largura de até 600px. */
-
 @media (max-width: 600px) {
     #tela-inicio {
         min-height: auto;
@@ -922,7 +905,7 @@ body {
     }
 
     .inicio .apresentacao .subtitulo {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .apresentacao-texto h1 {
@@ -931,10 +914,8 @@ body {
 
     .inicio .apresentacao .instrucoes {
         margin-top: 15px;
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
-
-    /* Redimensiona o carrossel para telas menores. */
 
     .inicio .carrosel-animais {
         margin: 15px 0;
@@ -956,6 +937,7 @@ body {
 
     .botoes-container .btn {
         width: 100%;
+        min-height: 44px;
     }
 
     .opcao-cronometro {
@@ -964,10 +946,8 @@ body {
     }
 
     .opcao-cronometro label {
-        font-size: 0.85rem;
+        font-size: 0.95rem;
     }
-
-    /* Empilha os cartões informativos verticalmente. */
 
     .container-cards {
         flex-direction: column;
@@ -982,8 +962,6 @@ body {
         flex: initial;
         min-height: 85px;
     }
-
-    /* Ajusta o cartão e os elementos do jogo. */
 
     .quiz-container>.tela-jogo {
         padding: 25px 10px;
@@ -1001,12 +979,12 @@ body {
     }
 
     .pergunta-titulo {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         padding: 8px 12px;
     }
 
     .round-atual {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
     }
 
     .imagem-silhueta {
@@ -1016,20 +994,19 @@ body {
 
     .container-alternativas {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
+        gap: 10px;
     }
 
     .alternativa {
+        min-height: 48px;
         padding: 12px 8px;
-        font-size: 0.85rem;
+        font-size: 0.95rem;
     }
 
     .cronometro-pizza {
         width: 55px;
         height: 55px;
     }
-
-    /* Redimensiona o cartão de resultado. */
 
     .quiz-container>.resultado {
         min-height: 700px;
@@ -1066,8 +1043,9 @@ body {
     }
 
     .btn-resultado {
-        padding: 9px 10px;
-        font-size: 0.7rem;
+        min-height: 44px;
+        padding: 10px;
+        font-size: 0.85rem;
     }
 
     .botoes-resultado button {
@@ -1075,8 +1053,6 @@ body {
         box-sizing: border-box;
     }
 }
-
-/* Ajustes adicionais para telas muito estreitas, de até 360px. */
 
 @media (max-width: 360px) {
     .inicio .mascara-animais {
@@ -1099,11 +1075,9 @@ body {
 
     .btn-resultado {
         padding: 8px 7px;
-        font-size: 0.66rem;
+        font-size: 0.8rem;
     }
 }
-
-/* Ajustes para notebooks com altura reduzida. */
 
 @media screen and (min-width: 901px) and (max-height: 800px) {
     .quiz-container>.tela-jogo {
@@ -1142,9 +1116,29 @@ body {
     }
 }
 
+/* reduz animações e transições para usuarios que preferem movimentos reduzidos */
 @media (prefers-reduced-motion: reduce) {
+
+    .quiz-container>.tela.saindo,
+    .quiz-container>.tela.entrando,
     .medalha-resultado,
-    .medalha-resultado img {
-        animation: none;
+    .medalha-resultado img,
+    .cronometro-pizza.cronometro-ativo {
+        animation: none !important;
+    }
+
+    .btn,
+    .alternativa,
+    .cartao-informativo,
+    .btn-resultado,
+    .imagem-silhueta {
+        transition: none !important;
+    }
+
+    .btn:hover,
+    .alternativa:not(:disabled):hover,
+    .cartao-informativo:hover,
+    .btn-resultado:hover {
+        transform: none;
     }
 }

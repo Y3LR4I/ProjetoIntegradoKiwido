@@ -1,8 +1,7 @@
-
-// Dados dos animais utilizados no quiz e no bestiário, existem 2 categorias principais no mostruario, "Pássaros", "Mamíferos" e a classificação "Todas" que
-// Comporta todas as outras categorias e a "Outras" que são animais que não se encaixam nas 2 principais.
-// Para a declaracao de uma categoria tem que estar escritas do mesmo jeito descrito acima.
-// Caso veja alguma ave ou mamifero em outro provavelmente e por que a categoria foi escrita errada.
+// dados dos animais pro quiz e pro mostruario
+// categorias principaes: Passaros e Mamiferos
+// categoria Todas engloba tudo e Outras e pra quem nao entra nas duas principaes
+// a string da categoria precisa ser identica pra nao dar erro nos filtros
 const animais = [
     {
         nome: "Garça Azul",
@@ -10,6 +9,7 @@ const animais = [
         silhueta: "../assets/images/animais/garca-Azul.png",
         fotografia: "../assets/images/quiz/animais/garca-Azul.png",
         desenho: "../assets/images/quiz/animais/garca-AzulDesenho.png",
+        descricaoSilhueta: "Ave de corpo esguio, pernas longas e finas, pescoço comprido que forma uma curva semelhante à letra S e bico longo, reto e pontudo.",
         descricao: `A Garça Azul é uma ave encontrada em regiões costeiras, manguezais, lagoas e outros ambientes alagados. Sua plumagem apresenta tons azulados e acinzentados, enquanto suas pernas e seu bico longos facilitam a movimentação em águas rasas.
 
                     É uma caçadora paciente, que costuma permanecer imóvel ou caminhar lentamente à procura de alimento. Sua alimentação inclui peixes, pequenos crustáceos, insetos e outros animais aquáticos.`,
@@ -21,6 +21,7 @@ const animais = [
         silhueta: "../assets/images/animais/bigua.png",
         fotografia: "../assets/images/quiz/animais/bigua.png",
         desenho: "../assets/images/quiz/animais/biguaDesenho.png",
+        descricaoSilhueta: "Ave de corpo alongado e volumoso, pescoço comprido e flexível, bico relativamente longo com a ponta curvada e cauda comprida.",
         descricao: `O Biguá é uma ave aquática encontrada em rios, lagoas, estuários e manguezais. Possui plumagem predominantemente escura, bico comprido e levemente curvado, além de um corpo adaptado para mergulhar e nadar com facilidade.
 
                     Sua principal estratégia de alimentação é mergulhar em busca de peixes. Após nadar, é comum vê-lo com as asas abertas, pois suas penas absorvem mais água do que as de outras aves aquáticas, ajudando-o a secar ao sol.`,
@@ -32,10 +33,11 @@ const animais = [
         silhueta: "../assets/images/animais/figuinha-Mangue.png",
         fotografia: "../assets/images/quiz/animais/figuinha-Mangue.png",
         desenho: "../assets/images/quiz/animais/figuinha-MangueDesenho.png",
+        descricaoSilhueta: "Ave de porte pequeno, corpo compacto e arredondado, bico curto e pontudo, pernas finas e cauda relativamente curta.",
         descricao: `A Figuinha do Mangue é uma pequena ave que habita áreas costeiras e regiões com vegetação densa. Por seu tamanho reduzido, consegue se movimentar com facilidade entre galhos e folhas, onde encontra abrigo e alimento.
 
                     Costuma procurar pequenos insetos e outros alimentos entre a vegetação. Sua presença contribui para o equilíbrio do ecossistema, fazendo parte das relações naturais que mantêm o manguezal vivo.`,
-        curiosidade: "Por ser pequena e discreta, a Figuinha do Mangue pode passar despercebida entre as folhas e os galhos."
+        curiosidade: "Por ser pequena e discreta, a Figuinha do Mangue pode passar desempercebida entre as folhas e os galhos."
     },
     {
         nome: "Garça Branca Grande",
@@ -43,6 +45,7 @@ const animais = [
         silhueta: "../assets/images/animais/garca-Branca-Grande.png",
         fotografia: "../assets/images/quiz/animais/garca-Branca-Grande.png",
         desenho: "../assets/images/quiz/animais/garca-Branca-GrandeDesenho.png",
+        descricaoSilhueta: "Ave de grande porte, corpo esguio, pernas muito longas, pescoço comprido em formato de S e bico longo, reto e pontudo.",
         descricao: `A Garça Branca Grande é uma ave de grande porte, facilmente reconhecida por sua plumagem inteiramente branca, pernas compridas e bico longo e amarelado. Pode ser encontrada em manguezais, lagoas, rios e outros ambientes próximos à água.
 
                     Alimenta-se principalmente de peixes, mas também captura anfíbios, pequenos répteis, insetos e outros animais. Para caçar, costuma caminhar lentamente pela água ou permanecer parada, aguardando o momento ideal para atacar.`,
@@ -54,6 +57,7 @@ const animais = [
         silhueta: "../assets/images/animais/macarico-Asa-Branca.png",
         fotografia: "../assets/images/quiz/animais/macarico-Asa-Branca.png",
         desenho: "../assets/images/quiz/animais/macarico-Asa-BrancaDesenho.png",
+        descricaoSilhueta: "Ave de corpo relativamente pequeno e alongado, pernas finas, pescoço curto e bico comprido, estreito e reto. Possui asas alongadas e pontudas.",
         descricao: `O Maçarico de Asa Branca é uma ave encontrada em regiões costeiras, praias, manguezais e áreas alagadas. Seu corpo é adaptado para caminhar em terrenos úmidos, explorando a lama e as margens em busca de alimento.
 
                     Utiliza seu bico para procurar pequenos invertebrados escondidos no sedimento, como vermes, crustáceos e insetos. Dessa forma, participa da dinâmica alimentar dos ambientes costeiros.`,
@@ -65,6 +69,7 @@ const animais = [
         silhueta: "../assets/images/animais/pernilongo-Costas-Negras.png",
         fotografia: "../assets/images/quiz/animais/pernilongo-Costas-Negras.png",
         desenho: "../assets/images/quiz/animais/pernilongo-Costas-NegrasDesenho.png",
+        descricaoSilhueta: "Ave de corpo pequeno e esguio, pernas extremamente longas e finas, pescoço comprido e bico fino, reto e pontudo.",
         descricao: `O Pernilongo de Costas Negras é uma ave de pernas muito longas, corpo esguio e plumagem que combina áreas claras e escuras. Habita principalmente regiões alagadas, lagoas, margens de rios e áreas costeiras.
 
                     Suas pernas compridas permitem caminhar em águas rasas enquanto procura pequenos invertebrados, insetos e outros organismos aquáticos. Seu bico fino ajuda a capturar esses alimentos na superfície ou dentro da água.`,
@@ -76,6 +81,7 @@ const animais = [
         silhueta: "../assets/images/animais/macarico-Pintado.png",
         fotografia: "../assets/images/quiz/animais/macarico-Pintado.png",
         desenho: "../assets/images/quiz/animais/macarico-PintadoDesenho.png",
+        descricaoSilhueta: "Ave de porte pequeno, corpo compacto e arredondado, pernas relativamente curtas e bico fino, reto e de comprimento médio.",
         descricao: `O Maçarico Pintado é uma ave que frequenta margens de rios, lagoas, brejos e regiões costeiras. Sua plumagem apresenta padrões que ajudam a se camuflar entre a lama, a areia e a vegetação dos ambientes úmidos.
 
                     Costuma caminhar pelas margens enquanto procura alimento no solo e na água. Sua dieta inclui pequenos invertebrados, como insetos, vermes e crustáceos, que encontra explorando o sedimento com o bico.`,
@@ -87,6 +93,7 @@ const animais = [
         silhueta: "../assets/images/animais/saracura-Mangue.png",
         fotografia: "../assets/images/quiz/animais/saracura-Mangue.png",
         desenho: "../assets/images/quiz/animais/saracura-MangueDesenho.png",
+        descricaoSilhueta: "Ave de corpo arredondado e relativamente robusto, pescoço curto, pernas fortes e dedos compridos. Possui cauda curta e bico comprido e pontudo.",
         descricao: `A Saracura do Mangue é uma ave que vive em ambientes úmidos, especialmente em áreas com vegetação densa, como manguezais e margens de rios. Possui corpo adaptado para se movimentar entre raízes, folhas e outros obstáculos naturais.
 
                     É uma ave discreta, que costuma permanecer escondida na vegetação. Alimenta-se de pequenos invertebrados, insetos e outros organismos encontrados no solo úmido, contribuindo para o equilíbrio do ecossistema.`,
@@ -98,6 +105,7 @@ const animais = [
         silhueta: "../assets/images/animais/macarico-Bico-Torto.png",
         fotografia: "../assets/images/quiz/animais/macarico-Bico-Torto.png",
         desenho: "../assets/images/quiz/animais/macarico-Bico-TortoDesenho.png",
+        descricaoSilhueta: "Ave de corpo alongado, pernas finas e bico comprido, estreito e curvado para baixo na ponta.",
         descricao: `O Maçarico de Bico Torto é uma ave limícola encontrada em áreas úmidas, regiões costeiras e manguezais. Sua característica mais marcante é o bico curvado, que possui um formato especializado para procurar alimento no sedimento.
 
                     Com esse bico, consegue explorar a lama e os terrenos alagados em busca de pequenos invertebrados, como vermes e crustáceos. Essa adaptação permite aproveitar recursos alimentares que outras aves podem ter dificuldade para alcançar.`,
@@ -105,7 +113,7 @@ const animais = [
     }
 ];
 
-// Da a categoria de "outros" caso o animal nao seja nem mamifero nem um passaro
+// atribui Outros se nao se encaixar em Passaros nem Mamiferos
 animais.forEach(animal => {
     if (animal.categoria === "Pássaros" || animal.categoria === "Mamíferos") {
         return;
@@ -115,7 +123,7 @@ animais.forEach(animal => {
 });
 
 
-// Referências às telas e aos elementos da interface.
+// mapeamento dos elementos do dom
 const telaInicio = document.getElementById("tela-inicio");
 const telaJogo = document.getElementById("tela-jogo");
 const telaResultado = document.getElementById("tela-resultado");
@@ -152,7 +160,33 @@ const nomeDetalhes = document.getElementById("nome-detalhes-animal");
 const descricaoDetalhes = document.getElementById("descricao-detalhes-animal");
 const curiosidadeDetalhes = document.getElementById("curiosidade-detalhes-animal");
 
-// Configurações e variáveis de controle do jogo.
+const botoesCategorias = document.querySelectorAll(".categoria-animal");
+
+let statusListaAnimais = document.getElementById("status-lista-animais");
+
+if (!statusListaAnimais && listaAnimais) {
+    statusListaAnimais = document.createElement("p");
+    statusListaAnimais.id = "status-lista-animais";
+    statusListaAnimais.className = "texto-acessivel";
+    statusListaAnimais.setAttribute("role", "status");
+    statusListaAnimais.setAttribute("aria-live", "polite");
+    statusListaAnimais.setAttribute("aria-atomic", "true");
+
+    listaAnimais.parentElement.insertBefore(statusListaAnimais, listaAnimais);
+}
+
+const tituloBestiario = telaBestiario?.querySelector("h1");
+const tituloDetalhes = telaDetalhes?.querySelector("h1");
+
+if (tituloBestiario) {
+    tituloBestiario.setAttribute("tabindex", "-1");
+}
+
+if (tituloDetalhes) {
+    tituloDetalhes.setAttribute("tabindex", "-1");
+}
+
+// variaveis de controle da partida
 const totalRounds = 5;
 const limiteTempo = 10;
 
@@ -168,8 +202,9 @@ let animalSelecionado = null;
 let mostrandoDesenho = false;
 let jogoFinalizado = false;
 let temporizadorLiberarProximo = null;
+let cartaoAnimalAnterior = null;
 
-// Sons utilizados nas interações e transições.
+// audios do quiz
 const somClique = new Audio("../assets/images/quiz/sons/click.mp3");
 const somSelecao = new Audio("../assets/images/quiz/sons/selecao.mp3");
 const somCronometro = new Audio("../assets/images/quiz/sons/cronometro.mp3");
@@ -182,20 +217,20 @@ somSelecao.volume = 0.2;
 somCronometro.volume = 0.4;
 somConquista.volume = 0.4
 
-somClique.preload = "auto"; //faz com que o som ja esteja carregado antecipadamente
+somClique.preload = "auto";
 somSelecao.preload = "auto";
 somCronometro.preload = "auto";
 somCronometro.preload =" auto";
 somConquista.preload = "auto";
 
-// Mantem o botão de próxima pergunta oculto até a revelação da fotografia.
+// botao proximo inicia oculto ate revelar a imagem
 btnProximo.hidden = false;
 btnProximo.style.setProperty("visibility", "hidden", "important");
 btnProximo.style.setProperty("opacity", "0", "important");
 btnProximo.style.setProperty("animation", "none", "important");
 btnProximo.disabled = true;
 
-// Embaralha os elementos sem modificar o array original.
+// aux para embaralhar itens da lista
 function embaralharArray(array) {
     const copia = [...array];
 
@@ -207,7 +242,7 @@ function embaralharArray(array) {
     return copia;
 }
 
-// Identifica qual tela está visivel para realizar a próxima transição.
+// identifica qual tela ta ativa no momento
 function telaVisivelAtual() {
     return [
         telaInicio,
@@ -218,7 +253,7 @@ function telaVisivelAtual() {
     ].find(tela => !tela.hidden) || telaInicio;
 }
 
-// Controla as animações de saída e entrada entre as telas.
+// transicao basica entre telas
 async function trocarTela(telaAtual, proximaTela, aoMostrar = null) {
     if (transicaoEmAndamento) {
         return;
@@ -244,12 +279,17 @@ async function trocarTela(telaAtual, proximaTela, aoMostrar = null) {
 
     proximaTela.classList.remove("entrando");
     transicaoEmAndamento = false;
+
+    if (proximaTela === telaBestiario && tituloBestiario) {
+        tituloBestiario.focus();
+    }
+
+    if (proximaTela === telaDetalhes && tituloDetalhes) {
+        tituloDetalhes.focus();
+    }
 }
 
-// ==============================
-// REPRODUCAO DOS EFEITOS SONOROS
-// ==============================
-
+// funcoes para disparar os audios
 function tocarSomClique() {
     somClique.pause();
     somClique.currentTime = 0;
@@ -280,7 +320,7 @@ function tocarSomConquista(){
     somConquista.play().catch(() => {})
 }
 
-// Cancela o temporizador que libera o botão de próxima pergunta.
+// cancela timeout se o usuario acionar o proximo antes do tempo
 function cancelarRevelacaoPendente() {
     if (temporizadorLiberarProximo !== null) {
         clearTimeout(temporizadorLiberarProximo);
@@ -288,7 +328,7 @@ function cancelarRevelacaoPendente() {
     }
 }
 
-// Reinicia as variáveis e seleciona cinco animais aleatórios para a partida.
+// reinicia tudo e seleciona 5 animais pro quiz
 function comecarJogo() {
     if (transicaoEmAndamento) {
         return;
@@ -312,7 +352,7 @@ function comecarJogo() {
     trocarTela(telaVisivelAtual(), telaJogo, mostrarPergunta);
 }
 
-// Atualiza a pergunta, a silhueta, o número do round e as alternativas
+// atualiza silhueta, texto e botoes do round
 function mostrarPergunta() {
     pararCronometro();
     cancelarRevelacaoPendente();
@@ -330,7 +370,7 @@ function mostrarPergunta() {
     const animalCorreto = perguntasSelecionadas[indiceAtual];
 
     imagemSilhueta.src = animalCorreto.silhueta;
-    imagemSilhueta.alt = `Silhueta de ${animalCorreto.nome}`;
+    imagemSilhueta.alt = animalCorreto.descricaoSilhueta;
 
     document.querySelector(".pergunta-titulo").textContent =
         "Que bicho do Mangue é esse?";
@@ -353,7 +393,7 @@ function mostrarPergunta() {
     }
 }
 
-// Cria quatro alternativas, sendo uma correta e três escolhidas aleatoriamente
+// monta 1 alternativa certa e 3 erradas
 function gerarAlternativas(animalCorreto) {
     const animaisErrados = embaralharArray(
         animais.filter(animal => animal.nome !== animalCorreto.nome)
@@ -390,7 +430,7 @@ function gerarAlternativas(animalCorreto) {
     });
 }
 
-// Verifica a resposta, atualiza a pontuação e revela a fotografia do animal.
+// valida o clique e revela a imagem final
 function verificarResposta(animalEscolhido, animalCorreto, botaoEscolhido) {
     if (respondida || jogoFinalizado) {
         return;
@@ -414,7 +454,7 @@ function verificarResposta(animalEscolhido, animalCorreto, botaoEscolhido) {
     revelarFotografia(animalCorreto);
 }
 
-// Destaca a alternativa correta quando o jogador erra ou o tempo acaba
+// destaca a opcao correta caso o usuario erre
 function destacarRespostaCerta(animalCorreto) {
     containerAlternativas.querySelectorAll("button").forEach(botao => {
         if (botao.textContent === animalCorreto.nome) {
@@ -423,7 +463,7 @@ function destacarRespostaCerta(animalCorreto) {
     });
 }
 
-// Substitui a silhueta pela fotografia usando uma transição de opacidade
+// faz a transicao da silhueta para a foto
 function revelarFotografia(animalCorreto) {
     btnProximo.style.setProperty("visibility", "hidden", "important");
     btnProximo.style.setProperty("opacity", "0", "important");
@@ -432,7 +472,6 @@ function revelarFotografia(animalCorreto) {
 
     imagemSilhueta.getAnimations().forEach(animacao => animacao.cancel());
 
-    //uma animacao leve feita pelo js utilizando uma formacao de css
     const animacaoSaida = imagemSilhueta.animate(
         [
             { opacity: 1 },
@@ -470,7 +509,7 @@ function revelarFotografia(animalCorreto) {
     }, 500);
 }
 
-// Inicia a contagem regressiva e atualiza o cronômetro a cada segundo
+// controla a contagem regressiva
 function iniciarCronometro() {
     pararCronometro();
 
@@ -499,7 +538,7 @@ function iniciarCronometro() {
     }, 1000);
 }
 
-// Interrompe a contagem e mantém o estado visual do cronômetro
+// pausa o cronometro
 function pararCronometro() {
     if (intervaloCronometro !== null) {
         clearInterval(intervaloCronometro);
@@ -511,7 +550,7 @@ function pararCronometro() {
     }
 }
 
-// Encerra a rodada quando o tempo chega a zero
+// quando o tempo acaba sem resposta
 function tempoEsgotado() {
     if (respondida || jogoFinalizado) {
         return;
@@ -531,7 +570,7 @@ function tempoEsgotado() {
     revelarFotografia(animalCorreto);
 }
 
-// Avança para a próxima rodada após a revelação da resposta
+// avanca para o proximo round
 function proximaPergunta() {
     if (!respondida || jogoFinalizado || transicaoEmAndamento || btnProximo.disabled) {
         return;
@@ -543,7 +582,7 @@ function proximaPergunta() {
     mostrarPergunta();
 }
 
-// Exibe a pontuação final e define a insígnia conforme o desempenho
+// exibe resultado e insignia final
 function finalizarJogo() {
     tocarSomConquista()
     pararCronometro();
@@ -601,7 +640,7 @@ function finalizarJogo() {
     });
 }
 
-// Abre o bestiário com os filtros e a pesquisa redefinidos
+// abre tela do bestiario limpando os filtros
 function abrirBestiario() {
     if (transicaoEmAndamento) {
         return;
@@ -610,8 +649,11 @@ function abrirBestiario() {
     categoriaAtual = "Todas";
     pesquisaEspecies.value = "";
 
-    document.querySelectorAll(".categoria-animal").forEach(botao => {
-        botao.classList.toggle("ativa", botao.dataset.categoria === "Todas");
+    botoesCategorias.forEach(botao => {
+        const selecionado = botao.dataset.categoria === "Todas";
+
+        botao.classList.toggle("ativa", selecionado);
+        botao.setAttribute("aria-pressed", String(selecionado));
     });
 
     atualizarListaAnimais();
@@ -619,7 +661,7 @@ function abrirBestiario() {
     trocarTela(telaVisivelAtual(), telaBestiario);
 }
 
-// Filtra os animais pela categoria selecionada e pelo nome pesquisado
+// filtra os cards por categoria e texto
 function atualizarListaAnimais() {
     const termo = pesquisaEspecies.value.trim().toLowerCase();
 
@@ -636,15 +678,18 @@ function atualizarListaAnimais() {
     listaAnimais.innerHTML = "";
 
     filtrados.forEach(animal => {
-        const cartao = document.createElement("button");
-        cartao.type = "button";
+        const cartao = document.createElement("div");
+
         cartao.className = "cartao-animal";
+        cartao.setAttribute("role", "button");
+        cartao.setAttribute("tabindex", "0");
+        cartao.setAttribute("aria-label", `Ver detalhes de ${animal.nome}`);
 
         const imagem = document.createElement("img");
         imagem.src = animal.fotografia;
-        imagem.alt = animal.nome;
+        imagem.alt = "";
 
-        // Usa a silhueta como alternativa caso a fotografia não seja encontrada.
+        // carrega silhueta se a foto principal falhar
         imagem.onerror = () => {
             imagem.onerror = null;
             imagem.src = animal.silhueta;
@@ -664,23 +709,46 @@ function atualizarListaAnimais() {
         const seta = document.createElement("img");
         seta.className = "cartao-animal-seta";
         seta.src = "../assets/icones/icone_seta.svg";
-        seta.alt = ""; // Imagem decorativa: não precisa de descrição para leitores de tela.
+        seta.alt = "";
 
         cartao.append(imagem, informacoes, seta);
 
         cartao.addEventListener("click", () => {
-            abrirDetalhesAnimal(animal);
+            abrirDetalhesAnimal(animal, cartao);
+        });
+
+        cartao.addEventListener("keydown", evento => {
+            if (evento.key === "Enter" || evento.key === " ") {
+                evento.preventDefault();
+
+                if (!evento.repeat) {
+                    cartao.click();
+                }
+            }
         });
 
         listaAnimais.appendChild(cartao);
     });
 
     nenhumAnimal.hidden = filtrados.length > 0;
+
+    if (statusListaAnimais) {
+        if (filtrados.length === 0) {
+            statusListaAnimais.textContent =
+                "Nenhum animal encontrado. Tente alterar a pesquisa ou selecionar outra categoria.";
+        } else if (filtrados.length === 1) {
+            statusListaAnimais.textContent = "1 animal encontrado.";
+        } else {
+            statusListaAnimais.textContent =
+                `${filtrados.length} animais encontrados.`;
+        }
+    }
 }
 
-// Preenche a tela de detalhes com as informações do animal selecionado.
-function abrirDetalhesAnimal(animal) {
+// renderiza dados do animal selecionado
+function abrirDetalhesAnimal(animal, cartao) {
     animalSelecionado = animal;
+    cartaoAnimalAnterior = cartao;
     mostrandoDesenho = false;
 
     nomeDetalhes.textContent = animal.nome;
@@ -689,10 +757,12 @@ function abrirDetalhesAnimal(animal) {
 
     atualizarImagemDetalhes();
 
+    atualizarBotaoAlternarImagem();
+
     trocarTela(telaBestiario, telaDetalhes);
 }
 
-// Atualiza a imagem exibida conforme a opção de fotografia ou desenho.
+// alterna a exibicao da imagem na tela de detalhes
 function atualizarImagemDetalhes() {
     if (!animalSelecionado) {
         return;
@@ -702,7 +772,7 @@ function atualizarImagemDetalhes() {
         ? animalSelecionado.desenho
         : animalSelecionado.fotografia;
 
-    // Usa a silhueta como alternativa caso a imagem selecionada não seja encontrada.
+    // usa silhueta como fallback
     imagemDetalhes.onerror = () => {
         imagemDetalhes.onerror = null;
         imagemDetalhes.src = animalSelecionado.silhueta;
@@ -715,16 +785,40 @@ function atualizarImagemDetalhes() {
         : `Fotografia de ${animalSelecionado.nome}`;
 }
 
-// Retorna à lista de animais do bestiário.
-function voltarParaBestiario() {
+function atualizarBotaoAlternarImagem() {
+    if (!animalSelecionado || !btnAlternarImagem) {
+        return;
+    }
+
+    btnAlternarImagem.setAttribute(
+        "aria-pressed",
+        String(mostrandoDesenho)
+    );
+
+    btnAlternarImagem.setAttribute(
+        "aria-label",
+        mostrandoDesenho
+            ? `Mostrar fotografia de ${animalSelecionado.nome}`
+            : `Mostrar desenho de ${animalSelecionado.nome}`
+    );
+}
+
+// retorna ao bestiario
+async function voltarParaBestiario() {
     if (transicaoEmAndamento) {
         return;
     }
 
-    trocarTela(telaDetalhes, telaBestiario);
+    await trocarTela(telaDetalhes, telaBestiario);
+
+    if (cartaoAnimalAnterior && cartaoAnimalAnterior.isConnected) {
+        cartaoAnimalAnterior.focus();
+    } else if (tituloBestiario) {
+        tituloBestiario.focus();
+    }
 }
 
-// Retorna à tela inicial e limpa o estado da partida.
+// retorna a tela inicial limpando estados
 function voltarParaInicio() {
     if (transicaoEmAndamento) {
         return;
@@ -745,7 +839,7 @@ function voltarParaInicio() {
     trocarTela(telaVisivelAtual(), telaInicio);
 }
 
-// Eventos dos botões de navegação e controle do jogo.
+// escutadores dos botoes de navegacao
 btnIniciar.addEventListener("click", comecarJogo);
 btnReiniciar.addEventListener("click", comecarJogo);
 btnProximo.addEventListener("click", proximaPergunta);
@@ -754,7 +848,7 @@ btnFecharBestiario.addEventListener("click", voltarParaInicio);
 btnVoltarBestiario.addEventListener("click", voltarParaBestiario);
 btnTelaInicial.addEventListener("click", voltarParaInicio);
 
-// Alterna entre a fotografia e o desenho do animal selecionado.
+// acao do botao de alternar imagem
 btnAlternarImagem.addEventListener("click", () => {
     if (!animalSelecionado) {
         return;
@@ -762,24 +856,34 @@ btnAlternarImagem.addEventListener("click", () => {
 
     mostrandoDesenho = !mostrandoDesenho;
     atualizarImagemDetalhes();
+    atualizarBotaoAlternarImagem();
 });
 
-// Atualiza a lista conforme o usuário digita na pesquisa.
+// filtro da barra de pesquisa
 pesquisaEspecies.addEventListener("input", atualizarListaAnimais);
 
-// Controla a seleção de categorias do bestiário.
-document.querySelectorAll(".categoria-animal").forEach(botao => {
-    botao.addEventListener("click", () => {
-        document.querySelector(".categoria-animal.ativa")?.classList.remove("ativa");
+// filtro dos botoes de categoria
+botoesCategorias.forEach(botao => {
+    botao.setAttribute(
+        "aria-pressed",
+        String(botao.dataset.categoria === categoriaAtual)
+    );
 
-        botao.classList.add("ativa");
+    botao.addEventListener("click", () => {
         categoriaAtual = botao.dataset.categoria;
+
+        botoesCategorias.forEach(outroBotao => {
+            const selecionado = outroBotao === botao;
+
+            outroBotao.classList.toggle("ativa", selecionado);
+            outroBotao.setAttribute("aria-pressed", String(selecionado));
+        });
 
         atualizarListaAnimais();
     });
 });
 
-// Ativa ou desativa o cronômetro durante a partida.
+// chaveador do cronometro
 opcaoCronometro.addEventListener("change", () => {
     if (telaJogo.hidden || respondida) {
         return;
@@ -794,7 +898,7 @@ opcaoCronometro.addEventListener("change", () => {
     }
 });
 
-// Reproduz o som de clique nos botões, exceto nas alternativas do quiz.
+// efeito sonoro padrao pra botoes
 document.addEventListener("click", evento => {
     const botao = evento.target.closest("button");
 

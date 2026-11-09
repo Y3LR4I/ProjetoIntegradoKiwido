@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -30,7 +29,7 @@
              TELA INICIAL DO QUIZ
         ========================== -->
 
-        <section id="tela-inicio" class="tela inicio">
+        <section id="tela-inicio" class="tela inicio" aria-labelledby="titulo-inicio">
 
             <!-- Apresentação do jogo, instruções e opções de início. -->
             <div class="apresentacao">
@@ -38,7 +37,7 @@
 
                     <p class="subtitulo">VOCÊ CONHECE O MANGUE?</p>
 
-                    <h1>Quiz do Mangue!</h1>
+                    <h1 id="titulo-inicio">Quiz do Mangue!</h1>
 
                     <p class="instrucoes">
                         Observe o animal e teste seus conhecimentos sobre a vida no manguezal.
@@ -59,7 +58,7 @@
 
                     <!-- Opção para ativar ou desativar o cronômetro durante as rodadas. -->
                     <div class="opcao-cronometro">
-                        <label>
+                        <label for="usar-cronometro">
                             <input type="checkbox" id="usar-cronometro">
                             Ativar cronômetro
                         </label>
@@ -67,7 +66,7 @@
 
                 </div>
 
-                <!-- Carrossel visual com imagens dos animais do manguezal. -->
+                <!-- Carrossel visual com imagens dos animais do manguezal (ATUALMENTE PAUSADO). -->
                 <div class="carrosel-animais">
 
                     <div class="mascara-animais">
@@ -78,7 +77,7 @@
 
                     <img id="imagem-animal" src="../assets/images/quiz/animais/biguateste.png" alt="Biguá">
 
-                    <div class="sombra"></div>
+                    <div class="sombra" aria-hidden="true"></div>
 
                 </div>
             </div>
@@ -133,25 +132,26 @@
              TELA DE JOGO
         ========================== -->
 
-        <!-- Inicialmente oculta; exibida quando o jogador inicia uma partida. -->
-        <section id="tela-jogo" class="tela tela-jogo" hidden>
+        <!-- Inicialmente oculta, exibida quando o jogador inicia uma partida. -->
+        <section id="tela-jogo" class="tela tela-jogo" aria-labelledby="titulo-pergunta" hidden>
 
             <div class="area-jogo">
                 <div class="quadro-jogo">
 
-                    <!-- Identificação da pergunta e número da rodada atual. -->
+                    <!-- Cabeçalho com o texto guia e a identificação da rodada. -->
                     <div class="cabecalho-pergunta">
-                        <h1 class="pergunta-titulo">Que bicho do Mangue é esse?</h1>
-                        <span id="round-atual" class="round-atual">Round 01</span>
+                        <h1 id="titulo-pergunta" class="pergunta-titulo">Que bicho do Mangue é esse?</h1>
+                        <span id="round-atual" class="round-atual" aria-live="polite">Round 01</span>
                     </div>
 
                     <!-- Cronômetro controlado pelo JavaScript, exibido quando ativado. -->
-                    <div id="tempo" class="cronometro cronometro-pizza" aria-label="Tempo restante" hidden></div>
+                    <div id="tempo" class="cronometro cronometro-pizza"
+                        role="timer" aria-label="Tempo restante" hidden></div>
 
                     <!-- Imagem da silhueta que o jogador deverá identificar. -->
                     <div class="silhueta-container">
                         <img id="imagem-silhueta" class="imagem-silhueta" src=""
-                            alt="Silhueta do animal para adivinhar">
+                            alt="Silhueta de um animal do manguezal para adivinhar">
                     </div>
 
                     <!-- Crédito da fotografia correspondente ao animal apresentado. -->
@@ -160,7 +160,12 @@
                     </p>
 
                     <!-- Área onde o JavaScript insere as alternativas de resposta. -->
-                    <div id="alternativas" class="container-alternativas"></div>
+                    <div id="alternativas" class="container-alternativas" role="group"
+                        aria-labelledby="titulo-pergunta"></div>
+
+                    <!-- Mensagem de resposta anunciada pelos leitores de tela, sem exibição visual. -->
+                    <p id="mensagem-resposta" class="texto-acessivel" role="status" aria-live="polite"
+                        aria-atomic="true" tabindex="-1"></p>
 
                     <!-- Botão exibido após a resposta para avançar à próxima rodada. -->
                     <button id="btn-proximo" class="btn btn-principal" type="button" hidden>
@@ -182,30 +187,36 @@
         ========================== -->
 
         <!-- Exibe a pontuação e a insígnia conquistada ao final da partida. -->
-        <section id="tela-resultado" class="tela resultado" hidden>
+        <section id="tela-resultado" class="tela resultado"
+            aria-labelledby="titulo-resultado" hidden>
 
             <div class="quadro-resultado">
 
                 <!-- Cabeçalho com a mensagem de conclusão e a pontuação obtida. -->
                 <div class="cabecalho-resultado">
-                    <span class="titulo-resultado">Desafio concluído!</span>
+                    <span id="titulo-resultado" class="titulo-resultado" role="heading" aria-level="1">
+                        Desafio concluído!
+                    </span>
                     <span class="pontuacao-etiqueta" id="etiqueta-pontuacao">0/5</span>
                 </div>
 
                 <!-- Imagem da insígnia definida de acordo com o desempenho do jogador. -->
                 <div class="medalha-resultado">
                     <img id="imagem-insignia" class="imagem-insignia"
-                        src="../assets/images/quiz/insignias/insignia-aprendiz.png" alt="Insígnia conquistada">
+                        src="../assets/images/quiz/insignias/insignia-aprendiz.png"
+                        alt="Insígnia conquistada">
                 </div>
 
-                <!-- Nome da insígnia conquistada, atualizado pelo JavaScript. -->
+                <!-- Nome da insígnia conquistada, atualizado pelo quiz.js. -->
                 <p class="insignia-resultado">
                     Você conseguiu a insígnia:
                     <strong id="nome-insignia">Aprendiz</strong>
                 </p>
 
                 <!-- Mensagem com a quantidade de animais identificados corretamente. -->
-                <h2 id="texto-resultado">Você acertou 0 de 5 animais!</h2>
+                <h2 id="texto-resultado" role="status" aria-live="polite" aria-atomic="true">
+                    Você acertou 0 de 5 animais!
+                </h2>
 
                 <p id="pontuacao-final">
                     Continue aprendendo sobre os animais do mangue e tente novamente!
@@ -238,21 +249,22 @@
         ========================== -->
 
         <!-- Reúne as espécies cadastradas e permite pesquisar e filtrar os animais. -->
-        <section id="tela-bestiario" class="tela tela-bestiario" hidden>
+        <section id="tela-bestiario" class="tela tela-bestiario"
+            aria-labelledby="titulo-bestiario" hidden>
 
             <div class="bestiario-container">
 
-                <!-- Cabeçalho do mostruário com título, descrição e botão de retorno. -->
+                <!-- Cabeçalho com título, descrição e botão de retorno. -->
                 <header class="bestiario-cabecalho">
 
                     <div class="bestiario-apresentacao">
                         <span class="bestiario-subtitulo">APRENDA SOBRE O MANGUE</span>
-                        <h1>Mostruário do Mangue</h1>
+                        <h1 id="titulo-bestiario">Mostruário do Mangue</h1>
                         <p>Conheça as espécies que fazem parte do ecossistema do mangue.</p>
                     </div>
 
                     <button type="button" id="btn-fechar-bestiario" class="btn-voltar-inicio">
-                        <span class="seta-voltar"></span>
+                        <span class="seta-voltar" aria-hidden="true"></span>
                         Voltar ao início
                     </button>
 
@@ -260,28 +272,36 @@
 
                 <!-- Campo de pesquisa para localizar espécies pelo nome. -->
                 <div class="bestiario-pesquisa">
-                    <span class="icone-pesquisa"></span>
-                    <input type="search" id="pesquisa-especies" placeholder="Buscar espécie..." autocomplete="off">
+                    <span class="icone-pesquisa" aria-hidden="true"></span>
+                    <label for="pesquisa-especies" class="texto-acessivel">
+                        Buscar espécies pelo nome
+                    </label>
+                    <input type="search" id="pesquisa-especies"
+                        placeholder="Buscar espécie..." autocomplete="off">
                 </div>
 
                 <div class="bestiario-conteudo">
 
                     <!-- Botões para filtrar as espécies por categoria. -->
-                    <nav class="bestiario-categorias" aria-label="Categorias de espécies">
+                    <nav class="bestiario-categorias" aria-label="Filtrar espécies por categoria">
 
-                        <button type="button" class="categoria-animal ativa" data-categoria="Todas">
+                        <button type="button" class="categoria-animal ativa"
+                            data-categoria="Todas" aria-pressed="true">
                             Todas
                         </button>
 
-                        <button type="button" class="categoria-animal" data-categoria="Pássaros">
+                        <button type="button" class="categoria-animal"
+                            data-categoria="Pássaros" aria-pressed="false">
                             Pássaros
                         </button>
 
-                        <button type="button" class="categoria-animal" data-categoria="Mamíferos">
+                        <button type="button" class="categoria-animal"
+                            data-categoria="Mamíferos" aria-pressed="false">
                             Mamíferos
                         </button>
 
-                        <button type="button" class="categoria-animal" data-categoria="Outros">
+                        <button type="button" class="categoria-animal"
+                            data-categoria="Outros" aria-pressed="false">
                             Outros
                         </button>
 
@@ -289,10 +309,15 @@
 
                     <div class="bestiario-lista-container">
 
-                        <!-- Área preenchida dinamicamente com os cards das espécies. -->
-                        <div id="lista-animais" class="lista-animais"></div>
+                        <!-- Área que comporta os animais adicionados pelo JavaScript. -->
+                        <div id="lista-animais" class="lista-animais"
+                            aria-label="Espécies disponíveis"></div>
 
-                        <!-- Mensagem exibida quando a pesquisa não encontra espécies. -->
+                        <!-- Região que informa aos leitores de tela a quantidade de resultados encontrados. -->
+                        <p id="resultados-pesquisa" class="texto-acessivel"
+                            role="status" aria-live="polite" aria-atomic="true"></p>
+
+                        <!-- Mensagem exibida quando nenhum animal corresponde à pesquisa ou ao filtro. -->
                         <p id="nenhum-animal" class="nenhum-animal" hidden>
                             Nenhuma espécie encontrada.
                         </p>
@@ -309,14 +334,15 @@
              TELA DE DETALHES DA ESPÉCIE
         ========================== -->
 
-        <!-- Apresenta informações completas sobre a espécie selecionada no mostruário. -->
-        <section id="tela-detalhes-animal" class="tela tela-detalhes-animal" hidden>
+        <!-- Apresenta informações completas sobre a espécie selecionada no mostruário, como detalhes e pequenas curiosidades. -->
+        <section id="tela-detalhes-animal" class="tela tela-detalhes-animal"
+            aria-labelledby="nome-detalhes-animal" hidden>
 
             <div class="detalhes-container">
 
                 <!-- Botão para retornar à lista de espécies do mostruário. -->
                 <button type="button" id="btn-voltar-bestiario" class="btn-voltar-detalhes">
-                    <span class="seta-voltar"></span>
+                    <span class="seta-voltar" aria-hidden="true"></span>
                     Voltar ao mostruário
                 </button>
 
@@ -328,9 +354,13 @@
                         <div class="detalhes-imagem-container">
                             <img id="imagem-detalhes-animal" src="" alt="">
 
-                            <!-- Botão para alternar entre a fotografia e o desenho do animal. -->
-                            <button type="button" id="btn-alternar-imagem" class="btn-alternar-imagem"
-                                aria-label="Mostrar desenho do animal" title="Alternar imagem">
+                            <!-- Botão para alternar entre o desenho e a fotografia. -->
+                            <button type="button" id="btn-alternar-imagem"
+                                class="btn-alternar-imagem"
+                                aria-pressed="false"
+                                aria-label="Mostrar desenho do animal"
+                                aria-controls="imagem-detalhes-animal"
+                                title="Alternar imagem">
 
                                 <img src="../assets/icones/icone_revelarAnimal.svg" alt="">
 
@@ -349,7 +379,7 @@
 
                         <span class="detalhes-subtitulo">CONHEÇA A ESPÉCIE</span>
 
-                        <!-- Nome, descrição e curiosidade preenchidos pelo JavaScript. -->
+                        <!-- Nome, descrição e curiosidade preenchidos pelo quiz.js. -->
                         <h1 id="nome-detalhes-animal"></h1>
 
                         <p id="descricao-detalhes-animal" class="descricao-detalhes"></p>
@@ -372,7 +402,7 @@
 
             </div>
 
-            <!-- Elemento decorativo em formato de onda na parte inferior da tela. -->
+            <!-- Elemento decorativo em formato de onda na parte inferior da tela de descrição. -->
             <div class="detalhes-ondas-inferior" aria-hidden="true">
                 <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     <path d="M0,64 C180,120 360,20 540,55
@@ -389,7 +419,7 @@
     <!-- Área destinada ao carregamento dinâmico do rodapé do site. -->
     <div id="footer-container"></div>
 
-    <!-- Scripts responsáveis pelo carregamento dos componentes e pelo funcionamento do quiz. -->
+    <!-- Conecta as funcionalidades em JavaScript nesta tela. -->
     <script src="../js/components.js" defer></script>
     <script src="../js/quiz/quiz.js" defer></script>
 
