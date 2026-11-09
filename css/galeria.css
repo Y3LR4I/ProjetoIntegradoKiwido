@@ -1,0 +1,485 @@
+
+/* =========================================
+   BANNER DA GALERIA
+========================================= */
+/* Banner */
+.banner-galeria {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    background-color: var(--cor-principal);
+}
+
+/* Onda inferior */
+.galeria-divisor-onda {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 100%;
+    height: 120px;
+
+    pointer-events: none;
+}
+
+.galeria-divisor-onda svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Fundo da área de conteúdo */
+body {
+    background-color: var(--cor-fundo);
+}
+
+
+
+/* Cápsula de filtros */
+
+.banner-galeria-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+
+    margin: 0 auto;
+    padding: 60px var(--margem-lateral);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    min-height: 650px;
+    padding-top: 80px;
+    padding-bottom: 150px;
+}
+
+/* Conteúdo textual do banner */
+.banner-galeria-conteudo {
+    max-width: 650px;
+    color: var(--cor-fundo);
+}
+
+.banner-galeria-conteudo h1 {
+    font-family: 'Righteous', sans-serif;
+    font-size: 48px;
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.banner-galeria-conteudo p {
+    font-size: 18px;
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+}
+
+.banner-galeria-conteudo p:last-child {
+    margin-bottom: 0;
+}
+
+/* Ícone decorativo da câmera */
+.banner-galeria-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.banner-galeria-icone span {
+    font-size: 190px;
+    color: var(--cor-fundo);
+}
+
+
+/* =========================================
+   FILTROS DA GALERIA
+========================================= */
+.galeria-filtros {
+    position: relative;
+    z-index: 2;
+
+    max-width: var(--largura-conteudo);
+
+    margin: -100px auto 0;
+    padding: 0 var(--margem-lateral) 15px;
+}
+
+.galeria-categorias {
+    width: 100%;
+    min-height: 115px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 25px 35px;
+
+    background-color: var(--cor-fundo);
+    border: none;
+    border-radius: 60px;
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.20);
+}
+
+
+/* Botões das categorias */
+.galeria-categorias .categoria-btn {
+    min-height: 42px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background-color: white;
+    border: 1px solid var(--cor-borda-filtro-noticia);
+    border-radius: 30px;
+
+    color: var(--cor-principal);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.galeria-categorias .categoria-btn:hover {
+    border-color: var(--cor-secundaria);
+}
+
+.galeria-categorias .categoria-btn.ativo {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    color: var(--cor-texto-hero);
+}
+
+/* Quantidade de imagens por categoria */
+.categoria-contagem {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   CONTAINER DAS SEÇÕES
+========================================= */
+
+.galeria-container {
+    max-width: var(--largura-conteudo);
+
+    padding: 40px var(--margem-lateral) 70px;
+}
+
+/* Cada categoria da galeria */
+.galeria-secao {
+    margin-bottom: 75px;
+}
+
+.galeria-secao:last-child {
+    margin-bottom: 0;
+}
+
+/* Cabeçalho da seção */
+.galeria-secao-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+.galeria-secao-texto h2 {
+    font-family: 'Righteous', sans-serif;
+    font-size: 32px;
+
+    color: var(--cor-principal);
+
+    margin-bottom: 8px;
+}
+
+.galeria-secao-texto p {
+    font-size: 16px;
+    line-height: 1.5;
+
+    color: var(--cor-texto);
+
+    margin-bottom: 0;
+}
+
+/* Botão Abrir álbum */
+.galeria-abrir-album {
+    min-height: 46px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    flex-shrink: 0;
+
+    background-color: var(--cor-secundaria);
+    border: none;
+    border-radius: 30px;
+
+    color: var(--cor-texto-hero);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease,
+                filter 0.2s ease;
+}
+
+.galeria-abrir-album:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+.galeria-abrir-album span {
+    font-size: 21px;
+}
+
+
+/* =========================================
+   IMAGENS DOS ÁLBUNS
+========================================= */
+
+.galeria-imagens {
+    width: 100%;
+    height: 420px;
+
+    display: grid;
+    gap: 14px;
+}
+
+.galeria-imagem {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+
+    background-color: #dce8d6;
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+/* Coluna com imagens empilhadas */
+.galeria-imagens-empilhadas {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.galeria-imagens-empilhadas .galeria-imagem {
+    flex: 1;
+    min-height: 0;
+}
+
+
+/* =========================================
+   LAYOUT 1
+   Duas imagens quadradas + duas empilhadas
+========================================= */
+
+.galeria-layout-1 {
+    grid-template-columns: 1fr 1fr 0.85fr;
+    grid-template-rows: 1fr;
+}
+
+
+/* =========================================
+   LAYOUT 2
+   Duas imagens empilhadas + uma imagem grande
+========================================= */
+
+.galeria-layout-2 {
+    grid-template-columns: 0.85fr 1.5fr;
+    grid-template-rows: 1fr;
+}
+
+.galeria-layout-2 .galeria-imagens-empilhadas .galeria-imagem:first-child {
+    flex: 1.3;
+}
+
+.galeria-layout-2 .galeria-imagens-empilhadas .galeria-imagem:last-child {
+    flex: 1;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+/* Tablets e telas menores */
+@media (max-width: 991.98px) {
+
+    /* Banner */
+    .banner-galeria {
+        min-height: 360px;
+    }
+
+    .banner-galeria-container {
+        gap: 20px;
+    }
+
+    .banner-galeria-conteudo h1 {
+        font-size: 40px;
+    }
+
+    .banner-galeria-icone span {
+        font-size: 145px;
+    }
+
+    /* Filtros */
+    .galeria-categorias {
+        justify-content: flex-start;
+    }
+
+    /* Imagens */
+    .galeria-imagens {
+        height: 350px;
+    }
+
+}
+
+
+/* Celulares */
+@media (max-width: 575.98px) {
+
+    /* Banner */
+    .banner-galeria {
+        min-height: 0;
+    }
+
+    .banner-galeria-container {
+        padding: 55px var(--margem-lateral) 45px;
+
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .banner-galeria-conteudo h1 {
+        font-size: 34px;
+    }
+
+    .banner-galeria-conteudo p {
+        font-size: 16px;
+    }
+
+    .banner-galeria-icone {
+        align-self: center;
+    }
+
+    .banner-galeria-icone span {
+        font-size: 100px;
+    }
+
+    /* Filtros */
+    .galeria-filtros {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .galeria-categorias {
+        justify-content: center;
+        gap: 9px;
+        padding: 15px;
+    }
+
+    .galeria-categorias .categoria-btn {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 13px;
+    }
+
+    /* Seções */
+    .galeria-container {
+        padding-top: 10px;
+        padding-bottom: 50px;
+    }
+
+    .galeria-secao {
+        margin-bottom: 55px;
+    }
+
+    .galeria-secao-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .galeria-secao-texto h2 {
+        font-size: 27px;
+    }
+
+    .galeria-secao-texto p {
+        font-size: 14px;
+    }
+
+    .galeria-abrir-album {
+        min-height: 40px;
+        font-size: 14px;
+    }
+
+    /* Layout 1: duas imagens em cima e duas embaixo */
+    .galeria-imagens {
+        height: auto;
+        gap: 10px;
+    }
+
+    .galeria-layout-1 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .galeria-layout-1 > .galeria-imagem {
+        aspect-ratio: 1 / 1;
+    }
+
+    .galeria-layout-1 .galeria-imagens-empilhadas {
+        grid-column: 1 / -1;
+        flex-direction: row;
+    }
+
+    .galeria-layout-1 .galeria-imagens-empilhadas .galeria-imagem {
+        aspect-ratio: 1 / 1;
+    }
+
+    /* Layout 2: imagens empilhadas em cima e imagem grande embaixo */
+    .galeria-layout-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-layout-2 .galeria-imagens-empilhadas {
+        flex-direction: row;
+    }
+
+    .galeria-layout-2 .galeria-imagens-empilhadas .galeria-imagem {
+        aspect-ratio: 1 / 1;
+    }
+
+    .galeria-layout-2 > .galeria-imagem {
+        aspect-ratio: 4 / 3;
+    }
+
+}

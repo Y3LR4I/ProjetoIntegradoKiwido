@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria | Projeto Mangue Vivo</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/galeria.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Apresentação da Galeria -->
+    <section class="banner-galeria">
+
+        <div class="banner-galeria-container">
+
+            <div class="banner-galeria-conteudo">
+                <h1>Galeria do Mangue Vivo</h1>
+
+                <p>
+                    Reviva eventos, trilhas, oficinas e ações.
+                </p>
+
+                <p>
+                    Escolha uma seção e clique nas fotos para ampliar o álbum.
+                </p>
+            </div>
+
+            <div class="banner-galeria-icone" aria-hidden="true">
+                <span class="material-symbols-outlined">
+                    photo_camera
+                </span>
+            </div>
+
+            <!-- Onda de transição do banner -->
+            <div class="galeria-divisor-onda" aria-hidden="true">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="
+                        M0,120
+                        L0,75
+                        Q0,15 60,15
+                        L1380,15
+                        Q1440,15 1440,75
+                        L1440,120
+                        Z
+                    " fill="var(--cor-fundo)" />
+                </svg>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Filtros da Galeria -->
+    <section class="container galeria-filtros">
+
+        <div class="galeria-categorias">
+
+            <button class="categoria-btn ativo" type="button" data-categoria="todos">
+                Todos <span class="categoria-contagem">(0)</span>
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="eventos">
+                Eventos <span class="categoria-contagem">(0)</span>
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="trilhas">
+                Trilhas <span class="categoria-contagem">(0)</span>
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="oficinas">
+                Oficinas <span class="categoria-contagem">(0)</span>
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="acoes">
+                Ações <span class="categoria-contagem">(0)</span>
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="fauna-flora">
+                Fauna e Flora <span class="categoria-contagem">(0)</span>
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Álbuns da Galeria -->
+    <main class="container galeria-container">
+
+        <!-- SEÇÃO 1: EVENTOS | LAYOUT 1 -->
+        <section class="galeria-secao" data-categoria="eventos">
+
+            <div class="galeria-secao-cabecalho">
+                <div class="galeria-secao-texto">
+                    <h2>Eventos</h2>
+                    <p>Momentos especiais das atividades e encontros do Mangue Vivo.</p>
+                </div>
+
+                <button class="galeria-abrir-album" type="button" data-album="eventos">
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                    Abrir álbum
+                </button>
+            </div>
+
+            <div class="galeria-imagens galeria-layout-1">
+                <div class="galeria-imagem galeria-imagem-1"></div>
+                <div class="galeria-imagem galeria-imagem-2"></div>
+                <div class="galeria-imagens-empilhadas">
+                    <div class="galeria-imagem galeria-imagem-3"></div>
+                    <div class="galeria-imagem galeria-imagem-4"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO 2: TRILHAS | LAYOUT 2 -->
+        <section class="galeria-secao" data-categoria="trilhas">
+
+            <div class="galeria-secao-cabecalho">
+                <div class="galeria-secao-texto">
+                    <h2>Trilhas</h2>
+                    <p>Explore os caminhos e descubra a riqueza dos manguezais.</p>
+                </div>
+
+                <button class="galeria-abrir-album" type="button" data-album="trilhas">
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                    Abrir álbum
+                </button>
+            </div>
+
+            <div class="galeria-imagens galeria-layout-2">
+                <div class="galeria-imagens-empilhadas">
+                    <div class="galeria-imagem galeria-imagem-1"></div>
+                    <div class="galeria-imagem galeria-imagem-2"></div>
+                </div>
+
+                <div class="galeria-imagem galeria-imagem-3"></div>
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO 3: OFICINAS | LAYOUT 1 -->
+        <section class="galeria-secao" data-categoria="oficinas">
+
+            <div class="galeria-secao-cabecalho">
+                <div class="galeria-secao-texto">
+                    <h2>Oficinas</h2>
+                    <p>Aprendizado, troca de experiências e educação ambiental.</p>
+                </div>
+
+                <button class="galeria-abrir-album" type="button" data-album="oficinas">
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                    Abrir álbum
+                </button>
+            </div>
+
+            <div class="galeria-imagens galeria-layout-1">
+                <div class="galeria-imagem galeria-imagem-1"></div>
+                <div class="galeria-imagem galeria-imagem-2"></div>
+                <div class="galeria-imagens-empilhadas">
+                    <div class="galeria-imagem galeria-imagem-3"></div>
+                    <div class="galeria-imagem galeria-imagem-4"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO 4: AÇÕES | LAYOUT 2 -->
+        <section class="galeria-secao" data-categoria="acoes">
+
+            <div class="galeria-secao-cabecalho">
+                <div class="galeria-secao-texto">
+                    <h2>Ações</h2>
+                    <p>Registros das iniciativas e atividades desenvolvidas pelo projeto.</p>
+                </div>
+
+                <button class="galeria-abrir-album" type="button" data-album="acoes">
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                    Abrir álbum
+                </button>
+            </div>
+
+            <div class="galeria-imagens galeria-layout-2">
+                <div class="galeria-imagens-empilhadas">
+                    <div class="galeria-imagem galeria-imagem-1"></div>
+                    <div class="galeria-imagem galeria-imagem-2"></div>
+                </div>
+
+                <div class="galeria-imagem galeria-imagem-3"></div>
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO 5: FAUNA E FLORA | LAYOUT 1 -->
+        <section class="galeria-secao" data-categoria="fauna-flora">
+
+            <div class="galeria-secao-cabecalho">
+                <div class="galeria-secao-texto">
+                    <h2>Fauna e Flora</h2>
+                    <p>Conheça as espécies e a biodiversidade que fazem parte do manguezal.</p>
+                </div>
+
+                <button class="galeria-abrir-album" type="button" data-album="fauna-flora">
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                    Abrir álbum
+                </button>
+            </div>
+
+            <div class="galeria-imagens galeria-layout-1">
+                <div class="galeria-imagem galeria-imagem-1"></div>
+                <div class="galeria-imagem galeria-imagem-2"></div>
+                <div class="galeria-imagens-empilhadas">
+                    <div class="galeria-imagem galeria-imagem-3"></div>
+                    <div class="galeria-imagem galeria-imagem-4"></div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Ondas de transição para o footer -->
+    <div class="footer-ondas" aria-hidden="true">
+        <svg class="footer-ondas-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"
+            preserveAspectRatio="none">
+            <path d="M0,64 C180,120 360,20 540,55
+               C720,90 900,120 1080,55
+               C1260,0 1350,30 1440,48
+               L1440,120 L0,120 Z" fill="#163812" />
+        </svg>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Componentes do projeto -->
+    <script src="../js/components.js"></script>
+
+    <!-- JavaScript geral do projeto -->
+    <script src="../js/script.js"></script>
+
+    <!-- JavaScript da página de galeria -->
+    <script src="../js/galeria.js"></script>
+
+</body>
+
+</html>
