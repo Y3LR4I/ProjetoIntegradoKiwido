@@ -101,6 +101,7 @@ projeto-mangue-vivo/
 │       ├── quiz/
 │       │   ├── animais/
 │       │   └── sons/
+│       │   └── insignias/
 │       └── time/
 │
 ├── backend/
@@ -120,6 +121,7 @@ projeto-mangue-vivo/
 │   ├── home.css
 │   ├── noticia.css
 │   ├── quiz.css
+│   ├── quizMostruario.css
 │   └── style.css
 │
 ├── data/
