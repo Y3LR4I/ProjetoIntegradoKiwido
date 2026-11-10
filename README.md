@@ -78,6 +78,7 @@ O principal objetivo do projeto Mangue Vivo é conscientizar os usuários sobre 
 * **GitHub** — Hospedagem do repositório e gerenciamento do código.
 * **Figma** — Prototipação e desenvolvimento da interface visual do projeto.
 * **Laragon** — Ambiente de desenvolvimento local para execução do projeto.
+* **Vercel** — Plataforma de hospedagem em nuvem para publicação e execução do sistema desenvolvido.
 
 <a name="estrutura-de-pastas"></a>
 
@@ -159,6 +160,7 @@ projeto-mangue-vivo/
 * **assets/images/quiz/** — Armazena as imagens utilizadas nos quizzes.
 * **assets/images/quiz/animais/** — Contém imagens de animais utilizadas nas atividades do quiz.
 * **assets/images/quiz/sons/** — Armazena imagens relacionadas às atividades de identificação de sons.
+* **assets/images/quiz/insignias/** — Armazena as imagens das insígnias conquistadas ao final do quiz
 * **assets/images/time/** — Contém imagens dos integrantes da equipe.
 * **backend/** — Contém os arquivos responsáveis pelo funcionamento do servidor e pelo processamento do formulário de contato.
 * **backend/node_modules/** — Armazena as dependências instaladas do Node.js.
@@ -175,6 +177,7 @@ projeto-mangue-vivo/
 * **css/home.css** — Contém os estilos específicos da página inicial.
 * **css/noticia.css** — Define os estilos da página individual de notícias.
 * **css/quiz.css** — Contém os estilos das páginas e elementos do quiz.
+* **css/quizMostruario.css** — Contém os estilos do mostruario dentro do quiz.
 * **css/style.css** — Armazena os estilos globais e compartilhados do site.
 * **data/** — Armazena os arquivos de dados utilizados pelo projeto.
 * **data/noticias.json** — Contém os dados das notícias exibidas no site.
@@ -194,6 +197,12 @@ projeto-mangue-vivo/
 * **postman/** — Armazena arquivos relacionados ao gerenciamento e à organização das requisições da API no Postman.
 * **index.html** — Página inicial do projeto.
 * **README.md** — Documentação com informações sobre o projeto, sua estrutura e instruções de execução.
+
+<p align="center">
+  <a href="https://mangue-vivo.vercel.app/index.html">
+    <img src="https://img.shields.io/badge/🌿_VISITE_NOSSO_SITE-1B4332?style=for-the-badge" alt="Visite nosso site">
+  </a>
+</p>
 
 <a name="documento"></a>
 
