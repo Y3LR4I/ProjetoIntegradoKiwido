@@ -34,24 +34,25 @@
                 </p>
             </div>
 
-            <div class="banner-galeria-icone" aria-hidden="true">
-                <span class="material-symbols-outlined">
-                    photo_camera
-                </span>
+            <div class="banner-galeria-imagem" aria-hidden="true">
+                <img src="../assets/icones/icone_home_galeria.png" alt="">
             </div>
 
             <!-- Onda de transição do banner -->
             <div class="galeria-divisor-onda" aria-hidden="true">
                 <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="
-                        M0,120
-                        L0,75
-                        Q0,15 60,15
-                        L1380,15
-                        Q1440,15 1440,75
-                        L1440,120
-                        Z
-                    " fill="var(--cor-fundo)" />
+                    M0,75
+                    C80,40 150,25 240,25
+                    C330,25 360,75 480,75
+                    C600,75 630,25 720,25
+                    C810,25 840,75 960,75
+                    C1080,75 1110,25 1200,25
+                    C1290,25 1360,40 1440,75
+                    L1440,120
+                    L0,120
+                    Z
+                " fill="var(--cor-fundo)" />
                 </svg>
             </div>
 
@@ -65,27 +66,27 @@
         <div class="galeria-categorias">
 
             <button class="categoria-btn ativo" type="button" data-categoria="todos">
-                Todos <span class="categoria-contagem">(0)</span>
+                Todos <span class="categoria-contagem">0</span>
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="eventos">
-                Eventos <span class="categoria-contagem">(0)</span>
+                Eventos <span class="categoria-contagem">0</span>
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="trilhas">
-                Trilhas <span class="categoria-contagem">(0)</span>
+                Trilhas <span class="categoria-contagem">0</span>
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="oficinas">
-                Oficinas <span class="categoria-contagem">(0)</span>
+                Oficinas <span class="categoria-contagem">0</span>
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="acoes">
-                Ações <span class="categoria-contagem">(0)</span>
+                Ações <span class="categoria-contagem">0</span>
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="fauna-flora">
-                Fauna e Flora <span class="categoria-contagem">(0)</span>
+                Fauna e Flora <span class="categoria-contagem">0</span>
             </button>
 
         </div>
@@ -234,9 +235,37 @@
             <path d="M0,64 C180,120 360,20 540,55
                C720,90 900,120 1080,55
                C1260,0 1350,30 1440,48
-               L1440,120 L0,120 Z" fill="#163812" />
+               L1440,120 L0,120 Z" fill="var(--cor-secundaria)" />
         </svg>
     </div>
+
+    <!-- Chamada para participação na galeria -->
+    <section class="galeria-participacao">
+
+        <div class="galeria-participacao-container">
+
+            <h2>Quer aparecer na nossa galeria?</h2>
+
+            <p>
+                Participe das trilhas, oficinas e mutirões do Mangue Vivo
+                e ajude a preservar os manguezais de Fortaleza.
+            </p>
+
+            <div class="galeria-participacao-acao">
+                <a href="LINK_DA_INSCRICAO" class="galeria-participacao-btn" target="_blank" rel="noopener noreferrer">
+
+                    Quero participar
+
+                    <span class="material-symbols-outlined" aria-hidden="true">
+                        open_in_new
+                    </span>
+
+                </a>
+            </div>
+
+        </div>
+
+    </section>
 
     <!-- Footer -->
     <div id="footer-container"></div>

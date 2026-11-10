@@ -1,0 +1,515 @@
+/* Banner */
+.banner-eventos {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    background-color: var(--cor-principal);
+}
+
+/* Onda inferior */
+.eventos-divisor-onda {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 100%;
+    height: 120px;
+
+    pointer-events: none;
+}
+
+.eventos-divisor-onda svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Fundo da área de conteúdo */
+body {
+    background-color: var(--cor-fundo);
+}
+
+
+
+/* Cápsula de filtros */
+
+.banner-eventos-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+
+    margin: 0 auto;
+    padding: 60px var(--margem-lateral);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    min-height: 650px;
+    padding-top: 80px;
+    padding-bottom: 150px;
+}
+
+/* Conteúdo textual do banner */
+.banner-eventos-conteudo {
+    max-width: 650px;
+    color: var(--cor-fundo);
+}
+
+.banner-eventos-conteudo h1 {
+    font-family: 'Righteous', sans-serif;
+    font-size: 48px;
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.banner-eventos-conteudo p {
+    font-size: 20px;
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+}
+
+.banner-eventos-conteudo p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   EVENTO EM DESTAQUE
+========================================= */
+
+/* Seção principal */
+.evento-destaque {
+    width: 100%;
+    padding: 50px 0;
+    background-color: var(--cor-fundo);
+}
+
+/* Container que respeita as margens do projeto */
+.evento-destaque-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+    padding: 0 var(--margem-lateral);
+}
+
+/* Card principal */
+.evento-destaque-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Imagem */
+.evento-destaque-imagem {
+    width: 100%;
+    min-height: 360px;
+}
+
+.evento-destaque-imagem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Conteúdo */
+.evento-destaque-conteudo {
+    padding: 35px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Título */
+.evento-destaque-conteudo h2 {
+    color: var(--cor-principal);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* Descrição */
+.evento-destaque-descricao {
+    color: var(--cor-texto);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Informações do evento */
+.evento-destaque-informacoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 25px;
+    margin-bottom: 30px;
+}
+
+/* Cada informação */
+.evento-destaque-informacao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--cor-texto);
+    font-size: 15px;
+}
+
+.evento-destaque-informacao .material-symbols-outlined {
+    color: var(--cor-principal);
+    font-size: 24px;
+}
+
+/* Botões */
+.evento-destaque-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Estilo compartilhado */
+.evento-btn-inscrever,
+.evento-btn-todos {
+    min-width: 160px;
+    padding: 12px 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+}
+
+/* Botão Inscrever-se */
+.evento-btn-inscrever {
+    background-color: transparent;
+    border-color: var(--cor-secundaria);
+    color: var(--cor-secundaria);
+}
+
+.evento-btn-inscrever:hover,
+.evento-btn-inscrever:active {
+    background-color: var(--cor-secundaria);
+    border-color: transparent;
+    color: var(--cor-fundo);
+}
+
+/* Botão Todos os eventos */
+.evento-btn-todos {
+    background-color: transparent;
+    border-color: var(--cor-principal);
+    color: var(--cor-principal);
+}
+
+.evento-btn-todos:hover,
+.evento-btn-todos:active {
+    background-color: var(--cor-principal);
+    border-color: transparent;
+    color: var(--cor-fundo);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .evento-destaque {
+        padding: 35px 0;
+    }
+
+    .evento-destaque-card {
+        grid-template-columns: 1fr;
+    }
+
+    .evento-destaque-imagem {
+        min-height: 250px;
+        max-height: 300px;
+    }
+
+    .evento-destaque-conteudo {
+        padding: 25px;
+    }
+
+    .evento-destaque-conteudo h2 {
+        font-size: 26px;
+    }
+
+    .evento-destaque-informacoes {
+        gap: 18px 12px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .evento-destaque-informacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .evento-destaque-botoes {
+        flex-direction: column;
+    }
+
+    .evento-btn-inscrever,
+    .evento-btn-todos {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   LISTAGEM DE EVENTOS
+========================================= */
+
+/* Seção */
+.eventos-listagem {
+    width: 100%;
+    padding: 50px 0 80px;
+    background-color: var(--cor-fundo);
+}
+
+/* Container */
+.eventos-listagem-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+    padding: 0 var(--margem-lateral);
+}
+
+/* Cabeçalho */
+.eventos-listagem-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.eventos-listagem-cabecalho h2 {
+    color: var(--cor-principal);
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Filtros */
+.eventos-listagem-filtros {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.eventos-filtro {
+    padding: 10px 24px;
+    border: 2px solid var(--cor-principal);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--cor-principal);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.eventos-filtro:hover,
+.eventos-filtro.ativo {
+    background-color: var(--cor-principal);
+    border-color: transparent;
+    color: var(--cor-fundo);
+}
+
+/* Grade de eventos */
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* Card */
+.evento-card {
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--cor-principal);
+    border-radius: 16px;
+}
+
+/* Imagem */
+.evento-card-imagem {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+
+.evento-card-imagem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.evento-card:hover .evento-card-imagem img {
+    transform: scale(1.04);
+}
+
+/* Conteúdo */
+.evento-card-conteudo {
+    flex: 1;
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.evento-card-conteudo h3 {
+    color: var(--cor-fundo);
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.evento-card-descricao {
+    color: var(--cor-fundo);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Informações */
+.evento-card-informacoes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
+    margin-bottom: 25px;
+}
+
+.evento-card-informacao {
+    min-width: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    color: var(--cor-fundo);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.evento-card-informacao .material-symbols-outlined {
+    flex-shrink: 0;
+    font-size: 20px;
+    color: var(--cor-secundaria);
+}
+
+/* Botão de inscrição */
+.evento-card-botao {
+    width: 100%;
+    margin-top: auto;
+    padding: 11px 18px;
+
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 8px;
+
+    background-color: transparent;
+    color: var(--cor-fundo);
+
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.evento-card-botao:hover {
+    background-color: var(--cor-secundaria);
+    border-color: transparent;
+    color: var(--cor-fundo);
+}
+
+/* Evento encerrado */
+.evento-card-encerrado {
+    width: 100%;
+    margin-top: auto;
+    padding: 11px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+    background-color: #B83232;
+    color: #FFFFFF;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .eventos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .eventos-listagem {
+        padding: 35px 0 60px;
+    }
+
+    .eventos-listagem-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .eventos-listagem-cabecalho h2 {
+        font-size: 30px;
+    }
+
+    .eventos-listagem-filtros {
+        width: 100%;
+    }
+
+    .eventos-filtro {
+        flex: 1;
+        padding: 10px 12px;
+    }
+
+    .eventos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .evento-card-imagem {
+        height: 210px;
+    }
+}

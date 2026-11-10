@@ -69,7 +69,7 @@ body {
 }
 
 .banner-galeria-conteudo p {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.6;
 
     margin-bottom: 12px;
@@ -103,7 +103,7 @@ body {
 
     max-width: var(--largura-conteudo);
 
-    margin: -100px auto 0;
+    margin: -0px auto 0;
     padding: 0 var(--margem-lateral) 15px;
 }
 
@@ -164,12 +164,29 @@ body {
     color: var(--cor-texto-hero);
 }
 
-/* Quantidade de imagens por categoria */
-.categoria-contagem {
-    font-size: 13px;
-    font-weight: 500;
+/* Balão do filtro ativo */
+.categoria-btn.ativo .categoria-contagem {
+    background-color: var(--cor-secundaria-clara);
+    color: var(--cor-fundo);
 }
 
+/* Balão com a quantidade de fotos */
+.categoria-contagem {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 7px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--cor-fundo);
+    border-radius: 50px;
+
+    color: var(--cor-principal);
+    font-size: 12px;
+    font-weight: 700;
+}
 
 /* =========================================
    CONTAINER DAS SEÇÕES
@@ -201,8 +218,8 @@ body {
 }
 
 .galeria-secao-texto h2 {
-    font-family: 'Righteous', sans-serif;
     font-size: 32px;
+    font-weight: 700;
 
     color: var(--cor-principal);
 
@@ -210,8 +227,8 @@ body {
 }
 
 .galeria-secao-texto p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.6;
 
     color: var(--cor-texto);
 
@@ -325,6 +342,120 @@ body {
     flex: 1;
 }
 
+.galeria-secao[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   CHAMADA PARA PARTICIPAÇÃO
+========================================= */
+
+.galeria-participacao {
+    width: 100%;
+    padding: 60px 30px 70px;
+    background-color: var(--cor-secundaria);
+}
+
+.galeria-participacao-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+}
+
+/* Título da seção */
+.galeria-participacao h2 {
+    margin-bottom: 15px;
+    color: var(--cor-fundo);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* Texto de apresentação */
+.galeria-participacao p {
+    max-width: 750px;
+    margin-bottom: 25px;
+    color: var(--cor-fundo);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Alinhamento do botão à direita */
+.galeria-participacao-acao {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Botão de participação */
+.galeria-participacao-btn {
+    min-height: 48px;
+    padding: 0 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-fundo);
+    border-radius: 30px;
+
+    color: var(--cor-principal);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.galeria-participacao-btn:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+    transform: translateY(-2px);
+}
+
+.galeria-participacao-btn .material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* Imagens carregadas dinamicamente na galeria */
+.galeria-imagem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Oculta espaços e seções filtrados ou vazios */
+.galeria-secao [hidden] {
+    display: none !important;
+}
+
+.galeria-secao[hidden] {
+    display: none !important;
+}
+
+.banner-galeria-imagem {
+    position: absolute;
+    right: 20%;
+    top: 50%;
+
+    width: 480px;
+    height: 480px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-galeria-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
 
 /* =========================================
    RESPONSIVIDADE
