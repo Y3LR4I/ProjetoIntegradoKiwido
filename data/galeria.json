@@ -1,0 +1,60 @@
+{
+    "eventos": [
+        {
+            "src": "../assets/images/galeria/eventos/evento2.webp",
+            "alt": "Participantes de uma atividade do Mangue Vivo"
+        },
+        {
+            "src": "../assets/images/galeria/eventos/evento1.jfif",
+            "alt": "Registro de um evento do projeto"
+        },
+        {
+            "src": "../assets/images/galeria/eventos/evento3.jfif",
+            "alt": "Registro de um evento do projeto"
+        },
+        {
+            "src": "../assets/images/galeria/eventos/evento3.jfif",
+            "alt": "Registro de um evento do projeto"
+        }
+    ],
+    "trilhas": [
+        {
+            "src": "/assets/images/galeria/eventos/foto1.jpg",
+            "alt": "Participantes de uma atividade do Mangue Vivo"
+        },
+        {
+            "src": "/assets/images/galeria/eventos/foto2.jpg",
+            "alt": "Registro de um evento do projeto"
+        }
+    ],
+    "oficinas": [
+        {
+            "src": "/assets/images/galeria/eventos/foto1.jpg",
+            "alt": "Participantes de uma atividade do Mangue Vivo"
+        },
+        {
+            "src": "/assets/images/galeria/eventos/foto2.jpg",
+            "alt": "Registro de um evento do projeto"
+        }
+    ],
+    "acoes": [
+        {
+            "src": "/assets/images/galeria/eventos/foto1.jpg",
+            "alt": "Participantes de uma atividade do Mangue Vivo"
+        },
+        {
+            "src": "/assets/images/galeria/eventos/foto2.jpg",
+            "alt": "Registro de um evento do projeto"
+        }
+    ],
+    "fauna-flora": [
+        {
+            "src": "/assets/images/galeria/eventos/foto1.jpg",
+            "alt": "Participantes de uma atividade do Mangue Vivo"
+        },
+        {
+            "src": "/assets/images/galeria/eventos/foto2.jpg",
+            "alt": "Registro de um evento do projeto"
+        }
+    ]
+}

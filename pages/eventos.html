@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventos | Projeto Mangue Vivo</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/eventos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+
+    <!-- =========================================
+         APRESENTAÇÃO DOS EVENTOS
+    ========================================= -->
+
+    <section class="banner-eventos">
+
+        <div class="banner-eventos-container">
+
+            <div class="banner-eventos-conteudo">
+
+                <h1>Venha viver o mangue com a gente!</h1>
+
+                <p>
+                    Trilhas, oficinas e atividades abertas à comunidade acadêmica e externa.
+                </p>
+
+                <p>
+                    Confira os eventos, escolha, e faça sua inscrição!
+                </p>
+
+            </div>
+
+            <div class="banner-eventos-imagem" aria-hidden="true">
+                <img src="../assets/icones/icone_home_evento.png" alt="">
+            </div>
+
+            <!-- Onda de transição do banner -->
+            <div class="eventos-divisor-onda" aria-hidden="true">
+
+                <svg viewBox="0 0 1440 120"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <path d="
+                        M0,75
+                        C80,40 150,25 240,25
+                        C330,25 360,75 480,75
+                        C600,75 630,25 720,25
+                        C810,25 840,75 960,75
+                        C1080,75 1110,25 1200,25
+                        C1290,25 1360,40 1440,75
+                        L1440,120
+                        L0,120
+                        Z
+                    " fill="var(--cor-fundo)" />
+
+                </svg>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         EVENTO EM DESTAQUE
+    ========================================= -->
+
+    <section class="evento-destaque">
+
+        <div class="evento-destaque-container">
+
+            <div class="evento-destaque-card" id="evento-destaque-conteudo">
+
+                <!-- Imagem -->
+                <div class="evento-destaque-imagem">
+
+                    <img
+                        id="destaque-imagem"
+                        src=""
+                        alt="Imagem do evento em destaque">
+
+                </div>
+
+                <!-- Informações -->
+                <div class="evento-destaque-conteudo">
+
+                    <h2 id="destaque-titulo">
+                        Carregando evento...
+                    </h2>
+
+                    <p class="evento-destaque-descricao"
+                        id="destaque-descricao">
+                    </p>
+
+                    <!-- Informações adicionais -->
+                    <div class="evento-destaque-informacoes">
+
+                        <div class="evento-destaque-informacao">
+
+                            <span class="material-symbols-outlined">
+                                calendar_month
+                            </span>
+
+                            <span id="destaque-data"></span>
+
+                        </div>
+
+                        <div class="evento-destaque-informacao">
+
+                            <span class="material-symbols-outlined">
+                                schedule
+                            </span>
+
+                            <span id="destaque-horario"></span>
+
+                        </div>
+
+                        <div class="evento-destaque-informacao">
+
+                            <span class="material-symbols-outlined">
+                                location_on
+                            </span>
+
+                            <span id="destaque-local"></span>
+
+                        </div>
+
+                        <div class="evento-destaque-informacao">
+
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+
+                            <span id="destaque-vagas"></span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Botões -->
+                    <div class="evento-destaque-botoes">
+
+                        <button
+                            type="button"
+                            class="evento-btn-inscrever"
+                            id="destaque-inscrever">
+
+                            Inscrever-se
+
+                        </button>
+
+                        <a
+                            href="#eventos-listagem"
+                            class="evento-btn-todos">
+
+                            Todos os eventos
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         LISTAGEM DE EVENTOS
+    ========================================= -->
+
+    <section class="eventos-listagem" id="eventos-listagem">
+
+        <div class="eventos-listagem-container">
+
+            <!-- Cabeçalho -->
+            <div class="eventos-listagem-cabecalho">
+
+                <h2>Eventos</h2>
+
+                <div class="eventos-listagem-filtros">
+
+                    <button
+                        type="button"
+                        class="eventos-filtro ativo"
+                        data-filtro="proximo">
+
+                        Próximos
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="eventos-filtro"
+                        data-filtro="realizado">
+
+                        Realizados
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Cards gerados pelo JavaScript -->
+            <div class="eventos-grid" id="eventos-grid">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================= -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Componentes do projeto -->
+    <script src="../js/components.js"></script>
+
+    <!-- JavaScript geral -->
+    <script src="../js/script.js"></script>
+
+    <!-- JavaScript de eventos -->
+    <script src="../js/eventos.js"></script>
+
+</body>
+
+</html>

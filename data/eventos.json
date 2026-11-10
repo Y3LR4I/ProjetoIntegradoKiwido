@@ -1,0 +1,55 @@
+
+{
+    "destaque": "evento-001",
+
+    "eventos": [
+        {
+            "id": "evento-001",
+            "titulo": "Trilha pelo Manguezal",
+            "subtitulo": "Uma experiência de contato com a biodiversidade do manguezal.",
+            "imagem": "../assets/images/eventos/trilha1.jfif",
+            "data": "15/12/2026",
+            "horario": "08h às 11h",
+            "local": "Fortaleza - CE",
+            "vagas": 30,
+            "status": "proximo",
+            "linkInscricao": "#inscricao"
+        },
+        {
+            "id": "evento-002",
+            "titulo": "Oficina de Educação Ambiental",
+            "subtitulo": "Aprenda mais sobre a conservação dos manguezais.",
+            "imagem": "../assets/images/eventos/trilha2.jfif",
+            "data": "20/12/2026",
+            "horario": "14h às 17h",
+            "local": "UFC - Fortaleza",
+            "vagas": 25,
+            "status": "proximo",
+            "linkInscricao": "#inscricao"
+        },
+        {
+            "id": "evento-003",
+            "titulo": "Mutirão de Limpeza",
+            "subtitulo": "Uma ação coletiva de cuidado e preservação ambiental.",
+            "imagem": "../assets/images/eventos/trilha3.jfif",
+            "data": "10/01/2027",
+            "horario": "07h às 10h",
+            "local": "Fortaleza - CE",
+            "vagas": 40,
+            "status": "proximo",
+            "linkInscricao": "#inscricao"
+        },
+        {
+            "id": "evento-004",
+            "titulo": "Trilha de Reconhecimento",
+            "subtitulo": "Uma atividade de observação da biodiversidade do manguezal.",
+            "imagem": "../assets/images/eventos/trilha4.jpg",
+            "data": "10/10/2026",
+            "horario": "08h às 11h",
+            "local": "Fortaleza - CE",
+            "vagas": 30,
+            "status": "realizado",
+            "linkInscricao": ""
+        }
+    ]
+}
