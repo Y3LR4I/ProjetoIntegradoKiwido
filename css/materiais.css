@@ -1,0 +1,544 @@
+
+/* =========================================
+   BANNER DE APRESENTAÇÃO DOS MATERIAIS
+========================================= */
+
+/* Banner */
+.banner-eventos {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    background-color: var(--cor-principal);
+}
+
+/* Onda inferior */
+.eventos-divisor-onda {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    pointer-events: none;
+}
+
+.eventos-divisor-onda svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Fundo da página */
+body {
+    background-color: var(--cor-fundo);
+}
+
+/* Container do banner */
+.banner-eventos-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+    padding: 60px var(--margem-lateral);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    min-height: 650px;
+    padding-top: 80px;
+    padding-bottom: 150px;
+}
+
+/* Conteúdo textual */
+.banner-eventos-conteudo {
+    max-width: 650px;
+    color: var(--cor-fundo);
+}
+
+.banner-eventos-conteudo h1 {
+    font-family: 'Righteous', sans-serif;
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.banner-eventos-conteudo p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.banner-eventos-conteudo p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   FILTROS E BUSCA DOS MATERIAIS
+========================================= */
+
+/* Barra de filtros */
+.materiais-filtros {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    box-sizing: border-box;
+}
+
+/* Categorias */
+.materiais-categorias {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Campo de busca */
+.materiais-busca {
+    position: relative;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+/* Input */
+.materiais-busca input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+
+    border: 1px solid #D5D5D5;
+    border-radius: 30px;
+    outline: none;
+
+    color: var(--cor-buscar-noticia);
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* Placeholder */
+.materiais-busca input::placeholder {
+    color: var(--cor-buscar-noticia);
+}
+
+/* Foco da busca */
+.materiais-busca input:focus {
+    border-color: #F4A340;
+}
+
+/* Ícone de busca */
+.materiais-busca .icone-busca {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+
+    font-size: 22px;
+    line-height: 1;
+    color: var(--cor-header);
+    pointer-events: none;
+}
+
+/* Botões de categoria */
+.materiais-categorias .categoria-btn {
+    padding: 0 20px;
+    height: 40px;
+
+    border: 1px solid var(--cor-borda-filtro-noticia);
+    border-radius: 30px;
+    background-color: #FFFFFF;
+
+    color: var(--cor-principal);
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Categoria selecionada */
+.materiais-categorias .categoria-btn.ativo {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    color: var(--cor-texto-hero);
+    font-weight: bold;
+}
+
+
+/* =========================================
+   LISTA DE MATERIAIS
+========================================= */
+
+.materiais-container {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+
+/* =========================================
+   CARD DOS MATERIAIS
+========================================= */
+
+.material-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================================
+   PRÉVIA DO MATERIAL
+========================================= */
+
+.material-card-imagem {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #e8eee5;
+}
+
+.material-preview {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8eee5;
+}
+
+/* Prévia PDF */
+.material-pdf-preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: top center;
+    background-color: #ffffff;
+}
+
+/* Prévia PPTX */
+
+.material-imagem-preview {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Prévia indisponível */
+
+.material-preview-erro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #e8eee5;
+    color: var(--cor-principal);
+}
+
+.material-preview-erro .material-symbols-outlined {
+    font-size: 45px;
+}
+
+.material-preview-erro p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   PRÉVIA DOS VÍDEOS
+========================================= */
+
+.material-preview-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+.material-video-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.material-video-icone {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 55px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+
+/* =========================================
+   BOTÃO DE DOWNLOAD
+========================================= */
+
+.material-download {
+    position: absolute;
+    z-index: 3;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.material-download .material-symbols-outlined {
+    font-size: 23px;
+}
+
+/* Download ativo */
+
+.material-download.ativo {
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.material-download.ativo:hover {
+    background-color: var(--cor-secundaria);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Download inativo */
+
+.material-download.inativo {
+    background-color: rgba(90, 90, 90, 0.65);
+    color: #ffffff;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   CONTEÚDO DO CARD
+========================================= */
+
+.material-card-conteudo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Categoria */
+
+.material-card-categoria {
+    align-self: flex-start;
+    margin-bottom: 10px;
+    color: var(--cor-secundaria);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* Título */
+
+.material-card-conteudo h3 {
+    margin-bottom: 10px;
+    color: var(--cor-principal);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+/* Subtítulo */
+
+.material-card-conteudo p {
+    margin-bottom: 20px;
+    color: var(--cor-texto);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Ação */
+
+.material-card-acao {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.material-card-abrir {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    border: none;
+    background: transparent;
+    color: var(--cor-principal);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color .2s ease, gap .2s ease;
+}
+
+.material-card-abrir:hover {
+    color: var(--cor-secundaria);
+    gap: 10px;
+}
+
+.material-card-abrir .material-symbols-outlined {
+    font-size: 19px;
+}
+
+
+/* =========================================
+   PAGINAÇÃO
+========================================= */
+
+#paginacao-materiais .page-link {
+    border: 1px solid var(--cor-principal);
+    color: var(--cor-principal);
+}
+
+#paginacao-materiais .page-item.active .page-link {
+    background-color: var(--cor-principal);
+    border-color: var(--cor-principal);
+    color: var(--cor-fundo);
+}
+
+#paginacao-materiais .page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(22, 56, 18, 0.2);
+}
+
+#paginacao-materiais .page-item.disabled .page-link {
+    color: #999999;
+}
+
+
+/* =========================================
+   MODAL DE VISUALIZAÇÃO
+========================================= */
+
+#modal-material .modal-content {
+    overflow: hidden;
+    border: none;
+    border-radius: 14px;
+}
+
+#modal-material .modal-header {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+}
+
+#modal-material .modal-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#modal-material .btn-close {
+    filter: invert(1);
+    opacity: 1;
+}
+
+#modal-material .modal-body {
+    background-color: #e8eee5;
+}
+
+#modal-material-iframe {
+    display: block;
+    width: 100%;
+    height: 750px;
+    border: none;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .materiais-filtros {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .materiais-categorias {
+        justify-content: center;
+    }
+
+    .materiais-busca {
+        max-width: 100%;
+    }
+
+    .material-card-imagem {
+        height: 210px;
+    }
+
+    #modal-material-iframe {
+        height: 600px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .materiais-categorias {
+        gap: 8px;
+    }
+
+    .materiais-categorias .categoria-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+
+    .material-card-imagem {
+        height: 190px;
+    }
+
+    .material-card-conteudo {
+        padding: 16px;
+    }
+
+    .material-card-conteudo h3 {
+        font-size: 18px;
+    }
+
+    #modal-material-iframe {
+        height: 500px;
+    }
+
+}

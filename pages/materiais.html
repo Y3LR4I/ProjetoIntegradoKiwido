@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais Educativos | Projeto Mangue Vivo</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/materiais.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+
+    <!-- =========================================
+         APRESENTAÇÃO DOS MATERIAIS
+    ========================================= -->
+
+    <section class="banner-eventos">
+
+        <div class="banner-eventos-container">
+
+            <div class="banner-eventos-conteudo">
+
+                <h1>Materiais educativos do Mangue Vivo</h1>
+
+                <p>
+                    Explore materiais educativos sobre os manguezais, sua biodiversidade
+                    e a importância da preservação ambiental.
+                </p>
+
+            </div>
+
+            <div class="banner-eventos-imagem" aria-hidden="true">
+                <img src="../assets/icones/icone_materiais.png" alt="">
+            </div>
+
+            <!-- Onda de transição do banner -->
+            <div class="eventos-divisor-onda" aria-hidden="true">
+
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <path d="
+                        M0,75
+                        C80,40 150,25 240,25
+                        C330,25 360,75 480,75
+                        C600,75 630,25 720,25
+                        C810,25 840,75 960,75
+                        C1080,75 1110,25 1200,25
+                        C1290,25 1360,40 1440,75
+                        L1440,120
+                        L0,120
+                        Z
+                    " fill="var(--cor-fundo)" />
+
+                </svg>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FILTROS E BUSCA
+    ========================================= -->
+
+    <section class="container materiais-filtros">
+
+        <div class="materiais-categorias">
+
+            <button class="categoria-btn ativo" type="button" data-categoria="Todas">
+                Todos
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="Slides">
+                Slides
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="Videos">
+                Vídeos
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="Atividades">
+                Atividades
+            </button>
+
+        </div>
+
+        <div class="materiais-busca">
+
+            <span class="material-symbols-outlined icone-busca" aria-hidden="true">
+                search
+            </span>
+
+            <input type="search" id="busca-materiais" placeholder="Buscar materiais..." aria-label="Buscar materiais">
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         LISTA DE MATERIAIS
+    ========================================= -->
+
+    <section class="container materiais-container">
+
+        <div class="row g-4" id="lista-materiais">
+            <!-- Os cards serão gerados pelo JavaScript -->
+        </div>
+
+        <!-- Mensagem quando não houver resultados -->
+        <p id="mensagem-vazia" class="text-center mt-4" hidden>
+            Nenhum material encontrado.
+        </p>
+
+        <!-- PAGINAÇÃO -->
+        <nav class="mt-5" aria-label="Paginação dos materiais" id="navegacao-materiais">
+
+            <ul class="pagination justify-content-center flex-wrap" id="paginacao-materiais">
+            </ul>
+
+        </nav>
+
+    </section>
+
+
+    <!-- =========================================
+         ONDAS E FOOTER
+    ========================================= -->
+
+    <div class="footer-ondas" aria-hidden="true">
+
+        <svg class="footer-ondas-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"
+            preserveAspectRatio="none">
+
+            <path d="M0,64 C180,120 360,20 540,55
+               C720,90 900,120 1080,55
+               C1260,0 1350,30 1440,48
+               L1440,120 L0,120 Z" fill="#163812" />
+
+        </svg>
+
+    </div>
+
+    <div id="footer-container"></div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Componentes do projeto -->
+    <script src="../js/components.js"></script>
+
+    <!-- JavaScript geral do projeto -->
+    <script src="../js/script.js"></script>
+
+    <!-- Biblioteca para visualizar PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <!-- JavaScript da página de materiais -->
+    <script src="../js/materiais.js"></script>
+
+    <!-- JavaScript da página de materiais -->
+    <script src="../js/materiais.js"></script>
+
+</body>
+
+</html>

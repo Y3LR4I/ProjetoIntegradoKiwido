@@ -411,6 +411,7 @@ body {
 .galeria-participacao-btn:hover {
     background-color: var(--cor-principal);
     color: var(--cor-fundo);
+    border: 2px solid var(--cor-principal);
     transform: translateY(-2px);
 }
 

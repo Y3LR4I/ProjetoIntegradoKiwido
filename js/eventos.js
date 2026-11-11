@@ -17,6 +17,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     const gradeEventos = document.querySelector('#eventos-grid');
     const botoesFiltros = document.querySelectorAll('.eventos-filtro');
 
+    // Elementos da seção de inscrição.
+    const secaoInscricao = document.querySelector('#inscricao');
+
+    const inscricaoPlaceholder = document.querySelector('#inscricao-placeholder');
+    const inscricaoEventoDados = document.querySelector('#inscricao-evento-dados');
+
+    const inscricaoEventoTitulo = document.querySelector('#inscricao-evento-titulo');
+    const inscricaoEventoData = document.querySelector('#inscricao-evento-data');
+    const inscricaoEventoHorario = document.querySelector('#inscricao-evento-horario');
+    const inscricaoEventoLocal = document.querySelector('#inscricao-evento-local');
+    const inscricaoEventoVagas = document.querySelector('#inscricao-evento-vagas');
+
+    const formularioPlaceholder = document.querySelector('#formulario-placeholder');
+    const formularioGoogle = document.querySelector('#formulario-google');
+    const formularioLinkExterno = document.querySelector('#formulario-link-externo');
+
 
     // =========================================
     // BUSCAR DADOS DO JSON
@@ -63,11 +79,102 @@ document.addEventListener('DOMContentLoaded', async () => {
         destaqueLocal.textContent = eventoDestaque.local;
         destaqueVagas.textContent = `${eventoDestaque.vagas} vagas`;
 
-        // Guarda o ID para a futura funcionalidade de inscrição.
         destaqueInscrever.dataset.eventoId = eventoDestaque.id;
 
         // Só permite inscrição em eventos próximos.
         destaqueInscrever.hidden = eventoDestaque.status !== 'proximo';
+
+
+        // =========================================
+        // SELECIONAR EVENTO PARA INSCRIÇÃO
+        // =========================================
+
+        function selecionarEvento(evento) {
+
+            // Não permite inscrição em eventos realizados.
+            if (!evento || evento.status !== 'proximo') {
+                return;
+            }
+
+            // Atualiza as informações do evento selecionado.
+            inscricaoEventoTitulo.textContent = evento.titulo;
+            inscricaoEventoData.textContent = evento.data;
+            inscricaoEventoHorario.textContent = evento.horario;
+            inscricaoEventoLocal.textContent = evento.local;
+            inscricaoEventoVagas.textContent = `${evento.vagas} vagas disponíveis`;
+
+            // Esconde a mensagem inicial e mostra os dados.
+            inscricaoPlaceholder.hidden = true;
+            inscricaoEventoDados.hidden = false;
+
+
+            // =========================================
+            // CARREGAR FORMULÁRIO DO EVENTO
+            // =========================================
+
+            const linkFormulario = evento.linkFormulario;
+            const linkFormularioExterno =
+                evento.linkFormularioExterno || evento.linkFormulario;
+
+            // Verifica se o evento possui formulário cadastrado.
+            if (linkFormulario || linkFormularioExterno) {
+
+                // Prepara o endereço de incorporação.
+                const urlFormulario = new URL(
+                    linkFormulario || linkFormularioExterno
+                );
+
+                // Ativa o modo de incorporação do Google Forms.
+                urlFormulario.searchParams.set('embedded', 'true');
+
+                // Carrega o formulário.
+                formularioGoogle.src = urlFormulario.toString();
+
+                formularioGoogle.hidden = false;
+                formularioPlaceholder.hidden = true;
+
+                // Atualiza o link para abrir em outra aba.
+                const urlExterna = new URL(linkFormularioExterno);
+
+                urlExterna.searchParams.delete('embedded');
+
+                formularioLinkExterno.href = urlExterna.toString();
+                formularioLinkExterno.hidden = false;
+
+            } else {
+
+                // Caso o evento ainda não tenha formulário.
+                formularioGoogle.removeAttribute('src');
+                formularioGoogle.hidden = true;
+
+                formularioPlaceholder.hidden = false;
+
+                formularioPlaceholder.querySelector('p').textContent =
+                    'O formulário de inscrição deste evento ainda não está disponível.';
+
+                formularioLinkExterno.hidden = true;
+                formularioLinkExterno.removeAttribute('href');
+
+            }
+
+
+            // =========================================
+            // MOSTRAR SEÇÃO DE INSCRIÇÃO
+            // =========================================
+
+            secaoInscricao.hidden = false;
+
+
+            // =========================================
+            // ROLAR ATÉ A SEÇÃO DE INSCRIÇÃO
+            // =========================================
+
+            secaoInscricao.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+        }
 
 
         // =========================================
@@ -165,9 +272,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                         </div>
 
-                        ${
-                            status === 'proximo'
-                                ? `
+                        ${status === 'proximo'
+                        ? `
                                     <button
                                         type="button"
                                         class="evento-card-botao"
@@ -177,12 +283,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                                     </button>
                                 `
-                                : `
+                        : `
                                     <span class="evento-card-encerrado">
                                         ENCERRADO
                                     </span>
                                 `
-                        }
+                    }
 
                     </div>
 
@@ -192,7 +298,41 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             });
 
+
+            // =========================================
+            // BOTÕES DE INSCRIÇÃO DOS CARDS
+            // =========================================
+
+            const botoesInscricao = gradeEventos.querySelectorAll(
+                '.evento-card-botao'
+            );
+
+            botoesInscricao.forEach(botao => {
+
+                botao.addEventListener('click', () => {
+
+                    const idEvento = botao.dataset.eventoId;
+
+                    const eventoSelecionado = eventos.find(evento => {
+                        return evento.id === idEvento;
+                    });
+
+                    selecionarEvento(eventoSelecionado);
+
+                });
+
+            });
+
         }
+
+
+        // =========================================
+        // BOTÃO DE INSCRIÇÃO DO EVENTO EM DESTAQUE
+        // =========================================
+
+        destaqueInscrever.addEventListener('click', () => {
+            selecionarEvento(eventoDestaque);
+        });
 
 
         // =========================================
@@ -235,7 +375,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             <p>Não foi possível carregar os eventos no momento.</p>
         `;
 
-        destaqueTitulo.textContent = 'Não foi possível carregar o evento em destaque.';
+        destaqueTitulo.textContent =
+            'Não foi possível carregar o evento em destaque.';
 
     }
 
