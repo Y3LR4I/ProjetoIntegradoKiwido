@@ -230,7 +230,10 @@
    CARD DE NOTÍCIA
 ========================= */
 
-/* Estrutura e aparência geral dos cards de notícias */
+/* =========================
+   CARD DE NOTÍCIA
+========================= */
+
 .card-noticia {
     height: 100%;
     display: flex;
@@ -239,19 +242,17 @@
     background-color: var(--cor-card-noticia);
     color: #ffffff;
 
-    border: 1px solid var(--cor-borda-filtro-noticia); 
+    border: 2px solid var(--cor-borda-filtro-noticia);
     border-radius: 30px;
     overflow: hidden;
 
     box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 
-    /* Suaviza a animação de elevação e sombra */
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
 }
 
-/* Eleva o card e intensifica sua sombra quando o cursor passa sobre ele */
 .card-noticia:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
@@ -263,13 +264,12 @@
 
 /* Define o tamanho, o posicionamento e o recorte da imagem do card */
 .card-noticia-imagem {
-    width: calc(100% - 12px);
+    display: block;
+    width: 100%;
     height: 210px;
-
-    margin: 6px 6px 0;
-
-    object-fit: cover;
     border-radius: 30px;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* =========================

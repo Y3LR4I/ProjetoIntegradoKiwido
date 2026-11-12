@@ -23,10 +23,13 @@
     <div id="header-container"></div>
 
     <!-- HERO: banner principal com carrossel, painel decorativo e chamada para ação -->
+
+    <!-- HERO: banner principal com carrossel e apresentação do projeto -->
     <section class="hero">
 
         <!-- Carrossel de imagens do banner principal. -->
         <div class="hero-carousel">
+
             <div class="hero-slide active">
                 <img src="assets/images/hero/img_hero_section01.png" alt="Ecossistema de manguezal">
             </div>
@@ -42,16 +45,19 @@
             <div class="hero-slide">
                 <img src="assets/images/hero/img_hero_section04.jfif" alt="Projeto Mangue Vivo">
             </div>
+
         </div>
 
-        <!-- Camada sem interação que melhora o contraste do conteúdo sobre as imagens. -->
+        <!-- Camada de contraste das imagens no desktop. -->
         <div class="hero-overlay"></div>
 
-        <!-- Conteúdo textual e painel decorativo do banner. -->
+        <!-- Conteúdo textual e painel decorativo. -->
         <div class="hero-conteudo">
 
-            <!-- Painel em SVG com formato orgânico que fica à esquerda do banner. -->
-            <svg class="hero-painel" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+
+            <!-- Painel original do desktop. -->
+            <svg class="hero-painel-desktop" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+
                 <path d="
                     M 0 0
                     H 1000
@@ -65,7 +71,19 @@
                 " />
             </svg>
 
-            <!-- Texto e botão posicionados sobre o painel orgânico. -->
+            <!-- Onda horizontal do tablet. -->
+            <svg class="hero-ondas" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+
+                <path d="
+                    M0,40
+                    C180,100 360,15 540,55
+                    C720,100 900,120 1080,55
+                    C1260,5 1350,75 1440,65
+                    L1440,0 L0,0 Z
+                " />
+            </svg>
+
+            <!-- Texto e botão da apresentação. -->
             <div class="hero-container">
 
                 <div class="hero-texto">
@@ -85,11 +103,13 @@
                     </p>
 
                     <a href="#quem-somos" class="hero-botao">
+
                         <span>Conheça o projeto</span>
 
                         <span class="material-symbols-outlined" aria-hidden="true">
                             arrow_forward
                         </span>
+
                     </a>
 
                 </div>
@@ -598,8 +618,8 @@
                         desenvolvidas pela equipe do projeto.
                     </p>
 
-                    <span href="/pages/conteudos.html"
-                        class="material-symbols-rounded conteudos-home-seta" aria-hidden="true">
+                    <span href="/pages/conteudos.html" class="material-symbols-rounded conteudos-home-seta"
+                        aria-hidden="true">
                         arrow_forward
                     </span>
                 </a>

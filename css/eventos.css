@@ -83,7 +83,7 @@ body {
 /* Seção principal */
 .evento-destaque {
     width: 100%;
-    padding: 50px 0;
+    padding: 0px 0;
     background-color: var(--cor-fundo);
 }
 
@@ -101,11 +101,14 @@ body {
     display: grid;
     grid-template-columns: 1fr 2fr;
 
-    background-color: #FFFFFF;
+    background-color: var(--cor-fundo);
     border-radius: 20px;
     overflow: hidden;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
 }
 
 /* Imagem */
@@ -119,6 +122,7 @@ body {
     height: 100%;
     display: block;
     object-fit: cover;
+    border-radius: 30px;
 }
 
 /* Conteúdo */
@@ -140,9 +144,9 @@ body {
 
 /* Descrição */
 .evento-destaque-descricao {
-    color: var(--cor-texto);
+    color: var(--cor-texto-card);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 25px;
 }
 
@@ -160,7 +164,7 @@ body {
     align-items: center;
     gap: 10px;
 
-    color: var(--cor-texto);
+    color: var(--cor-texto-card);
     font-size: 15px;
 }
 
@@ -204,6 +208,7 @@ body {
     background-color: transparent;
     border-color: var(--cor-secundaria);
     color: var(--cor-secundaria);
+    border-radius: 30px;
 }
 
 .evento-btn-inscrever:hover,
@@ -218,6 +223,7 @@ body {
     background-color: transparent;
     border-color: var(--cor-principal);
     color: var(--cor-principal);
+    border-radius: 30px;
 }
 
 .evento-btn-todos:hover,
@@ -322,13 +328,14 @@ body {
 
 .eventos-filtro {
     padding: 10px 24px;
-    border: 2px solid var(--cor-principal);
+    border: 2px solid var(--cor-borda-filtro-noticia);
     border-radius: 8px;
     background-color: transparent;
     color: var(--cor-principal);
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
+    border-radius: 30px;
 
     transition: background-color 0.25s ease,
                 color 0.25s ease,
@@ -337,9 +344,10 @@ body {
 
 .eventos-filtro:hover,
 .eventos-filtro.ativo {
-    background-color: var(--cor-principal);
+    background-color: var(--cor-secundaria);
     border-color: transparent;
     color: var(--cor-fundo);
+    border-radius: 30px;
 }
 
 /* Grade de eventos */
@@ -347,6 +355,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
+    padding-bottom: 60px;
 }
 
 /* Card */
@@ -356,8 +365,9 @@ body {
     display: flex;
     flex-direction: column;
 
-    background-color: var(--cor-principal);
-    border-radius: 16px;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-borda-filtro-noticia);
+    border-radius: 30px;
 }
 
 /* Imagem */
@@ -373,6 +383,7 @@ body {
     display: block;
     object-fit: cover;
     transition: transform 0.3s ease;
+    border-radius: 25px;
 }
 
 .evento-card:hover .evento-card-imagem img {
@@ -380,23 +391,26 @@ body {
 }
 
 /* Conteúdo */
+/* Conteúdo */
 .evento-card-conteudo {
     flex: 1;
     padding: 22px;
 
+    background-color: var(--cor-fundo);
+
     display: flex;
     flex-direction: column;
-}
+}   
 
 .evento-card-conteudo h3 {
-    color: var(--cor-fundo);
+    color: var(--cor-principal);
     font-size: 21px;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 .evento-card-descricao {
-    color: var(--cor-fundo);
+    color: var(--cor-texto-card);
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 20px;
@@ -416,7 +430,7 @@ body {
     align-items: flex-start;
     gap: 8px;
 
-    color: var(--cor-fundo);
+    color: var(--cor-texto-card);
     font-size: 13px;
     line-height: 1.4;
 }
@@ -424,7 +438,7 @@ body {
 .evento-card-informacao .material-symbols-outlined {
     flex-shrink: 0;
     font-size: 20px;
-    color: var(--cor-secundaria);
+    color: var(--cor-principal);
 }
 
 /* Botão de inscrição */
@@ -434,10 +448,10 @@ body {
     padding: 11px 18px;
 
     border: 2px solid var(--cor-secundaria);
-    border-radius: 8px;
+    border-radius: 30px;
 
     background-color: transparent;
-    color: var(--cor-fundo);
+    color: var(--cor-secundaria);
 
     font-size: 15px;
     font-weight: 600;
@@ -471,6 +485,455 @@ body {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.5px;
+}
+
+/* =========================================
+   SEÇÃO DE INSCRIÇÃO
+========================================= */
+#inscricao {
+    scroll-margin-top: 120px;
+}
+
+/* Seção principal */
+.secao-inscricao {
+    position: relative;
+    width: 100%;
+    padding: 100px 0 140px;
+    background-color: var(--cor-principal);
+}
+
+/* Onda superior */
+.inscricao-onda-superior {
+    position: absolute;
+    top: -119px;
+    left: 0;
+
+    width: 100%;
+    height: 120px;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.inscricao-onda-superior svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Container */
+.secao-inscricao-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+    padding: 0 var(--margem-lateral);
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   INFORMAÇÕES DA INSCRIÇÃO
+========================================= */
+
+.inscricao-informacoes {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiqueta */
+.inscricao-etiqueta {
+    color: var(--cor-fundo);
+    font-family: 'Righteous', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* Título */
+.inscricao-informacoes h2 {
+    color: var(--cor-fundo);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+/* Descrição */
+.inscricao-descricao {
+    color: var(--cor-fundo);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Título do evento selecionado */
+.inscricao-evento > h3 {
+    color: var(--cor-texto-card);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* Card do evento */
+.inscricao-evento-card {
+    width: 100%;
+    padding: 22px;
+
+    background-color: var(--cor-texto-card);
+    border-radius: 14px;
+}
+
+/* Nome do evento */
+.inscricao-evento-card h4 {
+    color: var(--cor-fundo);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+/* Mensagem inicial */
+.inscricao-evento-placeholder {
+    color: var(--cor-principal);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Informações do evento */
+.inscricao-evento-informacoes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
+}
+
+/* Cada informação */
+.inscricao-evento-informacao {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    color: var(--cor-fundo);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.inscricao-evento-informacao .material-symbols-outlined {
+    flex-shrink: 0;
+    color: var(--cor-fundo);
+    font-size: 21px;
+}
+
+/* =========================================
+   INSTRUÇÕES
+========================================= */
+
+.inscricao-instrucoes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.inscricao-instrucao h3 {
+    color: var(--cor-secundaria);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.inscricao-instrucao p {
+    color: var(--cor-fundo);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* =========================================
+   FORMULÁRIO GOOGLE FORMS
+========================================= */
+
+.inscricao-formulario {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Área do iframe */
+.inscricao-formulario iframe {
+    width: 100%;
+    min-height: 650px;
+    border: none;
+    border-radius: 14px;
+    background-color: #FFFFFF;
+}
+
+/* Mensagem antes de selecionar evento */
+.inscricao-formulario-placeholder {
+    width: 100%;
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    padding: 30px;
+
+    background-color: var(--cor-fundo);
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+.inscricao-formulario-placeholder .material-symbols-outlined {
+    color: var(--cor-principal);
+    font-size: 55px;
+}
+
+.inscricao-formulario-placeholder p {
+    max-width: 350px;
+    color: var(--cor-texto);
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Link externo */
+.inscricao-formulario-link {
+    margin-top: 18px;
+}
+
+.inscricao-formulario-link p {
+    color: var(--cor-fundo);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.inscricao-formulario-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--cor-fundo);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+
+    transition: opacity 0.25s ease;
+}
+
+.inscricao-formulario-link a:hover {
+    opacity: 0.75;
+}
+
+.inscricao-formulario-link .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* =========================================
+   SEÇÃO DE DÚVIDAS E CONTATO
+========================================= */
+.secao-duvidas {
+    position: relative;
+    width: 100%;
+    padding: 60px 30px 70px;
+    background-color: var(--cor-secundaria);
+}
+
+/* Onda superior */
+.duvidas-onda-superior {
+    position: absolute;
+    top: -119px;
+    left: 0;
+
+    width: 100%;
+    height: 120px;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.duvidas-onda-superior svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.secao-duvidas-container {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Conteúdo textual */
+.duvidas-conteudo {
+    max-width: 750px;
+}
+
+.duvidas-conteudo h2 {
+    margin-bottom: 15px;
+
+    color: var(--cor-fundo);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.duvidas-conteudo p {
+    margin-bottom: 25px;
+
+    color: var(--cor-fundo);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Botão de contato */
+.duvidas-botao {
+    min-height: 48px;
+    padding: 0 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    align-self: flex-end;
+
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-fundo);
+    border-radius: 30px;
+
+    color: var(--cor-principal);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.duvidas-botao:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo);
+    border: 2px solid var(--cor-principal);
+    transform: translateY(-2px);
+}
+
+.duvidas-botao .material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* =========================================
+   FORMULÁRIO DE INSCRIÇÃO
+========================================= */
+
+#formulario-google {
+    display: block;
+    width: 100%;
+    min-height: 900px;
+    border: none;
+}
+
+/* =========================================
+   RESPONSIVIDADE — INSCRIÇÃO E DÚVIDAS
+========================================= */
+
+@media (max-width: 900px) {
+
+    .secao-inscricao-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .inscricao-informacoes {
+        max-width: 650px;
+    }
+
+    .inscricao-formulario iframe,
+    .inscricao-formulario-placeholder {
+        min-height: 600px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    /* Inscrição */
+    .secao-inscricao {
+        padding: 100px 0 55px;
+    }
+
+    .inscricao-onda-superior {
+        height: 85px;
+    }
+
+    .inscricao-etiqueta {
+        font-size: 20px;
+    }
+
+    .inscricao-informacoes h2 {
+        font-size: 36px;
+    }
+
+    .inscricao-descricao {
+        font-size: 15px;
+    }
+
+    .inscricao-evento-card {
+        padding: 18px;
+    }
+
+    .inscricao-evento-informacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .inscricao-formulario iframe,
+    .inscricao-formulario-placeholder {
+        min-height: 550px;
+    }
+
+    /* Dúvidas */
+    .secao-duvidas {
+        padding: 100px 0 50px;
+    }
+
+    .duvidas-onda-superior {
+        height: 85px;
+    }
+
+    .secao-duvidas-container {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .duvidas-conteudo h2 {
+        font-size: 29px;
+    }
+
+    .duvidas-conteudo p {
+        font-size: 15px;
+    }
+
+    .duvidas-botao {
+        width: 100%;
+    }
+
 }
 
 /* Responsividade */

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -49,9 +48,7 @@
             <!-- Onda de transição do banner -->
             <div class="eventos-divisor-onda" aria-hidden="true">
 
-                <svg viewBox="0 0 1440 120"
-                    preserveAspectRatio="none"
-                    xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
 
                     <path d="
                         M0,75
@@ -88,10 +85,7 @@
                 <!-- Imagem -->
                 <div class="evento-destaque-imagem">
 
-                    <img
-                        id="destaque-imagem"
-                        src=""
-                        alt="Imagem do evento em destaque">
+                    <img id="destaque-imagem" src="" alt="Imagem do evento em destaque">
 
                 </div>
 
@@ -102,8 +96,7 @@
                         Carregando evento...
                     </h2>
 
-                    <p class="evento-destaque-descricao"
-                        id="destaque-descricao">
+                    <p class="evento-destaque-descricao" id="destaque-descricao">
                     </p>
 
                     <!-- Informações adicionais -->
@@ -154,20 +147,15 @@
                     <!-- Botões -->
                     <div class="evento-destaque-botoes">
 
-                        <button
-                            type="button"
-                            class="evento-btn-inscrever"
-                            id="destaque-inscrever">
+                        <button type="button" class="evento-btn-inscrever" id="destaque-inscrever">
 
                             Inscrever-se
 
                         </button>
 
-                        <a
-                            href="#eventos-listagem"
-                            class="evento-btn-todos">
+                        <a href="#eventos-listagem" class="evento-btn-todos">
 
-                            Todos os eventos
+                            Ver todos os eventos
 
                         </a>
 
@@ -197,19 +185,13 @@
 
                 <div class="eventos-listagem-filtros">
 
-                    <button
-                        type="button"
-                        class="eventos-filtro ativo"
-                        data-filtro="proximo">
+                    <button type="button" class="eventos-filtro ativo" data-filtro="proximo">
 
                         Próximos
 
                     </button>
 
-                    <button
-                        type="button"
-                        class="eventos-filtro"
-                        data-filtro="realizado">
+                    <button type="button" class="eventos-filtro" data-filtro="realizado">
 
                         Realizados
 
@@ -223,6 +205,164 @@
             <div class="eventos-grid" id="eventos-grid">
 
             </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+     SEÇÃO DE INSCRIÇÃO
+========================================= -->
+
+    <section class="secao-inscricao" id="inscricao" hidden>
+
+        <!-- Onda superior -->
+        <div class="inscricao-onda-superior" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path
+                    d="M0,80 C180,20 360,20 540,65 C720,110 900,110 1080,60 C1260,10 1350,20 1440,45 L1440,120 L0,120 Z"
+                    fill="var(--cor-principal)" />
+            </svg>
+        </div>
+
+        <div class="secao-inscricao-container">
+
+            <!-- Coluna esquerda -->
+            <div class="inscricao-informacoes">
+
+                <span class="inscricao-etiqueta">INSCRIÇÃO</span>
+
+                <h2>Garanta a sua vaga</h2>
+
+                <p class="inscricao-descricao">
+                    Escolha o evento, preencha o formulário Google Forms ao lado
+                    e envie. Caso não consiga preencher, abra o formulário em outra aba.
+                </p>
+
+                <!-- Evento selecionado -->
+                <div class="inscricao-evento">
+
+                    <h3>Evento selecionado</h3>
+
+                    <div class="inscricao-evento-card" id="inscricao-evento-card">
+
+                        <p class="inscricao-evento-placeholder" id="inscricao-placeholder">
+                            Selecione um evento para visualizar as informações e realizar sua inscrição.
+                        </p>
+
+                        <div id="inscricao-evento-dados" hidden>
+
+                            <h4 id="inscricao-evento-titulo"></h4>
+
+                            <div class="inscricao-evento-informacoes">
+
+                                <div class="inscricao-evento-informacao">
+                                    <span class="material-symbols-outlined">calendar_month</span>
+                                    <span id="inscricao-evento-data"></span>
+                                </div>
+
+                                <div class="inscricao-evento-informacao">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                    <span id="inscricao-evento-horario"></span>
+                                </div>
+
+                                <div class="inscricao-evento-informacao">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                    <span id="inscricao-evento-local"></span>
+                                </div>
+
+                                <div class="inscricao-evento-informacao">
+                                    <span class="material-symbols-outlined">groups</span>
+                                    <span id="inscricao-evento-vagas"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Instruções -->
+                <div class="inscricao-instrucoes">
+
+                    <div class="inscricao-instrucao">
+                        <h3>1. Escolha o evento</h3>
+                        <p>Use os botões acima ou os cards da lista.</p>
+                    </div>
+
+                    <div class="inscricao-instrucao">
+                        <h3>2. Preencha o formulário</h3>
+                        <p>
+                            Preencha os dados pedidos nos campos do formulário.
+                            Você receberá uma confirmação de inscrição ao final.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Coluna direita: formulário -->
+            <div class="inscricao-formulario">
+
+                <div class="inscricao-formulario-placeholder" id="formulario-placeholder">
+                    <span class="material-symbols-outlined">assignment</span>
+                    <p>Selecione um evento para carregar o formulário de inscrição.</p>
+                </div>
+
+                <iframe id="formulario-google" title="Formulário de inscrição do evento" hidden>
+                </iframe>
+
+                <div class="inscricao-formulario-link">
+                    <p>O formulário não carregou?</p>
+
+                    <a href="#" id="formulario-link-externo" target="_blank" rel="noopener noreferrer" hidden>
+                        Abrir formulário em uma nova aba
+                        <span class="material-symbols-outlined">open_in_new</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+     SEÇÃO DE DÚVIDAS E CONTATO
+========================================= -->
+
+    <section class="secao-duvidas">
+
+        <!-- Onda superior -->
+        <div class="duvidas-onda-superior" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path
+                    d="M0,80 C180,20 360,20 540,65 C720,110 900,110 1080,60 C1260,10 1350,20 1440,45 L1440,120 L0,120 Z"
+                    fill="var(--cor-secundaria)" />
+            </svg>
+        </div>
+
+        <div class="secao-duvidas-container">
+
+            <div class="duvidas-conteudo">
+
+                <h2>Ficou com alguma dúvida?</h2>
+
+                <p>
+                    Fale com a equipe do Mangue Vivo e tire suas dúvidas
+                    sobre os eventos e inscrições.
+                </p>
+
+            </div>
+
+            <a href="../index.html#contato" class="duvidas-botao">
+                Fale conosco
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
 
         </div>
 

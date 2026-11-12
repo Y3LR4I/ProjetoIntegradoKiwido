@@ -1,7 +1,5 @@
-
 {
     "destaque": "evento-001",
-
     "eventos": [
         {
             "id": "evento-001",
@@ -10,10 +8,11 @@
             "imagem": "../assets/images/eventos/trilha1.jfif",
             "data": "15/12/2026",
             "horario": "08h às 11h",
-            "local": "Fortaleza - CE",
+            "local": "UFC - Departamento da Engenharia de Pesca",
             "vagas": 30,
             "status": "proximo",
-            "linkInscricao": "#inscricao"
+            "linkInscricao": "#inscricao",
+            "linkFormulario": "https://docs.google.com/forms/d/e/1FAIpQLSekFTt7OhSHioMHFYwqEuvIqa3x8oUUJ75DUPLGzKw4GupeEw/viewform?usp=publish-editor"
         },
         {
             "id": "evento-002",
@@ -25,7 +24,8 @@
             "local": "UFC - Fortaleza",
             "vagas": 25,
             "status": "proximo",
-            "linkInscricao": "#inscricao"
+            "linkInscricao": "#inscricao",
+            "linkFormulario": "https://docs.google.com/forms/d/e/1FAIpQLSekFTt7OhSHioMHFYwqEuvIqa3x8oUUJ75DUPLGzKw4GupeEw/viewform?usp=publish-editor"
         },
         {
             "id": "evento-003",
@@ -37,7 +37,8 @@
             "local": "Fortaleza - CE",
             "vagas": 40,
             "status": "proximo",
-            "linkInscricao": "#inscricao"
+            "linkInscricao": "#inscricao",
+            "linkFormulario": "LINK_DO_GOOGLE_FORMS"
         },
         {
             "id": "evento-004",
@@ -49,7 +50,34 @@
             "local": "Fortaleza - CE",
             "vagas": 30,
             "status": "realizado",
-            "linkInscricao": ""
+            "linkInscricao": "#inscricao",
+            "linkFormulario": "LINK_DO_GOOGLE_FORMS"
+        },
+        {
+            "id": "evento-005",
+            "titulo": "Oficina de Educação Ambiental",
+            "subtitulo": "Aprenda mais sobre a conservação dos manguezais.",
+            "imagem": "../assets/images/eventos/trilha2.jfif",
+            "data": "20/12/2026",
+            "horario": "14h às 17h",
+            "local": "UFC - Fortaleza",
+            "vagas": 25,
+            "status": "proximo",
+            "linkInscricao": "#inscricao",
+            "linkFormulario": "LINK_DO_GOOGLE_FORMS"
+        },
+        {
+            "id": "evento-006",
+            "titulo": "Mutirão de Limpeza",
+            "subtitulo": "Uma ação coletiva de cuidado e preservação ambiental.",
+            "imagem": "../assets/images/eventos/trilha3.jfif",
+            "data": "10/01/2027",
+            "horario": "07h às 10h",
+            "local": "Fortaleza - CE",
+            "vagas": 40,
+            "status": "proximo",
+            "linkInscricao": "#inscricao",
+            "linkFormulario": "LINK_DO_GOOGLE_FORMS"
         }
     ]
 }
