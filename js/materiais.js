@@ -171,10 +171,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     aria-label="Assistir ${escaparHTML(material.titulo)} no YouTube">
                 </a>
 
-                <span class="material-video-icone material-symbols-outlined">
-                    play_circle
-                </span>
-
             </div>
         `;
         }
@@ -287,7 +283,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                         ${gerarPrevia(material)}
 
-                        ${gerarBotaoDownload(material)}
+                        ${material.tipoArquivo !== 'video' ? gerarBotaoDownload(material) : ''}
 
                     </div>
 
@@ -350,8 +346,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         mensagemVazia.hidden = materiaisFiltrados.length > 0;
 
-        navegacao.hidden = materiaisFiltrados.length <= MATERIAIS_POR_PAGINA;
-
         renderizarPaginacao();
 
         // Gerar prévias dos PDFs presentes na página
@@ -369,9 +363,59 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
 
+    function criarBotaoPagina(texto, pagina, opcoes = {}) {
+
+        const item = document.createElement('li');
+
+        item.className = 'page-item';
+
+        if (opcoes.ativo) {
+            item.classList.add('active');
+        }
+
+        if (opcoes.desabilitado) {
+            item.classList.add('disabled');
+        }
+
+        const botao = document.createElement('button');
+
+        botao.className = 'page-link';
+        botao.textContent = texto;
+        botao.type = 'button';
+
+        if (opcoes.ativo) {
+            botao.setAttribute('aria-current', 'page');
+        }
+
+        if (opcoes.desabilitado) {
+            botao.disabled = true;
+        } else {
+
+            botao.addEventListener('click', () => {
+
+                paginaAtual = pagina;
+
+                renderizarMateriais();
+
+                listaMateriais.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+            });
+
+        }
+
+        item.appendChild(botao);
+
+        return item;
+    }
+
+
     // =========================================
     // PAGINAÇÃO
     // =========================================
+
 
     function renderizarPaginacao() {
 
@@ -379,50 +423,54 @@ document.addEventListener('DOMContentLoaded', async () => {
             materiaisFiltrados.length / MATERIAIS_POR_PAGINA
         );
 
-        paginacao.innerHTML = '';
+        paginacao.replaceChildren();
 
         if (totalPaginas <= 1) {
+            navegacao.hidden = true;
             return;
         }
 
+        navegacao.hidden = false;
+
         // Botão anterior
-        paginacao.innerHTML += `
-            <li class="page-item ${paginaAtual === 1 ? 'disabled' : ''}">
+        paginacao.appendChild(
+            criarBotaoPagina(
+                '<',
+                paginaAtual - 1,
+                { desabilitado: paginaAtual === 1 }
+            )
+        );
 
-                <button class="page-link" type="button" data-pagina="${paginaAtual - 1}">
-                    &laquo;
-                </button>
+        // Define o intervalo de até três páginas
+        let inicio = Math.max(1, paginaAtual - 1);
+        let fim = Math.min(totalPaginas, inicio + 2);
 
-            </li>
-        `;
+        inicio = Math.max(1, fim - 2);
 
-        // Números das páginas
-        for (let pagina = 1; pagina <= totalPaginas; pagina++) {
+        // Botões numéricos
+        for (let pagina = inicio; pagina <= fim; pagina++) {
 
-            paginacao.innerHTML += `
-                <li class="page-item ${pagina === paginaAtual ? 'active' : ''}">
-
-                    <button class="page-link" type="button" data-pagina="${pagina}">
-                        ${pagina}
-                    </button>
-
-                </li>
-            `;
+            paginacao.appendChild(
+                criarBotaoPagina(
+                    String(pagina),
+                    pagina,
+                    { ativo: pagina === paginaAtual }
+                )
+            );
 
         }
 
         // Botão próximo
-        paginacao.innerHTML += `
-            <li class="page-item ${paginaAtual === totalPaginas ? 'disabled' : ''}">
-
-                <button class="page-link" type="button" data-pagina="${paginaAtual + 1}">
-                    &raquo;
-                </button>
-
-            </li>
-        `;
+        paginacao.appendChild(
+            criarBotaoPagina(
+                '>',
+                paginaAtual + 1,
+                { desabilitado: paginaAtual === totalPaginas }
+            )
+        );
 
     }
+
 
 
     // =========================================

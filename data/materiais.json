@@ -7,7 +7,7 @@
         "categoria": "Slides",
         "tipoArquivo": "pdf",
         "arquivoVisualizacao": "../assets/materiais/arquivos/manual-ambiental.pdf",
-        "arquivoDownload": "../assets/materiais/arquivos/slides-manguezais.pdf",
+        "arquivoDownload": "../assets/materiais/arquivos/manual-ambiental.pdf",
         "youtubeId": null,
         "destaque": true
     },
@@ -17,8 +17,8 @@
         "subtitulo": "Conheça as espécies que habitam esse ecossistema.",
         "categoria": "Slides",
         "tipoArquivo": "pptx",
-        "arquivoVisualizacao": "../assets/materiais/arquivos/biodiversidade.pdf",
-        "arquivoDownload": "../assets/materiais/arquivos/meio-ambiente.ppt",
+        "arquivoVisualizacao": "../assets/materiais/arquivos/meio-ambiente.pdf",
+        "arquivoDownload": "../assets/materiais/arquivos/meio-ambiente.pptx",
         "youtubeId": null,
         "destaque": false
     },
@@ -28,8 +28,8 @@
         "subtitulo": "Uma atividade educativa para aprender sobre o manguezal.",
         "categoria": "Atividades",
         "tipoArquivo": "pdf",
-        "arquivoVisualizacao": "../assets/materiais/arquivos/atividade-manguezais.pdf",
-        "arquivoDownload": "../assets/materiais/arquivos/atividade-manguezais.pdf",
+        "arquivoVisualizacao": "../assets/materiais/arquivos/atividade-educando-mangue.pdf",
+        "arquivoDownload": "../assets/materiais/arquivos/atividade-educando-mangue.pdf",
         "youtubeId": null,
         "destaque": false
     },
@@ -41,7 +41,73 @@
         "tipoArquivo": "video",
         "arquivoVisualizacao": null,
         "arquivoDownload": null,
-        "youtubeId": "ID_DO_VIDEO",
+        "youtubeId": "_y07ckZd-Qw",
+        "destaque": false
+    },
+    {
+        "id": 5,
+        "titulo": "Conhecendo os manguezais",
+        "subtitulo": "Uma introdução ao ecossistema manguezal e suas características.",
+        "categoria": "Slides",
+        "tipoArquivo": "pdf",
+        "arquivoVisualizacao": "../assets/materiais/arquivos/manual-ambiental.pdf",
+        "arquivoDownload": "../assets/materiais/arquivos/manual-ambiental.pdf",
+        "youtubeId": null,
+        "destaque": true
+    },
+    {
+        "id": 6,
+        "titulo": "Biodiversidade dos manguezais",
+        "subtitulo": "Conheça as espécies que habitam esse ecossistema.",
+        "categoria": "Slides",
+        "tipoArquivo": "pptx",
+        "arquivoVisualizacao": "../assets/materiais/arquivos/meio-ambiente.pdf",
+        "arquivoDownload": "../assets/materiais/arquivos/meio-ambiente.pptx",
+        "youtubeId": null,
+        "destaque": false
+    },
+    {
+        "id": 7,
+        "titulo": "Atividade: explorando o mangue",
+        "subtitulo": "Uma atividade educativa para aprender sobre o manguezal.",
+        "categoria": "Atividades",
+        "tipoArquivo": "pdf",
+        "arquivoVisualizacao": "../assets/materiais/arquivos/atividade-educando-mangue.pdf",
+        "arquivoDownload": "../assets/materiais/arquivos/atividade-educando-mangue.pdf",
+        "youtubeId": null,
+        "destaque": false
+    },
+    {
+        "id": 8,
+        "titulo": "A importância dos manguezais",
+        "subtitulo": "Descubra por que os manguezais são fundamentais para o meio ambiente.",
+        "categoria": "Videos",
+        "tipoArquivo": "video",
+        "arquivoVisualizacao": null,
+        "arquivoDownload": null,
+        "youtubeId": "_y07ckZd-Qw",
+        "destaque": false
+    },
+    {
+        "id": 9,
+        "titulo": "Atividade: explorando o mangue",
+        "subtitulo": "Uma atividade educativa para aprender sobre o manguezal.",
+        "categoria": "Atividades",
+        "tipoArquivo": "pdf",
+        "arquivoVisualizacao": "../assets/materiais/arquivos/atividade-educando-mangue.pdf",
+        "arquivoDownload": "../assets/materiais/arquivos/atividade-educando-mangue.pdf",
+        "youtubeId": null,
+        "destaque": false
+    },
+    {
+        "id": 10,
+        "titulo": "A importância dos manguezais",
+        "subtitulo": "Descubra por que os manguezais são fundamentais para o meio ambiente.",
+        "categoria": "Videos",
+        "tipoArquivo": "video",
+        "arquivoVisualizacao": null,
+        "arquivoDownload": null,
+        "youtubeId": "_y07ckZd-Qw",
         "destaque": false
     }
 ]

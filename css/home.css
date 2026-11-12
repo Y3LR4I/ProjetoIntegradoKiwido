@@ -73,8 +73,8 @@
     z-index: 2;
 }
 
-/* Painel em SVG que cria a borda curva sobre a imagem do banner. */
-.hero-painel {
+/* Painel orgânico utilizado exclusivamente no desktop. */
+.hero-painel-desktop {
     position: absolute;
     top: 0;
     left: 0;
@@ -83,8 +83,12 @@
     height: 100%;
 
     fill: var(--cor-fundo);
-
     pointer-events: none;
+}
+
+/* Onda horizontal utilizada exclusivamente em tablets e celulares. */
+.hero-ondas {
+    display: none;
 }
 
 /* Alinhamento do conteúdo do banner com as demais seções. */
@@ -1958,6 +1962,41 @@
     .logo img {
         height: 100px;
     }
+
+    /*Seção conteúdos*/
+
+    .conteudos-home-card {
+        width: 100%;
+        min-width: 0;
+        min-height: 450px;
+        padding: 28px;
+        box-sizing: border-box;
+    }
+
+    .conteudos-home-card>img {
+        width: 85px;
+        height: 85px;
+        margin-bottom: 20px;
+    }
+
+    .conteudos-home-card h3 {
+        height: 100px;
+        font-size: 38px;
+    }
+
+    .conteudos-home-card p {
+        font-size: 18px;
+    }
+
+    .conteudos-home-icone {
+        font-size: 55px;
+    }
+
+    .conteudos-home-seta {
+        right: 20px;
+        bottom: 18px;
+        font-size: 30px;
+    }
 }
 
 /* Ajustes para tablets e telas intermediárias. */
@@ -2204,77 +2243,233 @@
 }
 
 /* =========================
-   RESPONSIVIDADE — QUEM SOMOS
+   RESPONSIVIDADE — PARA TABLETS
 ========================= */
 
 @media (max-width: 768px) {
-    .quem-somos {
-        padding: 50px 20px;
-    }
 
-    .quem-somos-titulo {
-        margin-bottom: 28px;
-        font-size: 28px;
-    }
-
-    .quem-somos-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 24px;
-    }
-
-    .quem-somos-imagens {
-        height: 280px;
-    }
-
-    .quem-somos-texto p {
-        font-size: 15px;
-        text-align: left;
-    }
+    /* =========================
+   SEÇÃO HERO
+========================= */
 
     .hero {
-        height: 540px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        overflow: hidden;
     }
 
-    .hero-carousel {
-        height: 48%;
-    }
-
-    .hero-overlay {
-        inset: 0 0 52% 0;
-    }
-
-    .hero-painel {
+    /* Apresentação textual na parte superior. */
+    .hero-conteudo {
+        position: relative;
+        inset: auto;
+        order: 1;
         width: 100%;
-        height: 100%;
+        height: auto;
+
+        padding: 55px var(--margem-lateral) 90px;
+
+        box-sizing: border-box;
+        background-color: var(--cor-fundo);
+        z-index: 2;
+        isolation: isolate;
     }
 
+    /* Esconde o painel orgânico do desktop. */
+    .hero-painel-desktop {
+        display: none;
+    }
+
+    /* Centraliza o conteúdo textual. */
     .hero-container {
-        padding: 0;
+        position: relative;
+        inset: auto;
+
+        width: 100%;
+        height: auto;
     }
 
     .hero-texto {
-        left: 24px;
+        position: relative;
         top: auto;
-        bottom: 30px;
+        left: auto;
+
+        width: 100%;
+        max-width: 600px;
+
+        margin: 0 auto;
+        text-align: center;
+
         transform: none;
-        width: calc(100% - 48px);
-        max-width: 570px;
-        padding-top: 0;
     }
 
     .hero-identificacao {
-        font-size: 13px;
-        margin-bottom: 12px;
+        font-size: 19px;
+        margin-bottom: 14px;
     }
 
     .hero-texto h1 {
-        font-size: 27px;
+        font-size: 36px;
+        line-height: 1.2;
+        margin-bottom: 15px;
     }
 
     .hero-texto p {
-        font-size: 16px;
+        max-width: 500px;
+        margin: 0 auto 25px;
+        padding-top: 0;
+
+        font-size: 18px;
+        line-height: 1.5;
     }
+
+    .hero-botao {
+        margin: 0 auto;
+    }
+
+    /* Onda horizontal entre o texto e o carrossel. */
+    .hero-ondas {
+        display: block;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        z-index: 3;
+
+        width: 100%;
+        height: 75px;
+
+        fill: var(--cor-fundo);
+        pointer-events: none;
+    }
+
+    /* Carrossel abaixo do conteúdo textual. */
+    .hero-carousel {
+        position: relative;
+        order: 2;
+
+        width: 100%;
+        height: 350px;
+    }
+
+    .hero-overlay {
+        display: none;
+    }
+
+    /*SEÇÃO QUEM SOMOS?*/
+    .quem-somos {
+        padding: 50px var(--margem-lateral);
+    }
+
+    .quem-somos-titulo {
+        margin-bottom: 30px;
+        font-size: 38px;
+    }
+
+    /* Organiza o conteúdo em uma única coluna. */
+    .quem-somos-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        width: 100%;
+        height: auto;
+        padding: 28px;
+    }
+
+    /* Texto ocupa toda a largura disponível. */
+    .quem-somos-texto {
+        width: 100%;
+    }
+
+    .quem-somos-texto p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    /* Imagens ficam abaixo dos textos e dentro do card. */
+    .quem-somos-imagens {
+        width: 100%;
+        height: 300px;
+        min-height: 300px;
+    }
+
+    /*SEÇÃO NOSSA HISTÓRIA*/
+    .historia-titulo {
+        font-size: 38px;
+    }
+
+    .historia-subtitulo {
+        font-size: 18px;
+    }
+
+    .nossa-historia {
+        padding: 30px var(--margem-lateral);
+    }
+
+    .historia-container {
+        height: auto;
+    }
+
+    .historia-linha-do-tempo {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .historia-linha-do-tempo::before {
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .historia-linha-do-tempo {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        min-height: 360px;
+    }
+
+    .historia-marco {
+        min-height: 360px;
+    }
+
+    .historia-ano {
+        width: 52px;
+        height: 52px;
+        border-width: 6px;
+        font-size: 11px;
+    }
+
+    .historia-ano:hover {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    .historia-card {
+        width: calc(100% - 8px);
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .historia-card h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .historia-card p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .historia-marco-superior .historia-card {
+        bottom: calc(50% + 42px);
+    }
+
+    .historia-marco-inferior .historia-card {
+        top: calc(50% + 42px);
+    }
+
+    /*SEÇÃO JOGOS*/
 
     .jogos-container {
         padding: 40px 25px 45px;
@@ -2297,6 +2492,7 @@
         height: 210px;
     }
 
+    /*SEÇÃO FAQ*/
     .faq-destaque {
         padding: 50px 25px;
     }

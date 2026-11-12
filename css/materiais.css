@@ -1,4 +1,3 @@
-
 /* =========================================
    BANNER DE APRESENTAÇÃO DOS MATERIAIS
 ========================================= */
@@ -186,16 +185,24 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    background-color: var(--cor-card-noticia);
+    color: #ffffff;
+
+    border: 2px solid var(--cor-borda-filtro-noticia);
+    border-radius: 30px;
     overflow: hidden;
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transition: transform .25s ease, box-shadow .25s ease;
+
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .material-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
 }
 
 
@@ -206,7 +213,7 @@ body {
 .material-card-imagem {
     position: relative;
     width: 100%;
-    height: 220px;
+    height: 210px;
     overflow: hidden;
     background-color: #e8eee5;
 }
@@ -216,9 +223,11 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: #e8eee5;
 }
 
@@ -226,21 +235,10 @@ body {
 .material-pdf-preview {
     display: block;
     width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-    object-position: top center;
-    background-color: #ffffff;
-}
-
-/* Prévia PPTX */
-
-.material-imagem-preview {
-    display: block;
-    width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
+    background-color: #ffffff;
 }
 
 /* Prévia indisponível */
@@ -357,7 +355,12 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+
+    padding: 18px 20px 20px;
+
+    background-color: var(--cor-card-noticia);
+    border: none;
+    border-radius: 0;
 }
 
 /* Categoria */
@@ -365,8 +368,8 @@ body {
 .material-card-categoria {
     align-self: flex-start;
     margin-bottom: 10px;
-    color: var(--cor-secundaria);
-    font-size: 12px;
+    color: var(--cor-texto-card);
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -385,10 +388,10 @@ body {
 /* Subtítulo */
 
 .material-card-conteudo p {
-    margin-bottom: 20px;
-    color: var(--cor-texto);
+    color: var(--cor-texto-card);
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 /* Ação */
@@ -422,30 +425,70 @@ body {
     font-size: 19px;
 }
 
-
 /* =========================================
    PAGINAÇÃO
 ========================================= */
 
-#paginacao-materiais .page-link {
-    border: 1px solid var(--cor-principal);
-    color: var(--cor-principal);
+#paginacao-materiais {
+    gap: 8px;
+    align-items: center;
 }
 
+/* Estilo padrão dos botões */
+#paginacao-materiais .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 38px;
+    height: 38px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: transparent;
+    color: var(--cor-principal);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    box-shadow: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Página selecionada */
 #paginacao-materiais .page-item.active .page-link {
-    background-color: var(--cor-principal);
-    border-color: var(--cor-principal);
+    background-color: var(--cor-secundaria);
     color: var(--cor-fundo);
 }
 
-#paginacao-materiais .page-link:focus {
-    box-shadow: 0 0 0 0.2rem rgba(22, 56, 18, 0.2);
+/* Hover das páginas não selecionadas */
+#paginacao-materiais .page-item:not(.active):not(.disabled) .page-link:hover {
+    background-color: transparent;
+    color: var(--cor-secundaria);
 }
 
+/* Setas */
+#paginacao-materiais .page-item:first-child .page-link,
+#paginacao-materiais .page-item:last-child .page-link {
+    background-color: transparent;
+    color: var(--cor-principal);
+    font-size: 20px;
+}
+
+/* Setas desabilitadas */
 #paginacao-materiais .page-item.disabled .page-link {
+    background-color: transparent;
     color: #999999;
+    opacity: 0.5;
 }
 
+/* Remove destaque ao clicar */
+#paginacao-materiais .page-link:focus {
+    box-shadow: none;
+    outline: none;
+}
 
 /* =========================================
    MODAL DE VISUALIZAÇÃO
