@@ -277,7 +277,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             <div class="col-12 col-md-6 col-lg-4">
 
-                <article class="material-card">
+                <article
+                    class="material-card"
+                    data-material-id="${material.id}"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Abrir material: ${escaparHTML(material.titulo)}">
 
                     <div class="material-card-imagem">
 
@@ -705,6 +710,62 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         const id = Number(botao.dataset.materialId);
+
+        const material = materiais.find(item => item.id === id);
+
+        if (material) {
+            abrirMaterial(material);
+        }
+
+    });
+
+    // =========================================
+    // EVENTO DE CLIQUE NO CARD
+    // =========================================
+
+    listaMateriais.addEventListener('click', evento => {
+
+        const card = evento.target.closest('.material-card');
+
+        if (!card) {
+            return;
+        }
+
+        // Não abre o material ao clicar no botão de download.
+        if (evento.target.closest('.material-download')) {
+            return;
+        }
+
+        const id = Number(card.dataset.materialId);
+
+        const material = materiais.find(item => item.id === id);
+
+        if (material) {
+            abrirMaterial(material);
+        }
+
+    });
+
+    // =========================================
+    // ACESSIBILIDADE DOS CARDS
+    // =========================================
+
+    listaMateriais.addEventListener('keydown', evento => {
+
+        if (evento.key !== 'Enter' && evento.key !== ' ') {
+            return;
+        }
+
+        const card = evento.target.closest('.material-card');
+
+        // Só executa quando o próprio card estiver focado.
+        if (!card || evento.target !== card) {
+            return;
+        }
+
+        evento.preventDefault();
+
+        const id = Number(card.dataset.materialId);
 
         const material = materiais.find(item => item.id === id);
 

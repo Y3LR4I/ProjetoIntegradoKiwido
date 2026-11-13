@@ -61,11 +61,9 @@
     position: absolute;
     inset: 0;
 
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.1)
-    );
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.1));
 
     z-index: 1;
 }
@@ -256,6 +254,7 @@
 .card-noticia:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
+    border: 2px solid var(--cor-secundaria);
 }
 
 /* =========================
@@ -267,7 +266,6 @@
     display: block;
     width: 100%;
     height: 210px;
-    border-radius: 30px;
     object-fit: cover;
     object-position: center;
 }
@@ -342,7 +340,7 @@
     font-size: 0.95rem;
     line-height: 1.6;
 
-    text-align:left;
+    text-align: left;
 
     /* Limita a exibição do texto a quatro linhas */
     display: -webkit-box;
@@ -356,23 +354,35 @@
 /* Posiciona o link na parte inferior do card */
 .card-noticia-rodape {
     margin-top: auto;
+    text-align: right;
 }
 
 /* Estilização do link para acessar a notícia completa */
 .card-noticia-link {
-    display: inline-block;
-
-    color: var(--cor-secundaria);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    border: none;
+    background: transparent;
+    color: var(--cor-principal);
+    font-size: 15px;
     font-weight: 700;
+    cursor: pointer;
+    transition: color .2s ease, gap .2s ease;
     text-decoration: none;
+}
 
-    transition: color 0.2s ease;
+.card-noticia-link .material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
 }
 
 /* Altera a cor do link quando o cursor passa sobre ele */
 .card-noticia-link:hover {
-    color: #ffd08c;
-    text-decoration: underline;
+    color: var(--cor-secundaria);
+    gap: 10px;
 }
 
 /* Destaca o link quando ele recebe foco pela navegação do teclado */
@@ -400,7 +410,7 @@
 
 /* Define o efeito de foco dos botões de paginação */
 #paginacao-noticias .page-link:focus {
-    box-shadow: 0 0 0 0.2rem rgb(23 77 53 / 20%);
+    box-shadow: 0 0 0 0.2rem rgba(77, 23, 23, 0.2);
 }
 
 /* Define a cor dos botões de paginação desativados */

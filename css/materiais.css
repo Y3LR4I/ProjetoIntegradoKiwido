@@ -198,13 +198,21 @@ body {
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
+
+    cursor: pointer;
 }
 
 .material-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
+    border: 2px solid var(--cor-secundaria);
 }
 
+/* Destaque ao navegar pelos cards com teclado */
+.material-card:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
+}
 
 /* =========================================
    PRÉVIA DO MATERIAL
@@ -422,7 +430,7 @@ body {
 }
 
 .material-card-abrir .material-symbols-outlined {
-    font-size: 19px;
+    font-size: 20px;
 }
 
 /* =========================================
@@ -465,8 +473,8 @@ body {
 
 /* Hover das páginas não selecionadas */
 #paginacao-materiais .page-item:not(.active):not(.disabled) .page-link:hover {
-    background-color: transparent;
-    color: var(--cor-secundaria);
+    background-color: rgba(242, 140, 40, 0.12);
+    color: var(--cor-principal);
 }
 
 /* Setas */

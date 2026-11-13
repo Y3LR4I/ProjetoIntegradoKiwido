@@ -199,8 +199,8 @@ body {
 
     cursor: pointer;
     transition: background-color 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease;
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 /* Botão Inscrever-se */
@@ -338,8 +338,8 @@ body {
     border-radius: 30px;
 
     transition: background-color 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease;
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .eventos-filtro:hover,
@@ -368,6 +368,27 @@ body {
     background-color: var(--cor-fundo);
     border: 2px solid var(--cor-borda-filtro-noticia);
     border-radius: 30px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.evento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
+    border: 2px solid var(--cor-secundaria);
+}
+
+/* Indica que os cards próximos são clicáveis */
+.evento-card[role="button"] {
+    cursor: pointer;
+}
+
+/* Destaque visual ao navegar pelos cards usando teclado */
+.evento-card[role="button"]:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
 }
 
 /* Imagem */
@@ -382,12 +403,6 @@ body {
     height: 100%;
     display: block;
     object-fit: cover;
-    transition: transform 0.3s ease;
-    border-radius: 25px;
-}
-
-.evento-card:hover .evento-card-imagem img {
-    transform: scale(1.04);
 }
 
 /* Conteúdo */
@@ -400,7 +415,7 @@ body {
 
     display: flex;
     flex-direction: column;
-}   
+}
 
 .evento-card-conteudo h3 {
     color: var(--cor-principal);
@@ -458,8 +473,8 @@ body {
     cursor: pointer;
 
     transition: background-color 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease;
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .evento-card-botao:hover {
@@ -572,7 +587,7 @@ body {
 }
 
 /* Título do evento selecionado */
-.inscricao-evento > h3 {
+.inscricao-evento>h3 {
     color: var(--cor-texto-card);
     font-size: 18px;
     font-weight: 700;
