@@ -206,6 +206,23 @@ function criarCard(noticia) {
     // Cria o elemento principal que representa o card da notícia.
     const card = criarElemento("article", "card-noticia");
 
+    // Permite acessar a notícia completa ao clicar no card.
+    card.addEventListener("click", () => {
+        window.location.href = `noticia.html?id=${encodeURIComponent(noticia.id)}`;
+    });
+
+    // Indica que o card pode ser acionado pelo teclado.
+    card.setAttribute("role", "link");
+    card.setAttribute("tabindex", "0");
+
+    // Permite abrir a notícia utilizando Enter ou Espaço.
+    card.addEventListener("keydown", (evento) => {
+        if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            window.location.href = `noticia.html?id=${encodeURIComponent(noticia.id)}`;
+        }
+    });
+
     // Cria o elemento de imagem do card.
     const imagem = criarElemento(
         "img",
@@ -277,8 +294,17 @@ function criarCard(noticia) {
     const link = criarElemento(
         "a",
         "card-noticia-link",
-        "Ler mais →"
+        "Ler mais "
     );
+
+    // Adiciona o ícone de seta ao link.
+    const icone = criarElemento(
+        "span",
+        "material-symbols-outlined",
+        "arrow_forward"
+    );
+
+    link.appendChild(icone);
 
     // Define o endereço da notícia, enviando seu ID como parâmetro na URL.
     link.href = `noticia.html?id=${encodeURIComponent(noticia.id)}`;

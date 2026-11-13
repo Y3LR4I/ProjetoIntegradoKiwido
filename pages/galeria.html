@@ -63,33 +63,39 @@
     <!-- Filtros da Galeria -->
     <section class="container galeria-filtros">
 
+
         <div class="galeria-categorias">
 
             <button class="categoria-btn ativo" type="button" data-categoria="todos">
-                Todos <span class="categoria-contagem">0</span>
+                Todos
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="eventos">
-                Eventos <span class="categoria-contagem">0</span>
+                Eventos
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="trilhas">
-                Trilhas <span class="categoria-contagem">0</span>
+                Trilhas
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="oficinas">
-                Oficinas <span class="categoria-contagem">0</span>
+                Oficinas
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="acoes">
-                Ações <span class="categoria-contagem">0</span>
+                Ações
             </button>
 
             <button class="categoria-btn" type="button" data-categoria="fauna-flora">
-                Fauna e Flora <span class="categoria-contagem">0</span>
+                Fauna e Flora
+            </button>
+
+            <button class="categoria-btn" type="button" data-categoria="videos">
+                Vídeos
             </button>
 
         </div>
+
 
     </section>
 
@@ -106,8 +112,8 @@
                 </div>
 
                 <button class="galeria-abrir-album" type="button" data-album="eventos">
-                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
                     Abrir álbum
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
                 </button>
             </div>
 
@@ -131,9 +137,9 @@
                     <p>Explore os caminhos e descubra a riqueza dos manguezais.</p>
                 </div>
 
-                <button class="galeria-abrir-album" type="button" data-album="trilhas">
-                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                <button class="galeria-abrir-album" type="button" data-album="eventos">
                     Abrir álbum
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
                 </button>
             </div>
 
@@ -157,9 +163,9 @@
                     <p>Aprendizado, troca de experiências e educação ambiental.</p>
                 </div>
 
-                <button class="galeria-abrir-album" type="button" data-album="oficinas">
-                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                <button class="galeria-abrir-album" type="button" data-album="eventos">
                     Abrir álbum
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
                 </button>
             </div>
 
@@ -183,9 +189,9 @@
                     <p>Registros das iniciativas e atividades desenvolvidas pelo projeto.</p>
                 </div>
 
-                <button class="galeria-abrir-album" type="button" data-album="acoes">
-                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                <button class="galeria-abrir-album" type="button" data-album="eventos">
                     Abrir álbum
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
                 </button>
             </div>
 
@@ -209,9 +215,9 @@
                     <p>Conheça as espécies e a biodiversidade que fazem parte do manguezal.</p>
                 </div>
 
-                <button class="galeria-abrir-album" type="button" data-album="fauna-flora">
-                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
+                <button class="galeria-abrir-album" type="button" data-album="eventos">
                     Abrir álbum
+                    <span class="material-symbols-outlined" aria-hidden="true">image</span>
                 </button>
             </div>
 
@@ -222,6 +228,66 @@
                     <div class="galeria-imagem galeria-imagem-3"></div>
                     <div class="galeria-imagem galeria-imagem-4"></div>
                 </div>
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO 6: VÍDEOS -->
+        <section class="galeria-secao galeria-secao-videos" data-categoria="videos">
+
+            <div class="galeria-secao-cabecalho">
+                <div class="galeria-secao-texto">
+                    <h2>Vídeos</h2>
+                    <p>Conheça o Mangue Vivo por meio de vídeos, experiências e tours virtuais.</p>
+                </div>
+
+                <a href="LINK_DO_CANAL_NO_YOUTUBE" class="galeria-abrir-album" target="_blank"
+                    rel="noopener noreferrer">
+
+                    Ver canal no YouTube
+
+                    <span class="material-symbols-outlined" aria-hidden="true">
+                        smart_display
+                    </span>
+
+                </a>
+            </div>
+
+            <div class="galeria-videos">
+
+                <!-- VÍDEO 1: ocupa dois espaços -->
+                <a href="LINK_DO_VIDEO_1" class="galeria-video-card galeria-video-card-destaque" target="_blank"
+                    rel="noopener noreferrer">
+
+                    <div class="galeria-video-miniatura">
+                        <img src="../assets/images/galeria/videos/conheca-os-manguezais.avif"
+                            alt="Miniatura do vídeo Conheça os manguezais">
+
+                        <span class="galeria-video-play material-symbols-outlined" aria-hidden="true">
+                            play_circle
+                        </span>
+                    </div>
+
+                    <h3>Conheça os manguezais</h3>
+
+                </a>
+
+                <!-- VÍDEO 2: ocupa o último espaço -->
+                <a href="LINK_DO_VIDEO_2" class="galeria-video-card" target="_blank" rel="noopener noreferrer">
+
+                    <div class="galeria-video-miniatura">
+                        <img src="../assets/images/galeria/videos/conheca-o-projeto.avif"
+                            alt="Miniatura do vídeo Conheça o projeto Mangue Vivo">
+
+                        <span class="galeria-video-play material-symbols-outlined" aria-hidden="true">
+                            play_circle
+                        </span>
+                    </div>
+
+                    <h3>Conheça o projeto Mangue Vivo</h3>
+
+                </a>
+
             </div>
 
         </section>
@@ -252,7 +318,8 @@
             </p>
 
             <div class="galeria-participacao-acao">
-                <a href="../pages/eventos.html" class="galeria-participacao-btn" target="_blank" rel="noopener noreferrer">
+                <a href="../pages/eventos.html" class="galeria-participacao-btn" target="_blank"
+                    rel="noopener noreferrer">
 
                     Quero participar
 

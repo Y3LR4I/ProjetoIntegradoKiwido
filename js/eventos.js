@@ -181,13 +181,45 @@ document.addEventListener('DOMContentLoaded', async () => {
         // RENDERIZAR CARDS DOS EVENTOS
         // =========================================
 
+
+        // =========================================
+        // RENDERIZAR CARDS DOS EVENTOS
+        // =========================================
+
         function renderizarEventos(status) {
 
-            // Filtra pelo status e remove o evento principal.
-            const eventosFiltrados = eventos.filter(evento => {
+            // Filtra os eventos pelo status e remove o evento em destaque.
+            let eventosFiltrados = eventos.filter(evento => {
                 return evento.status === status &&
                     evento.id !== dados.destaque;
             });
+
+            // Converte uma data no formato DD/MM/YYYY para um objeto Date.
+            function converterData(data) {
+                const [dia, mes, ano] = data.split('/').map(Number);
+
+                return new Date(ano, mes - 1, dia);
+            }
+
+            // Ordena os eventos conforme o status selecionado.
+            eventosFiltrados.sort((a, b) => {
+
+                const dataA = converterData(a.data);
+                const dataB = converterData(b.data);
+
+                // Próximos: do mais próximo para o mais distante.
+                if (status === 'proximo') {
+                    return dataA - dataB;
+                }
+
+                // Realizados: do mais recente para o mais antigo.
+                return dataB - dataA;
+            });
+
+            // Exibe somente os três eventos realizados mais recentes.
+            if (status === 'realizado') {
+                eventosFiltrados = eventosFiltrados.slice(0, 3);
+            }
 
             // Limpa os cards anteriores.
             gradeEventos.innerHTML = '';
@@ -210,94 +242,122 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 card.classList.add('evento-card');
 
+                // Apenas eventos próximos permitem inscrição pelo card.
+                if (status === 'proximo') {
+
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute(
+                        'aria-label',
+                        `Inscrever-se no evento ${evento.titulo}`
+                    );
+
+                    // Clique em qualquer área do card.
+                    card.addEventListener('click', () => {
+                        selecionarEvento(evento);
+                    });
+
+                    // Permite acessar a inscrição pelo teclado.
+                    card.addEventListener('keydown', (e) => {
+
+                        if (e.target !== card) return;
+
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            selecionarEvento(evento);
+                        }
+
+                    });
+
+                }
+
                 card.innerHTML = `
 
-                    <div class="evento-card-imagem">
+            <div class="evento-card-imagem">
 
-                        <img
-                            src="${evento.imagem}"
-                            alt="${evento.titulo}">
+                <img
+                    src="${evento.imagem}"
+                    alt="${evento.titulo}">
+
+            </div>
+
+            <div class="evento-card-conteudo">
+
+                <h3>${evento.titulo}</h3>
+
+                <p class="evento-card-descricao">
+                    ${evento.subtitulo}
+                </p>
+
+                <div class="evento-card-informacoes">
+
+                    <div class="evento-card-informacao">
+
+                        <span class="material-symbols-outlined">
+                            calendar_month
+                        </span>
+
+                        <span>${evento.data}</span>
 
                     </div>
 
-                    <div class="evento-card-conteudo">
+                    <div class="evento-card-informacao">
 
-                        <h3>${evento.titulo}</h3>
+                        <span class="material-symbols-outlined">
+                            schedule
+                        </span>
 
-                        <p class="evento-card-descricao">
-                            ${evento.subtitulo}
-                        </p>
+                        <span>${evento.horario}</span>
 
-                        <div class="evento-card-informacoes">
+                    </div>
 
-                            <div class="evento-card-informacao">
+                    <div class="evento-card-informacao">
 
-                                <span class="material-symbols-outlined">
-                                    calendar_month
-                                </span>
+                        <span class="material-symbols-outlined">
+                            location_on
+                        </span>
 
-                                <span>${evento.data}</span>
+                        <span>${evento.local}</span>
 
-                            </div>
+                    </div>
 
-                            <div class="evento-card-informacao">
+                    <div class="evento-card-informacao">
 
-                                <span class="material-symbols-outlined">
-                                    schedule
-                                </span>
+                        <span class="material-symbols-outlined">
+                            groups
+                        </span>
 
-                                <span>${evento.horario}</span>
+                        <span>${evento.vagas} vagas</span>
 
-                            </div>
+                    </div>
 
-                            <div class="evento-card-informacao">
+                </div>
 
-                                <span class="material-symbols-outlined">
-                                    location_on
-                                </span>
-
-                                <span>${evento.local}</span>
-
-                            </div>
-
-                            <div class="evento-card-informacao">
-
-                                <span class="material-symbols-outlined">
-                                    groups
-                                </span>
-
-                                <span>${evento.vagas} vagas</span>
-
-                            </div>
-
-                        </div>
-
-                        ${status === 'proximo'
+                ${status === 'proximo'
                         ? `
-                                    <button
-                                        type="button"
-                                        class="evento-card-botao"
-                                        data-evento-id="${evento.id}">
+                        <button
+                            type="button"
+                            class="evento-card-botao"
+                            data-evento-id="${evento.id}">
 
-                                        Inscrever-se
+                            Inscrever-se
 
-                                    </button>
-                                `
+                        </button>
+                    `
                         : `
-                                    <span class="evento-card-encerrado">
-                                        ENCERRADO
-                                    </span>
-                                `
+                        <span class="evento-card-encerrado">
+                            ENCERRADO
+                        </span>
+                    `
                     }
 
-                    </div>
+            </div>
 
-                `;
+        `;
 
                 gradeEventos.appendChild(card);
 
             });
-
 
             // =========================================
             // BOTÕES DE INSCRIÇÃO DOS CARDS
@@ -309,7 +369,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             botoesInscricao.forEach(botao => {
 
-                botao.addEventListener('click', () => {
+                botao.addEventListener('click', (e) => {
+
+                    e.stopPropagation();
 
                     const idEvento = botao.dataset.eventoId;
 
@@ -324,6 +386,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
         }
+
 
 
         // =========================================
