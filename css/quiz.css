@@ -1,3 +1,8 @@
+
+/* =========================
+   VARIÁVEIS E REGRAS GERAIS
+========================= */
+
 .quiz-container>.tela {
     width: 100%;
     box-sizing: border-box;
@@ -488,11 +493,9 @@ body {
     height: 65px;
     border-radius: 50%;
     flex-shrink: 0;
-    background: conic-gradient(
-        from 0deg,
-        var(--cor-secundaria) 0% var(--progresso),
-        #F6BDA3 var(--progresso) 100%
-    );
+    background: conic-gradient(from 0deg,
+            var(--cor-secundaria) 0% var(--progresso),
+            #F6BDA3 var(--progresso) 100%);
     font-size: 0;
     color: transparent;
 }
@@ -754,7 +757,9 @@ body {
 }
 
 @keyframes balancarInsignia {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: rotate(0deg);
     }
 
@@ -885,197 +890,611 @@ body {
 
 @media (max-width: 600px) {
     #tela-inicio {
-        min-height: auto;
-        padding: 35px 24px 55px;
+        min-height: 0;
+        padding: 24px 18px 28px;
+        justify-content: flex-start;
+        gap: 0;
+        background-color: var(--cor-fundo);
     }
 
     #tela-inicio::after {
         display: none;
     }
 
+    #tela-inicio::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 530px;
+        background-color: var(--cor-texto-card);
+        z-index: 0;
+        pointer-events: none;
+    }
+
     .inicio .apresentacao {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 15px;
+        gap: 0;
+        width: 100%;
+        position: relative;
+        z-index: 2;
     }
 
-    .apresentacao-texto {
-        width: 100%;
+    .inicio .apresentacao-texto {
+        display: contents;
     }
 
     .inicio .apresentacao .subtitulo {
-        font-size: 0.85rem;
+        order: 1;
+        margin: 0 0 5px;
+        font-size: 0.72rem;
+        line-height: 1.3;
     }
 
-    .apresentacao-texto h1 {
-        font-size: 2rem;
+    .inicio .apresentacao-texto h1 {
+        order: 2;
+        margin: 0;
+        font-size: clamp(1.8rem, 8vw, 2.25rem);
+        line-height: 1.1;
     }
 
     .inicio .apresentacao .instrucoes {
-        margin-top: 15px;
-        font-size: 1rem;
+        order: 3;
+        max-width: 100%;
+        margin: 10px 0 0;
+        font-size: 0.82rem;
+        line-height: 1.45;
     }
 
     .inicio .carrosel-animais {
-        margin: 15px 0;
+        order: 4;
+        position: relative;
+        width: clamp(190px, 58vw, 230px);
+        height: clamp(190px, 58vw, 230px);
+        margin: 14px auto 10px;
+        flex: 0 0 auto;
     }
 
     .inicio .mascara-animais {
-        width: 220px;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-width: 5px;
     }
 
-    .inicio .carrosel-animais .sombra {
-        width: 235px;
+    .inicio .fundo-carrossel,
+    .inicio .fundo-carrossel img {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 
-    .botoes-container {
+    .inicio .fundo-carrossel img {
+        object-fit: cover;
+    }
+
+    .inicio #imagem-animal {
+        width: 150%;
+        max-width: none;
+        height: auto;
+        right: -30%;
+        bottom: -10%;
+    }
+
+    .inicio .botoes-container {
+        order: 5;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
-        margin-top: 20px;
-    }
-
-    .botoes-container .btn {
-        width: 100%;
-        min-height: 44px;
-    }
-
-    .opcao-cronometro {
         justify-content: center;
-        margin: 20px auto;
+        gap: 7px;
+        width: 100%;
+        margin: 0;
     }
 
-    .opcao-cronometro label {
-        font-size: 0.95rem;
+    .inicio .botoes-container .btn {
+        width: 100%;
+        min-height: 40px;
+        padding: 9px 18px;
+        box-sizing: border-box;
+        border-radius: 22px;
+        font-size: 0.78rem;
     }
 
-    .container-cards {
+    .inicio .btn-principal {
+        background-color: var(--cor-secundaria);
+        color: var(--cor-texto-header);
+        border: 2px solid var(--cor-secundaria);
+    }
+
+    .inicio .btn-secundario {
+        background-color: transparent;
+        color: var(--cor-texto-header);
+        border: 1px solid var(--cor-texto-header);
+    }
+
+    .inicio .opcao-cronometro {
+        order: 6;
+        justify-content: flex-start;
+        margin: 12px 0 0;
+        min-height: 35px;
+    }
+
+    .inicio .opcao-cronometro label {
+        justify-content: flex-start;
+        font-size: 0.85rem;
+        color: var(--cor-texto-header);
+    }
+
+    .inicio .opcao-cronometro input {
+        width: 18px;
+        height: 18px;
+    }
+
+    .inicio .container-cards {
+        position: relative;
+        z-index: 2;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 12px;
-        margin: 15px auto 0;
+        justify-content: flex-start;
+        gap: 10px;
+        width: 100%;
+        margin: 26px auto 0;
     }
 
-    .cartao-informativo {
+    .inicio .cartao-informativo {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        align-items: center;
+        column-gap: 9px;
+        row-gap: 1px;
         width: 100%;
-        max-width: 300px;
-        flex: initial;
-        min-height: 85px;
+        max-width: 420px;
+        min-height: 68px;
+        padding: 10px 12px;
+        border-radius: 13px;
+        background-color: var(--cor-fundo);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
     }
+
+    .inicio .cartao-cabecalho {
+        display: contents;
+    }
+
+    .inicio .cartao-icone {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        align-self: center;
+        width: 34px;
+        height: 34px;
+    }
+
+    .inicio .cartao-icone img {
+        width: 19px;
+        height: 19px;
+    }
+
+    .inicio .cartao-cabecalho h2 {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+
+    .inicio .cartao-informativo p {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin: 1px 0 0;
+        font-size: 0.68rem;
+        line-height: 1.3;
+    }
+
+    .inicio .quiz-mangue-ondas {
+        transform: rotate(180deg);
+        position: absolute;
+        top: 520px;
+        bottom: auto;
+        left: 0;
+        width: 100%;
+        height: 55px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .inicio .quiz-mangue-ondas svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        transform: scaleY(-1);
+    }
+
+    .inicio .quiz-mangue-ondas svg path {
+        fill: var(--cor-texto-card) !important;
+    }
+
+    /* tela principal do quiz */
 
     .quiz-container>.tela-jogo {
-        padding: 25px 10px;
+        flex: 1 1 auto;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 8px 8px 52px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .area-jogo {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
     }
 
     .quadro-jogo {
-        width: 100%;
-        padding: 75px 16px 20px;
-        gap: 12px;
+        width: 88%;
+        max-width: 420px;
+        max-height: 100%;
+        min-height: 0;
+        padding: 10px 9px;
+        gap: clamp(4px, 0.8vh, 8px);
+        border: 2px solid var(--cor-principal);
+        border-radius: 16px;
+        justify-content: flex-start;
+        box-sizing: border-box;
     }
 
-    #tempo {
-        top: 14px;
-        right: 16px;
+    /* caixa de titulo e contador de rodada */
+
+    .cabecalho-pergunta {
+        position: static;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
     }
 
     .pergunta-titulo {
-        font-size: 0.95rem;
-        padding: 8px 12px;
+        transform: none;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 8px 7px;
+        border-radius: 11px;
+        font-size: 0.78rem;
+        line-height: 1.3;
+        text-align: center;
     }
 
     .round-atual {
-        font-size: 0.85rem;
+        transform: none;
+        align-self: flex-start;
+        padding: 6px 13px;
+        border-radius: 13px;
+        font-size: 0.75rem;
     }
 
-    .imagem-silhueta {
-        width: 220px;
-        height: 220px;
-    }
+    /* reloginho no canto do card */
 
-    .container-alternativas {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-    .alternativa {
-        min-height: 48px;
-        padding: 12px 8px;
-        font-size: 0.95rem;
+    #tempo {
+        top: 68px;
+        right: 13px;
+        width: 32px;
+        height: 32px;
     }
 
     .cronometro-pizza {
-        width: 55px;
-        height: 55px;
+        width: 32px;
+        height: 32px;
     }
 
+    /* silhueta e botoes de opcao */
+
+    .silhueta-container {
+        width: 100%;
+        margin-top: 0;
+        flex-shrink: 1;
+    }
+
+    .imagem-silhueta {
+        width: clamp(105px, 23svh, 165px);
+        height: clamp(105px, 23svh, 165px);
+        max-width: 100%;
+        border-width: 3px;
+    }
+
+    .credito-imagem {
+        align-self: stretch;
+        width: 100%;
+        margin: 0 0 3px;
+        font-size: 0.55rem;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .container-alternativas {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+        row-gap: 6px;
+        width: 100%;
+        padding-top: 8px;
+        border-top: 1px solid rgba(22, 56, 18, 0.15);
+    }
+
+    .alternativa {
+        width: 100%;
+        min-height: 36px;
+        padding: 7px 8px;
+        border-radius: 9px;
+        font-size: 0.68rem;
+        line-height: 1.3;
+    }
+
+    #btn-proximo {
+        align-self: center;
+        margin-top: 3px;
+        padding: 7px 16px;
+        font-size: 0.72rem;
+    }
+
+    /* onda de fundo no rodape */
+
+    .textura-inferior {
+        height: 42px;
+        z-index: 1;
+    }
+
+    .textura-inferior img {
+        object-fit: cover;
+        object-position: center bottom;
+    }
+
+    /* tela de resultado adaptada para dispositivos moveis */
+
     .quiz-container>.resultado {
-        min-height: 700px;
-        padding: 45px 16px 130px;
+        flex: 1 1 auto;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 20px 16px;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
     }
 
     .quadro-resultado {
         width: min(100%, 430px);
-        min-height: 500px;
-        padding: 44px 22px 30px;
+        min-height: 0;
+        padding: 32px 14px 18px;
+        gap: 0;
+        border-width: 2px;
+        border-radius: 16px;
+        justify-content: flex-start;
     }
 
+    /* topo do card de resultado */
+
+    .cabecalho-resultado {
+        position: static;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
+    }
+
+    .titulo-resultado {
+        transform: none;
+        width: 100%;
+        min-height: 0;
+        padding: 8px 7px;
+        border-radius: 11px;
+        box-sizing: border-box;
+        font-size: 0.85rem;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .pontuacao-etiqueta {
+        transform: none;
+        align-self: center;
+        min-width: 66px;
+        min-height: 36px;
+        padding: 7px 18px;
+        border-radius: 13px;
+        font-size: 1rem;
+    }
+
+    /* arte da medalha ganha */
+
     .medalha-resultado {
-        width: 150px;
-        height: 150px;
+        width: clamp(115px, 19svh, 145px);
+        height: clamp(115px, 19svh, 145px);
+        margin: 5px auto 8px;
+    }
+
+    .medalha-resultado svg {
+        width: 100%;
+        height: 100%;
     }
 
     .medalha-resultado img {
-        width: 95px;
-        height: 95px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
+    /* textos do placar */
+
     .insignia-resultado {
-        margin-bottom: 20px;
+        margin: 0 0 8px;
+        font-size: 0.85rem;
+        line-height: 1.35;
     }
 
     #texto-resultado {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        width: 100%;
+        margin: 8px 0 5px;
+        font-size: clamp(1.15rem, 5vw, 1.4rem);
+        line-height: 1.3;
+        text-align: center;
     }
 
+    #pontuacao-final {
+        width: 100%;
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    /* botoes para reiniciar ou sair */
+
     .botoes-resultado {
-        gap: 12px;
-        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        gap: 8px;
+        width: 100%;
+        margin-top: 14px;
     }
 
     .btn-resultado {
-        min-height: 44px;
-        padding: 10px;
-        font-size: 0.85rem;
+        width: 100%;
+        min-width: 0;
+        min-height: 40px;
+        padding: 8px 12px;
+        box-sizing: border-box;
+        border-radius: 22px;
+        font-size: 0.78rem;
     }
 
     .botoes-resultado button {
-        max-width: 300px;
+        width: 100%;
+        max-width: none;
         box-sizing: border-box;
     }
 }
 
 @media (max-width: 360px) {
-    .inicio .mascara-animais {
+    #tela-inicio {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    #tela-inicio::before {
+        height: 530px;
+    }
+
+    .inicio .apresentacao .subtitulo {
+        font-size: 0.68rem;
+    }
+
+    .inicio .apresentacao-texto h1 {
+        font-size: 1.8rem;
+    }
+
+    .inicio .apresentacao .instrucoes {
+        font-size: 0.78rem;
+    }
+
+    .inicio .carrosel-animais {
         width: 190px;
+        height: 190px;
+    }
+
+    .inicio .quiz-mangue-ondas {
+        top: 520px;
+        height: 55px;
+    }
+
+    .inicio .cartao-informativo {
+        padding: 9px 10px;
+    }
+
+    .inicio .cartao-cabecalho h2 {
+        font-size: 0.85rem;
+    }
+
+    .inicio .cartao-informativo p {
+        font-size: 0.64rem;
+    }
+
+    .quadro-jogo {
+        width: 92%;
+        padding-right: 8px;
+        padding-left: 8px;
     }
 
     .imagem-silhueta {
-        width: 180px;
-        height: 180px;
+        width: clamp(100px, 21svh, 145px);
+        height: clamp(100px, 21svh, 145px);
+    }
+
+    .alternativa {
+        min-height: 34px;
+        padding: 6px;
+        font-size: 0.65rem;
+    }
+
+    /* ajusta o resultado em celulares menores */
+
+    .quiz-container>.resultado {
+        padding: 14px 12px;
     }
 
     .quadro-resultado {
-        padding-right: 16px;
-        padding-left: 16px;
+        padding: 28px 12px 14px;
+    }
+
+    .medalha-resultado {
+        width: clamp(105px, 17svh, 125px);
+        height: clamp(105px, 17svh, 125px);
+        margin: 4px auto 6px;
+    }
+
+    .insignia-resultado {
+        margin-bottom: 5px;
+        font-size: 0.78rem;
+    }
+
+    #texto-resultado {
+        margin: 6px 0 4px;
+        font-size: 1.1rem;
+    }
+
+    #pontuacao-final {
+        font-size: 0.72rem;
     }
 
     .botoes-resultado {
-        gap: 8px;
+        gap: 7px;
+        margin-top: 10px;
     }
 
     .btn-resultado {
-        padding: 8px 7px;
-        font-size: 0.8rem;
+        min-height: 38px;
+        padding: 7px 10px;
+        font-size: 0.75rem;
     }
 }
 
@@ -1140,5 +1559,125 @@ body {
     .cartao-informativo:hover,
     .btn-resultado:hover {
         transform: none;
+    }
+}
+
+/* garante a visibilidade do botao do mostruario */
+
+#btn-bestiario {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+}
+
+@media (max-width: 600px) {
+    .inicio #btn-bestiario {
+        display: flex !important;
+        width: 100%;
+        min-height: 40px;
+        padding: 9px 18px;
+        box-sizing: border-box;
+        border: 1px solid var(--cor-texto-header);
+        border-radius: 22px;
+        background-color: transparent;
+        color: var(--cor-texto-header);
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .inicio #btn-bestiario:hover {
+        background-color: var(--cor-texto-header);
+        color: var(--cor-principal);
+    }
+}
+
+/* garante a visibilidade da opcao de cronometro */
+
+.opcao-cronometro {
+    display: flex !important;
+    position: relative;
+    z-index: 5;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100%;
+    min-height: 35px;
+    align-items: center;
+}
+
+.opcao-cronometro label {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--cor-texto-header);
+    cursor: pointer;
+}
+
+.opcao-cronometro input[type="checkbox"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: var(--cor-secundaria);
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .inicio .opcao-cronometro {
+        display: flex !important;
+        order: 6;
+        justify-content: flex-start;
+        width: 100%;
+        margin: 12px 0 0;
+        min-height: 35px;
+    }
+
+    .inicio .opcao-cronometro label {
+        display: flex !important;
+        justify-content: flex-start;
+        font-size: 0.85rem;
+        color: var(--cor-texto-header);
+    }
+
+    .inicio .opcao-cronometro input[type="checkbox"] {
+        display: inline-block !important;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* remove o espaco entre o cabecalho e o quiz em dispositivos moveis */
+
+@media (max-width: 600px) {
+    #header-container {
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #header-container > * {
+        margin-bottom: 0 !important;
+    }
+
+    .quiz-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        min-height: 0;
+    }
+
+    .quiz-container > #tela-inicio {
+        margin-top: 0 !important;
+        padding-top: 24px;
     }
 }

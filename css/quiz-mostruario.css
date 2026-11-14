@@ -109,9 +109,11 @@
 }
 
 .bestiario-pesquisa input {
+    display: block;
     width: 100%;
     height: 40px;
     padding: 0 15px 0 38px;
+    box-sizing: border-box;
     border: 1px solid var(--cor-borda-filtro-noticia);
     border-radius: 25px;
     background: transparent;
@@ -237,6 +239,7 @@
 .cartao-animal {
     width: 100%;
     min-height: 125px;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 145px minmax(0, 1fr) 38px;
     align-items: center;
@@ -294,7 +297,7 @@
     height: 40px !important;
     padding: 8px;
     box-sizing: border-box;
-    border: 1.5px solid var(--cor-borda-filtro-noticia);
+    border: 1.5px solid var(--cor-secundaria);
     border-radius: 50%;
     background: transparent;
     object-fit: contain;
@@ -304,7 +307,7 @@
 
 .cartao-animal:hover .cartao-animal-seta {
     transform: translateX(3px);
-    background-color: #E8F2E4;
+    background-color: #FFF0E9;
 }
 
 .nenhum-animal {
@@ -497,13 +500,14 @@
 
 .detalhes-ondas-inferior {
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     width: 100%;
     height: 130px;
     z-index: 1;
     pointer-events: none;
     line-height: 0;
+    overflow: hidden;
 }
 
 .detalhes-ondas-inferior svg {
@@ -516,7 +520,7 @@
 
 .textura-detalhes-inferior {
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     width: 100%;
     height: 100px;
@@ -606,13 +610,16 @@ input:disabled {
 @media (max-width: 750px) {
 
     .tela-bestiario {
-        height: 100vh;
-        min-height: 0;
-        padding: 30px 5% 30px;
+        height: auto;
+        min-height: 100vh;
+        padding: 30px 5% 35px;
+        overflow: visible;
     }
 
     .tela-detalhes-animal {
-        padding: 40px 5% 120px;
+        min-height: calc(100vh - 60px);
+        padding: 40px 5% 100px;
+        overflow: hidden;
     }
 
     .detalhes-ondas-superiores {
@@ -620,48 +627,84 @@ input:disabled {
     }
 
     .bestiario-container {
-        height: 100%;
+        height: auto;
         min-height: 0;
     }
 
     .bestiario-cabecalho {
         align-items: flex-start;
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .btn-voltar-inicio {
+        order: -1;
+        margin-bottom: 0;
+    }
+
+    .bestiario-apresentacao h1 {
+        font-size: clamp(27px, 7vw, 36px);
+        line-height: 1.15;
+    }
+
+    .bestiario-apresentacao p {
+        font-size: 14px;
     }
 
     .bestiario-pesquisa {
         width: 100%;
-        margin-bottom: 20px;
+        max-width: none;
+        margin: 0 0 18px;
+    }
+
+    .bestiario-pesquisa input {
+        height: 44px;
     }
 
     .bestiario-conteudo {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto minmax(0, 1fr);
-        gap: 15px;
+        display: flex;
+        flex-direction: column;
+        flex: none;
+        gap: 18px;
         min-height: 0;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .bestiario-categorias {
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 8px;
-        padding: 0 0 15px;
+        padding: 0 0 16px;
         border-right: none;
         border-bottom: 2px solid var(--cor-borda-filtro-noticia);
     }
 
     .categoria-animal {
-        width: auto;
-        min-width: 90px;
+        width: 100%;
+        min-width: 0;
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .categoria-animal:nth-child(-n+3) {
+        grid-column: span 2;
+    }
+
+    .categoria-animal:nth-child(n+4) {
+        grid-column: span 3;
     }
 
     .bestiario-lista-container {
-        height: 100%;
+        width: 100%;
+        height: auto;
         min-height: 0;
-        overflow-y: auto;
-        overflow-x: hidden;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .lista-animais {
+        gap: 14px;
     }
 
     .detalhes-container {
@@ -682,39 +725,196 @@ input:disabled {
 @media (max-width: 480px) {
 
     .cartao-animal {
-        grid-template-columns: 85px minmax(0, 1fr) 28px;
-        gap: 12px;
-        padding: 10px;
-        min-height: 105px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 80px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        align-items: center;
+        column-gap: 12px;
+        row-gap: 10px;
+        padding: 20px;
+        min-height: 0;
+        border-radius: 16px;
     }
 
     .cartao-animal>img:first-child {
-        width: 85px;
-        height: 85px;
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 80px;
+        height: 90px;
+        border-radius: 11px;
+    }
+
+    .cartao-animal-info {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        min-width: 0;
     }
 
     .cartao-animal-info h2 {
-        font-size: 14px;
-        margin-bottom: 7px;
+        margin: 0 0 5px;
+        font-size: 13px;
+        line-height: 1.2;
     }
 
     .cartao-animal-info p {
-        font-size: 10px;
-        -webkit-line-clamp: 2;
+        font-size: 9px;
+        line-height: 1.4;
+        -webkit-line-clamp: 3;
+    }
+
+    .cartao-animal-seta {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: end;
+        align-self: start;
+        width: 27px !important;
+        height: 27px !important;
+        padding: 5px;
+        margin-top: 3px;
+        border: 1.5px solid var(--cor-secundaria);
+        border-radius: 50%;
+        transform: none;
+    }
+
+    .cartao-animal:hover .cartao-animal-seta {
+        transform: translateX(3px);
+        background-color: #FFF0E9;
     }
 
     .categoria-animal {
         min-width: 0;
-        padding: 9px 13px;
+        padding: 9px 8px;
         font-size: 11px;
     }
 
+    /* tela de detalhes do animal */
+
+    .tela-detalhes-animal {
+        min-height: 0;
+        padding: 20px 5% 75px;
+        overflow: hidden;
+    }
+
+    .detalhes-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .btn-voltar-detalhes {
+        width: fit-content;
+        margin: 0 0 20px;
+        padding: 6px 12px;
+        gap: 7px;
+        font-size: 10px;
+    }
+
+    .detalhes-subtitulo {
+        margin-bottom: 6px;
+        font-size: 10px;
+    }
+
+    .detalhes-conteudo {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .detalhes-imagem-area {
+        width: 100%;
+    }
+
     .detalhes-imagem-container {
-        aspect-ratio: 1.1 / 1;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 1.18 / 1;
+        padding: 4px;
+        border-radius: 12px;
+    }
+
+    #imagem-detalhes-animal {
+        border-radius: 9px;
+    }
+
+    .btn-alternar-imagem {
+        top: 8px;
+        right: 8px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .btn-alternar-imagem img {
+        width: 19px;
+        height: 19px;
+    }
+
+    .credito-detalhes {
+        margin-top: 7px;
+        font-size: 8px;
+        line-height: 1.4;
+    }
+
+    .detalhes-informacoes {
+        width: 100%;
+        padding: 0;
+    }
+
+    .detalhes-informacoes h1 {
+        margin: 0 0 12px;
+        font-size: clamp(23px, 6vw, 30px);
+        line-height: 1.2;
+    }
+
+    .descricao-detalhes {
+        font-size: 11px;
+        line-height: 1.5;
     }
 
     .curiosidade-container {
-        padding: 13px;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 12px 10px;
+        border-radius: 12px;
+        transform: none;
+    }
+
+    .curiosidade-container:hover {
+        cursor: default;
+        transform: none;
+    }
+
+    .folha-curiosidades {
+        width: 24px;
+        height: 24px;
+    }
+
+    .curiosidade-container:hover .folha-curiosidades {
+        transform: none;
+    }
+
+    .curiosidade-container h2 {
+        margin-bottom: 4px;
+        font-size: 11px;
+    }
+
+    .curiosidade-container p {
+        font-size: 8px;
+        line-height: 1.4;
+    }
+
+    .detalhes-ondas-inferior {
+        height: 75px;
+    }
+
+    .textura-detalhes-inferior {
+        height: 65px;
+    }
+
+    .detalhes-ondas-inferior,
+    .textura-detalhes-inferior {
+        bottom: -2px;
     }
 }
 

@@ -66,7 +66,7 @@ body {
     color: var(--cor-texto);
 
     /* Compensa a altura do header fixo para evitar sobreposição do conteúdo */
-    padding-top: 120px;
+    padding-top: 90px;
 }
 
 /* Estilo padrão dos títulos de segundo nível */
@@ -623,6 +623,7 @@ h2 {
 ========================= */
 
 @media (max-width: 768px) {
+
 
     /* Reduz a altura do cabeçalho */
     .header {
