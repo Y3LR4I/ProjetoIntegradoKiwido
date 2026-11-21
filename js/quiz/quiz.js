@@ -164,6 +164,7 @@ const botoesCategorias = document.querySelectorAll(".categoria-animal");
 
 let statusListaAnimais = document.getElementById("status-lista-animais");
 
+// cria container dinamico para avisar leitores de tela sobre a quantidade de resultados encontrados
 if (!statusListaAnimais && listaAnimais) {
     statusListaAnimais = document.createElement("p");
     statusListaAnimais.id = "status-lista-animais";
@@ -178,6 +179,7 @@ if (!statusListaAnimais && listaAnimais) {
 const tituloBestiario = telaBestiario?.querySelector("h1");
 const tituloDetalhes = telaDetalhes?.querySelector("h1");
 
+// permite mover o foco do teclado para os titulos de secao ao abrir as telas
 if (tituloBestiario) {
     tituloBestiario.setAttribute("tabindex", "-1");
 }
@@ -280,6 +282,7 @@ async function trocarTela(telaAtual, proximaTela, aoMostrar = null) {
     proximaTela.classList.remove("entrando");
     transicaoEmAndamento = false;
 
+    // move o foco do leitor de tela/teclado para o titulo da nova tela exibida
     if (proximaTela === telaBestiario && tituloBestiario) {
         tituloBestiario.focus();
     }
@@ -370,6 +373,8 @@ function mostrarPergunta() {
     const animalCorreto = perguntasSelecionadas[indiceAtual];
 
     imagemSilhueta.src = animalCorreto.silhueta;
+
+    // define o texto alternativo descritivo da silhueta para leitores de tela
     imagemSilhueta.alt = animalCorreto.descricaoSilhueta;
 
     document.querySelector(".pergunta-titulo").textContent =
@@ -486,6 +491,8 @@ function revelarFotografia(animalCorreto) {
 
     animacaoSaida.onfinish = () => {
         imagemSilhueta.src = animalCorreto.fotografia;
+
+        // atualiza o alt informando que agora e a foto real do animal
         imagemSilhueta.alt = `Fotografia de ${animalCorreto.nome}`;
 
         imagemSilhueta.animate(
@@ -649,6 +656,7 @@ function abrirBestiario() {
     categoriaAtual = "Todas";
     pesquisaEspecies.value = "";
 
+    // atualiza o estado visual e o atributo aria-pressed das abas
     botoesCategorias.forEach(botao => {
         const selecionado = botao.dataset.categoria === "Todas";
 
@@ -681,6 +689,8 @@ function atualizarListaAnimais() {
         const cartao = document.createElement("div");
 
         cartao.className = "cartao-animal";
+
+        // transforma a div do card em elemento clicavel para tecnologias assistivas e teclado
         cartao.setAttribute("role", "button");
         cartao.setAttribute("tabindex", "0");
         cartao.setAttribute("aria-label", `Ver detalhes de ${animal.nome}`);
@@ -717,6 +727,7 @@ function atualizarListaAnimais() {
             abrirDetalhesAnimal(animal, cartao);
         });
 
+        // permite acionar o card usando as teclas Enter ou Espaco
         cartao.addEventListener("keydown", evento => {
             if (evento.key === "Enter" || evento.key === " ") {
                 evento.preventDefault();
@@ -732,6 +743,7 @@ function atualizarListaAnimais() {
 
     nenhumAnimal.hidden = filtrados.length > 0;
 
+    // atualiza dinamicamente a regiao acessivel informando a quantidade de resultados
     if (statusListaAnimais) {
         if (filtrados.length === 0) {
             statusListaAnimais.textContent =
@@ -780,6 +792,7 @@ function atualizarImagemDetalhes() {
 
     imagemDetalhes.src = imagemAtual;
 
+    // atualiza o alt acessivel indicando se e desenho ou foto
     imagemDetalhes.alt = mostrandoDesenho
         ? `Desenho de ${animalSelecionado.nome}`
         : `Fotografia de ${animalSelecionado.nome}`;
@@ -790,6 +803,7 @@ function atualizarBotaoAlternarImagem() {
         return;
     }
 
+    // atualiza aria-pressed e aria-label para informar o estado do botao de alternar imagem
     btnAlternarImagem.setAttribute(
         "aria-pressed",
         String(mostrandoDesenho)
@@ -811,6 +825,7 @@ async function voltarParaBestiario() {
 
     await trocarTela(telaDetalhes, telaBestiario);
 
+    // devolve o foco do teclado para o card que tinha sido clicado anteriormente
     if (cartaoAnimalAnterior && cartaoAnimalAnterior.isConnected) {
         cartaoAnimalAnterior.focus();
     } else if (tituloBestiario) {
@@ -864,6 +879,7 @@ pesquisaEspecies.addEventListener("input", atualizarListaAnimais);
 
 // filtro dos botoes de categoria
 botoesCategorias.forEach(botao => {
+    // sincroniza o aria-pressed inicial das categorias
     botao.setAttribute(
         "aria-pressed",
         String(botao.dataset.categoria === categoriaAtual)

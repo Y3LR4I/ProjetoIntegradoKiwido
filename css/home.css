@@ -32,13 +32,9 @@
     inset: 0;
     width: 100%;
     height: 100%;
-
     opacity: 0;
     visibility: hidden;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
+    transition: opacity 1s ease, visibility 1s ease;
 }
 
 .hero-slide.active {
@@ -60,9 +56,7 @@
     position: absolute;
     inset: 0 0 14% 0;
     z-index: 1;
-
     background-color: rgba(0, 0, 0, 0.12);
-
     pointer-events: none;
 }
 
@@ -78,10 +72,8 @@
     position: absolute;
     top: 0;
     left: 0;
-
     width: 62%;
     height: 100%;
-
     fill: var(--cor-fundo);
     pointer-events: none;
 }
@@ -122,7 +114,6 @@
 
 .hero-texto h1 {
     margin: 0 0 20px;
-
     font-family: "Righteous";
     font-size: 46px;
     line-height: 1.15;
@@ -133,10 +124,8 @@
 .hero-texto p {
     margin: 0 0 30px;
     padding-top: 10px;
-    color: var(--cor-texto);
     font-size: 22px;
     line-height: 1.6;
-
     max-width: 350px;
     color: var(--cor-texto);
 }
@@ -147,22 +136,15 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-
     padding: 10px 18px;
-
     border: 1px solid var(--cor-secundaria);
     border-radius: 30px;
-
     background-color: var(--cor-fundo);
     color: var(--cor-secundaria);
-
     font-size: 16px;
     text-decoration: none;
     font-weight: 700;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .hero-botao:hover {
@@ -203,13 +185,11 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 50px;
-
     width: 100%;
     height: 560px;
     max-width: var(--largura-conteudo);
     margin: 0 auto;
     padding: 40px;
-
     background-color: var(--cor-fundo);
     border-radius: 18px;
     box-shadow: -8px 10px 22px rgba(0, 0, 0, 0.10);
@@ -360,26 +340,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 66px;
     height: 66px;
     padding: 0;
-
     color: var(--cor-principal);
     background-color: var(--cor-fundo);
     border: 8px solid var(--cor-principal);
     border-radius: 50%;
-
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
-
     transform: translate(-50%, -50%);
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* Destaca o ano somente enquanto o mouse está sobre ele. */
@@ -396,43 +368,35 @@
     outline-offset: 5px;
 }
 
+/* Etiqueta do ano dentro do card fica oculta no desktop */
+.historia-card-ano {
+    display: none;
+}
+
 /* Cartões com informações de cada marco histórico. */
 .historia-card {
     position: absolute;
     left: 50%;
     z-index: 2;
-
     width: calc(100% - 12px);
     max-width: 240px;
     min-height: 0;
     padding: 22px;
-
     background-color: var(--cor-card-noticia);
     border: 2px solid var(--cor-principal);
     border-radius: 14px;
     box-shadow: 0 5px 14px rgba(22, 56, 18, 0.12);
-
     transform: translateX(-50%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-/* Exibe o cartão relacionado ao ano que está recebendo hover. */
-.historia-marco:has(.historia-ano:hover) .historia-card {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-/* Mantém a exibição do cartão durante a navegação pelo teclado. */
-.historia-marco:has(.historia-ano:focus-visible) .historia-card {
+/* Exibe o cartão relacionado ao ano que está recebendo hover ou foco pelo teclado. */
+.historia-marco:has(.historia-ano:hover) .historia-card,
+.historia-marco:has(.historia-ano:focus-visible) .historia-card,
+.historia-marco:focus-within .historia-card {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -528,7 +492,7 @@
 ========================= */
 
 .nosso-time {
-    padding-bottom: 60px
+    padding-bottom: 60px;
 }
 
 .nosso-time-container {
@@ -548,7 +512,6 @@
     color: var(--cor-principal);
     font-size: 48px;
     font-weight: 700;
-
 }
 
 .nosso-time-texto p {
@@ -627,7 +590,6 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -639,15 +601,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 42px;
     height: 42px;
     padding: 0;
-
     color: var(--cor-secundaria);
     background: transparent;
     border: none;
-
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -678,16 +637,11 @@
     width: 13px;
     height: 13px;
     padding: 0;
-
     border: none;
     border-radius: 10px;
-
     background-color: #B5B5B5;
     cursor: pointer;
-
-    transition:
-        width 0.25s ease,
-        background-color 0.25s ease;
+    transition: width 0.25s ease, background-color 0.25s ease;
 }
 
 /* Destaca o indicador do grupo atualmente visível. */
@@ -729,7 +683,6 @@
 .nossa-missao-container {
     max-width: var(--largura-conteudo);
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -739,7 +692,6 @@
 /* Área da imagem e do quadrado decorativo deslocado. */
 .nossa-missao-imagem {
     position: relative;
-
     width: 100%;
     height: 500px;
 }
@@ -747,32 +699,23 @@
 /* Imagem principal posicionada sobre o elemento decorativo. */
 .nossa-missao-imagem img {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     border-radius: 25px;
-
     z-index: 2;
 }
 
 /* Quadrado de fundo deslocado em relação à imagem principal. */
 .nossa-missao-imagem .imagem-quadrado {
     position: absolute;
-
     top: 15px;
     left: 15px;
-
     width: 100%;
     height: 100%;
-
     background-color: var(--cor-texto-card);
-
     z-index: 1;
 }
 
@@ -813,10 +756,8 @@
 .acoes-destaque {
     position: relative;
     isolation: isolate;
-
     width: 100%;
     min-height: 750px;
-
     background-color: #263D24;
 }
 
@@ -825,22 +766,18 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-
     width: 100%;
     height: 100%;
-
     background-image:
         linear-gradient(90deg,
             rgba(10, 25, 10, 0.78) 0%,
             rgba(10, 25, 10, 0.45) 45%,
             rgba(10, 25, 10, 0.12) 100%),
         url("../assets/images/home/home-trilha.png");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 
 /* Conteúdo centralizado e respeitando as margens do site. */
 .acoes-destaque-conteudo {
@@ -898,47 +835,35 @@
     }
 }
 
-/* Card de açõe desenvolvidas */
+/* Card de ações desenvolvidas */
 .acoes-destaque .acao-card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     width: 400px;
     min-height: 500px;
     padding: 35px;
-
     background-color: var(--cor-fundo);
-
     border: 3px solid rgba(44, 96, 42, 0.2);
     border-radius: 20px;
-
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
 
 /* Ícone ilustrativo do card. */
 .acoes-destaque .acao-card>img {
     display: block;
-
     width: 85px;
     height: 85px;
     margin-bottom: 25px;
-
     object-fit: contain;
 }
 
 /* Título do card. */
 .acoes-destaque .acao-card h3 {
     margin: 0 0 15px;
-
     color: var(--cor-secundaria);
-
     font-size: 48px;
     font-weight: 700;
     line-height: 1.2;
@@ -948,21 +873,17 @@
 .acoes-destaque .acao-card p {
     margin: 0;
     padding-top: 10px;
-
     color: var(--cor-texto);
-
     font-size: 22px;
     line-height: 1.6;
 }
 
-/* Indicardores do carrossel */
-
+/* Indicadores do carrossel */
 .acoes-destaque-indicadores {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
-
     width: 100%;
     margin-top: 25px;
 }
@@ -972,17 +893,11 @@
     width: 12px;
     height: 12px;
     padding: 0;
-
     background-color: rgba(255, 255, 255, 0.5);
-
     border: none;
     border-radius: 50%;
-
     cursor: pointer;
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Destaca o indicador do slide atualmente exibido. */
@@ -1006,28 +921,20 @@
     right: var(--margem-lateral);
     bottom: 150px;
     z-index: 3;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-
     padding: 14px 24px;
     box-sizing: border-box;
-
     color: var(--cor-texto-card);
     background-color: var(--cor-fundo);
     border: 2px solid var(--cor-texto-card);
     border-radius: 30px;
-
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .acoes-destaque-botao .material-symbols-outlined {
@@ -1037,7 +944,6 @@
 .acoes-destaque-botao:hover {
     color: var(--cor-fundo);
     background-color: var(--cor-texto-card);
-
     transform: translateY(-3px);
 }
 
@@ -1053,37 +959,8 @@
     bottom: -1px;
     left: 0;
     z-index: 2;
-
-    width: 100%;
-    height: 120px;
-
-    overflow: hidden;
-    line-height: 0;
-
-    pointer-events: none;
-}
-
-.acoes-destaque-ondas svg {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-}
-
-/* =========================
-   ONDAS INFERIORES
-========================= */
-
-.acoes-destaque-ondas {
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    left: 0;
-
-    z-index: 2;
     width: 100%;
     height: 100px;
-
     overflow: hidden;
     line-height: 0;
     pointer-events: none;
@@ -1098,7 +975,8 @@
 /* =========================
    CONTEÚDOS
 ========================= */
-/* Bloco de contato */
+
+/* Bloco de âncora */
 #conteudos {
     scroll-margin-top: 100px;
 }
@@ -1114,7 +992,6 @@
 .conteudos-home-container {
     position: relative;
     z-index: 1;
-
     width: 100%;
     max-width: var(--largura-conteudo);
     margin: 0 auto;
@@ -1137,7 +1014,6 @@
 .conteudos-home-texto p {
     max-width: 750px;
     margin: 0 auto;
-
     color: var(--cor-texto);
     font-size: 22px;
     line-height: 1.6;
@@ -1153,39 +1029,27 @@
 /* Card que direciona para uma área específica de conteúdo. */
 .conteudos-home-card {
     position: relative;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     width: 400px;
     min-height: 500px;
     padding: 35px;
-
     color: inherit;
     background-color: var(--cor-fundo);
-
     border: 3px solid rgba(44, 96, 42, 0.2);
     border-radius: 20px;
-
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
-
     text-decoration: none;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 /* Imagem ou ícone ilustrativo do card. */
 .conteudos-home-card>img {
     display: block;
-
     width: 100px;
     height: 100px;
     margin-bottom: 25px;
-
     object-fit: contain;
 }
 
@@ -1199,7 +1063,6 @@
 /* Estilo para ícones de fonte, caso sejam utilizados nos cards. */
 .conteudos-home-icone {
     margin-bottom: 25px;
-
     color: var(--cor-secundaria);
     font-size: 65px;
 }
@@ -1210,7 +1073,6 @@
     display: flex;
     align-items: center;
     height: 120px;
-
     color: var(--cor-secundaria);
     font-size: 48px;
     font-weight: 700;
@@ -1231,10 +1093,8 @@
     position: absolute;
     right: 25px;
     bottom: 22px;
-
     color: var(--cor-secundaria);
     font-size: 34px;
-
     transition: transform 0.3s ease;
 }
 
@@ -1254,12 +1114,9 @@
     right: 0;
     bottom: -1px;
     left: 0;
-
     z-index: 2;
-
     width: 100%;
     height: 120px;
-
     overflow: hidden;
     line-height: 0;
     pointer-events: none;
@@ -1288,7 +1145,6 @@
 }
 
 /* TÍTULO PRINCIPAL */
-
 .contato-titulo {
     margin-bottom: 45px;
 }
@@ -1301,7 +1157,6 @@
 }
 
 /* ORGANIZAÇÃO DAS DUAS COLUNAS */
-
 .contato-conteudo {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1310,7 +1165,6 @@
 }
 
 /* COLUNA ESQUERDA */
-
 .contato-informacoes {
     display: flex;
     flex-direction: column;
@@ -1324,17 +1178,14 @@
 }
 
 /* TÍTULOS DOS BLOCOS */
-
 .contato-subtitulo {
     width: 320px;
     padding: 12px 24px;
     border-radius: 25px;
     text-align: center;
-
     color: var(--cor-fundo);
     font-size: 24px;
     font-weight: 600;
-
     margin: 0;
 }
 
@@ -1347,7 +1198,6 @@
 }
 
 /* ENDEREÇO */
-
 .contato-endereco {
     color: var(--cor-texto);
     font-size: 20px;
@@ -1356,7 +1206,6 @@
 }
 
 /* REDES SOCIAIS */
-
 .contato-redes {
     display: flex;
     flex-direction: column;
@@ -1367,11 +1216,9 @@
     display: flex;
     align-items: center;
     gap: 15px;
-
     color: var(--cor-texto);
     font-size: 20px;
     text-decoration: none;
-
     width: fit-content;
 }
 
@@ -1386,7 +1233,6 @@
 }
 
 /* COLUNA DIREITA — FORMULÁRIO */
-
 .contato-formulario-container {
     display: flex;
     flex-direction: column;
@@ -1415,16 +1261,12 @@
 .contato-campo textarea {
     width: 100%;
     padding: 14px 16px;
-
     border: 2px solid var(--cor-borda-filtro-noticia);
     border-radius: 30px;
-
     background-color: #FFFFFF;
     color: var(--cor-texto);
-
     font-family: inherit;
     font-size: 18px;
-
     outline: none;
 }
 
@@ -1448,36 +1290,30 @@
 }
 
 /* CAPTCHA */
-
 .contato-captcha {
     min-height: 78px;
     display: flex;
     align-items: center;
 }
 
-/* MASCARA DO CAMPO HONEYPOT */
+/* MÁSCARA DO CAMPO HONEYPOT */
 .campo-honeypot {
     position: absolute;
     left: -9999px;
 }
 
 /* BOTÃO ENVIAR */
-
 .contato-botao {
     width: fit-content;
     min-width: 150px;
     padding: 13px 30px;
-
     border: none;
     border-radius: 8px;
-
     background-color: var(--cor-secundaria);
     color: var(--cor-fundo);
-
     font-family: inherit;
     font-size: 17px;
     font-weight: 600;
-
     cursor: pointer;
     transition: 0.3s;
 }
@@ -1487,7 +1323,6 @@
 }
 
 /* MENSAGENS DE RETORNO DO FORMULÁRIO */
-
 .contato-feedback {
     display: none;
     padding: 14px 18px;
@@ -1513,35 +1348,28 @@
 /* ==============================
    SEÇÃO NOSSOS JOGOS
 ================================= */
+
 #jogos {
     scroll-margin-top: 100px;
 }
 
 .jogos-destaque {
     position: relative;
-
     background-color: var(--cor-texto-card);
-
     padding: 70px var(--margem-lateral) 190px;
 }
 
 /* Card principal */
-
 .jogos-container {
     width: 100%;
     max-width: var(--largura-conteudo);
-
     margin: 0 auto;
-
     padding: 55px 50px 65px;
-
     background-color: var(--cor-fundo);
-
     border-radius: 20px;
 }
 
 /* Cabeçalho */
-
 .jogos-cabecalho {
     text-align: center;
     margin-bottom: 45px;
@@ -1549,20 +1377,16 @@
 
 .jogos-cabecalho h2 {
     color: var(--cor-principal);
-
     text-align: center;
     font-size: 48px;
     font-weight: 700;
-
     margin-bottom: 12px;
 }
 
 .jogos-cabecalho p {
     color: var(--cor-principal);
-
     font-size: 22px;
     line-height: 1.6;
-
     margin: 0;
 }
 
@@ -1571,31 +1395,22 @@
 }
 
 /* Lista de cards */
-
 .jogos-lista {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
     gap: 30px;
 }
 
 /* Card individual */
-
 .jogo-card {
     position: relative;
     display: block;
-
     padding: 25px;
-
     background-color: var(--cor-fundo);
-
     border-radius: 25px;
-
     border: 4px solid var(--cor-borda-filtro-noticia);
-
     text-decoration: none;
     color: inherit;
-
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1606,36 +1421,27 @@
 }
 
 /* Cabeçalho do card */
-
 .jogo-card-cabecalho {
     position: relative;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 20px;
 }
 
 .jogo-card-cabecalho h3 {
     color: var(--cor-principal);
-
     font-size: 23px;
     font-weight: 700;
-
     text-align: center;
-
     margin: 0;
 }
 
 /* Botão de informação */
-
 .jogo-info {
     position: absolute;
-
     right: 0;
     top: 50%;
-
     transform: translateY(-50%);
 }
 
@@ -1643,120 +1449,84 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 27px;
     height: 27px;
-
     border: 1.5px solid var(--cor-secundaria);
     border-radius: 50%;
-
     background-color: transparent;
     color: var(--cor-secundaria);
-
     font-size: 16px;
     font-weight: 700;
-
     cursor: help;
 }
 
 /* Caixa de informação */
-
 .jogo-tooltip {
     position: absolute;
-
     z-index: 5;
-
     top: 35px;
     right: 0;
-
     width: 230px;
-
     padding: 12px 14px;
-
     background-color: var(--cor-principal);
     color: white;
-
     font-size: 13px;
     line-height: 1.5;
-
     border-radius: 8px;
-
     opacity: 0;
     visibility: hidden;
-
     transform: translateY(-5px);
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease,
-        visibility 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 
 /* Exibe a informação ao passar o mouse ou focar */
-
 .jogo-info:hover .jogo-tooltip,
 .jogo-info:focus-within .jogo-tooltip {
     opacity: 1;
     visibility: visible;
-
     transform: translateY(0);
 }
 
 /* Imagem */
-
 .jogo-imagem {
     display: block;
-
     width: 100%;
     height: 230px;
-
     object-fit: cover;
-
     border-radius: 25px;
 }
 
 /* Categorias */
-
 .jogo-categorias {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
     gap: 10px;
-
     margin-top: 20px;
 }
 
 .jogo-categorias span {
     padding: 7px 14px;
-
     background-color: var(--cor-fundo);
     color: var(--cor-principal);
-
     border: 1px solid var(--cor-principal);
     border-radius: 20px;
-
     font-size: 13px;
     font-weight: 600;
 }
 
 /* Onda inferior */
-
 .jogos-ondas {
     position: absolute;
-
     bottom: 0;
     left: 0;
-
     width: 100%;
     height: 120px;
-
     line-height: 0;
 }
 
 .jogos-ondas svg {
     display: block;
-
     width: 100%;
     height: 100%;
     background-color: var(--cor-fundo);
@@ -1765,13 +1535,13 @@
 /* ==============================
    PERGUNTAS FREQUENTES
 ================================= */
+
 #FAQ {
     scroll-margin-top: 100px;
 }
 
 .faq-destaque {
     background-color: var(--cor-fundo);
-
     padding: 80px var(--margem-lateral);
     padding-bottom: 40px;
 }
@@ -1779,100 +1549,76 @@
 .faq-container {
     width: 100%;
     max-width: var(--largura-conteudo);
-
     margin: 0 auto;
 }
 
 /* Título */
-
 .faq-container>h2 {
     color: var(--cor-principal);
-
     font-size: 48px;
     font-weight: 700;
-
     margin-bottom: 35px;
 }
 
 /* Lista de perguntas */
-
 .faq-lista {
     width: 100%;
 }
 
 /* Cada pergunta */
-
 .faq-item {
     border-bottom: 1px solid var(--cor-texto-card);
 }
 
 /* Área clicável */
-
 .faq-item summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 20px;
-
     padding: 22px 10px;
-
     color: var(--cor-principal);
-
     font-size: 22px;
     font-weight: 600;
-
     cursor: pointer;
     list-style: none;
 }
 
 /* Remove a seta padrão */
-
 .faq-item summary::-webkit-details-marker {
     display: none;
 }
 
 /* Seta personalizada */
-
 .faq-seta {
     flex-shrink: 0;
-
     width: 11px;
     height: 11px;
-
     border-right: 2px solid var(--cor-principal);
     border-bottom: 2px solid var(--cor-principal);
-
     transform: rotate(45deg);
-
     transition: transform 0.25s ease;
 }
 
 /* Seta quando aberto */
-
 .faq-item[open] .faq-seta {
     transform: rotate(225deg);
 }
 
 /* Respostas */
-
 .faq-resposta {
     padding: 0 40px 20px 10px;
-
     animation: faq-aparecer 0.25s ease;
 }
 
 .faq-resposta p {
     color: var(--cor-principal);
-
     font-size: 18px;
     line-height: 1.7;
-
     margin: 0;
 }
 
 /* Animação de abertura */
-
 @keyframes faq-aparecer {
     from {
         opacity: 0;
@@ -1896,28 +1642,22 @@
 
 .faq-contato h3 {
     color: var(--cor-principal);
-
     font-size: 22px;
     font-weight: 700;
-
     margin-bottom: 12px;
 }
 
 .faq-contato p {
     color: var(--cor-principal);
-
     font-size: 18px;
     line-height: 1.7;
-
     margin: 0;
 }
 
 .faq-contato a {
     color: var(--cor-secundaria);
-
     font-weight: 700;
     text-decoration: none;
-
     transition: opacity 0.2s ease;
 }
 
@@ -1928,15 +1668,13 @@
 /* =========================
    RESPONSIVIDADE
 ========================= */
+
 @media (max-width: 1024px) {
     .hero-texto h1 {
         font-size: 38px;
     }
 
-    .quem-somos-texto p {
-        font-size: 16px;
-    }
-
+    .quem-somos-texto p,
     .nossa-missao-texto p {
         font-size: 16px;
     }
@@ -1958,8 +1696,7 @@
         height: 100px;
     }
 
-    /*Seção conteúdos*/
-
+    /* Seção conteúdos */
     .conteudos-home-card {
         width: 100%;
         min-width: 0;
@@ -1996,33 +1733,6 @@
 
 /* Ajustes para tablets e telas intermediárias. */
 @media (max-width: 900px) {
-    .nossa-historia {
-        padding-top: 55px;
-        padding-bottom: 55px;
-    }
-
-    /* Mantém os cinco marcos em uma linha com rolagem horizontal. */
-    .historia-linha-do-tempo {
-        grid-template-columns: repeat(5, minmax(150px, 1fr));
-        min-width: 810px;
-    }
-
-    .historia-container {
-        min-width: 0;
-    }
-
-    .historia-linha-do-tempo {
-        min-height: 440px;
-    }
-
-    .historia-marco {
-        min-height: 440px;
-    }
-
-    .historia-card {
-        width: calc(100% - 16px);
-        padding: 14px;
-    }
 
     /* Ajustes do carrossel de ações para telas de tablet. */
     .acoes-destaque,
@@ -2058,7 +1768,6 @@
     }
 
     /* CONTATO */
-
     .contato-conteudo {
         grid-template-columns: 1fr;
         gap: 45px;
@@ -2069,121 +1778,473 @@
     }
 }
 
-/* Em celulares, a linha do tempo passa a ter disposição vertical. */
-@media (max-width: 600px) {
-    .nossa-historia {
-        padding: 50px 20px;
+/* =========================
+   RESPONSIVIDADE — CELULARES E TABLETS (Até 768px)
+========================= */
+
+/* Oculta o card compartilhado fora do breakpoint mobile */
+.historia-card-compartilhado {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* SEÇÃO HERO */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        overflow: hidden;
     }
 
-    .historia-titulo {
-        font-size: 30px;
+    /* Apresentação textual na parte superior. */
+    .hero-conteudo {
+        position: relative;
+        inset: auto;
+        order: 1;
+        width: 100%;
+        height: auto;
+        padding: 38px 24px 65px;
+        box-sizing: border-box;
+        background-color: var(--cor-fundo);
+        z-index: 2;
+        isolation: isolate;
     }
 
-    .historia-subtitulo {
-        margin-bottom: 35px;
+    /* Esconde o painel orgânico do desktop. */
+    .hero-painel-desktop {
+        display: none;
+    }
+
+    /* Ajusta o contêiner e alinhamento do conteúdo textual. */
+    .hero-container {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-texto {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+        transform: none;
+    }
+
+    .hero-identificacao {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+
+    .hero-texto h1 {
+        max-width: 500px;
+        font-size: 32px;
+        line-height: 1.15;
+        margin-bottom: 12px;
+    }
+
+    .hero-texto p {
+        max-width: 460px;
+        margin: 0 0 20px;
+        padding-top: 0;
+        font-size: 16px;
+        line-height: 1.45;
+    }
+
+    .hero-botao {
+        margin: 0;
+        padding: 9px 16px;
         font-size: 14px;
     }
 
-    .historia-linha-do-tempo {
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        min-height: auto;
-        gap: 0;
-        padding: 0 0 0 8px;
+    .hero-botao .material-symbols-outlined {
+        font-size: 20px;
     }
 
-    /* Linha vertical que conecta os anos na versão mobile. */
-    .historia-linha-do-tempo::before {
-        top: 0;
-        bottom: 0;
-        left: 31px;
-        right: auto;
-        width: 8px;
+    /* Onda horizontal entre o texto e o carrossel. */
+    .hero-ondas {
+        display: block;
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        height: 40px;
+        fill: var(--cor-fundo);
+        pointer-events: none;
+    }
+
+    /* Carrossel abaixo do conteúdo textual. */
+    .hero-carousel {
+        position: relative;
+        order: 2;
+        z-index: 1;
+        width: 100%;
+        height: 280px;
+    }
+
+    .hero-overlay {
+        display: none;
+    }
+
+    /* SEÇÃO QUEM SOMOS */
+    .quem-somos {
+        padding: 38px 20px 45px;
+    }
+
+    .quem-somos-titulo {
+        margin-bottom: 22px;
+        font-size: 32px;
+    }
+
+    /* Organiza o conteúdo em uma única coluna. */
+    .quem-somos-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        width: 100%;
         height: auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border: 1px solid rgba(22, 56, 18, 0.16);
+        border-radius: 16px;
+        box-shadow: 0 4px 14px rgba(22, 56, 18, 0.08);
+    }
+
+    /* Texto ocupa toda a largura disponível. */
+    .quem-somos-texto {
+        width: 100%;
+    }
+
+    .quem-somos-texto p {
+        margin-bottom: 14px;
+        font-size: 14px;
+        line-height: 1.55;
+        text-align: left;
+    }
+
+    /* Imagens ficam abaixo dos textos e dentro do card. */
+    .quem-somos-imagens {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+        gap: 9px;
+        width: 100%;
+        height: 240px;
+        min-height: 240px;
+    }
+
+    .quem-somos-frame {
+        border-radius: 9px;
+    }
+
+    .quem-somos-imagens-secundarias {
+        gap: 9px;
+    }
+
+    /* SEÇÃO NOSSA HISTÓRIA (MOBILE) */
+    .historia-titulo {
+        font-size: 32px;
+    }
+
+    .historia-subtitulo {
+        font-size: 16px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .nossa-historia {
+        padding: 30px var(--margem-lateral);
+    }
+
+    .historia-container {
+        height: auto;
+    }
+
+    /* Grade vertical com marcadores na coluna esquerda e card compartilhado na direita. */
+    .historia-linha-do-tempo {
+        position: relative;
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr);
+        grid-template-rows: repeat(5, minmax(34px, 1fr));
+        column-gap: 15px;
+        row-gap: 14px;
+        width: 100%;
+        min-width: 0;
+        min-height: 260px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Linha vertical que conecta os marcadores de ano na versão mobile. */
+    .historia-linha-do-tempo::before {
+        content: "";
+        position: absolute;
+        top: 17px;
+        bottom: 17px;
+        left: 16px;
+        right: auto;
+        width: 4px;
+        height: auto;
+        background-color: var(--cor-principal);
         border-radius: 999px;
         transform: none;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .historia-ano {
+        position: relative;
+        z-index: 2;
     }
 
     .historia-marco,
     .historia-marco-superior,
     .historia-marco-inferior {
-        display: flex;
-        align-items: center;
-        min-height: 0;
-        padding: 15px 0;
+        display: contents;
     }
 
+    /* Oculta os balões individuais do desktop no layout mobile. */
+    .historia-marco>.historia-card {
+        display: none !important;
+    }
+
+    /* Botões circulares dos anos alinhados à linha vertical. */
     .historia-ano {
         position: relative;
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: center;
+        align-self: start;
+        flex: none;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        margin: 0;
+        padding: 0;
         top: auto;
+        right: auto;
+        bottom: auto;
         left: auto;
-        flex: 0 0 62px;
-        width: 62px;
-        height: 62px;
-        font-size: 12px;
-        transform: none;
+        transform: none !important;
+        background-color: var(--cor-fundo);
+        color: var(--cor-principal);
+        border: 4px solid var(--cor-principal);
+        border-radius: 50%;
+        font-size: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        z-index: 2;
     }
 
+    /* Destaca o marcador ativo ou focado. */
     .historia-ano:hover,
-    .historia-ano:focus-visible,
-    .historia-marco:focus-within .historia-ano {
-        transform: scale(1.1);
+    .historia-ano:focus,
+    .historia-marco.ativo .historia-ano {
+        background-color: var(--cor-fundo);
+        color: var(--cor-secundaria);
+        border-color: var(--cor-secundaria);
+        transform: none !important;
     }
 
-    /* Os cartões ficam ao lado dos anos na versão mobile. */
-    .historia-card,
-    .historia-marco-superior .historia-card,
-    .historia-marco-inferior .historia-card {
+    .historia-ano[aria-expanded="false"] {
+        background-color: #E1EEDC;
+        color: var(--cor-principal);
+        border-color: var(--cor-principal);
+    }
+
+    /* Card único que exibe o conteúdo do ano selecionado ao lado da linha do tempo. */
+    .historia-card-compartilhado {
+        display: block;
+        grid-column: 2;
+        grid-row: 1 / span 5;
+        align-self: stretch;
         position: relative;
-        top: auto;
-        bottom: auto;
-        left: auto;
-        flex: 1;
-        width: auto;
-        max-width: none;
-        margin-left: 18px;
-        padding: 16px;
-        transform: none;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        margin: 0;
+        padding: 18px;
+        box-sizing: border-box;
+        background-color: var(--cor-card-noticia, #FFFFFF);
+        color: var(--cor-texto-card);
+        border: 2px solid var(--cor-principal);
+        border-radius: 16px;
+        box-shadow: 0 4px 14px rgba(22, 56, 18, 0.12);
     }
 
-    /* Ajusta as pontas dos balões para apontarem para a linha vertical. */
-    .historia-marco-superior .historia-card::before,
-    .historia-marco-inferior .historia-card::before {
-        top: 22px;
-        bottom: auto;
-        left: -9px;
-        transform: none;
-        border-top: 9px solid transparent;
-        border-bottom: 9px solid transparent;
-        border-right: 9px solid var(--cor-secundaria);
-        border-left: 0;
+    .historia-card-compartilhado h3 {
+        font-size: 17px;
+        margin-bottom: 8px;
+        color: var(--cor-secundaria);
     }
 
-    .historia-marco-superior .historia-card::after,
-    .historia-marco-inferior .historia-card::after {
-        top: 23px;
-        bottom: auto;
-        left: -6px;
-        transform: none;
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
-        border-right: 8px solid #FFFFFF;
-        border-left: 0;
+    .historia-card-compartilhado p {
+        font-size: 17px;
+        margin-bottom: 8px;
+        color: #245C27;
     }
 
-    /* Ajustes do carrossel de ações para telas de celular. */
+    /* SEÇÃO NOSSO TIME (MOBILE) */
+    .nosso-time {
+        padding: 35px 20px 55px;
+    }
+
+    .nosso-time-container {
+        width: 100%;
+    }
+
+    .nosso-time-texto {
+        margin-bottom: 35px;
+    }
+
+    .nosso-time-texto h2 {
+        font-size: 36px;
+        margin-bottom: 12px;
+    }
+
+    .nosso-time-texto p {
+        font-size: 18px;
+        line-height: 1.6;
+        padding: 0 5px;
+    }
+
+    .time-carousel {
+        padding-bottom: 75px;
+    }
+
+    .time-slide {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .membro {
+        width: 100%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .membro img {
+        width: 100%;
+        max-width: 190px;
+        margin: 0 auto 12px;
+        border-width: 4px;
+    }
+
+    .membro h3 {
+        display: block;
+        width: 100%;
+        min-height: 0;
+        height: auto;
+        margin: 0 0 8px;
+        font-size: 16px;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    .membro p {
+        display: block;
+        width: 100%;
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    .time-carousel-controls {
+        bottom: 5px;
+        gap: 16px;
+    }
+
+    .time-carousel-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .time-carousel-button span {
+        font-size: 38px;
+    }
+
+    .time-carousel-indicators {
+        gap: 9px;
+    }
+
+    .time-indicator {
+        width: 12px;
+        height: 12px;
+    }
+
+    .time-indicator.active {
+        width: 38px;
+        height: 12px;
+    }
+
+    /* SEÇÃO JOGOS */
+    .jogos-container {
+        padding: 40px 25px 45px;
+    }
+
+    .jogos-cabecalho h2 {
+        font-size: 30px;
+    }
+
+    .jogos-cabecalho p {
+        font-size: 16px;
+    }
+
+    .jogos-lista {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .jogo-imagem {
+        height: 210px;
+    }
+
+    /* SEÇÃO FAQ */
+    .faq-destaque {
+        padding: 50px 25px;
+    }
+
+    .faq-container>h2 {
+        font-size: 30px;
+    }
+
+    .faq-item summary {
+        font-size: 16px;
+        padding: 20px 5px;
+    }
+
+    .faq-resposta p,
+    .faq-contato p {
+        font-size: 15px;
+    }
+
+    .faq-contato h3 {
+        font-size: 20px;
+    }
+}
+
+/* Ajustes do carrossel de ações para telas de celular (até 600px). */
+@media (max-width: 600px) {
+
     .acoes-destaque,
     .acoes-destaque-conteudo {
         min-height: 650px;
     }
 
-    .acoes-destaque-imagem {
-        background-position: center;
-    }
-
     /* Imagem e intensidade do gradiente ajustadas para telas menores. */
     .acoes-destaque-imagem {
+        background-position: center;
         background-image:
             linear-gradient(90deg,
                 rgba(10, 25, 10, 0.72),
@@ -2193,7 +2254,6 @@
 
     .acoes-destaque-conteudo {
         align-items: center;
-
         padding: 45px 24px 170px;
     }
 
@@ -2227,7 +2287,6 @@
     .acoes-destaque-botao {
         right: 24px;
         bottom: 125px;
-
         padding: 12px 18px;
         font-size: 15px;
     }
@@ -2237,284 +2296,68 @@
     }
 }
 
-/* =========================
-   RESPONSIVIDADE — PARA TABLETS
-========================= */
-
-@media (max-width: 768px) {
-
-    /* =========================
-   SEÇÃO HERO
-========================= */
-
-    .hero {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        overflow: hidden;
-    }
-
-    /* Apresentação textual na parte superior. */
+/* Ajustes finos para telas muito estreitas (até 420px). */
+@media (max-width: 420px) {
     .hero-conteudo {
-        position: relative;
-        inset: auto;
-        order: 1;
-        width: 100%;
-        height: auto;
-
-        padding: 55px var(--margem-lateral) 90px;
-
-        box-sizing: border-box;
-        background-color: var(--cor-fundo);
-        z-index: 2;
-        isolation: isolate;
-    }
-
-    /* Esconde o painel orgânico do desktop. */
-    .hero-painel-desktop {
-        display: none;
-    }
-
-    /* Centraliza o conteúdo textual. */
-    .hero-container {
-        position: relative;
-        inset: auto;
-
-        width: 100%;
-        height: auto;
-    }
-
-    .hero-texto {
-        position: relative;
-        top: auto;
-        left: auto;
-
-        width: 100%;
-        max-width: 600px;
-
-        margin: 0 auto;
-        text-align: center;
-
-        transform: none;
+        padding: 32px 20px 58px;
     }
 
     .hero-identificacao {
-        font-size: 19px;
-        margin-bottom: 14px;
+        font-size: 15px;
+        margin-bottom: 9px;
     }
 
     .hero-texto h1 {
-        font-size: 36px;
-        line-height: 1.2;
-        margin-bottom: 15px;
+        font-size: 29px;
+        line-height: 1.16;
+        margin-bottom: 10px;
     }
 
     .hero-texto p {
-        max-width: 500px;
-        margin: 0 auto 25px;
-        padding-top: 0;
-
-        font-size: 18px;
-        line-height: 1.5;
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 17px;
     }
 
     .hero-botao {
-        margin: 0 auto;
+        padding: 8px 14px;
+        font-size: 13px;
     }
 
-    /* Onda horizontal entre o texto e o carrossel. */
     .hero-ondas {
-        display: block;
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        z-index: 3;
-
-        width: 100%;
-        height: 75px;
-
-        fill: var(--cor-fundo);
-        pointer-events: none;
+        bottom: -25px;
+        height: 25px;
     }
 
-    /* Carrossel abaixo do conteúdo textual. */
     .hero-carousel {
-        position: relative;
-        order: 2;
-
-        width: 100%;
-        height: 350px;
+        height: 230px;
     }
 
-    .hero-overlay {
-        display: none;
-    }
-
-    /*SEÇÃO QUEM SOMOS?*/
     .quem-somos {
-        padding: 50px var(--margem-lateral);
+        padding: 32px 16px 40px;
     }
 
     .quem-somos-titulo {
-        margin-bottom: 30px;
-        font-size: 38px;
+        margin-bottom: 18px;
+        font-size: 29px;
     }
 
-    /* Organiza o conteúdo em uma única coluna. */
     .quem-somos-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-
-        width: 100%;
-        height: auto;
-        padding: 28px;
-    }
-
-    /* Texto ocupa toda a largura disponível. */
-    .quem-somos-texto {
-        width: 100%;
+        gap: 16px;
+        padding: 16px;
+        border-radius: 14px;
     }
 
     .quem-somos-texto p {
-        font-size: 16px;
-        line-height: 1.6;
-        text-align: left;
-    }
-
-    /* Imagens ficam abaixo dos textos e dentro do card. */
-    .quem-somos-imagens {
-        width: 100%;
-        height: 300px;
-        min-height: 300px;
-    }
-
-    /*SEÇÃO NOSSA HISTÓRIA*/
-    .historia-titulo {
-        font-size: 38px;
-    }
-
-    .historia-subtitulo {
-        font-size: 18px;
-    }
-
-    .nossa-historia {
-        padding: 30px var(--margem-lateral);
-    }
-
-    .historia-container {
-        height: auto;
-    }
-
-    .historia-linha-do-tempo {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    .historia-linha-do-tempo::before {
-        left: 0;
-        right: 0;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .historia-linha-do-tempo {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        min-height: 360px;
-    }
-
-    .historia-marco {
-        min-height: 360px;
-    }
-
-    .historia-ano {
-        width: 52px;
-        height: 52px;
-        border-width: 6px;
-        font-size: 11px;
-    }
-
-    .historia-ano:hover {
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-
-    .historia-card {
-        width: calc(100% - 8px);
-        padding: 12px;
-        box-sizing: border-box;
-    }
-
-    .historia-card h3 {
-        font-size: 15px;
-        margin-bottom: 8px;
-    }
-
-    .historia-card p {
         font-size: 13px;
         line-height: 1.5;
+        margin-bottom: 12px;
     }
 
-    .historia-marco-superior .historia-card {
-        bottom: calc(50% + 42px);
-    }
-
-    .historia-marco-inferior .historia-card {
-        top: calc(50% + 42px);
-    }
-
-    /*SEÇÃO JOGOS*/
-
-    .jogos-container {
-        padding: 40px 25px 45px;
-    }
-
-    .jogos-cabecalho h2 {
-        font-size: 30px;
-    }
-
-    .jogos-cabecalho p {
-        font-size: 16px;
-    }
-
-    .jogos-lista {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .jogo-imagem {
-        height: 210px;
-    }
-
-    /*SEÇÃO FAQ*/
-    .faq-destaque {
-        padding: 50px 25px;
-    }
-
-    .faq-container>h2 {
-        font-size: 30px;
-    }
-
-    .faq-item summary {
-        font-size: 16px;
-        padding: 20px 5px;
-    }
-
-    .faq-resposta p,
-    .faq-contato p {
-        font-size: 15px;
-    }
-
-    .faq-contato h3 {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 420px) {
     .quem-somos-imagens {
         grid-template-columns: 1fr 0.8fr;
-        height: 220px;
+        height: 210px;
+        min-height: 210px;
         gap: 8px;
     }
 
@@ -2524,6 +2367,38 @@
 
     .quem-somos-imagens img {
         border-radius: 8px;
+    }
+
+    .nosso-time {
+        padding: 30px 12px 45px;
+    }
+
+    .nosso-time-texto h2 {
+        font-size: 32px;
+    }
+
+    .nosso-time-texto p {
+        font-size: 16px;
+    }
+
+    .time-slide {
+        gap: 8px;
+    }
+
+    .membro img {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .membro h3 {
+        font-size: 14px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+    }
+
+    .membro p {
+        font-size: 12px;
+        line-height: 1.35;
     }
 
     .jogos-destaque {
@@ -2558,24 +2433,5 @@
 
     .faq-resposta {
         padding-right: 10px;
-    }
-
-
-
-}
-
-/* ========================================
-   ACESSIBILIDADE
-======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    .acoes-destaque-slide.active {
-        animation: none;
-    }
-
-    .acoes-destaque .acao-card,
-    .acoes-destaque-indicador,
-    .acoes-destaque-botao {
-        transition: none;
     }
 }

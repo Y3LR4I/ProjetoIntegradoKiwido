@@ -179,6 +179,7 @@
     </section>
 
     <!-- NOSSA HISTÓRIA: linha do tempo com os principais marcos anuais do projeto. -->
+
     <section class="nossa-historia" id="nossa-historia">
         <div class="historia-container">
 
@@ -187,7 +188,6 @@
                 Conheça os momentos que construíram a trajetória do Mangue Vivo.
             </p>
 
-            <!-- Cada artigo representa um ano e seu respectivo acontecimento. -->
             <div class="historia-linha-do-tempo">
 
                 <article class="historia-marco historia-marco-superior">
@@ -199,7 +199,8 @@
                         </p>
                     </div>
 
-                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2020">
+                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2020"
+                        aria-controls="historia-card-compartilhado" aria-expanded="true">
                         2020
                     </button>
                 </article>
@@ -213,7 +214,8 @@
                         </p>
                     </div>
 
-                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2021">
+                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2021"
+                        aria-controls="historia-card-compartilhado" aria-expanded="false">
                         2021
                     </button>
                 </article>
@@ -227,7 +229,8 @@
                         </p>
                     </div>
 
-                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2022">
+                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2022"
+                        aria-controls="historia-card-compartilhado" aria-expanded="false">
                         2022
                     </button>
                 </article>
@@ -241,7 +244,8 @@
                         </p>
                     </div>
 
-                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2023">
+                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2023"
+                        aria-controls="historia-card-compartilhado" aria-expanded="false">
                         2023
                     </button>
                 </article>
@@ -255,14 +259,25 @@
                         </p>
                     </div>
 
-                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2024">
+                    <button class="historia-ano" type="button" aria-label="Ver marco histórico de 2024"
+                        aria-controls="historia-card-compartilhado" aria-expanded="false">
                         2024
                     </button>
                 </article>
 
+                <div class="historia-card-compartilhado" id="historia-card-compartilhado">
+                    <span class="historia-card-data">2020</span>
+                    <h3>O começo de tudo</h3>
+                    <p>
+                        Conte aqui como surgiu o projeto Mangue Vivo
+                        e qual foi sua motivação inicial.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
+
 
     <!-- NOSSO TIME: carrossel que apresenta os integrantes do projeto. -->
     <section class="nosso-time">

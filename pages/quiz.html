@@ -119,13 +119,13 @@
 
             <!-- Elemento decorativo em formato de onda na parte inferior da tela. -->
             <div class="quiz-mangue-ondas" aria-hidden="true">
-                <svg viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path
-                        d="M0,100 C180,45 360,145 540,95 C720,45 900,40 1080,95 C1260,155 1350,75 1440,85 L1440,180 L0,180 Z"
-                        fill="var(--cor-fundo)" />
+                <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path d="M0,0 H1440 V45
+            C1260,65 1080,25 900,45
+            C720,65 540,75 360,48
+            C180,25 90,55 0,40 Z" fill="var(--cor-texto-card)" />
                 </svg>
             </div>
-
         </section>
 
         <!-- =========================
@@ -145,8 +145,8 @@
                     </div>
 
                     <!-- Cronômetro controlado pelo JavaScript, exibido quando ativado. -->
-                    <div id="tempo" class="cronometro cronometro-pizza"
-                        role="timer" aria-label="Tempo restante" hidden></div>
+                    <div id="tempo" class="cronometro cronometro-pizza" role="timer" aria-label="Tempo restante" hidden>
+                    </div>
 
                     <!-- Imagem da silhueta que o jogador deverá identificar. -->
                     <div class="silhueta-container">
@@ -187,8 +187,7 @@
         ========================== -->
 
         <!-- Exibe a pontuação e a insígnia conquistada ao final da partida. -->
-        <section id="tela-resultado" class="tela resultado"
-            aria-labelledby="titulo-resultado" hidden>
+        <section id="tela-resultado" class="tela resultado" aria-labelledby="titulo-resultado" hidden>
 
             <div class="quadro-resultado">
 
@@ -203,8 +202,7 @@
                 <!-- Imagem da insígnia definida de acordo com o desempenho do jogador. -->
                 <div class="medalha-resultado">
                     <img id="imagem-insignia" class="imagem-insignia"
-                        src="../assets/images/quiz/insignias/insignia-aprendiz.png"
-                        alt="Insígnia conquistada">
+                        src="../assets/images/quiz/insignias/insignia-aprendiz.png" alt="Insígnia conquistada">
                 </div>
 
                 <!-- Nome da insígnia conquistada, atualizado pelo quiz.js. -->
@@ -249,8 +247,7 @@
         ========================== -->
 
         <!-- Reúne as espécies cadastradas e permite pesquisar e filtrar os animais. -->
-        <section id="tela-bestiario" class="tela tela-bestiario"
-            aria-labelledby="titulo-bestiario" hidden>
+        <section id="tela-bestiario" class="tela tela-bestiario" aria-labelledby="titulo-bestiario" hidden>
 
             <div class="bestiario-container">
 
@@ -276,8 +273,7 @@
                     <label for="pesquisa-especies" class="texto-acessivel">
                         Buscar espécies pelo nome
                     </label>
-                    <input type="search" id="pesquisa-especies"
-                        placeholder="Buscar espécie..." autocomplete="off">
+                    <input type="search" id="pesquisa-especies" placeholder="Buscar espécie..." autocomplete="off">
                 </div>
 
                 <div class="bestiario-conteudo">
@@ -285,23 +281,19 @@
                     <!-- Botões para filtrar as espécies por categoria. -->
                     <nav class="bestiario-categorias" aria-label="Filtrar espécies por categoria">
 
-                        <button type="button" class="categoria-animal ativa"
-                            data-categoria="Todas" aria-pressed="true">
+                        <button type="button" class="categoria-animal ativa" data-categoria="Todas" aria-pressed="true">
                             Todas
                         </button>
 
-                        <button type="button" class="categoria-animal"
-                            data-categoria="Pássaros" aria-pressed="false">
+                        <button type="button" class="categoria-animal" data-categoria="Pássaros" aria-pressed="false">
                             Pássaros
                         </button>
 
-                        <button type="button" class="categoria-animal"
-                            data-categoria="Mamíferos" aria-pressed="false">
+                        <button type="button" class="categoria-animal" data-categoria="Mamíferos" aria-pressed="false">
                             Mamíferos
                         </button>
 
-                        <button type="button" class="categoria-animal"
-                            data-categoria="Outros" aria-pressed="false">
+                        <button type="button" class="categoria-animal" data-categoria="Outros" aria-pressed="false">
                             Outros
                         </button>
 
@@ -310,12 +302,11 @@
                     <div class="bestiario-lista-container">
 
                         <!-- Área que comporta os animais adicionados pelo JavaScript. -->
-                        <div id="lista-animais" class="lista-animais"
-                            aria-label="Espécies disponíveis"></div>
+                        <div id="lista-animais" class="lista-animais" aria-label="Espécies disponíveis"></div>
 
                         <!-- Região que informa aos leitores de tela a quantidade de resultados encontrados. -->
-                        <p id="resultados-pesquisa" class="texto-acessivel"
-                            role="status" aria-live="polite" aria-atomic="true"></p>
+                        <p id="resultados-pesquisa" class="texto-acessivel" role="status" aria-live="polite"
+                            aria-atomic="true"></p>
 
                         <!-- Mensagem exibida quando nenhum animal corresponde à pesquisa ou ao filtro. -->
                         <p id="nenhum-animal" class="nenhum-animal" hidden>
@@ -335,8 +326,8 @@
         ========================== -->
 
         <!-- Apresenta informações completas sobre a espécie selecionada no mostruário, como detalhes e pequenas curiosidades. -->
-        <section id="tela-detalhes-animal" class="tela tela-detalhes-animal"
-            aria-labelledby="nome-detalhes-animal" hidden>
+        <section id="tela-detalhes-animal" class="tela tela-detalhes-animal" aria-labelledby="nome-detalhes-animal"
+            hidden>
 
             <div class="detalhes-container">
 
@@ -355,12 +346,9 @@
                             <img id="imagem-detalhes-animal" src="" alt="">
 
                             <!-- Botão para alternar entre o desenho e a fotografia. -->
-                            <button type="button" id="btn-alternar-imagem"
-                                class="btn-alternar-imagem"
-                                aria-pressed="false"
-                                aria-label="Mostrar desenho do animal"
-                                aria-controls="imagem-detalhes-animal"
-                                title="Alternar imagem">
+                            <button type="button" id="btn-alternar-imagem" class="btn-alternar-imagem"
+                                aria-pressed="false" aria-label="Mostrar desenho do animal"
+                                aria-controls="imagem-detalhes-animal" title="Alternar imagem">
 
                                 <img src="../assets/icones/icone_revelarAnimal.svg" alt="">
 
@@ -422,6 +410,7 @@
     <!-- Conecta as funcionalidades em JavaScript nesta tela. -->
     <script src="../js/components.js" defer></script>
     <script src="../js/quiz/quiz.js" defer></script>
+    <script src="../js/script.js" defer></script>
 
 </body>
 

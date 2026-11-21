@@ -253,3 +253,40 @@ if (destaqueAcoesSlides.length > 1) {
         mostrarDestaqueAcao(destaqueAcoesAtual);
     }, 5000);
 }
+/* =========================
+   NOSSA HISTÓRIA MOBILE // CARD LATERAL
+========================= */
+
+const historiaMarcos = document.querySelectorAll(".historia-marco");
+const historiaCardCompartilhado = document.querySelector("#historia-card-compartilhado");
+
+if (historiaMarcos.length && historiaCardCompartilhado) {
+    const dataCompartilhada = historiaCardCompartilhado.querySelector(".historia-card-data");
+    const tituloCompartilhado = historiaCardCompartilhado.querySelector("h3");
+    const textoCompartilhado = historiaCardCompartilhado.querySelector("p");
+
+    historiaMarcos.forEach((marco, indice) => {
+        const botao = marco.querySelector(".historia-ano");
+        const cardOriginal = marco.querySelector(".historia-card");
+
+        botao.addEventListener("click", () => {
+            historiaMarcos.forEach((outroMarco) => {
+                outroMarco.classList.remove("ativo");
+
+                const outroBotao = outroMarco.querySelector(".historia-ano");
+                outroBotao.setAttribute("aria-expanded", "false");
+            });
+
+            marco.classList.add("ativo");
+            botao.setAttribute("aria-expanded", "true");
+
+            dataCompartilhada.textContent = botao.textContent.trim();
+            tituloCompartilhado.textContent = cardOriginal.querySelector("h3").textContent;
+            textoCompartilhado.textContent = cardOriginal.querySelector("p").textContent;
+        });
+
+        if (indice === 0) {
+            marco.classList.add("ativo");
+        }
+    });
+}
