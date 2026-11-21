@@ -233,56 +233,6 @@ body {
     color: var(--cor-fundo);
 }
 
-/* =========================================
-   RESPONSIVIDADE
-========================================= */
-
-@media (max-width: 768px) {
-
-    .evento-destaque {
-        padding: 35px 0;
-    }
-
-    .evento-destaque-card {
-        grid-template-columns: 1fr;
-    }
-
-    .evento-destaque-imagem {
-        min-height: 250px;
-        max-height: 300px;
-    }
-
-    .evento-destaque-conteudo {
-        padding: 25px;
-    }
-
-    .evento-destaque-conteudo h2 {
-        font-size: 26px;
-    }
-
-    .evento-destaque-informacoes {
-        gap: 18px 12px;
-    }
-
-}
-
-@media (max-width: 480px) {
-
-    .evento-destaque-informacoes {
-        grid-template-columns: 1fr;
-    }
-
-    .evento-destaque-botoes {
-        flex-direction: column;
-    }
-
-    .evento-btn-inscrever,
-    .evento-btn-todos {
-        width: 100%;
-    }
-
-}
-
 
 /* =========================================
    LISTAGEM DE EVENTOS
@@ -405,7 +355,6 @@ body {
     object-fit: cover;
 }
 
-/* Conteúdo */
 /* Conteúdo */
 .evento-card-conteudo {
     flex: 1;
@@ -865,11 +814,13 @@ body {
 }
 
 /* =========================================
-   RESPONSIVIDADE — INSCRIÇÃO E DÚVIDAS
+   RESPONSIVIDADE UNIFICADA
 ========================================= */
 
+/* Ajustes para tablets e telas até 900px */
 @media (max-width: 900px) {
 
+    /* Inscrição e dúvidas */
     .secao-inscricao-container {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -884,8 +835,128 @@ body {
         min-height: 600px;
     }
 
+    /* Grade da listagem de eventos em duas colunas */
+    .eventos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
 }
 
+/* Ajustes para telas até 768px (hero e evento em destaque) */
+@media (max-width: 768px) {
+
+    /* Reduz a altura mínima do banner para evitar hero excessivamente alto no mobile */
+    .banner-eventos {
+        min-height: auto;
+        overflow: hidden;
+    }
+
+    /* Compacta o container do hero e empilha conteúdo e imagem decorativa */
+    .banner-eventos-container {
+        position: relative;
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding-top: 40px;
+        padding-bottom: 90px;
+    }
+
+    /* Garante que o texto ocupe toda a largura útil no mobile */
+    .banner-eventos-conteudo {
+        position: relative;
+        z-index: 1;
+        max-width: 100%;
+    }
+
+    /* Ajusta o tamanho do título principal do hero para o mobile */
+    .banner-eventos-conteudo h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 14px;
+    }
+
+    /* Reduz o tamanho dos parágrafos de apoio no hero */
+    .banner-eventos-conteudo p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    /* Posiciona a imagem decorativa atrás do texto sem deslocar o layout */
+    .banner-eventos-imagem {
+        position: absolute;
+        top: 67%;
+        right: 3%;
+        transform: translateY(-50%);
+        width: auto;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Reduz o tamanho da ilustração no mobile para não alongar a seção */
+    .banner-eventos-imagem img {
+        width: 230px;
+        max-width: none;
+        height: auto;
+        opacity: 0.35;
+    }
+
+    /* Ajusta a altura da onda inferior do hero para ficar proporcional no mobile */
+    .eventos-divisor-onda {
+        height: 65px;
+    }
+
+    .duvidas-onda-superior {
+        top: -50px;
+    }
+
+    /* Evento em destaque */
+    .evento-destaque {
+        padding: 35px 0;
+    }
+
+    .evento-destaque-card {
+        grid-template-columns: 1fr;
+    }
+
+    .evento-destaque-imagem {
+        min-height: 250px;
+        max-height: 300px;
+    }
+
+    .evento-destaque-conteudo {
+        padding: 25px;
+    }
+
+    .evento-destaque-conteudo h2 {
+        font-size: 26px;
+    }
+
+    .evento-destaque-informacoes {
+        gap: 18px 12px;
+    }
+
+}
+
+/*Ponto intermediario entre as telas menores*/
+@media (max-width: 768px) and (min-width: 601px) {
+
+    /* Garante respiro superior na seção para não colar na onda reduzida */
+    .secao-duvidas {
+        padding-top: 80px;
+    }
+
+    /* Reduz a altura e alinha ao topo para evitar esticamento irregular da onda */
+    .duvidas-onda-superior {
+        top: -84px;
+        height: 85px;
+    }
+
+
+}
+
+/* Ajustes para celulares até 600px (listagem, inscrição e dúvidas) */
 @media (max-width: 600px) {
 
     /* Inscrição */
@@ -922,14 +993,25 @@ body {
         min-height: 550px;
     }
 
+    .secao-inscricao {
+        padding-top: 90px;
+    }
+
+    /* Reduz a altura e alinha ao topo para evitar distorção irregular da onda */
+    .inscricao-onda-superior {
+        top: -40px;
+        height: 50px;
+    }
+
     /* Dúvidas */
     .secao-duvidas {
         padding: 100px 0 50px;
     }
 
     .duvidas-onda-superior {
-        height: 85px;
+        height: 55px;
     }
+
 
     .secao-duvidas-container {
         align-items: flex-start;
@@ -949,16 +1031,7 @@ body {
         width: 100%;
     }
 
-}
-
-/* Responsividade */
-@media (max-width: 900px) {
-    .eventos-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
+    /* Listagem de eventos */
     .eventos-listagem {
         padding: 35px 0 60px;
     }
@@ -990,4 +1063,46 @@ body {
     .evento-card-imagem {
         height: 210px;
     }
+
+}
+
+/* Refine os espaçamentos e proporções em telas até 480px */
+@media (max-width: 480px) {
+
+    /* Compacta ainda mais o topo e a base do hero em telas estreitas */
+    .banner-eventos-container {
+        padding-top: 32px;
+        padding-bottom: 80px;
+    }
+
+    /* Ajusta o título para evitar quebras longas em telas de até 480px */
+    .banner-eventos-conteudo h1 {
+        font-size: 28px;
+    }
+
+    /* Reduz a largura da ilustração em telas pequenas mantendo a proporção */
+    .banner-eventos-imagem img {
+        width: 190px;
+        max-width: 190px;
+    }
+
+    /* Faz com que as ondas não distorçam */
+    .eventos-divisor-onda {
+        height: 55px;
+    }
+
+    /* Evento em destaque */
+    .evento-destaque-informacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .evento-destaque-botoes {
+        flex-direction: column;
+    }
+
+    .evento-btn-inscrever,
+    .evento-btn-todos {
+        width: 100%;
+    }
+
 }
