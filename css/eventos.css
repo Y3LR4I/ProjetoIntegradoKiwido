@@ -1005,7 +1005,7 @@ body {
 
     /* Dúvidas */
     .secao-duvidas {
-        padding: 100px 0 50px;
+        padding: 100px var(--margem-lateral) 50px;
     }
 
     .duvidas-onda-superior {
