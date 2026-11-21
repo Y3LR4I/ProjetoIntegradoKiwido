@@ -4,6 +4,8 @@
 
 /* Define a área principal do banner e controla o conteúdo que ultrapassa seus limites */
 .hero-section {
+    margin-top: 0;
+    padding-top: 0;
     position: relative;
     overflow: hidden;
 }
@@ -492,12 +494,79 @@
 ========================= */
 
 /* Ajustes dos cards e da área de notícias em telas pequenas */
+@media (max-width: 768px) {
+
+    .banner-noticias,
+    .banner-noticias-imagem {
+        top: 0;
+        height: 360px;
+
+    }
+
+    .banner-noticias-imagem {
+        transform: scale(1.12);
+        transform-origin: center bottom;
+    }
+
+    .banner-noticias-conteudo {
+        padding: 0 20px;
+    }
+
+    .banner-noticias-conteudo h1 {
+        max-width: 100%;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .banner-noticias-conteudo p {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .divisor-onda svg {
+        height: 45px;
+    }
+
+    /* Barra de pesquisa em cima e filtros embaixo */
+    .noticias-filtros {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 20px 16px 10px;
+    }
+
+    .noticias-busca {
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .noticias-categorias {
+        order: 1;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .categoria-btn {
+        padding: 0 14px;
+        height: 34px;
+        font-size: 13px;
+    }
+}
+
 @media (max-width: 575.98px) {
 
     /* Reduz os espaçamentos verticais da área de notícias */
     .noticias-container {
         padding-top: 28px;
         padding-bottom: 40px;
+    }
+
+    /*Conteudo da noticia*/
+    .card-noticia {
+        border-radius: 20px;
     }
 
     /* Reduz a altura das imagens dos cards em telas pequenas */

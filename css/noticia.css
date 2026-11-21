@@ -368,13 +368,16 @@ body:has(.pagina-noticia) .header {
 /* =========================
    NAVEGAÇÃO ENTRE NOTÍCIAS
 ========================= */
+/* =========================
+   NAVEGAÇÃO ENTRE NOTÍCIAS
+========================= */
 
 /* Organiza os cards de notícia anterior e próxima em duas colunas */
 .navegacao-noticias {
     display: grid;
-    grid-template-columns: repeat(2, 450px);
+    grid-template-columns: repeat(2, minmax(0, 450px));
     justify-content: center;
-    gap: 200px;
+    gap: clamp(24px, 10vw, 200px);
 
     width: 100%;
     margin: 45px auto 48px;
@@ -392,7 +395,8 @@ body:has(.pagina-noticia) .header {
     justify-content: center;
     gap: 10px;
 
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     min-width: 0;
     min-height: 125px;
     padding: 22px;
@@ -400,33 +404,27 @@ body:has(.pagina-noticia) .header {
 
     background-color: var(--cor-card-noticia);
     border: 1px solid var(--cor-borda-filtro-noticia);
-    border-radius: 30px;
+    border-radius: 24px;
 
     text-decoration: none;
 
-    /* Suaviza as mudanças de fundo, sombra e posição */
     transition:
         background-color 0.2s ease,
         box-shadow 0.2s ease,
         transform 0.2s ease;
 }
 
-/* Altera o fundo, adiciona sombra e eleva o card ao passar o cursor */
 .card-navegacao-noticia:hover {
     background-color: #E7F6DE;
     box-shadow: 0 4px 12px rgba(22, 56, 18, 0.12);
     transform: translateY(-2px);
 }
 
-/* Destaca o card quando recebe foco pela navegação do teclado */
 .card-navegacao-noticia:focus-visible {
     outline: 3px solid #E98A28;
     outline-offset: 4px;
 }
 
-/* Indicadores em laranja */
-
-/* Organiza o indicador e seu ícone */
 .card-navegacao-indicador {
     display: flex;
     align-items: center;
@@ -437,36 +435,25 @@ body:has(.pagina-noticia) .header {
     font-weight: 600;
 }
 
-/* Ajusta o tamanho e o alinhamento dos ícones Material Symbols */
 .card-navegacao-indicador .material-symbols-outlined {
     font-size: 24px;
     line-height: 1;
-
     position: relative;
     top: -1px;
 }
 
-/* Títulos na cor principal */
-
-/* Estilização do título da notícia anterior ou próxima */
 .card-navegacao-titulo {
     color: #163812;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    line-height: 1.5;
-
-    /* Permite quebrar palavras longas para evitar que ultrapassem o card */
+    line-height: 1.4;
     overflow-wrap: anywhere;
 }
 
-/* Alinhamento dos cards */
-
-/* Alinha o conteúdo do card da notícia anterior à esquerda */
 .card-anterior {
     text-align: left;
 }
 
-/* Alinha o conteúdo do card da próxima notícia à direita */
 .card-proxima {
     text-align: right;
 }
@@ -478,110 +465,186 @@ body:has(.pagina-noticia) .header {
 /* =========================
    RESPONSIVIDADE
 ========================= */
+/* Telas intermediárias / tablets */
+@media (max-width: 1024px) {
+    .navegacao-noticias {
+        gap: 36px;
+    }
+}
+
+/* Celulares e tablets até 768px */
+/* =========================
+   RESPONSIVIDADE — PÁGINA INDIVIDUAL DA NOTÍCIA
+========================= */
 
 /* Ajustes da página individual da notícia para telas de até 768px */
 @media (max-width: 768px) {
 
     /* Reduz os espaçamentos internos do cabeçalho */
     .noticia-cabecalho {
-        padding: 25px 20px 110px;
+        padding: 24px 20px 96px;
     }
 
-    /* Reduz o espaço abaixo do link de retorno */
+    /* Ajusta o espaçamento inferior e o tamanho da fonte do link de retorno */
     .noticia-voltar {
-        margin-bottom: 28px;
+        margin-bottom: 24px;
+        font-size: 0.9rem;
     }
 
-    /* Reduz o tamanho do título em telas menores */
+    /* Reduz o espaçamento inferior entre os metadados e o título */
+    .noticia-metadados {
+        margin-bottom: 16px;
+    }
+
+    /* Reduz o tamanho e a margem inferior do título em telas menores */
     .noticia-titulo {
-        font-size: 2rem;
+        font-size: 1.85rem;
+        margin-bottom: 14px;
     }
 
-    /* Ajusta o tamanho da sinopse */
+    /* Ajusta o tamanho, o espaçamento entre linhas e a margem da sinopse */
     .noticia-sinopse {
-        font-size: 1rem;
+        font-size: 0.98rem;
+        line-height: 1.6;
+        margin-bottom: 22px;
     }
 
-    /* Organiza as informações do autor e do tempo de leitura verticalmente */
+    /* Organiza as informações do autor e o tempo de leitura verticalmente */
     .noticia-informacoes-autor {
         align-items: flex-start;
         flex-direction: column;
-        gap: 18px;
+        gap: 14px;
     }
 
-    /* Reduz a altura da onda decorativa */
+    /* Reduz a altura da onda decorativa na base do cabeçalho */
     .noticia-onda svg {
-        height: 75px;
+        height: 70px;
     }
 
-    /* Reduz os espaçamentos do container do corpo da notícia */
+    /* Ajusta os espaçamentos internos do container principal do corpo da notícia */
     .noticia-corpo-container {
-        padding: 20px 20px 50px;
+        padding: 24px 20px 50px;
     }
 
-    /* Ajusta o tamanho e o espaçamento entre linhas do texto */
-    .noticia-corpo {
-        font-size: 1rem;
-        line-height: 1.8;
-    }
-
-    /* Limita a altura da imagem principal em telas menores */
+    /* Define largura total e altura proporcional para a imagem principal no mobile */
     .noticia-imagem-destaque {
-        max-height: 350px;
-        margin-bottom: 28px;
+        width: 100%;
+        height: 230px;
+        max-height: none;
+        margin: 0 auto 24px;
+        border-radius: 14px;
+        object-fit: cover;
+    }
+
+    /* Ajusta o tamanho e o espaçamento entre linhas base do corpo do texto */
+    .noticia-corpo {
+        font-size: 0.98rem;
+        line-height: 1.75;
+    }
+
+    /* Reduz o tamanho da fonte e o espaçamento inferior dos parágrafos */
+    .noticia-paragrafo {
+        font-size: 1.02rem;
+        line-height: 1.75;
+        margin-bottom: 20px;
+    }
+
+    /* Ajusta o tamanho e as margens dos subtítulos internos da notícia */
+    .noticia-subtitulo {
+        font-size: 1.15rem;
+        margin: 28px 0 12px;
+    }
+
+    /* Reduz o espaçamento superior do botão de compartilhamento */
+    .noticia-compartilhar-container {
+        margin-top: 32px;
     }
 
     /* Organiza os cards de notícia anterior e próxima em uma única coluna */
     .navegacao-noticias {
         grid-template-columns: 1fr;
         gap: 14px;
-        margin: 24px 0 36px;
+        margin: 28px 0 32px;
     }
 
-    /* Ajusta a altura mínima e o espaçamento interno dos cards */
+    /* Ajusta a largura máxima, a altura mínima e o espaçamento interno dos cards */
     .card-navegacao-noticia {
-        min-height: 100px;
-        padding: 18px;
+        max-width: 100%;
+        min-height: auto;
+        padding: 16px 18px;
+        border-radius: 18px;
+    }
+
+    /* Reduz o tamanho do título exibido dentro dos cards de navegação */
+    .card-navegacao-titulo {
+        font-size: 1.05rem;
+    }
+
+    /* Alinha o texto do card da próxima notícia à esquerda no layout empilhado */
+    .card-proxima {
+        text-align: left;
     }
 }
 
-/* Ajustes adicionais para celulares com telas de até 480px */
-@media (max-width: 480px) {
-
-    /* Reduz o espaçamento lateral do cabeçalho */
-    .noticia-cabecalho {
-        padding-right: 16px;
-        padding-left: 16px;
+/* Ajustes dos cards e da área de notícias em telas pequenas */
+@media (max-width: 575.98px) {
+    .noticias-container {
+        padding-top: 20px;
+        padding-bottom: 40px;
     }
 
-    /* Reduz o espaço entre as informações de categoria e data */
+    .card-noticia {
+        border-radius: 20px;
+    }
+
+    .card-noticia-imagem {
+        height: 200px;
+    }
+
+    .card-noticia-corpo {
+        padding: 16px;
+    }
+}
+
+/* Celulares até 480px */
+@media (max-width: 480px) {
+
+    .noticia-cabecalho {
+        padding: 20px 16px 84px;
+    }
+
     .noticia-metadados {
         gap: 10px;
     }
 
-    /* Reduz ainda mais o tamanho do título */
     .noticia-titulo {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
-    /* Reduz as dimensões da foto do autor */
     .noticia-autor-foto {
         width: 44px;
         height: 44px;
     }
 
-    /* Reduz a altura da onda decorativa */
     .noticia-onda svg {
-        height: 60px;
+        height: 56px;
     }
 
-    /* Reduz os espaçamentos laterais do corpo da notícia */
     .noticia-corpo-container {
-        padding-right: 16px;
-        padding-left: 16px;
+        padding: 20px 16px 44px;
     }
 
-    /* Faz o botão de compartilhamento ocupar toda a largura disponível */
+    .noticia-imagem-destaque {
+        height: 200px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+
+    .noticia-paragrafo {
+        font-size: 0.98rem;
+        margin-bottom: 18px;
+    }
+
     .noticia-botao-compartilhar {
         width: 100%;
     }
