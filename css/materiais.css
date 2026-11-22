@@ -538,21 +538,82 @@ body {
 /* =========================================
    RESPONSIVIDADE
 ========================================= */
+/* =========================================
+   RESPONSIVIDADE UNIFICADA
+========================================= */
 
 @media (max-width: 768px) {
+
+    /* Compacta o banner no mobile no padrão da tela de eventos */
+    .banner-eventos {
+        min-height: auto;
+        overflow: hidden;
+    }
+
+    .banner-eventos-container {
+        position: relative;
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-top: 36px;
+        padding-bottom: 95px;
+    }
+    
+    .banner-eventos-conteudo {
+        position: relative;
+        z-index: 1;
+        max-width: 100%;
+    }
+
+    .banner-eventos-conteudo h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .banner-eventos-conteudo p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* Posiciona a imagem no canto de fundo atrás do texto */
+    .banner-eventos-imagem {
+        position: absolute;
+        right: 8px;
+        bottom: 22px;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .banner-eventos-imagem img {
+        width: 220px;
+        max-width: none;
+        opacity: 0.35;
+    }
+
+    /* Mantém altura estável da onda para evitar distorção na faixa intermediária */
+    .eventos-divisor-onda {
+        height: 82px;
+    }
 
     .materiais-filtros {
         flex-direction: column;
         align-items: stretch;
-        gap: 20px;
+        gap: 16px;
+        padding: 20px 16px 10px;
+    }
+
+    /* Coloca a busca acima dos filtros no mobile */
+    .materiais-busca {
+        order: -1;
+        width: 100%;
+        max-width: 100%;
     }
 
     .materiais-categorias {
-        justify-content: center;
-    }
-
-    .materiais-busca {
-        max-width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
 
     .material-card-imagem {
@@ -566,6 +627,11 @@ body {
 }
 
 @media (max-width: 480px) {
+
+    /* Ajusta o tamanho da ilustração de fundo em telas estreitas */
+    .banner-eventos-imagem img {
+        width: 250px;
+    }
 
     .materiais-categorias {
         gap: 8px;
