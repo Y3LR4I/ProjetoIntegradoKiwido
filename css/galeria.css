@@ -27,14 +27,14 @@
     display: block;
 }
 
-/* Fundo da área de conteúdo */
+/* fundo da aarea de conteudo */
 body {
     background-color: var(--cor-fundo);
 }
 
 
 
-/* Cápsula de filtros */
+/* Capsula de filtros */
 
 .banner-galeria-container {
     width: 100%;
@@ -55,6 +55,8 @@ body {
 
 /* Conteúdo textual do banner */
 .banner-galeria-conteudo {
+    position: relative;
+    z-index: 2;
     max-width: 650px;
     color: var(--cor-fundo);
 }
@@ -78,7 +80,7 @@ body {
     margin-bottom: 0;
 }
 
-/* Ícone decorativo da câmera */
+/* Icone decorativo da camera */
 .banner-galeria-icone {
     display: flex;
     align-items: center;
@@ -435,19 +437,19 @@ body {
     display: none !important;
 }
 
+/* Mantém a imagem ao lado do texto no fluxo flexível do banner */
 .banner-galeria-imagem {
-    position: absolute;
-    right: 20%;
-    top: 50%;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
 
     width: 480px;
     height: 480px;
 
-    transform: translateY(-50%);
-
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 }
 
 .banner-galeria-imagem img {
@@ -786,6 +788,7 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
 /* =========================
    RESPONSIVIDADE DOS VÍDEOS
 ========================= */
@@ -797,7 +800,7 @@ body {
 
     .galeria-video-card h3 {
         font-size: 17px;
-    }f
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -891,7 +894,7 @@ body {
 
 
 /* =========================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE DO HERO/BANNER
 ========================================= */
 
 /* Tablets e telas menores */
@@ -900,14 +903,35 @@ body {
     /* Banner */
     .banner-galeria {
         min-height: 360px;
+        overflow: hidden;
     }
 
     .banner-galeria-container {
+        position: relative;
         gap: 20px;
+    }
+
+    /* Mantém o texto acima da imagem em telas médias */
+    .banner-galeria-conteudo {
+        position: relative;
+        z-index: 2;
     }
 
     .banner-galeria-conteudo h1 {
         font-size: 40px;
+    }
+
+    .banner-galeria-imagem {
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+        pointer-events: none;
+    }
+
+    .banner-galeria-imagem img {
+        width: 220px;
+        max-width: 100%;
+        height: auto;
     }
 
     .banner-galeria-icone span {
@@ -926,6 +950,88 @@ body {
 
 }
 
+/* Faixa intermediarra entre mobile/tablet e o tamanho medio de notebooks */
+@media (min-width: 769px) and (max-width: 990px) {
+
+    /* Aumenta o conteiner da imagem para dar espaço ao redimensionamento */
+    .banner-galeria-imagem {
+        position: relative;
+        right: 1%;
+        width: 400px;
+        height: 400px;
+    }
+
+    .banner-galeria-imagem img {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        object-fit: contain;
+    }
+
+}
+
+/* Ajustes do hero da galeria com imagem ao fundo e onda estavel no mobile */
+@media (max-width: 768px) {
+
+    .banner-galeria {
+        min-height: auto;
+        overflow: hidden;
+    }
+
+    /* serve de referencia para posicionar a imagem no fundo */
+    .banner-galeria-container {
+        position: relative;
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-top: 36px;
+        padding-bottom: 95px;
+    }
+
+    /* Mantem os textos acima da imagem de fundo */
+    .banner-galeria-conteudo {
+        position: relative;
+        z-index: 1;
+        max-width: 100%;
+    }
+
+    .banner-galeria-conteudo h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .banner-galeria-conteudo p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    /* Posiciona a imagem no hero (direita do texto) */
+    .banner-galeria-imagem {
+        position: absolute;
+        right: -100px;
+        bottom: -120px;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Dimensiona a imagem de fundo sem quebrar a proporcaoo */
+    .banner-galeria-imagem img {
+        width: 300px;
+        max-width: none;
+        height: auto;
+        opacity: 0.35;
+    }
+
+    /* Mantem altura estavel na onda inferior para evitar distorcao estranha*/
+    .galeria-divisor-onda {
+        height: 82px;
+    }
+
+}
+
 
 /* Celulares */
 @media (max-width: 575.98px) {
@@ -936,7 +1042,7 @@ body {
     }
 
     .banner-galeria-container {
-        padding: 55px var(--margem-lateral) 45px;
+        padding: 55px var(--margem-lateral) 88px;
 
         flex-direction: column-reverse;
         align-items: flex-start;
@@ -949,6 +1055,12 @@ body {
 
     .banner-galeria-conteudo p {
         font-size: 16px;
+    }
+    .banner-galeria-imagem {
+        right: -120px;
+    }
+    .banner-galeria-imagem img {
+        width: 220px;
     }
 
     .banner-galeria-icone {
@@ -977,7 +1089,7 @@ body {
         font-size: 13px;
     }
 
-    /* Seções */
+    /* Seçoes */
     .galeria-container {
         padding-top: 10px;
         padding-bottom: 50px;
