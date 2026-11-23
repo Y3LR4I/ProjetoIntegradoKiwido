@@ -538,10 +538,6 @@ body {
 /* =========================================
    RESPONSIVIDADE
 ========================================= */
-/* =========================================
-   RESPONSIVIDADE UNIFICADA
-========================================= */
-
 @media (max-width: 768px) {
 
     /* Compacta o banner no mobile no padrão da tela de eventos */
@@ -592,7 +588,7 @@ body {
         opacity: 0.35;
     }
 
-    /* Mantém altura estável da onda para evitar distorção na faixa intermediária */
+    /* Mantém altura estável da onda para evitar distorçãol */
     .eventos-divisor-onda {
         height: 82px;
     }
@@ -604,7 +600,7 @@ body {
         padding: 20px 16px 10px;
     }
 
-    /* Coloca a busca acima dos filtros no mobile */
+    /* Coloca a busca acima dos filtros no mobile (A versao de pc ela nn fica ali) */
     .materiais-busca {
         order: -1;
         width: 100%;
@@ -628,7 +624,7 @@ body {
 
 @media (max-width: 480px) {
 
-    /* Ajusta o tamanho da ilustração de fundo em telas estreitas */
+    /* Ajusta o tamanho da imagem de fundo em telas estreitas */
     .banner-eventos-imagem img {
         width: 250px;
     }
