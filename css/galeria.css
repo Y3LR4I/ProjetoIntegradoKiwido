@@ -351,6 +351,11 @@ body {
    CHAMADA PARA PARTICIPAÇÃO
 ========================================= */
 
+/*Ajeita o problema de espaçamento em tela de celulares*/
+.footer-ondas{
+margin-bottom: -4px;
+}
+
 .galeria-participacao {
     width: 100%;
     padding: 60px 30px 70px;
@@ -970,7 +975,7 @@ body {
 
 }
 
-/* Ajustes do hero da galeria com imagem ao fundo e onda estavel no mobile */
+/* Ajustes do hero da galeria com imagem ao fundo e onda sem tanta alteração */
 @media (max-width: 768px) {
 
     .banner-galeria {
@@ -1027,7 +1032,7 @@ body {
 
     /* Mantem altura estavel na onda inferior para evitar distorcao estranha*/
     .galeria-divisor-onda {
-        height: 82px;
+        height: 40px;
     }
 
 }
@@ -1057,7 +1062,7 @@ body {
         font-size: 16px;
     }
     .banner-galeria-imagem {
-        right: -120px;
+        right: -160px;
     }
     .banner-galeria-imagem img {
         width: 220px;
