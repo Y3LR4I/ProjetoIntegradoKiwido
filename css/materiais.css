@@ -538,6 +538,7 @@ body {
 /* =========================================
    RESPONSIVIDADE
 ========================================= */
+
 @media (max-width: 768px) {
 
     /* Compacta o banner no mobile no padrão da tela de eventos */
