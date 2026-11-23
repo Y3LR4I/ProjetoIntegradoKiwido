@@ -368,9 +368,6 @@ body:has(.pagina-noticia) .header {
 /* =========================
    NAVEGAÇÃO ENTRE NOTÍCIAS
 ========================= */
-/* =========================
-   NAVEGAÇÃO ENTRE NOTÍCIAS
-========================= */
 
 /* Organiza os cards de notícia anterior e próxima em duas colunas */
 .navegacao-noticias {
@@ -485,7 +482,7 @@ body:has(.pagina-noticia) .header {
         padding: 24px 20px 96px;
     }
 
-    /* Ajusta o espaçamento inferior e o tamanho da fonte do link de retorno */
+    /* Ajusta o espaçamento inferior e o tamanho da fonte do link */
     .noticia-voltar {
         margin-bottom: 24px;
         font-size: 0.9rem;
@@ -567,7 +564,6 @@ body:has(.pagina-noticia) .header {
         margin: 28px 0 32px;
     }
 
-    /* Ajusta a largura máxima, a altura mínima e o espaçamento interno dos cards */
     .card-navegacao-noticia {
         max-width: 100%;
         min-height: auto;
@@ -575,7 +571,7 @@ body:has(.pagina-noticia) .header {
         border-radius: 18px;
     }
 
-    /* Reduz o tamanho do título exibido dentro dos cards de navegação */
+    /* Diminui o tamanho do título exibido dentro dos cards de navegação */
     .card-navegacao-titulo {
         font-size: 1.05rem;
     }
